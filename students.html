@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Question Pool</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+
+	<script src="https://cdn.bootcss.com/angular.js/1.4.6/angular.min.js"></script> 
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.min.css" />
+	<script type="text/javascript" src="js/jquery.timepicker.min.js"></script>
+
+	<style>
+		#main {max-width: 980px;}
+		#main .title div{margin-top: 5%;}
+		#main .title .user {position:absolute;right:0;top:12px;}
+		#main .funcs {margin-top:24px;}
+		#main .tables .tableBlock {border:none;width:36px;}
+		#main .tables .memberConut {min-width:50px;font-size:0.8em;display:block;margin:6px 0 0 8px;}
+		#main .tables .memberConut:before {content:url(images/svg/group_fill_s.svg);}
+		#main .tables .tableAddition {width:24px;display:block;margin-top:6px;cursor:pointer;}
+		#main .tables .tableAddition:after {content:url(images/svg/addition_s.svg);}
+		#main .tables .tableRemove {display:block;margin:-12px 0 0 12px;cursor:pointer;position:absolute;right:10px;}
+		#main .tables .tableRemove:after {content:url(images/svg/remove_red_s.svg);}
+
+		#dialog {display:none;z-index:20;position:fixed; width:100%; top:0;}
+		#dialog .container {background:#fff;padding:0 40px;border-radius:0 0 4px 4px;}
+		#dialog .largeBox {min-width:320px;max-width: 980px;}
+		#dialog .close {cursor:pointer;position:absolute;right:40px;top:26px;}
+		#dialog .close:after {content:url(images/svg/close_s.svg);}
+		#dialog .title div {margin-top:20px}
+		#dialog form .row {margin-bottom:12px;}
+		#dialog form .quesArea {width:100%;height:100px;}
+		#dialog form .submitBtn {margin-top:24px;width:120px;}
+
+		#mask {display:none;width:100%;height:100%;background:#aaa;position:fixed;z-index:10;top:0;left:0;opacity:0.6;}
+	</style>
+
+</head>
+<body>
+
+<div id="main" class="container">
+	<div class="title row ">
+		<div class="twelve columns">
+			<h4>Students Questions List</h4>	<!--page title-->
+			<p>Students Questions List.</p>
+
+				<div class="user">				<!--user info-->
+				<span>Jianchang Bi</span>
+				<span id="logout">logout</span> <!--action:logout-->
+				<span>config</span>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="funcs row">
+		<div class="twelve columns">
+			<input class="openDialog" type="button" value="Post A New Question">
+		</div>
+	</div>
+
+	<div class="tables row">
+		<div class="twelve columns">
+			<table class="u-full-width">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Poster</th>
+						<th>Post Time</th>
+						<th>Status</th>
+						<th>Members</th>
+						<th></th>
+						<th class="tableBlock"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--Questions list -->													<!--action:getQuestionList-->
+					<!--repeat-->
+					<tr>
+						<td>About the HW2</td>
+						<td>Jianchang Bi</td>
+						<td>2017/10/2 12:13</td>
+						<td>Unsolved</td>
+						<td><span class="memberConut">1388</span></td>
+						<td><span class="tableAddition"></span></td>						<!--action:JoinInAQuestion-->
+						<td class="tableBlock"><span class="tableRemove"></span></td>		<!--action:deleteQuestionByOwner-->
+					</tr>
+					<!--/repeat-->
+					<tr>
+						<td>The sample doesn't work</td>
+						<td>Brady Leacock</td>
+						<td>2017/10/2 11:13</td>
+						<td>Solved</td>
+						<td><span class="memberConut">138</span></td>
+						<td><span class="tableAddition"></span></td>
+						<td class="tableBlock"></td>										<!--not owner, no span.tableRemove-->
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div id="dialog">	<!--split dialog out -->
+	<div class="container largeBox">
+		<span class="close"></span>
+		<div class="title row">
+			<div class="twelve columns">
+				<h5>Post A New Question</h5>
+			</div>
+		</div>
+		<form action="" class="post_ques">
+			<div class="row">
+				<div class="six columns">
+					<label for="titleInput">Question Title</label>
+					<input class="u-full-width" type="text" id="titleInput">
+				</div>
+			</div>
+			<div class="row">
+				<div class="twelve columns">
+					<label for="questextsInput">Description</label>
+					<textarea class="quesArea" placeholder="" id="questextsInput"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="six columns">
+					<label for="timeSelect" style="margin-bottom:20px;">When Coming to Office Hour</label>
+					<label>
+						<input type="radio" name="time" value="Now" checked="checked" style="margin-bottom:18px;"/> Now<br/>
+					</label>
+					<div class="row" >
+						<div class="six columns">
+							<label>
+								<input type="radio" name="time" value="Later" style="margin-top:10px;"/> Later:
+								<input type="text" id="timeDetailInput" style="width:100px;position:absolute;margin-left:20px;"/>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="twelve columns">
+					<input class="submitBtn button-primary" type="submit" value="Post"/>		<!--action:createNewQuestion & reloadQuestionList-->
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div id="mask">
+
+</body>
+</html>
+<script>
+
+	$.formBox = {
+		switch:function(){
+			$('#mask').toggle();
+			$('#dialog').toggle();
+		}
+	}
+
+	$('document').ready(function(){
+		$('#timeDetailInput').timepicker({ 'scrollDefault': 'now' });
+	});
+
+	$('.openDialog').click(function(){
+		$.formBox.switch();
+	});
+	
+	$('.close').click(function(){
+		$.formBox.switch();
+	});
+
+</script>
