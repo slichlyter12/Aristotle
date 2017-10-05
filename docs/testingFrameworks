@@ -1,0 +1,14 @@
+Server uses PHP 7.0.23
+Can use PHPUnit for a testing framework. https://phpunit.de/getting-started.html
+
+Javascript testing frameworks seem to rely on Node.js being installed.
+Node.js version 6.10.2 is on the server.
+
+We can either use Mocha or Jest. 
+
+Mocha is older and requires installation of more dependencies but has a lot of documentation. https://mochajs.org/
+
+Jest comes with everything it needs but does not have as much documentation and IDE support. It comes with assertion and 
+mocking libraries built in. https://facebook.github.io/jest/
+
+Comparison article: https://spin.atomicobject.com/2017/05/02/react-testing-jest-vs-mocha/
