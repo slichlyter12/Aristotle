@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<title>Class Management</title>
 
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="css/normalize.css">
@@ -16,102 +15,99 @@
 
 	<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.min.css" />
 	<script type="text/javascript" src="js/jquery.timepicker.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/myDialog.css" />
+	<script type="text/javascript" src="js/myDialog.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
 
 	<style>
-	 input.time{width:200px;}
+		#main .data .openAddClassFormDialog {padding:0 8px;margin:0 14px 20px 0;vertical-align:top;padding-top:5px;}
+		#main .data .openAddClassFormDialog:after {content:url(images/svg/add_grey.svg);}
+		#main .data .classes {padding:0 36px;margin-right:14px;}
+		#main .data .selectedClass {cursor:default;background:#33c3f0;border:#33c3f0;color:#fff;}
+		#main .data .selectedClass:after {content:url(images/svg/delete_fill_red.svg);cursor:pointer;position:absolute;margin:-10px 26px;}
 	</style>
 
 </head>
 <body>
 
-<div id="main" class="container" style="max-width: 980px;">
-	<div class="row">
+<div id="main" class="container">
+	<div class="title row">
 		<div class="twelve columns">
-			<h4 style="margin-top: 5%">Manage Classes</h4>
+			<h4>Manage Classes</h4>			<!--page title-->
 			<p>Manage Classes</p>
+			<div class="user">				<!--user info-->
+				<span>Jianchang Bi</span>
+				<span id="logout">logout</span> <!--action:logout-->
+				<span>config</span>
+			</div>
 		</div>
 	</div>
 	
-	<div class="row" style="margin:18px 0 20px 0;">
+	<div class="funcs row" >
 		<div class="four columns">
-			<h5 style="display:inline-block;margin-top:6px;">All Classes</h5>
-			<input id="searchInput" type="text" style="width:160px;position:absolute;right:0;border-radius:18px;padding:0 16px;" placeholder="Search"/>
+			<h5 class="subTitle">All Classes</h5>
+			<input class="searchInput" type="text" placeholder="Search"/>
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="data row">
 		<div class="twelve columns">
-			<button id="openForm" style="padding:0 8px;margin:0 14px 20px 0;"><img src="images/svg/add_grey.svg" style="width:20px;vertical-align: top;margin-top:8px;"/></button>
-			<button class="classes button-primary" style="cursor:default;padding:0 36px;margin-right:14px;">CS550<img src="images/svg/delete_fill_red.svg" style="cursor:pointer;position:absolute;width:22px;margin:-10px 26px;"/></button>
-			<button class="classes button-primary" style="cursor:default;padding:0 36px;margin-right:14px;">ECS550<img src="images/svg/delete_fill_red.svg" style="cursor:pointer;position:absolute;width:22px;margin:-10px 26px;"/></button>
-			<button class="classes button-primary" style="cursor:default;padding:0 36px;margin-right:14px;">CS550<img src="images/svg/delete_fill_red.svg" style="cursor:pointer;position:absolute;width:22px;margin:-10px 26px;"/></button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">CS550</button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">ECS550</button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">CS550</button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">CS550</button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">ECS550</button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">CS550</button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">CS550</button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">ECS550</button>
-			<button class="classes" style="padding:0 36px;margin-right:14px;">CS550</button>
+			<button class="openAddClassFormDialog" ></button>
+			<!--Class list -->													<!--action:getClassList & getSelectedClass-->
+			<!--repeat-->
+			<button class="classes selectedClass">CS550</button>
+			<!--/repeat-->
+			<button class="classes selectedClass">ECS550</button>
+			<button class="classes selectedClass">CS550</button>
+			<button class="classes">CS550</button>
+			<button class="classes">ECS550</button>
+			<button class="classes">CS550</button>
+			<button class="classes">CS550</button>
+			<button class="classes">ECS550</button>
+			<button class="classes">CS550</button>
+			<button class="classes">CS550</button>
+			<button class="classes">ECS550</button>
+			<button class="classes">CS550</button>
 		</div>
 	</div>
 </div>
 
-<div id="form" style="display:none;z-index:20;position:absolute; width:100%; top:0;" >
-	<div class="container" style="background:#fff;padding:0 40px;border-radius:0 0 4px 4px;min-width:320px;max-width: 600px;">
-		<img id="close" style="cursor:pointer;width:22px;position:absolute;right:40px;top:26px;" src="images/svg/close.svg"/>
-		<div class="row">
+<div id="dialog">	<!--split dialog out -->
+	<div class="container smallBox addClassForm">
+		<img id="close"/>
+		<div class="title row">
 			<div class="twelve columns">
-				<h5 style="margin-top:20px">Add A New Class</h5>
+				<h5>Add A New Class</h5>
 			</div>
 		</div>
 		<form action="" class="post_class">
-			<div class="row" style="margin-bottom:12px;">
+			<div class="row">
 				<div class="six columns">
 					<label for="classCodeInput">Class Code</label>
 					<input class="u-full-width" type="text" id="classCodeInput" placeholder="e.g. CS561">
 				</div>
 			</div>
-
-
-			<div class="row" style="margin-bottom:12px;">
+			<div class="row .checkBox">
 				<label>
 					<input type="checkbox" id="autoAddCBox" checked="checked">
-					<span class="cbLabel" style="margin-left:6px;">Add After Create</span>
+					<span class="cbLabel">Add After Create</span>
 				</label>
-
 				<div class="twelve columns">
-					<input class="button-primary" type="submit" value="Add" style="margin-top:24px;width:120px"/>
+					<input class="submitBtn button-primary" type="submit" value="Add"/>		<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
 				</div>
 			</div>
 		</form>
 	</div>
 </div>
-
-<div id="bg" style="display:none;width:100%;height:100%;background:#aaa;position:fixed;z-index:10;top:0;left:0;opacity:0.6;">
+<div id="mask">
 
 </body>
 </html>
+
 <script>
-	/*Init Part*/
-	
-	$.formBox = {
-		switch:function(){
-			$('#bg').toggle();
-			$('#form').toggle();
-		}
-	}
-
-	$('document').ready(function(){
-		$('#timeDetailInput').timepicker({ 'scrollDefault': 'now' });
-	});
-
-	$('#openForm').click(function(){
-		$.formBox.switch();
-	});
-	
-	$('#close').click(function(){
-		$.formBox.switch();
-	});
+$('.openAddClassFormDialog').click(function(){
+	$.formBox.switch('addClassForm');
+});
 </script>

@@ -1,0 +1,16 @@
+#dialog {z-index:20;position:fixed; width:100%; top:0;}
+#dialog .container {display:none;background:#fff;padding:0 40px;border-radius:0 0 4px 4px;}
+#dialog .largeBox {min-width:320px;max-width: 980px;}
+#dialog .smallBox {min-width:320px;max-width: 600px;}
+#dialog .close {cursor:pointer;position:absolute;right:40px;top:26px;}
+#dialog .close:after {content:url(../images/svg/close_s.svg);}
+#dialog .title div {margin-top:20px}
+#dialog form .row {margin-bottom:12px;}
+#dialog form textarea {width:100%;height:100px;}
+#dialog form .cbLabel{margin-left:6px;}
+#dialog form .submitBtn {margin-top:24px;width:120px;}
+#dialog form .timeSelect label:first-child{margin-bottom:20px;}
+#dialog form .timeSelect input:nth-child(0){margin-bottom:18px;}
+#dialog form .timeSelect input:nth-child(1){margin-top:10px;}
+#dialog form .timeSelect input:nth-child(2){width:100px;position:absolute;margin-left:20px;}
+#mask {display:none;width:100%;height:100%;background:#aaa;position:fixed;z-index:10;top:0;left:0;opacity:0.6;}

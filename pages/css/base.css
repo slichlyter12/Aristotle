@@ -1,0 +1,6 @@
+#main {max-width: 980px;}
+#main .title div{margin-top: 5%;}
+#main .title .user {position:absolute;right:0;top:12px;}
+#main .funcs {margin-top:24px;}
+#main .funcs .subTitle{display:inline-block;margin-top:6px;}
+#main .funcs .searchInput{width:160px;position:absolute;right:0;border-radius:18px;padding:0 16px;}
