@@ -18,10 +18,10 @@ INSERT INTO `t_keywords` (`class_id`, `value`, `comment`) VALUES (1, '3', 'exam'
 
 
 -- t_question
-INSERT INTO `t_question` (`class_id`, `stdnt_first_name`, `stdnt_last_name`, `stunt_osu_id`, `created_time`, `title`, `description`, `course_keywords`, `preferred_time`, `status`, `concern`, `num_liked`) VALUES (1, 'Jack', 'Chan', 900000001, '2017-10-5 18:30:25', 'test', 'Why ?', '1,2', '2017-10-6 8:30:00', 1, 'Jack 2017-10-5 18:30:25, Jet 2017-10-5 20:30:15', 1);
+INSERT INTO `t_question` (`class_id`, `stdnt_first_name`, `stdnt_last_name`, `stunt_user_id`, `created_time`, `title`, `description`, `course_keywords`, `preferred_time`, `status`, `concern`, `num_liked`) VALUES (1, 'Jack', 'Chan', 900000001, '2017-10-5 18:30:25', 'test', 'Why ?', '1,2', '2017-10-6 8:30:00', 1, 'Jack 2017-10-5 18:30:25, Jet 2017-10-5 20:30:15', 1);
 
 -- t_question_concern
-INSERT INTO `t_question_concern` (`question_id`, `osu_id`, `first_name`, `last_name`, `created_time`) VALUES (1, 900000003, 'Jet', 'Li', '2017-10-5 20:30:15');
+INSERT INTO `t_question_concern` (`question_id`, `user_id`, `first_name`, `last_name`, `created_time`) VALUES (1, 900000003, 'Jet', 'Li', '2017-10-5 20:30:15');
 
 -- d_dictionary
 INSERT INTO `d_dictionary` (`dict_attribute`, `dict_value`, `dictdata_value`) VALUES ('user_type', 0, 'Student');
