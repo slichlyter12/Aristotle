@@ -54,7 +54,7 @@ CREATE  TABLE IF NOT EXISTS `t_question` (
   `class_id` INT NOT NULL ,
   `stdnt_first_name` VARCHAR(100) NOT NULL ,
   `stdnt_last_name` VARCHAR(100) NOT NULL ,
-  `stunt_user_id` INT NOT NULL ,
+  `stdnt_user_id` INT NOT NULL ,
   `created_time` DATETIME NOT NULL ,
   `title` VARCHAR(255) NOT NULL ,
   `description` VARCHAR(1000) NULL ,
