@@ -5,7 +5,7 @@ CREATE  TABLE IF NOT EXISTS `t_user` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `first_name` VARCHAR(100) NOT NULL ,
   `last_name` VARCHAR(100) NOT NULL ,
-  `osu_id` INT NULL ,
+  `osu_id` VARCHAR(20) NOT NULL ,
   `role` INT NOT NULL DEFAULT 0 COMMENT '0 Student, 1 TA' ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
