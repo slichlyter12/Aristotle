@@ -46,14 +46,8 @@
 		} else if ($doRedirect) {
 			$url = "https://login.oregonstate.edu/cas/login?service=".$pageURL;
 			echo "<script>location.replace('" . $url . "');</script>";
-		} else if ($doRedirect == false) {
-			// FIXME: testing
-			$_SESSION['onidid'] = "lichlyts";
-			$_SESSION['firstname'] = "Samuel";
-			$_SESSION['lastname'] = "Lichlyter";
-			$_SESSION['ticket'] = "fakeTicket12345";
-			return $_SESSION['onidid'];
-		}
+		} 
+
 		return "";
 	}
 	
@@ -95,27 +89,24 @@
 	}
 		
 	// Authenticated!
-	// FIXME: testing
-	if (checkAuth(false) != "") {
+	if (checkAuth(true) != "") {
 		$firstVisit = checkFirstTime($mysqli);
 		if ($firstVisit == true) { 
 			
 			// redirect to select role
 			$redirectURL = "selectrole.php";
 			header("Location: $redirectURL");
-// 			echo "Select role " . $redirectURL;
 		} else if ($firstVisit == false) {
 			
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
 				$redirectURL = "students.html";
 			} else {
-				$redirectURL = "ta.html";
+				$redirectURL = "taAddClass.html";
 			}
 			header("Location: $redirectURL");
-// 			echo "existing role of " . $_SESSION['role'] . " " . $redirectURL;
 		} else if ($firstVisit == false) {
-			echo "First visit is Null";
+			echo "First visit is NULL";
 		}
 	} else {
 		echo "Not authenticated";
