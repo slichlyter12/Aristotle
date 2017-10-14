@@ -1,6 +1,6 @@
 <?php
 	
-	session_start();
+	include_once '../db/dbconnect.php';
 		
 	function checkAuth($doRedirect) {
 		
@@ -24,11 +24,22 @@
 		if ($ticket != "") {
 			$url = "https://login.oregonstate.edu/cas/serviceValidate?ticket=".$ticket."&service=".$pageURL;
 			$html = file_get_contents($url);
-			$pattern = '/\\<cas\\:user\\>([a-zA-Z0-9]+)\\<\\/cas\\:user\\>/';
-			preg_match($pattern, $html, $matches);
-			if ($matches && count($matches) > 1) {
-				$onidid = $matches[1];
+			$onididPattern = '/\\<cas\\:user\\>([a-zA-Z0-9]+)\\<\\/cas\\:user\\>/';
+			$firstnamePattern = '/\\<cas\\:firstname\\>([a-zA-Z0-9]+)\\<\\/cas\\:firstname\\>/';
+			$lastnamePattern = '/\\<cas\\:lastname\\>([a-zA-Z0-9]+)\\<\\/cas\\:lastname\\>/';
+			preg_match($onididPattern, $html, $onididMatches);
+			preg_match($firstnamePattern, $html, $firstnameMatches);
+			preg_match($lastnamePattern, $html, $lastnameMatches);
+			if ($onididMatches && count($onididMatches) > 0 && $firstnameMatches && count($firstnameMatches) > 0 && $lastnameMatches && count($lastnameMatches) > 0) {
+				$onidid = $onididMatches[1];
 				$_SESSION["onidid"] = $onidid;
+				
+				$firstname = $firstnameMatches[1];
+				$_SESSION['firstname'] = $firstname;
+				
+				$lastname = $lastnameMatches[1];
+				$_SESSION['lastname'] = $lastname;
+				
 				$_SESSION["ticket"] = $ticket;
 				return $onidid;
 			} 
@@ -38,6 +49,8 @@
 		} else if ($doRedirect == false) {
 			// FIXME: testing
 			$_SESSION['onidid'] = "lichlyts";
+			$_SESSION['firstname'] = "Samuel";
+			$_SESSION['lastname'] = "Lichlyter";
 			$_SESSION['ticket'] = "fakeTicket12345";
 			return $_SESSION['onidid'];
 		}
@@ -45,21 +58,18 @@
 	}
 	
 	// Return: {true: first time, false: returning visitor (session variables for first/last name and role set)}
-	function checkFirstTime() {
-		
-		// create connection to database
-		$db = json_decode(file_get_contents("../config.json"), true);
-		$mysqli = new mysqli($db['Hostname'], $db['Username'], $db['Password'], $db['Databasename']) or die("Could not connect to database");
+	function checkFirstTime($mysqli) {
 				
 		// select first name, last name, and role to verify returning student
 		if ($selectStatement = $mysqli->prepare("SELECT first_name, last_name, role FROM t_user WHERE osu_id=? LIMIT 1")) {
-			$selectStatement->bind_param("s", $_SESSION["onidid"]);
+			$onidid = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['onidid']));
+			$selectStatement->bind_param("s", $onidid);
 			$selectStatement->execute();
 			$result = $selectStatement->get_result();
-			
+						
 			// get results
 			$return = "empty";
-			if ($result) {
+			if ($result->num_rows > 0) {
 				$result = $result->fetch_assoc();
 				$_SESSION['first_name'] = $result['first_name'];
 				$_SESSION['last_name'] = $result['last_name'];
@@ -86,12 +96,12 @@
 		
 	// Authenticated!
 	// FIXME: testing
-	if (checkAuth(true) != "") {
-		$firstVisit = checkFirstTime();
+	if (checkAuth(false) != "") {
+		$firstVisit = checkFirstTime($mysqli);
 		if ($firstVisit == true) { 
 			
 			// redirect to select role
-			$redirectURL = "selectRole.php";
+			$redirectURL = "selectrole.php";
 			header("Location: $redirectURL");
 // 			echo "Select role " . $redirectURL;
 		} else if ($firstVisit == false) {
