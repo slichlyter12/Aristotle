@@ -34,7 +34,13 @@ class Question
 	{
 		$second1 = strtotime(gmdate('c'));
 		$second2 = strtotime($this->createdTime);
-		return $this->interests * 3600 / ($second1 - $second2);
+		$second3 = strtotime($this->expectedAnsTime);
+		$index = $this->interests * 3600 / (($second1 - $second2) + $this->interests);
+		if(abs($second1 - $second3) < 600)	
+		{
+			$index += 3600;
+		}
+		return $index;
 	}
 	
 	//sort questions by decreasing value of key
@@ -78,10 +84,10 @@ class Question
 	$createdDate5 = "2017-10-13T11:17:24+00:00";
 	$createdDate6 = "2017-10-13T14:15:11+00:00";
 	
-	$expectedAnsDate1 = "2017-10-16T20:58:29+00:00";
+	$expectedAnsDate1 = gmdate('c');
 	$expectedAnsDate2 = "2017-10-15T20:58:29+00:00";
 	$expectedAnsDate3 = "2017-10-14T20:58:29+00:00";
-	$expectedAnsDate4 = "2017-10-14T20:58:29+00:00";
+	$expectedAnsDate4 = gmdate('c');
 	$expectedAnsDate5 = "2017-10-14T20:58:29+00:00";
 	$expectedAnsDate6 = "2017-10-14T20:58:29+00:00";
 	$dateNow = gmdate('c');
