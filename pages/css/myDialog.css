@@ -6,11 +6,15 @@
 #dialog .close:after {content:url(../images/svg/close_s.svg);}
 #dialog .title div {margin-top:20px}
 #dialog form .row {margin-bottom:12px;}
-#dialog form textarea {width:100%;height:100px;}
+#dialog form input:disabled {color:#eee; border-color:#eee;}
+#dialog form textarea {width:100%;height:100px;margin-bottom:2rem;}
 #dialog form .cbLabel{margin-left:6px;}
 #dialog form .submitBtn {margin-top:24px;width:120px;}
 #dialog form .timeSelect label:first-child{margin-bottom:20px;}
-#dialog form .timeSelect input:nth-child(0){margin-bottom:18px;}
-#dialog form .timeSelect input:nth-child(1){margin-top:10px;}
-#dialog form .timeSelect input:nth-child(2){width:100px;position:absolute;margin-left:20px;}
+#dialog form .timeSelect .nowRadioBtn{margin-bottom:18px;}
+#dialog form .timeSelect .laterRadioBtn{margin-top:10px;}
+#dialog form .timeSelect .timeDetailInput{width:100px;margin-left:20px;font-weight:100;}
+#dialog form .illegalValue{border-color:#f66e5d !important;}
+#dialog form .illegalValue:required~ span::after {content:"The input cannot be empty.";position: absolute;margin: 10px 16px;font-weight:100;font-size:0.7em;color:#f66e5d;}
+#dialog form textarea.illegalValue:required~ span {left:0;margin:100px 24px;position: absolute;width:100%;}
 #mask {display:none;width:100%;height:100%;background:#aaa;position:fixed;z-index:10;top:0;left:0;opacity:0.6;}

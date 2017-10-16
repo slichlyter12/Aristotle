@@ -1,0 +1,8 @@
+#main .data table tr:hover .tableRemove{display:block;}
+#main .data table .tableBlock {border:none;width:36px;}
+#main .data table .memberConut {min-width:50px;font-size:0.8em;display:block;margin:6px 0 0 8px;}
+#main .data table .memberConut:before {content:url(../images/svg/group_fill_s.svg);}
+#main .data table .tableAddition {width:24px;display:block;margin-top:6px;cursor:pointer;}
+#main .data table .tableAddition:after {content:url(../images/svg/addition_s.svg);}
+#main .data table .tableRemove {display:none;margin:-12px 0 0 12px;cursor:pointer;position:absolute;right:10px;}
+#main .data table .tableRemove:after {content:url(../images/svg/remove_red_s.svg);}
