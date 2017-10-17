@@ -100,9 +100,9 @@
 			
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
-				$redirectURL = "students.html";
+				$redirectURL = "studentsQuestions.html";
 			} else {
-				$redirectURL = "taAddClass.html";
+				$redirectURL = "taClass.html";
 			}
 			header("Location: $redirectURL");
 		} else if ($firstVisit == false) {
