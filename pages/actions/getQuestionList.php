@@ -7,15 +7,15 @@
 		$questions=array();
 		$i=0;
 		while($row=mysql_fetch_array($result,MYSQL_ASSOC)){
-			$questions[$i][TITLE]=$row[title];
-			$questions[$i][NAME]=$row[stdnt_first_name].' '.$row[stdnt_last_name];
-			$questions[$i][CREATE_TIME]= date('Y-m-d g:i a', strtotime($row[created_time]));
-			switch($row[status]){
-				case '0': $questions[$i][STATUS]= 'Proposed';break;
-				case '1': $questions[$i][STATUS]= 'Answered';break;
-				case '2': $questions[$i][STATUS]= 'Deleted';
+			$questions[$i]['TITLE']=$row['title'];
+			$questions[$i]['NAME']=$row['stdnt_first_name'].' '.$row['stdnt_last_name'];
+			$questions[$i]['CREATE_TIME']= date('Y-m-d g:i a', strtotime($row['created_time']));
+			switch($row['status']){
+				case '0': $questions[$i]['STATUS']= 'Proposed';break;
+				case '1': $questions[$i]['STATUS']= 'Answered';break;
+				case '2': $questions[$i]['STATUS']= 'Deleted';
 			}
-			$questions[$i][NUM_JOIN]=$row[num_liked];
+			$questions[$i]['NUM_JOIN']=$row['num_liked'];
 			$i++;
 		}
 	}

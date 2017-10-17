@@ -3,7 +3,7 @@
 
 	$questionData = json_decode(file_get_contents("php://input"), true);
 
-	$userId = $_SERVER[HTTP_USERID];
+	$userId = $_SERVER['HTTP_USERID'];
 	$className = 'CS561';	//should send with json data
 
 	$title = $questionData['TITLE'];
@@ -20,9 +20,9 @@
 	$result = mysql_query($sql);
 	if($result) {
 		if($row=mysql_fetch_array($result,MYSQL_ASSOC)){
-			$stdntUserId = $row[id];
-			$stdntFirstName = $row[first_name];
-			$stdntLastName = $row[last_name];
+			$stdntUserId = $row['id'];
+			$stdntFirstName = $row['first_name'];
+			$stdntLastName = $row['last_name'];
 		}else{
 			mysql_close();
 			exit('User account is unavailable!');
@@ -33,7 +33,7 @@
 	$result = mysql_query($sql);
 	if($result) {
 		if($row=mysql_fetch_array($result,MYSQL_ASSOC)){
-			$classId = $row[id];
+			$classId = $row['id'];
 		}else{
 			mysql_close();
 			exit('Current class is unavailable!');

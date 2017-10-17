@@ -3,15 +3,15 @@
 
 	$classData = json_decode(file_get_contents("php://input"), true);
 
-	$userId = $_SERVER[HTTP_USERID];
+	$userId = $_SERVER['HTTP_USERID'];
 
 	//Check is current user a TA or is the user exist
 	$sql = 'SELECT role, id FROM t_user WHERE osu_id = "'.$userId.'"';
 	$result = mysql_query($sql);
 	if($result) {
 		if($row=mysql_fetch_array($result,MYSQL_ASSOC)){
-			$role = $row[role];
-			$id = $row[id];
+			$role = $row['role'];
+			$id = $row['id'];
 			if($role!='1'){
 				mysql_close();
 				exit('No permission!');
@@ -42,7 +42,7 @@
 		$result = mysql_query($sql);
 		if($result) {
 			if($row=mysql_fetch_array($result,MYSQL_ASSOC)){
-				$classId = $row[id];
+				$classId = $row['id'];
 			}else{
 				mysql_close();
 				exit('No such class!');
