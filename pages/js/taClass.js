@@ -17,14 +17,14 @@ function getClassList(){
 		url:"actions/getClassList.php",
 		async: true,
 		dataType:"json",
-		beforeSend: function(XMLHttpRequest) {
-			XMLHttpRequest.setRequestHeader("UserId", "900000009");
-		},
 		success: function(data) {
-			$('#main .data .classList').html('');
-			$.each(data.CLASSES, function(i,item) {
-				insertColumnInClassTable(item);
-			});
+			if(data.ERROR==null){
+				$('#main .data .classList').html('');
+				$.each(data.CLASSES, function(i,item) {
+					insertColumnInClassTable(item);
+				});
+			}else
+				openToast(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -42,9 +42,6 @@ function createNewClass(){
 		async: false,
 		data:$('#dialog .addClassForm form').serializeForm(),
 		dataType:'text',
-		beforeSend: function(XMLHttpRequest) {
-			XMLHttpRequest.setRequestHeader("UserId", "900000009");
-		},
 		success: function(data) {
 			openToast(data);
 		},

@@ -1,14 +1,13 @@
 <?php
+	
+	// start session on every page
+	session_start();
 
-$dbhost = 'oniddb.cws.oregonstate.edu';
-$dbname = 'likang-db';
-$dbuser = 'likang-db';
-$dbpass = 'UqQzhOSG6H4Z4RLL';
-
-$mysql_handle = mysql_connect($dbhost, $dbuser, $dbpass)
-    or die("Error connecting to database server");
-
-mysql_select_db($dbname, $mysql_handle)
-    or die("Error selecting database: $dbname");
-
+	$db = json_decode(file_get_contents("../../db/config.json"), true);
+	$dbhost = 'oniddb.cws.oregonstate.edu';
+	$dbname = 'likang-db';
+	$dbuser = 'likang-db';
+	$dbpass = 'UqQzhOSG6H4Z4RLL';
+	$mysqli = new mysqli($dbhost, $dbuser, $dbpass, $dbname) or die("Could not connect to database");	
+	
 ?>

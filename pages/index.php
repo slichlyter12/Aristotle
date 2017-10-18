@@ -1,6 +1,6 @@
 <?php
 	
-	include_once '../db/dbconnect.php';
+	include_once 'db_config/conn.php';
 		
 	function checkAuth($doRedirect) {
 		
@@ -92,7 +92,6 @@
 	if (checkAuth(true) != "") {
 		$firstVisit = checkFirstTime($mysqli);
 		if ($firstVisit == true) { 
-			
 			// redirect to select role
 			$redirectURL = "selectrole.php";
 			header("Location: $redirectURL");

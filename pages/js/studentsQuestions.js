@@ -20,10 +20,13 @@ function getQuestionList(){
 		async: true,
 		dataType:"json",
 		success: function(data) {
-			$('#main .data table tbody').html('');
-			$.each(data.QUESTIONS, function(i,item) {
-				insertColumnInQuestionTable(item);
-			});
+			if(data.ERROR==null){
+				$('#main .data table tbody').html('');
+				$.each(data.QUESTIONS, function(i,item) {
+					insertColumnInQuestionTable(item);
+				});
+			}else
+				openToast(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -41,9 +44,6 @@ function createNewQuestion(){
 		async: false,
 		data:$('#dialog .questionForm form').serializeForm(),
 		dataType:'text',
-		beforeSend: function(XMLHttpRequest) {
-			XMLHttpRequest.setRequestHeader("UserId", "900000008");
-		},
 		success: function(data) {
 			openToast(data);
 		},

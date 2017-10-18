@@ -1,6 +1,6 @@
 <?php
 	
-	include_once '../db/dbconnect.php';
+	include_once 'db_config/conn.php';
 	
 	// set session variables
 	$username = mysqli_real_escape_string($mysqli, strip_tags($_SESSION['onidid']));;
