@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="UnitTest" file="C:\Softwares\www\punit\testCheckStudent.php" tests="3" assertions="3" errors="0" failures="0" skipped="0" time="0.086241">
+    <testcase name="testCheckStudent_NotStudent" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testCheckStudent.php" line="5" assertions="1" time="0.040668"/>
+    <testcase name="testCheckStudent_OK" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testCheckStudent.php" line="19" assertions="1" time="0.018180"/>
+    <testcase name="testCheckStudent_NoSuchUser" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testCheckStudent.php" line="33" assertions="1" time="0.027393"/>
+  </testsuite>
+</testsuites>

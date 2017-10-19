@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="UnitTest" file="C:\Softwares\www\punit\testInsertNewClass.php" tests="2" assertions="3" errors="0" failures="0" skipped="0" time="0.044874">
+    <testcase name="testInsertNewClass_OK" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testInsertNewClass.php" line="5" assertions="2" time="0.043125"/>
+    <testcase name="testInsertNewClass_NULLInput" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testInsertNewClass.php" line="19" assertions="1" time="0.001749"/>
+  </testsuite>
+</testsuites>

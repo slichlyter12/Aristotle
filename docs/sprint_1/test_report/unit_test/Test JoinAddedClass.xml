@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" tests="8" assertions="11" errors="0" failures="0" skipped="0" time="0.231948">
+    <testcase name="testGetClassId_OK" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" line="5" assertions="1" time="0.043262"/>
+    <testcase name="testGetClassId_NoSuchClass" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" line="17" assertions="2" time="0.015517"/>
+    <testcase name="testGetUserId_OK" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" line="30" assertions="1" time="0.013279"/>
+    <testcase name="testGetUserId_NoSuchUser" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" line="44" assertions="2" time="0.014541"/>
+    <testcase name="testGetUserId_NULLInput" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" line="59" assertions="2" time="0.025696"/>
+    <testcase name="testSelectClass_OK" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" line="72" assertions="1" time="0.049731"/>
+    <testcase name="testSelectClass_NoSuchUser" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" line="100" assertions="1" time="0.037529"/>
+    <testcase name="testSelectClass_NoSuchClass" class="UnitTest" classname="UnitTest" file="C:\Softwares\www\punit\testJoinAddedClass.php" line="128" assertions="1" time="0.032393"/>
+  </testsuite>
+</testsuites>
