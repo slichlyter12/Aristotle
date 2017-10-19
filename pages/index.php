@@ -65,8 +65,8 @@
 			$return = "empty";
 			if ($result->num_rows > 0) {
 				$result = $result->fetch_assoc();
-				$_SESSION['first_name'] = $result['first_name'];
-				$_SESSION['last_name'] = $result['last_name'];
+				$_SESSION['firstname'] = $result['first_name'];
+				$_SESSION['lastname'] = $result['last_name'];
 				if ($result['role'] == 0) {
 					$_SESSION['role'] = 'student';
 				} else {
@@ -104,9 +104,7 @@
 				$redirectURL = "taClass.html";
 			}
 			header("Location: $redirectURL");
-		} else if ($firstVisit == false) {
-			echo "First visit is NULL";
-		}
+		} 
 	} else {
 		echo "Not authenticated";
 	}
