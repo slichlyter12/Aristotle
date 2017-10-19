@@ -1,0 +1,406 @@
+{
+	"id": "f42d1557-7b95-4aa7-8764-a375412e9196",
+	"name": "Test Add Class and Get Class API",
+	"allTests": [],
+	"timestamp": "2017-10-19T21:36:29.115Z",
+	"collection_id": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+	"folder_id": "8c15e3a7-f267-5b86-a876-7d9c208a4134",
+	"target_type": "folder",
+	"environment_id": "02dfaf79-6aac-8083-eabf-159a8877b696",
+	"data": [],
+	"delay": 0,
+	"count": 1,
+	"collection": {
+		"id": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+		"name": "CS561-Project",
+		"description": "",
+		"order": [],
+		"folders": [
+			{
+				"name": "Test Add Class and Get Class API",
+				"description": "",
+				"collectionId": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+				"collection": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+				"order": [
+					"b82aa76f-7e3a-dd9e-744f-8725e65fcbcf",
+					"01a5684a-ac92-7a22-6255-2c364dbf7300",
+					"3881d79f-0d9a-56b9-b8cf-fdac9ee095af"
+				],
+				"owner": "2861153",
+				"folders_order": [],
+				"createdAt": 1508380963234,
+				"updatedAt": 1508380963234,
+				"id": "8c15e3a7-f267-5b86-a876-7d9c208a4134",
+				"collection_id": "124fd688-f916-e0b1-efd8-2bbd08ddc88b"
+			},
+			{
+				"name": "Test Add Question and Get Question API",
+				"description": "",
+				"collectionId": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+				"collection": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+				"order": [
+					"65b257c6-e5f6-18a7-2399-5ff583af8123",
+					"4547feca-0622-123a-26f9-334ec6c4f88f",
+					"56dc0f5e-f283-39f5-7e9b-defb0fbeb43a"
+				],
+				"owner": "2861153",
+				"folders_order": [],
+				"createdAt": 1508383144842,
+				"updatedAt": 1508383144842,
+				"id": "3eabe149-d19f-e416-5540-889482934737",
+				"collection_id": "124fd688-f916-e0b1-efd8-2bbd08ddc88b"
+			}
+		],
+		"folders_order": [
+			"8c15e3a7-f267-5b86-a876-7d9c208a4134",
+			"3eabe149-d19f-e416-5540-889482934737"
+		],
+		"timestamp": 1508286312826,
+		"synced": false,
+		"remote_id": 0,
+		"owner": "2861153",
+		"sharedWithTeam": false,
+		"subscribed": false,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"createdAt": 1508286312826,
+		"updatedAt": "2017-10-19T03:20:42.625Z",
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {}
+	},
+	"folder": {
+		"name": "Test Add Class and Get Class API",
+		"description": "",
+		"collectionId": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+		"collection": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+		"order": [
+			"b82aa76f-7e3a-dd9e-744f-8725e65fcbcf",
+			"01a5684a-ac92-7a22-6255-2c364dbf7300",
+			"3881d79f-0d9a-56b9-b8cf-fdac9ee095af"
+		],
+		"owner": "2861153",
+		"folders_order": [],
+		"createdAt": 1508380963234,
+		"updatedAt": 1508380963234,
+		"id": "8c15e3a7-f267-5b86-a876-7d9c208a4134",
+		"collection_id": "124fd688-f916-e0b1-efd8-2bbd08ddc88b"
+	},
+	"environment": null,
+	"globals": [
+		{
+			"key": "gists_count",
+			"value": 1,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "gist_id",
+			"value": "437099339f6843b9e25244272b1e8668",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "star_id",
+			"value": "437099339f6843b9e25244272b1e8668",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "echo_digest_realm",
+			"value": "Users",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "echo_digest_nonce",
+			"value": "rRr4PvJ6TH3uCIgeiBmoEdpXKiVvAYGt",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "numGists",
+			"value": 0,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "globID",
+			"value": "6537ab390b7ac5fb58b617022c1e170d",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "NumGists",
+			"value": 21,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "username",
+			"value": "sullivai",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "gistCount",
+			"value": 5,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "starredCount",
+			"value": 1,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "created_gist_id",
+			"value": "c1c3bd3e0a37a55a28946d6f9c8fb66a",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "MyGistCount",
+			"value": "1",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "Gist URL",
+			"value": "https://api.github.com/gists/a6dc45c1ebb1002b0dc617fc90650c80",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "globalGist",
+			"value": 0,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "newGistID",
+			"value": "ea0bcf2ffd418c6c8b8bbd761318adea",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "starCount",
+			"value": 0,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "number_gists_global",
+			"value": "19",
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "number_star_gists_global",
+			"value": 0,
+			"enabled": true,
+			"type": "text"
+		},
+		{
+			"key": "class_count",
+			"value": "17",
+			"enabled": true,
+			"type": "text"
+		}
+	],
+	"results": [
+		{
+			"name": "get all classes",
+			"id": "b82aa76f-7e3a-dd9e-744f-8725e65fcbcf",
+			"url": "http://web.engr.oregonstate.edu/~bij/pages/actions/getClassList.php",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"get class status code is 200": true
+			},
+			"testPassFailCounts": {
+				"get class status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"225"
+			],
+			"allTests": [
+				{
+					"get class status code is 200": true
+				}
+			],
+			"time": "225",
+			"totalRequestTime": "225",
+			"iterationResults": {}
+		},
+		{
+			"name": "add new class",
+			"id": "01a5684a-ac92-7a22-6255-2c364dbf7300",
+			"url": "http://web.engr.oregonstate.edu/~bij/pages/actions/addNewClass.php",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"add new class code is 200": true
+			},
+			"testPassFailCounts": {
+				"add new class code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"203"
+			],
+			"allTests": [
+				{
+					"add new class code is 200": true
+				}
+			],
+			"time": "203",
+			"totalRequestTime": "203",
+			"iterationResults": {}
+		},
+		{
+			"name": "get all classes again",
+			"id": "3881d79f-0d9a-56b9-b8cf-fdac9ee095af",
+			"url": "http://web.engr.oregonstate.edu/~bij/pages/actions/getClassList.php",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"get class status code is 200": true,
+				"class count is added by one": true,
+				"class name is correctlly added": true
+			},
+			"testPassFailCounts": {
+				"get class status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"class count is added by one": {
+					"pass": 1,
+					"fail": 0
+				},
+				"class name is correctlly added": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"178"
+			],
+			"allTests": [
+				{
+					"get class status code is 200": true,
+					"class count is added by one": true,
+					"class name is correctlly added": true
+				}
+			],
+			"time": "178",
+			"totalRequestTime": "178",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 5,
+	"totalFail": 0,
+	"totalTime": 606,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "get all classes",
+			"id": "b82aa76f-7e3a-dd9e-744f-8725e65fcbcf",
+			"url": "http://web.engr.oregonstate.edu/~bij/pages/actions/getClassList.php",
+			"time": "2017-10-19T21:36:29.115Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"get class status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "add new class",
+			"id": "01a5684a-ac92-7a22-6255-2c364dbf7300",
+			"url": "http://web.engr.oregonstate.edu/~bij/pages/actions/addNewClass.php",
+			"time": "2017-10-19T21:36:29.115Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"add new class code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "get all classes again",
+			"id": "3881d79f-0d9a-56b9-b8cf-fdac9ee095af",
+			"url": "http://web.engr.oregonstate.edu/~bij/pages/actions/getClassList.php",
+			"time": "2017-10-19T21:36:29.115Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"get class status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"class count is added by one": {
+					"pass": 1,
+					"fail": 0
+				},
+				"class name is correctlly added": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}
