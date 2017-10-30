@@ -1,5 +1,5 @@
 <?php
-	require('../db_config/conn.php');
+	require('../db_config/conn2.php');
 
 	$classData = json_decode(file_get_contents("php://input"), true);
 

@@ -1,5 +1,5 @@
 <?php
-	require('../db_config/conn.php');
+	require('../db_config/conn2.php');
 	
 	//Get user_id(ONID) from session
 	$userId = $_SESSION['onidid'];

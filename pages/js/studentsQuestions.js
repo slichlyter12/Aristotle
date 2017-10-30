@@ -8,8 +8,14 @@ function insertColumnInQuestionTable(data){
 	$obj.append('<td>'+data.TITLE+'</td>')
 		.append('<td>'+data.NAME+'</td>').append('<td>'+data.CREATE_TIME+'</td>')
 		.append('<td>'+data.STATUS+'</td>')
-		.append('<td><span class="memberConut">'+data.NUM_JOIN+'</span></td>')
-		.append('<td><span class="tableAddition"></span></td>');
+		.append('<td><span class="memberConut">'+data.NUM_JOIN+'</span></td>');
+	if(data.ISMINE=='0'&&data.ISJOIN=='0')
+		$obj.append('<td><span class="tableAddition" onclick="joinInAQuestion('+data.ID+');"></span></td>');
+	else if(data.ISMINE=='1')
+		$obj.append('<td><span></span></td>');
+	else
+		$obj.append('<td><span class="tableCancel" onclick="quitFromAQuestion('+data.ID+');"></span></td>');
+
 }
 
 //action:getQuestionList
@@ -55,10 +61,55 @@ function createNewQuestion(){
 	});
 };
 
+
+//action:JoinInQuestion
+function joinInAQuestion(id){
+	$str = '{"id":'+id+'}';
+	$.ajax({
+		type: "post",
+		url:"actions/joinInQuestion.php",
+		async: false,
+		data: $str,
+		dataType:'json',
+		success: function(data) {
+			openToast(data.MESSAGE);
+			if(!data.ERROR){
+				alert(data.DATA);
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+};
+
+//action:QuitFromQuestion
+function quitFromAQuestion(id){
+	$str = '{"id":'+id+'}';
+	$.ajax({
+		type: "post",
+		url:"actions/quitFromQuestion.php",
+		async: false,
+		data: $str,
+		dataType:'json',
+		success: function(data) {
+			openToast(data.MESSAGE);
+			if(!data.ERROR){
+				alert(data.DATA);
+			}
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+};
+
+
 /*
-//action:JoinInAQuestion
-$('#main .data table .tableAddition').click(function(){
-});
 //action:deleteQuestionByOwner
 $('#main .data table .tableRemove').click(function(){
 });
@@ -72,10 +123,12 @@ $('document').ready(function(){
 		//time picker plugin
 		$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
 	});
+
 	//Show questions
 	getQuestionList();
 	//Init the Timepicker
 	getAvailableTime();
+
 	//Add question (bind click event for post question button)
 	$('#dialog .questionForm .submitBtn').click(function(){
 		if($('#dialog .questionForm form').checkForm()==true){
@@ -85,4 +138,5 @@ $('document').ready(function(){
 			getQuestionList();
 		}
 	});
+
 });
