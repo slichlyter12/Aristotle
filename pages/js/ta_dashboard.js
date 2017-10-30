@@ -1,12 +1,17 @@
 /*THE ACTIONS INTERACTED WITH BACKEND*/
 
 //insert a column in class table from data
-function insertColumnInClassTable(data){
+function insertColumnInClassTable(data) {
 	var className = '#main .data .classList'
 	$obj = $(className);
 	if(data['role'] === '1')
-		$obj.append("<button class='classes selectedClass' id='class" + data['id']
+		$obj.append("<button class='classes' id='class" + data['id']
 			+ "'>" + data['name'] + "</button>");
+}
+
+//	update user name
+function updateUserName(name) {
+	$("#logout_name").html(name);
 }
 
 //action:getClassList
@@ -59,8 +64,8 @@ $('document').ready(function(){
 		'user_info': {
 			'id': '001',
 			'osu_id': 'qud',
-			'last_name': 'qu',
-			'first_name': 'deqing',
+			'last_name': 'Qu',
+			'first_name': 'Deqing',
 			'role': '1',
 			'session_data': 'ajfASDFafjhaf'
 		},
@@ -81,6 +86,8 @@ $('document').ready(function(){
 		insertColumnInClassTable(classes[i]);
 	}
 
+	//	update user name
+	updateUserName(json_data['user_info']['first_name'] + ' ' + json_data['user_info']['last_name']);
 
 	//bind click event for add class button
 	// $('.openAddClassFormDialog').click(function(){
