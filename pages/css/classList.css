@@ -1,5 +1,16 @@
 #main .data .openAddClassFormDialog {padding:0 8px;margin:0 14px 20px 0;vertical-align:top;padding-top:5px;}
 #main .data .openAddClassFormDialog:after {content:url(../images/svg/add_grey.svg);}
-#main .data .classes {padding:0 36px;margin-right:14px;}
+#main .data .classes {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 0px 100px 160px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 6px 6px;
+        cursor: pointer;
+    }
 #main .data .selectedClass {cursor:default;background:#33c3f0;border:#33c3f0;color:#fff;}
 #main .data .selectedClass:after {content:url(../images/svg/delete_fill_red.svg);cursor:pointer;position:absolute;margin:-10px 26px;}

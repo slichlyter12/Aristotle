@@ -38,25 +38,6 @@ function getClassList(){
 	});
 };
 
-//action:createNewClass
-function createNewClass(){
-	$.ajax({
-		type: "post",
-		url:"actions/addNewClass.php",
-		async: false,
-		data:$('#dialog .addClassForm form').serializeForm(),
-		dataType:'text',
-		success: function(data) {
-			openToast(data);
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			alert(XMLHttpRequest.status);
-			alert(XMLHttpRequest.readyState);
-			alert(textStatus);
-		}
-	});
-};
-
 /*INIT*/
 $('document').ready(function(){
 	//	Make Fake data
@@ -93,21 +74,4 @@ $('document').ready(function(){
 	$('.classes').click(function() {
 		location.href = 'questions.html?class=' + $(this).attr('id').substring('class'.length);
 	});
-	//bind click event for add class button
-	// $('.openAddClassFormDialog').click(function(){
-	// 	$.formBox.openDialog('addClassForm');
-	// });
-
-	//Show classes
-	// getClassList();
-
-	// //Add class (bind click event for post class button)
-	// $('#dialog .addClassForm .submitBtn').click(function(){
-	// 	if($('#dialog .addClassForm form').checkForm()==true){
-	// 		//alert(JSON.stringify($('#dialog .addClassForm form').serializeForm()));			//For test
-	// 		createNewClass();
-	// 		$('#dialog .addClassForm .close').trigger('click');
-	// 		getClassList();
-	// 	}
-	// });
 });
