@@ -89,6 +89,10 @@ $('document').ready(function(){
 	//	update user name
 	updateUserName(json_data['user_info']['first_name'] + ' ' + json_data['user_info']['last_name']);
 
+	//	bind click event for class button
+	$('.classes').click(function() {
+		location.href = 'questions.html?class=' + $(this).attr('id').substring('class'.length);
+	});
 	//bind click event for add class button
 	// $('.openAddClassFormDialog').click(function(){
 	// 	$.formBox.openDialog('addClassForm');
