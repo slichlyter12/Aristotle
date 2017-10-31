@@ -62,6 +62,7 @@ $('document').ready(function(){
 		]
 	};
 	var classes = json_data['class_info'];
+	//	show courses
 	$('#main .data .classList').html('');
 	for(i in classes) {
 		insertColumnInClassTable(classes[i]);
@@ -72,6 +73,6 @@ $('document').ready(function(){
 
 	//	bind click event for class button
 	$('.classes').click(function() {
-		location.href = 'questions.html?class=' + $(this).attr('id').substring('class'.length);
+		location.href = 'ta_class.html?class=' + $(this).attr('id').substring('class'.length);
 	});
 });
