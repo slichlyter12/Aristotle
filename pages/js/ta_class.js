@@ -2,6 +2,11 @@
 
 //insert a column in question table from data
 function insertColumnInQuestionTable(data){
+    //  status == 'answered'
+    if (data['status'] == 'answered') {
+        return;
+    }
+
     var student_user_name = data['stdnt_first_name'] + ' ' + data['stdnt_last_name'];
     var student_join_number = 0;
     if(data['students'] !== null) {
@@ -14,8 +19,10 @@ function insertColumnInQuestionTable(data){
 		.append('<td>' + student_user_name + '</td>')
         .append('<td>' + data['create_time'] + '</td>')
 		.append('<td>' + data['status'] + '</td>')
-		.append('<td><span class="memberConut">' + student_join_number + '</span></td>')
-		.append('<td><span class="tableAddition"></span></td>');
+		.append('<td><span class="memberConut">' + student_join_number + '</span></td>');
+    if (data['status'] == 'proposed') {
+        $obj.append('<td><span class="tableAddition"></span></td>');
+    }
 }
 
 //	update user name
