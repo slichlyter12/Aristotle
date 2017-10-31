@@ -70,9 +70,19 @@ $('#main .data table .tableRemove').click(function(){
 });
 */
 
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // construct regexp object
+    var r = window.location.search.substr(1).match(reg);  //  matach target parameter
+    if (r != null) return unescape(r[2]); return null;
+}
+
 /*INIT*/
 $('document').ready(function(){
 
+    //  require parameters in url
+    var class_id = getUrlParam('class');
+
+    //  fake data
     var json_data = {
     "questions": [
         {
