@@ -38,6 +38,8 @@ function getClassList(){
 	});
 };
 
+
+
 /*INIT*/
 $('document').ready(function(){
 	//	Make Fake data
@@ -70,6 +72,9 @@ $('document').ready(function(){
 
 	//	update user name
 	updateUserName(json_data['user_info']['first_name'] + ' ' + json_data['user_info']['last_name']);
+
+	//	storage user name in session
+	setSession("user_name", json_data['user_info']['first_name'] + ' ' + json_data['user_info']['last_name']);
 
 	//	bind click event for class button
 	$('.classes').click(function() {

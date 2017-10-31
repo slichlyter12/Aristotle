@@ -18,6 +18,11 @@ function insertColumnInQuestionTable(data){
 		.append('<td><span class="tableAddition"></span></td>');
 }
 
+//	update user name
+function updateUserName(name) {
+	$("#logout_name").html(name);
+}
+
 //action:getQuestionList
 function getQuestionList(){
 	$.ajax({
@@ -846,4 +851,6 @@ $('document').ready(function(){
         insertColumnInQuestionTable(questions[i]);
     }
 
+    //  update user name
+    updateUserName(getSession('user_name'));
 });
