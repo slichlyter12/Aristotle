@@ -26,18 +26,16 @@
 	<div class="title row">
 		<div class="twelve columns">
 			<h4>TA Dashboard</h4>			<!--page title-->
-			<p>Welcome</p>
 			<div class="user">				<!--user info-->
 				<span id="logout_name">XXX</span>
 				<span id="logout">logout</span> <!--action:logout-->
-				<span>config</span>
 			</div>
 		</div>
 	</div>
 
 	<div class="funcs row" >
 		<div class="four columns">
-			<h5 class="subTitle">All Classes</h5>
+			<h5 class="subTitle">All Courses</h5>
 			<input class="searchInput" type="text" placeholder="Search"/>
 		</div>
 	</div>
@@ -48,36 +46,6 @@
 		</div>
 	</div>
 </div>
-
-<div id="dialog">	<!--split dialog out -->
-	<div class="container smallBox addClassForm">
-		<span class="close"></span>
-		<div class="title row">
-			<div class="twelve columns">
-				<h5>Add A New Class</h5>
-			</div>
-		</div>
-		<form name="ADDCLASS" class="post_class">
-			<div class="row">
-				<div class="six columns">
-					<label for="classCodeInput">Class Code</label>
-					<input name="NAME" type="text" id="classCodeInput" placeholder="e.g. CS561" required/><span></span>
-				</div>
-			</div>
-			<div class="row .checkBox">
-				<label>
-					<input type="checkbox" name="NEEDADD" id="autoAddCBox" checked="checked"/>
-					<span class="cbLabel">Add After Create</span>
-				</label>
-				<div class="twelve columns">
-					<input class="submitBtn button-primary" type="button" value="Add"/>		<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
-<div id="mask"></div>
-<div id="toast"></div>
 
 </body>
 </html>

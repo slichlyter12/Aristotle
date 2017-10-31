@@ -1,15 +1,20 @@
+#main .data {
+    display:table;
+}
 #main .data .openAddClassFormDialog {padding:0 8px;margin:0 14px 20px 0;vertical-align:top;padding-top:5px;}
 #main .data .openAddClassFormDialog:after {content:url(../images/svg/add_grey.svg);}
 #main .data .classes {
-        background-color: #4CAF50;
+        width:270px;
+        height:150px;
+        background-color: #91349B;
         border: none;
         color: white;
-        padding: 0px 100px 160px;
         text-align: center;
-        text-decoration: none;
         display: inline-block;
+        float: none;
+        vertical-align: middle;
         font-size: 20px;
-        margin: 6px 6px;
+        margin: 6px 12px;
         cursor: pointer;
     }
 #main .data .selectedClass {cursor:default;background:#33c3f0;border:#33c3f0;color:#fff;}

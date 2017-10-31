@@ -52,12 +52,12 @@ $('document').ready(function(){
 		},
 		'class_info': [
 			{ 'id': '1', 'name': 'CS561', 'role': '1' },
-			{ 'id': '2', 'name': 'CS519', 'role': '0' },
+			{ 'id': '2', 'name': 'CS519', 'role': '1' },
 			{ 'id': '3', 'name': 'CS290', 'role': '1' },
 			{ 'id': '4', 'name': 'CS496', 'role': '1' },
-			{ 'id': '5', 'name': 'CS507', 'role': '0' },
+			{ 'id': '5', 'name': 'CS507', 'role': '1' },
 			{ 'id': '6', 'name': 'CS321', 'role': '1' },
-			{ 'id': '7', 'name': 'CS344', 'role': '0' },
+			{ 'id': '7', 'name': 'CS344', 'role': '1' },
 			{ 'id': '8', 'name': 'CS551', 'role': '1' }
 		]
 	};
