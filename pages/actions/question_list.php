@@ -5,7 +5,7 @@
 
 	//parpare sql
 	function buildSql(){
-		$sql="SELECT 
+		$sql="SELECT
 			q.id qid,
 			q.class_id cid,
 			q.stdnt_first_name q_stdnt_first_name,
@@ -22,21 +22,21 @@
 			d.dictdata_value q_status,
 			c.first_name c_first_name,
 			c.last_name c_last_name,
-			c.user_id c_user_id 
-		
-		FROM 
+			c.user_id c_user_id
+
+		FROM
 			d_dictionary d,
-			t_question q 
-			LEFT JOIN 
-				t_question_concern c 
-				ON 
-					q.id = c.question_id 
-		WHERE 
-			d.dict_attribute = 'question_status' 
-			AND d.dict_value = q.status 
-			AND q.class_id = ? 
-		
-		ORDER BY 
+			t_question q
+			LEFT JOIN
+				t_question_concern c
+				ON
+					q.id = c.question_id
+		WHERE
+			d.dict_attribute = 'question_status'
+			AND d.dict_value = q.status
+			AND q.class_id = ?
+
+		ORDER BY
 			q.id";
 
 		return $sql;
@@ -67,28 +67,28 @@
 				//concern info
 				$questions['questions'][$i]->students[$j] = new QuestionConcern($row['c_first_name'], $row['c_last_name'], $row['c_user_id']);
 				$j++;
-			}		
+			}
 		}
-	
+
 		return $questions;
 	}
 
 	$class_id = $_REQUEST['class_id'];
-	// Can not get class_id from font page, exit! 
+	// Can not get class_id from font page, exit!
 	if(!isset($class_id)){
 		exit(json_encode(array('ERROR'=>'Failed to get class_id!')));
 	}
 
 	$sql = buildSql();
 
-	// Preparing sql is failed, exit! 
+	// Preparing sql is failed, exit!
 	if(!isset($sql)){
 		exit(json_encode(array('ERROR'=>'Failed to Prepare sql!')));
 	}
-	
+
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("i", $class_id);
-	
+
 	//query question list
 	$stmt->execute();
 	$result = $stmt->get_result();
@@ -102,6 +102,6 @@
 	}
 
 	echo json_encode($questions);
-	mysql_free_result($result);
+	// mysql_free_result($result);
 	$mysqli->close();
 ?>

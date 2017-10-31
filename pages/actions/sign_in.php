@@ -2,23 +2,23 @@
 	require('../db_config/conn.php');
 	include ("../models/User.class.php");
 	include ("../models/Class.class.php");
-	
+
 	//parpare sql
 	function buildSql(){
-	   $sql="SELECT 
-			u.id uid, 
-			u.osu_id osu_id, 
-			u.last_name last_name, 
-			u.first_name first_name, 
-			u.role u_role, 
-			c.id cid, 
-			c.name class_name, 
+	   $sql="SELECT
+			u.id uid,
+			u.osu_id osu_id,
+			u.last_name last_name,
+			u.first_name first_name,
+			u.role u_role,
+			c.id cid,
+			c.name class_name,
 			r.role r_role
-		FROM 
-			t_class c, r_user_class r, t_user u 
-		WHERE 
-			c.id = r.class_id 
-			AND u.id = r.user_id 
+		FROM
+			t_class c, r_user_class r, t_user u
+		WHERE
+			c.id = r.class_id
+			AND u.id = r.user_id
 			AND u.osu_id = ? ";
 
 		return $sql;
@@ -50,11 +50,11 @@
 
 	$sql = buildSql();
 
-	// Preparing sql is failed, exit! 
+	// Preparing sql is failed, exit!
 	if(!isset($sql)){
 		exit(json_encode(array('ERROR'=>'Failed to Prepare sql!')));
 	}
-	
+
 	$stmt = $mysqli->prepare($sql);
 	$stmt->bind_param("s", $onid);
 	$stmt->execute();
@@ -69,6 +69,6 @@
 	}
 
 	echo json_encode($classInfos);
-	mysql_free_result($result);
+	// mysql_free_result($result);
 	$mysqli->close();
 ?>

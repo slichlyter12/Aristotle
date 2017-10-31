@@ -5,25 +5,25 @@
 
 	//parpare sql
 	function checkUserSql(){
-		$sql="SELECT 
-			u.id uid, 
-			u.osu_id osu_id, 
-			u.last_name last_name, 
-			u.first_name first_name, 
-			u.role u_role, 
-			c.id cid, 
-			c.name class_name, 
-			r.role r_role 
-		FROM 
-			t_class c, r_user_class r, t_user u, t_question q 
-		WHERE 
-			c.id = r.class_id 
-			AND u.id = r.user_id 
-			AND q.class_id = r.class_id 
-			AND u.osu_id = ? 
-			AND q.id = ? 
-			AND r.role = ? 
-		
+		$sql="SELECT
+			u.id uid,
+			u.osu_id osu_id,
+			u.last_name last_name,
+			u.first_name first_name,
+			u.role u_role,
+			c.id cid,
+			c.name class_name,
+			r.role r_role
+		FROM
+			t_class c, r_user_class r, t_user u, t_question q
+		WHERE
+			c.id = r.class_id
+			AND u.id = r.user_id
+			AND q.class_id = r.class_id
+			AND u.osu_id = ?
+			AND q.id = ?
+			AND r.role = ?
+
 		LIMIT 1";
 
 		return $sql;
@@ -53,7 +53,7 @@
 
 		$sql = checkUserSql();
 
-		// Preparing sql is failed, exit! 
+		// Preparing sql is failed, exit!
 		if(!isset($sql)){
 			exit(json_encode(array('ERROR'=>'Failed to Prepare sql!')));
 		}
@@ -70,10 +70,10 @@
 			exit(json_encode(array('ERROR'=>'You are not TA in this class!')));
 		}
 
-		mysql_free_result($result);
+		// mysql_free_result($result);
 
 		return $user_info;
 	}
-	
+
 	// $mysqli->close();
 ?>

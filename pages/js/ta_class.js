@@ -3,25 +3,36 @@
 //insert a column in question table from data
 function insertColumnInQuestionTable(data){
     //  status == 'answered'
-    if (data['status'] == 'answered') {
+    if (data['status'] === 'answered') {
         return;
     }
-
+    //  accquire variables
     var student_user_name = data['stdnt_first_name'] + ' ' + data['stdnt_last_name'];
     var student_join_number = 0;
     if(data['students'] !== null) {
         student_join_number = data['students'].length;
     }
+    //  append elements
     var tbodyClassName = '#main .data table tbody';
 	$(tbodyClassName).append('<tr></tr>');
 	$obj = $(tbodyClassName + ' tr:last-child');
 	$obj.append('<td>' + data['title'] + '</td>')
 		.append('<td>' + student_user_name + '</td>')
-        .append('<td>' + data['create_time'] + '</td>')
-		.append('<td>' + data['status'] + '</td>')
-		.append('<td><span class="memberConut">' + student_join_number + '</span></td>');
-    if (data['status'] == 'proposed') {
+        .append('<td>' + data['create_time'] + '</td>');
+    //  if question is signed, show ta's name
+    if (data['status'] === 'signed') {
+        $obj.append('<td>' + data['ta_first_name'] + ' ' + data['ta_last_name'] + '</td>')
+    }
+    else {
+        $obj.append('<td>' + data['status'] + '</td>')
+    }
+	$obj.append('<td><span class="memberConut">' + student_join_number + '</span></td>');
+    //  if question is proposed, show add buttion
+    if (data['status'] === 'proposed') {
         $obj.append('<td><span class="tableAddition"></span></td>');
+    }
+    else {
+        $obj.append('<td></td>');
     }
 }
 
