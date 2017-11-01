@@ -3,7 +3,7 @@
 //insert a column in question table from data
 function insertColumnInQuestionTable(data){
 	var tbodyClassName = '#main .data table tbody'
-	$(tbodyClassName).append('<tr></tr>');
+	$(tbodyClassName).append('<tr questionId="'+data.ID+'"></tr>');
 	$obj = $(tbodyClassName + ' tr:last-child');
 	$obj.append('<td>'+data.TITLE+'</td>')
 		.append('<td>'+data.NAME+'</td>').append('<td>'+data.CREATE_TIME+'</td>')
@@ -18,21 +18,29 @@ function insertColumnInQuestionTable(data){
 
 }
 
+function refreshAndMoveToAQuestion(id){
+	var screenOffset = $('#main .data table tbody tr[questionId="'+id+'"]').offset().top - $(document).scrollTop();
+	getQuestionList(); 
+	$('html, body').animate({  
+        	scrollTop: $('#main .data table tbody tr[questionId="'+id+'"]').offset().top - screenOffset 
+       	}, 700); 
+};
+
 //action:getQuestionList
 function getQuestionList(){
 	$.ajax({
 		type: "get",
 		url:"actions/getQuestionList.php",
-		async: true,
+		async: false,
 		dataType:"json",
 		success: function(data) {
-			if(data.ERROR==null){
+			if(!data.ERROR){
 				$('#main .data table tbody').html('');
+				data = data.DATA;
 				$.each(data.QUESTIONS, function(i,item) {
 					insertColumnInQuestionTable(item);
 				});
-			}else
-				openToast(data.ERROR);
+			}else openToast(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -72,10 +80,8 @@ function joinInAQuestion(id){
 		data: $str,
 		dataType:'json',
 		success: function(data) {
-			openToast(data.MESSAGE);
-			if(!data.ERROR){
-				alert(data.DATA);
-			}
+			if(data.MESSAGE!=null) openToast(data.MESSAGE);
+			if(!data.ERROR)	refreshAndMoveToAQuestion(id);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -95,10 +101,8 @@ function quitFromAQuestion(id){
 		data: $str,
 		dataType:'json',
 		success: function(data) {
-			openToast(data.MESSAGE);
-			if(!data.ERROR){
-				alert(data.DATA);
-			}
+			if(data.MESSAGE!=null) openToast(data.MESSAGE);
+			if(!data.ERROR)	refreshAndMoveToAQuestion(id);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -107,13 +111,6 @@ function quitFromAQuestion(id){
 		}
 	});
 };
-
-
-/*
-//action:deleteQuestionByOwner
-$('#main .data table .tableRemove').click(function(){
-});
-*/
 
 /*INIT*/
 $('document').ready(function(){
@@ -126,13 +123,13 @@ $('document').ready(function(){
 
 	//Show questions
 	getQuestionList();
+
 	//Init the Timepicker
 	getAvailableTime();
 
 	//Add question (bind click event for post question button)
 	$('#dialog .questionForm .submitBtn').click(function(){
 		if($('#dialog .questionForm form').checkForm()==true){
-			//alert(JSON.stringify($('#dialog .questionForm form').serializeForm()));			//For test
 			createNewQuestion();
 			$('#dialog .questionForm .close').trigger('click');
 			getQuestionList();

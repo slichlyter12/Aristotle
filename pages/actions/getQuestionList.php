@@ -2,6 +2,12 @@
 	require('../db_config/conn2.php');
 	require('question.php');
 
+	function complete($mysqli, $isError, $msg, $data){
+		$return = array('ERROR'=> $isError, 'MESSAGE'=>$msg, 'DATA'=>$data);
+		$mysqli->close();
+		exit(json_encode($return));
+	}
+
 	function question_sort($a,$b) {
 		if ($a['WEIGHT']==$b['WEIGHT']) return 0;
 		return ($a['WEIGHT']>$b['WEIGHT'])?-1:1;
@@ -17,14 +23,8 @@
 		if($row = $result->fetch_assoc()){
 			$role = $row['role'];
 			$userId = $row['id'];
-			if($role!='0'){
-				$mysqli->close();
-				exit('Please join the class first!');
-			}
-		}else{
-			$mysqli->close();
-			exit('Please sign up first!');
-		}
+			if($role!='0') complete($mysqli, 1, 'No permission!', NULL);
+		}else complete($mysqli, 1, 'Please sign up first!', NULL);
 	}
 	
 	//Get all questions id joined by current user
@@ -34,10 +34,7 @@
 		$isJoinedIds=array();
 		while($row = $result->fetch_assoc()) array_push($isJoinedIds, $row['question_id']);
 
-	}else{
-		$mysqli->close();
-		exit(json_encode(array('ERROR'=>'Cannot get concern information!')));
-	}
+	}else complete($mysqli, 1, 'Cannot get concern information!', NULL);
 
 	$sql='SELECT id, title, stdnt_user_id, created_time, preferred_time, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question ORDER BY id ASC';
 	$result=$mysqli->query($sql);
@@ -74,18 +71,11 @@
 			
 			$i++;
 		}
-		if($questions==NULL){
-			$mysqli->close();
-			exit(json_encode(array('ERROR'=>'No question here!')));
-		}
-	}else{
-		$mysqli->close();
-		exit(json_encode(array('ERROR'=>'Cannot get questions!')));
-	}	
+		if($questions==NULL) complete($mysqli, 1, 'No question here!', NULL);
+	}else complete($mysqli, 1, 'Cannot get questions!', NULL);
 	
 	uasort($questions,"question_sort");
 	
-	echo json_encode(array('QUESTIONS'=>array_values($questions)));
-	$mysqli->free($result);
-	$mysqli->close();
+	complete($mysqli, 0, NULL, array('QUESTIONS'=>array_values($questions)));
+
 ?>
