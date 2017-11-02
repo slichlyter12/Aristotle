@@ -50,20 +50,16 @@ function updateUserName(name) {
 /**
  * update user name
  * @param {String} class_id
+ * @param {Function} callback
  */
- function getQuestionList(class_id){
+ function getQuestionList(class_id, callback){
 	$.ajax({
 		type: "get",
 		url:"actions/question_list.php?class_id=" + class_id,
 		async: true,
 		dataType:"json",
 		success: function(data) {
-            $('#main .data table tbody').html('');
-            var questions = data["questions"];
-            //Show questions
-            for (i in questions) {
-                insertColumnInQuestionTable(questions[i]);
-            }
+            callback(data);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -98,7 +94,15 @@ $('document').ready(function(){
 
     //  require parameters in url
     var class_id = getUrlParam('class');
-    getQuestionList(class_id);
+    //  get questions in this class, implement elements operation in callback
+    getQuestionList(class_id, (data) => {
+        $('#main .data table tbody').html('');
+        var questions = data["questions"];
+        //Show questions
+        for (i in questions) {
+            insertColumnInQuestionTable(questions[i]);
+        }
+    });
 
     updateUserName(getSession('user_name'));
 });
