@@ -17,7 +17,7 @@ function insertColumnInQuestionTable(data){
     }
     //  append elements
     var tbodyClassName = '#main .data table tbody';
-	$(tbodyClassName).append('<tr></tr>');
+	$(tbodyClassName).append('<tr id="question_' + data['id'] + '"></tr>');
 	$obj = $(tbodyClassName + ' tr:last-child');
 	$obj.append('<td><a href="ta_question.html?question_id=' + data['id'] + '">' + data['title'] + '</a></td>')
 		.append('<td>' + student_user_name + '</td>')
@@ -69,20 +69,12 @@ function updateUserName(name) {
 	});
 };
 
-/*
-//action:JoinInAQuestion
-$('#main .data table .tableAddition').click(function(){
-});
-//action:deleteQuestionByOwner
-$('#main .data table .tableRemove').click(function(){
-});
-*/
-
 /*INIT*/
 $('document').ready(function(){
 
     //  require parameters in url
     var class_id = getUrlParam('class_id');
+
     //  get questions in this class, implement elements operation in callback
     getQuestionList(class_id, (data) => {
         $('#main .data table tbody').html('');
@@ -95,5 +87,12 @@ $('document').ready(function(){
         }
     });
 
+    //
     updateUserName(getSession('user_name'));
+
+    //  bind click event for assign class button
+    $('#main .data table').on("click", ".tableAddition", function() {
+        var question_id = $(this).parent().parent().attr('id').substring("question_".length);
+        console.log(question_id);
+    });
 });
