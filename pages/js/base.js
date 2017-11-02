@@ -6,3 +6,35 @@ function openToast(str){
 		$('#toast').fadeOut(200);
 	},3000);
 };
+
+//	storage value in session
+function setSession(key, value) {
+	if(typeof(Storage) !== "undefined") {
+		sessionStorage[key] = value;
+	}
+	else {
+		alert("Your browser doesn't support web storage");
+	}
+}
+
+//	get value in session
+function getSession(key) {
+	if(typeof(Storage) !== "undefined") {
+		return sessionStorage[key];
+	}
+	else {
+		alert("Your browser doesn't support web storage");
+		return null;
+	}
+}
+
+/**
+ * get parameter value from URL
+ * @param {String} key
+ * @return {String} parameter value of key
+ */
+function getUrlParam(key) {
+    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)"); // construct regexp object
+    var r = window.location.search.substr(1).match(reg);  //  matach target parameter
+    if (r != null) return unescape(r[2]); return null;
+}
