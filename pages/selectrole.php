@@ -20,6 +20,10 @@
 			$roleInt = 0;
 			$redirectURL = "studentsQuestions.html";
 			$_SESSION['role'] = 'student';
+		} else if ($role == "Admin"){
+			 $roleInt = 2;
+			 $redirectURL = "adminDashboard.php";
+			 $_SESSION['role'] = 'admin';
 		} else {
 			die("Malicious code detected!");
 		}
@@ -54,6 +58,7 @@
 		<form action="selectrole.php" method="post" accept-charset="utf-8">
 			<input type="submit" name="role" value="TA">
 			<input type="submit" name="role" value="Student">
+			<input type="submit" name="role" value="Admin">
 		</form>
 	</body>
 </html>
