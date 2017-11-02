@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" tests="9" assertions="9" errors="0" failures="0" skipped="0" time="0.939110">
+    <testcase name="testCheckIsOwnerOfQuestion_OK" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="6" assertions="1" time="0.122186"/>
+    <testcase name="testCheckIsOwnerOfQuestion_IsOwners" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="14" assertions="1" time="0.175567"/>
+    <testcase name="testGetJoinedQuestionIds_OK" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="22" assertions="1" time="0.106312"/>
+    <testcase name="testGetJoinedQuestionIds_HasJoined" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="29" assertions="1" time="0.121255"/>
+    <testcase name="testGetJoinedQuestionIds_QueryError" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="36" assertions="1" time="0.054328"/>
+    <testcase name="testJoinInQuestion_OK" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="42" assertions="1" time="0.116251">
+      <system-out>Join success!</system-out>
+    </testcase>
+    <testcase name="testJoinInQuestion_Failed" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="52" assertions="1" time="0.058985"/>
+    <testcase name="testUpdateQuestionTable_OK" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="59" assertions="1" time="0.131518"/>
+    <testcase name="testUpdateQuestionTable_QueryError" class="JoinInQuestionUnitTest" classname="JoinInQuestionUnitTest" file="C:\Softwares\wamp64\www\punit\testJoinQuestion.php" line="69" assertions="1" time="0.052708"/>
+  </testsuite>
+</testsuites>
