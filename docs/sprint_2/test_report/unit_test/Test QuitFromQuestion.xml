@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" tests="8" assertions="8" errors="0" failures="0" skipped="0" time="0.977561">
+    <testcase name="testCheckIsOwnerOfQuestion_OK" class="QuitFromQuestionUnitTest" classname="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" line="6" assertions="1" time="0.079989"/>
+    <testcase name="testCheckIsOwnerOfQuestion_IsOwners" class="QuitFromQuestionUnitTest" classname="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" line="14" assertions="1" time="0.152389"/>
+    <testcase name="testCheckIsHasBeenJoined_OK" class="QuitFromQuestionUnitTest" classname="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" line="22" assertions="1" time="0.124125"/>
+    <testcase name="testCheckIsHasBeenJoined_HasJoined" class="QuitFromQuestionUnitTest" classname="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" line="29" assertions="1" time="0.159746"/>
+    <testcase name="testQuitFromQuestion_OK" class="QuitFromQuestionUnitTest" classname="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" line="36" assertions="1" time="0.169958">
+      <system-out>Quit success!</system-out>
+    </testcase>
+    <testcase name="testQuitFromQuestion_Failed" class="QuitFromQuestionUnitTest" classname="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" line="46" assertions="1" time="0.056191"/>
+    <testcase name="testUpdateQuestionTable_OK" class="QuitFromQuestionUnitTest" classname="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" line="53" assertions="1" time="0.141796"/>
+    <testcase name="testUpdateQuestionTable_QueryError" class="QuitFromQuestionUnitTest" classname="QuitFromQuestionUnitTest" file="C:\Softwares\www\punit\testQuitFromQuestion.php" line="63" assertions="1" time="0.093367"/>
+  </testsuite>
+</testsuites>
