@@ -19,7 +19,7 @@ function insertColumnInQuestionTable(data){
     var tbodyClassName = '#main .data table tbody';
 	$(tbodyClassName).append('<tr></tr>');
 	$obj = $(tbodyClassName + ' tr:last-child');
-	$obj.append('<td>' + data['title'] + '</td>')
+	$obj.append('<td><a href="ta_question.html?question_id=' + data['id'] + '">' + data['title'] + '</a></td>')
 		.append('<td>' + student_user_name + '</td>')
         .append('<td>' + data['create_time'] + '</td>');
     //  if question is signed, show ta's name
@@ -78,22 +78,11 @@ $('#main .data table .tableRemove').click(function(){
 });
 */
 
-/**
- * get parameter value from URL
- * @param {String} key
- * @return {String} parameter value of key
- */
-function getUrlParam(key) {
-    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)"); // construct regexp object
-    var r = window.location.search.substr(1).match(reg);  //  matach target parameter
-    if (r != null) return unescape(r[2]); return null;
-}
-
 /*INIT*/
 $('document').ready(function(){
 
     //  require parameters in url
-    var class_id = getUrlParam('class');
+    var class_id = getUrlParam('class_id');
     //  get questions in this class, implement elements operation in callback
     getQuestionList(class_id, (data) => {
         $('#main .data table tbody').html('');
@@ -101,6 +90,8 @@ $('document').ready(function(){
         //Show questions
         for (i in questions) {
             insertColumnInQuestionTable(questions[i]);
+            var question_str = JSON.stringify(questions[i]);
+            setSession("question_" + questions[i]['id'], question_str);
         }
     });
 

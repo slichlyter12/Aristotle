@@ -27,3 +27,14 @@ function getSession(key) {
 		return null;
 	}
 }
+
+/**
+ * get parameter value from URL
+ * @param {String} key
+ * @return {String} parameter value of key
+ */
+function getUrlParam(key) {
+    var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)"); // construct regexp object
+    var r = window.location.search.substr(1).match(reg);  //  matach target parameter
+    if (r != null) return unescape(r[2]); return null;
+}

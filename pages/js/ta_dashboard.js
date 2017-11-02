@@ -78,6 +78,6 @@ $('document').ready(function(){
 
 	//	bind click event for class button
 	$('.classes').click(function() {
-		location.href = 'ta_class.html?class=' + $(this).attr('id').substring('class'.length);
+		location.href = 'ta_class.html?class_id=' + $(this).attr('id').substring('class'.length);
 	});
 });
