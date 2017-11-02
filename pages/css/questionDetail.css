@@ -1,0 +1,29 @@
+#question_desc p {
+    border-style: solid;
+    border-color: #999;
+    border-width: 1px;
+    height: 100px;
+    padding: 10px;
+}
+
+#question_time {
+    text-align:right;
+    padding-top: 5px;
+}
+
+/*#main .data {
+    display:table;
+}*/
+
+#main .data .students {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+    font-size: 10px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    cursor: pointer;
+}

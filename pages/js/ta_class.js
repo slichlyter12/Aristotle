@@ -69,9 +69,32 @@ function updateUserName(name) {
 	});
 };
 
+/**
+ * update user name
+ * @param {String} class_id
+ * @param {Function} callback
+ */
+ function assignQuestion(question_id, callback){
+	$.ajax({
+		type: "put",
+		url:"actions/assign_question.php",
+		async: true,
+        data: {"question_id":question_id, "status": 3},
+		dataType:"json",
+		success: function(data) {
+            callback(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+};
+
 /*INIT*/
 $('document').ready(function(){
-
+    
     //  require parameters in url
     var class_id = getUrlParam('class_id');
 
@@ -93,6 +116,9 @@ $('document').ready(function(){
     //  bind click event for assign class button
     $('#main .data table').on("click", ".tableAddition", function() {
         var question_id = $(this).parent().parent().attr('id').substring("question_".length);
-        console.log(question_id);
+        console.log("question_id = " + question_id);
+        assignQuestion(question_id, (data) => {
+            window.location.reload();
+        });
     });
 });

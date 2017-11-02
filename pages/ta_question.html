@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/myDialog.css" />
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
 	<link rel="stylesheet" type="text/css" href="css/questionsTable.css" />
+	<link rel="stylesheet" type="text/css" href="css/questionDetail.css" />
 	<script type="text/javascript" src="js/base.js"></script>
 	<script type="text/javascript" src="js/ta_question.js"></script>
 	<!-- <script type="text/javascript" src="js/myDialog.js"></script> -->
@@ -25,12 +26,20 @@
 	<div class="title row">
 		<div class="twelve columns">
 			<h4>TA Question Detail Page</h4>	<!--page title-->
-			<p>Questions Detail.</p>
 			<div class="user">					<!--user info-->
 				<span id="logout_name">XXX</span>
 				<span id="logout">logout</span> <!--action:logout-->
 			</div>
 		</div>
+	</div>
+	<div class="data row">
+		<div class="six columns" id="question_title"></div>
+		<div class="six columns" id="question_time"></div>
+	</div>
+	<div id="question_desc"></div>
+	<div id="student_list"></div>
+	<div class="data row">
+		<div class="twelve columns studentList"></div>
 	</div>
 </div>
 <div id="mask"></div>
