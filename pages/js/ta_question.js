@@ -21,8 +21,7 @@ function updateQuesionDesc(desc) {
 }
 
 function addStudent(name) {
-	$obj = $('#main .data .studentList');
-	$obj.append("<button class='students'>" + name + "</button>");
+	$('#main .data .studentList').append("<button class='students'>" + name + "</button>");
 }
 
 /*INIT*/
