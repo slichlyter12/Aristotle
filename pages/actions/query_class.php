@@ -45,7 +45,7 @@
 	
 	$category = $_REQUEST['category'];
 	// Can not get category from font page, exit! 
-	if(!isset($category)){
+	if(!isset($category) || !($category == "student" || $category == "ta" || $category == "all")){
 		exit(json_encode(array('ERROR'=>'Failed to get category!')));
 	}
 
