@@ -37,8 +37,8 @@
 			SET
 				q.status = 3,
 				q.ta_user_id = ? ,
-        		q.ta_first_name = ? ,
-        		q.ta_last_name = ?
+				q.ta_first_name = ? ,
+				q.ta_last_name = ?
 			WHERE
 				q.id = ? ";
 
