@@ -76,10 +76,10 @@ function updateUserName(name) {
  */
  function assignQuestion(question_id, callback){
 	$.ajax({
-		type: "put",
+		type: "post",
 		url:"actions/assign_question.php",
 		async: true,
-        data: {"question_id":question_id, "status": 3},
+        data: {"question_id": question_id},
 		dataType:"json",
 		success: function(data) {
             callback(data);
@@ -91,10 +91,9 @@ function updateUserName(name) {
 		}
 	});
 };
-
 /*INIT*/
 $('document').ready(function(){
-    
+
     //  require parameters in url
     var class_id = getUrlParam('class_id');
 
