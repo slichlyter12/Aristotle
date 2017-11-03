@@ -21,8 +21,8 @@
 
 	$user_info = checkUserByQuestion($onid, $question_id, $role);
 	if($user_info){
-		if($firstname == $user_info['class_info']->first_name && $lastname == $user_info['class_info']->last_name){
-			$user_id = $user_info['class_info']->id;
+		if($firstname == $user_info['user_info']->first_name && $lastname == $user_info['user_info']->last_name){
+			$user_id = $user_info['user_info']->id;
 		} else {
 			exit(json_encode(array('ERROR'=>'User information is error!')));
 		}
