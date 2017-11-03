@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="QuestionTest" file="D:\phptest\tests\questionTest.php" tests="4" assertions="12" errors="0" failures="0" skipped="0" time="0.003781">
+    <testcase name="testCase1" class="QuestionTest" classname="QuestionTest" file="D:\phptest\tests\questionTest.php" line="12" assertions="4" time="0.000902"/>
+    <testcase name="testCase2" class="QuestionTest" classname="QuestionTest" file="D:\phptest\tests\questionTest.php" line="79" assertions="2" time="0.000227"/>
+    <testcase name="testCase3" class="QuestionTest" classname="QuestionTest" file="D:\phptest\tests\questionTest.php" line="114" assertions="4" time="0.000364"/>
+    <testcase name="testCase4" class="QuestionTest" classname="QuestionTest" file="D:\phptest\tests\questionTest.php" line="181" assertions="2" time="0.002288"/>
+  </testsuite>
+</testsuites>
