@@ -1,9 +1,9 @@
 <?php
-	require_once ('../db_config/conn.php');
+	require_once ('../db_config/conn2.php');
 	include_once ('check_user.php');
 
 	$question_id = $_REQUEST['question_id'];
-	// Can not get question_id from font page, exit! 
+	// Can not get question_id from font page, exit!
 	if(!isset($question_id)){
 		exit(json_encode(array('ERROR'=>'Failed to get question_id!')));
 	}
@@ -18,7 +18,7 @@
 
 	//check the user is ta or not, only ta can assign question, role of ta is 1
 	$role = 1;
-	
+
 	$user_info = checkUserByQuestion($onid, $question_id, $role);
 	if($user_info){
 		if($firstname == $user_info['class_info']->first_name && $lastname == $user_info['class_info']->last_name){
@@ -32,22 +32,22 @@
 
 	//parpare sql
 	function buildSql(){
-		$sql="UPDATE 
-				t_question q 
-			SET 
+		$sql="UPDATE
+				t_question q
+			SET
 				q.status = 3,
-				q.ta_user_id = ? , 
-        		q.ta_first_name = ? , 
-        		q.ta_last_name = ? 
-			WHERE 
+				q.ta_user_id = ? ,
+        		q.ta_first_name = ? ,
+        		q.ta_last_name = ?
+			WHERE
 				q.id = ? ";
 
 		return $sql;
 	}
-	
+
 	$sql = buildSql();
 
-	// Preparing sql is failed, exit! 
+	// Preparing sql is failed, exit!
 	if(!isset($sql)){
 		exit(json_encode(array('ERROR'=>'Failed to Prepare sql!')));
 	}
