@@ -99,7 +99,7 @@
 			
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
-				$redirectURL = "studentsQuestions.html";
+				$redirectURL = "studentDashboard.html";
 			} else {
 				$redirectURL = "taClass.html";
 			}

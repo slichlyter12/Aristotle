@@ -19,7 +19,12 @@
 			$sql = $sql." AND r.role = 0 ";
 		} else if ($category == "ta") {
 			$sql = $sql." AND r.role = 1 ";
-		}
+		} else if ($category == "all"){
+			$sql="SELECT 
+				c.id cid, 
+				c.name class_name
+			FROM 
+				t_class c";}
 
 		return $sql;
 	}
@@ -56,7 +61,7 @@
 	}
 
 	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("s", $onid);
+	if($category!=all) $stmt->bind_param("s", $onid);
 	$stmt->execute();
 	$result = $stmt->get_result();
 

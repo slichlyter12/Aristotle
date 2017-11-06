@@ -15,6 +15,11 @@
 	
 	//Get ONID from session
 	$osuId = $_SESSION['onidid'];
+	$classId = $_REQUEST['classid'];
+
+	//Check is class id not null
+	if($classId=='null') complete($mysqli, 1, 'No class has been selected!', NULL);
+	
 
 	//Check is current user a Student or is the user exist
 	$sql = 'SELECT role, id FROM t_user WHERE osu_id = "'.$osuId .'"';
@@ -27,16 +32,25 @@
 		}else complete($mysqli, 1, 'Please sign up first!', NULL);
 	}
 	
+
+	//Check is the current user has selected this class
+	$sql = 'SELECT * FROM r_user_class WHERE user_id = '.$userId .' AND class_id = '.$classId;
+	$result = $mysqli->query($sql);
+	if($result) {
+		if(!$row = $result->fetch_assoc()){
+			complete($mysqli, 1, 'You do not have the access for this class!', NULL);
+		}
+	}
+
 	//Get all questions id joined by current user
 	$sql='SELECT question_id FROM t_question_concern WHERE user_id = '.$userId;
 	$result=$mysqli->query($sql);
 	if($result) {
 		$isJoinedIds=array();
 		while($row = $result->fetch_assoc()) array_push($isJoinedIds, $row['question_id']);
-
 	}else complete($mysqli, 1, 'Cannot get concern information!', NULL);
 
-	$sql='SELECT id, title, stdnt_user_id, created_time, preferred_time, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question ORDER BY id ASC';
+	$sql='SELECT id, title, stdnt_user_id, created_time, preferred_time, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question WHERE class_id = '.$classId.' ORDER BY id ASC';
 	$result=$mysqli->query($sql);
 	
 	if($result) {
@@ -71,8 +85,8 @@
 			
 			$i++;
 		}
-		if($questions==NULL) complete($mysqli, 1, 'No question here!', NULL);
-	}else complete($mysqli, 1, 'Cannot get questions!', NULL);
+		if($questions==NULL) complete($mysqli, 1,'No question here!', NULL);
+	}else complete($mysqli, 1, $classId.'Cannot get questions!', NULL);
 	
 	uasort($questions,"question_sort");
 	

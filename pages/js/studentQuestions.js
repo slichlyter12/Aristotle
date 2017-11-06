@@ -1,5 +1,13 @@
 /*THE ACTIONS INTERACTED WITH BACKEND*/
 
+//get get parameter
+function getGetParameter(name) { 
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	var r = window.location.search.substr(1).match(reg); 
+	if (r != null) return unescape(r[2]); 
+	return null; 
+} 
+
 //insert a column in question table from data
 function insertColumnInQuestionTable(data){
 	var tbodyClassName = '#main .data table tbody'
@@ -15,7 +23,6 @@ function insertColumnInQuestionTable(data){
 		$obj.append('<td><span></span></td>');
 	else
 		$obj.append('<td><span class="tableCancel" onclick="quitFromAQuestion('+data.ID+');"></span></td>');
-
 }
 
 function refreshAndMoveToAQuestion(id){
@@ -26,11 +33,39 @@ function refreshAndMoveToAQuestion(id){
        	}, 700); 
 };
 
-//action:getQuestionList
-function getQuestionList(){
+//action:getStudentsClasses
+function getStudentsClasses(){
 	$.ajax({
 		type: "get",
-		url:"actions/getQuestionList.php",
+		url:"actions/query_class.php?category=student",
+		async:false,
+		dataType:"json",
+		success: function(data) {
+			if(!data.ERROR){
+				$.each(data.class_info,function(i,item){
+					$str='';
+					if (item.id==getGetParameter('classId')){
+						$str='style="color:black";';
+					}
+					$("#classNav").append('<a href="./studentQuestions.html?classId='+item.id+'" '+$str+'>'+item.name+'</a>&nbsp;');
+				});
+			}else openToast(data.ERROR);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+};
+
+
+//action:getQuestionList
+function getQuestionList(){
+	classid = getGetParameter('classId');
+	$.ajax({
+		type: "get",
+		url:"actions/getQuestionList.php?classid="+classid,
 		async: false,
 		dataType:"json",
 		success: function(data) {
@@ -50,11 +85,34 @@ function getQuestionList(){
 	});
 };
 
+//action:getQuestionDetail
+function getQuestionDetail(questionId){
+	$.ajax({
+		type: "get",
+		url:"actions/getQuestionDetail.php?questionId="+questionId,
+		async: false,
+		dataType:'json',
+		success: function(data) {
+			if(!data.ERROR){
+				showQuestionDetail(data.DATA.questionDetail);
+			}else openToast(data.MESSAGE);		
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+};
+
+
+
 //action:createNewQuestion
 function createNewQuestion(){
+	classid = getGetParameter('classId');
 	$.ajax({
 		type: "post",
-		url:"actions/addNewQuestion.php",
+		url:"actions/addNewQuestion.php?classid="+classid,
 		async: false,
 		data:$('#dialog .questionForm form').serializeForm(),
 		dataType:'text',
@@ -120,7 +178,8 @@ $('document').ready(function(){
 		//time picker plugin
 		$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
 	});
-
+	
+	getStudentsClasses();
 	//Show questions
 	getQuestionList();
 

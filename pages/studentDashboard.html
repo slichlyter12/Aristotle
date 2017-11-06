@@ -8,20 +8,18 @@
 	<link rel="stylesheet" href="lib/css/skeleton.css">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/classList.css" />
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
+	<link rel="stylesheet" type="text/css" href="css/myDialog.css" />
 	<script type="text/javascript" src="js/base.js"></script>
 	<script type="text/javascript" src="js/myDialog.js"></script>
-	<script type="text/javascript" src="js/taClass.js"></script>
-	<style>
-
-	</style>
-
+	<script type="text/javascript" src="js/studentDashboard.js"></script>
 </head>
 <body>
 
 <div id="main" class="container">
 	<div class="title row">
 		<div class="twelve columns">
-			<h4>Manage Classes</h4>			<!--page title-->
+			<h4>Students Dashboard</h4>			<!--page title-->
 			<p>Manage Classes</p>
 			<div class="user">				<!--user info-->
 				<span>Jianchang Bi</span>
@@ -33,7 +31,7 @@
 
 	<div class="funcs row" >
 		<div class="four columns">
-			<h5 class="subTitle">All Classes</h5>
+			<h5 class="subTitle">Please select class</h5>
 			<input class="searchInput" type="text" placeholder="Search"/>
 		</div>
 	</div>
@@ -51,23 +49,17 @@
 		<span class="close"></span>
 		<div class="title row">
 			<div class="twelve columns">
-				<h5>Add A New Class</h5>
+				<h5>Add Class</h5>
 			</div>
 		</div>
 		<form name="ADDCLASS" class="post_class">
-			<div class="row">
-				<div class="six columns">
-					<label for="classCodeInput">Class Code</label>
-					<input name="NAME" type="text" id="classCodeInput" placeholder="e.g. CS561" required/><span></span>
+			<div class="row checkbox">
+				<div class="twelve columns">
 				</div>
 			</div>
-			<div class="row .checkBox">
-				<label>
-					<input type="checkbox" name="NEEDADD" id="autoAddCBox" checked="checked"/>
-					<span class="cbLabel">Add After Create</span>
-				</label>
+			<div class="row">
 				<div class="twelve columns">
-					<input class="submitBtn button-primary" type="button" value="Add"/>		<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
+					<input class="submitBtn button-primary" type="button" value="Add"/>
 				</div>
 			</div>
 		</form>
