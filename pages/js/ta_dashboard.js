@@ -47,8 +47,7 @@ $('document').ready(function(){
 	});
 
 	//	update user name
-	var user_name = getSession("user_name");
-	updateUserName(user_name['first_name'] + ' ' + user_name['last_name']);
+	updateUserName(getSession('user_name'));
 
 	//	bind click event for class button
 	$('.classList').on("click", ".classes", function (){
