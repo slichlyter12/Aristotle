@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="../../pages/node_modules/mocha/mocha.css" />
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="../../pages/node_modules/chai/chai.js"></script>
+  <script src="../../pages/node_modules/mocha/mocha.js"></script>
+  <!-- <script src="../js/functions.js"></script> -->
+  <script>mocha.setup('bdd')</script>
+  <script src="test_sanity.js"></script>
+  <script>
+    mocha.run();
+  </script>
+</body>
+</html>

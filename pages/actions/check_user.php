@@ -1,5 +1,5 @@
 <?php
-	require_once ('../db_config/conn.php');
+	require_once ('../db_config/conn2.php');
 	include_once ("../models/User.class.php");
 	include_once ("../models/Class.class.php");
 
