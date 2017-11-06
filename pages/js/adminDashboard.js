@@ -1,10 +1,8 @@
 function createCourse () {
-	function createCourse () {
 	var courseObj = {};
 	courseObj.courseName = document.getElementsByName("NAME")[0].value;
 	courseTAs = document.getElementsByName("TAS")[0].value;
 	courseObj.courseTAs = courseTAs.split(" ");
-	console.log(courseObj);
 	var str = JSON.stringify(courseObj);
 	str = "x=" + encodeURIComponent(str);
 	xmlhttp = new XMLHttpRequest();
@@ -12,7 +10,6 @@ function createCourse () {
 	xmlhttp.onreadystatechange = function () {
 		if(xmlhttp.readyState == 4){
 			if(xmlhttp.status == 200){
-				
 			}
 		}
 	}
@@ -21,7 +18,6 @@ function createCourse () {
 	
 }
 
-}
 
 
 
