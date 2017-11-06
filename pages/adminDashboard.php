@@ -75,7 +75,7 @@
 							<span class="cbLabel">Add After Create</span>
 						</label>-->
 						<div class="twelve columns">
-							<input class="submitBtn button-primary" type="button" value="Add"/>		<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
+							<button class="submitBtn button-primary" type="button" value="Add" onclick="createCourse();"/>	<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
 						</div>
 					</div>
 				</form>
