@@ -69,6 +69,8 @@
 				$_SESSION['lastname'] = $result['last_name'];
 				if ($result['role'] == 0) {
 					$_SESSION['role'] = 'student';
+				} else if ($result['role'] == 2) {
+					$_SESSION['role'] = 'admin';
 				} else {
 					$_SESSION['role'] = 'ta';
 				}
@@ -105,6 +107,8 @@
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
 				$redirectURL = "studentsQuestions.html";
+			} else if ($_SESSION['role'] == "admin") {
+				$redirectURL = "adminDashboard.php";
 			} else {
 				$redirectURL = "ta.html";
 			}

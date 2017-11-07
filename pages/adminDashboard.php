@@ -16,6 +16,7 @@
 		<script type="text/javascript" src="js/base.js"></script>
 		<script type="text/javascript" src="js/myDialog.js"></script>
 		<script type="text/javascript" src="js/taClass.js"></script>
+		<script type="text/javascript" src="js/logout.js"></script>
 		<?php 
 			SESSION_START(); 
 			if ($_SESSION['role'] != "admin") {
@@ -66,7 +67,7 @@
 							<input name="NAME" type="text" id="classCodeInput" placeholder="e.g. CS561 Software Engineering Methods" required/><span></span>
 							<label>Add Teaching Assistant</label>
 							<p>To add multiple separate by spaces ie. joe2 smart3 kim4</p>
-							<input placeholder="ONID username(s)"><span></span>
+							<input name="TAS" type="text" placeholder="ONID username(s)"><span></span>
 						</div>
 					</div>
 					<div class="row .checkBox">
@@ -75,7 +76,7 @@
 							<span class="cbLabel">Add After Create</span>
 						</label>-->
 						<div class="twelve columns">
-							<input class="submitBtn button-primary" type="button" value="Add"/>		<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
+							<button class="submitBtn button-primary" type="button" value="Add" onclick="createCourse();"/>	<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
 						</div>
 					</div>
 				</form>
