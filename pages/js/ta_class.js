@@ -54,7 +54,7 @@ function updateUserName(name) {
 }
 
 /**
- * update user name
+ * call api - get: question list
  * @param {string} class_id
  * @param {function} callback
  */
@@ -76,8 +76,8 @@ function updateUserName(name) {
 };
 
 /**
- * update user name
- * @param {string} class_id
+ * call api - post: assign question
+ * @param {string} question_id
  * @param {function} callback
  */
  function assignQuestion(question_id, callback){
@@ -97,6 +97,7 @@ function updateUserName(name) {
 		}
 	});
 };
+
 /*INIT*/
 $('document').ready(function(){
 
@@ -115,7 +116,7 @@ $('document').ready(function(){
         }
     });
 
-    //  update user name 
+    //  update user name
     updateUserName(getSession('user_name'));
 
     //  bind click event for assign class button

@@ -1,6 +1,10 @@
 /*THE ACTIONS INTERACTED WITH BACKEND*/
 
-//	generate column DOM in class table
+/**
+ * generate a column DOM in class table
+ * @param {object} data
+ * @return {string}
+ */
 function columnInClassTable(data) {
 	if(data['role'] === 1 && data['id'] !== undefined && data['name'] !== undefined) {
 		return "<button class='classes' id='class_" + data['id']
@@ -11,13 +15,19 @@ function columnInClassTable(data) {
 	}
 }
 
-//	update user name
+/**
+ * update user name
+ * @param {string} name
+ */
 function updateUserName(name) {
 	$("#logout_name").html(name);
 }
 
-//action:getClassList
-function getClassList(callback){
+/**
+ * call api - get: class list
+ * @param {function} callback
+ */
+ function getClassList(callback){
 	$.ajax({
 		type: "get",
 		url:"actions/query_class.php?category=ta",
