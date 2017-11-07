@@ -1,12 +1,14 @@
 /*THE ACTIONS INTERACTED WITH BACKEND*/
 
-//insert a column in class table from data
-function insertColumnInClassTable(data) {
-	var className = '#main .data .classList'
-	$obj = $(className);
-	if(data['role'] === 1)
-		$obj.append("<button class='classes' id='class_" + data['id']
-			+ "'>" + data['name'] + "</button>");
+//	generate column DOM in class table
+function columnInClassTable(data) {
+	if(data['role'] === 1) {
+		return "<button class='classes' id='class_" + data['id']
+			+ "'>" + data['name'] + "</button>";
+	}
+	else {
+		return "";
+	}
 }
 
 //	update user name
@@ -42,7 +44,8 @@ $('document').ready(function(){
 		var classes = data['class_info'];
 		$('#main .data .classList').html('');
 		for(i in classes) {
-			insertColumnInClassTable(classes[i]);
+			// insertColumnInClassTable(classes[i]);
+			$('#main .data .classList').append(columnInClassTable(classes[i]))
 		}
 	});
 
