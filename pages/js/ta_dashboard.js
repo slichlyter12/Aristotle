@@ -2,7 +2,7 @@
 
 //	generate column DOM in class table
 function columnInClassTable(data) {
-	if(data['role'] === 1) {
+	if(data['role'] === 1 && data['id'] !== undefined && data['name'] !== undefined) {
 		return "<button class='classes' id='class_" + data['id']
 			+ "'>" + data['name'] + "</button>";
 	}
@@ -33,8 +33,6 @@ function getClassList(callback){
 		}
 	});
 };
-
-
 
 /*INIT*/
 $('document').ready(function(){

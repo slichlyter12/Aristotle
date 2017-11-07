@@ -4,6 +4,19 @@
  * insert a column in question table from data
  * @param {Object} data
  */
+function columnInQuestionTable(data) {
+
+}
+
+function studentJoinNumber(data) {
+    if(data['students'] !== null) {
+        return data['students'].length;
+    }
+    else {
+        return 0;
+    }
+}
+
 function insertColumnInQuestionTable(data){
     //  status == 'answered'
     // if (data['status'] === 'answered') {
@@ -11,10 +24,8 @@ function insertColumnInQuestionTable(data){
     // }
     //  accquire variables
     var student_user_name = data['stdnt_first_name'] + ' ' + data['stdnt_last_name'];
-    var student_join_number = 0;
-    if(data['students'] !== null) {
-        student_join_number = data['students'].length;
-    }
+    var student_join_number = studentJoinNumber(data);
+    
     //  append elements
     var tbodyClassName = '#main .data table tbody';
 	$(tbodyClassName).append('<tr id="question_' + data['id'] + '"></tr>');
