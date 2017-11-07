@@ -31,7 +31,6 @@ function getSession(key) {
 /**
  * get parameter value from URL
  * @param {String} key
- * @return {String} parameter value of key
  */
 function getUrlParam(key) {
     var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)"); // construct regexp object
