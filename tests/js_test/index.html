@@ -11,12 +11,15 @@
   <script src="../../pages/node_modules/mocha/mocha.js"></script>
   <script src="../../pages/js/ta_dashboard.js"></script>
   <script src="../../pages/js/ta_class.js"></script>
+  <script src="../../pages/js/base.js"></script>
   <script>mocha.setup('bdd')</script>
   <script src="test_sanity.js"></script>
   <script src="test_ta_dashboard.js"></script>
   <script src="test_ta_class.js"></script>
+  <script src="test_base.js"></script>
   <script>
     mocha.run();
   </script>
+  <script>var url = window.location; console.log(url.search);</script>
 </body>
 </html>

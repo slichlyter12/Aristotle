@@ -33,8 +33,9 @@ var result3 = '<tr id="question_48"><td><a href="ta_question.html?question_id=48
 var result4 = '<tr id="question_59"><td><a href="ta_question.html?question_id=59">Title_Question</a></td><td>Tyrion Lannister</td><td>2017-10-16 15:16:12</td><td>Teng Li</td><td><span class="memberConut">0</span></td><td></td></tr>';
 
 describe('ta_class.js', function() {
-  it('should calculate join student number when there are joined students', function() {
+  it('should calculate join student number when there are joined students', function(done) {
       assert.equal(studentJoinNumber(data1), 2);
+      done();
   });
 
   it('should calculate join student number when there are no join students', function() {
