@@ -1,13 +1,12 @@
 /*THE ACTIONS INTERACTED WITH BACKEND*/
 
+
+
 /**
- * insert a column in question table from data
- * @param {Object} data
+ * calculate number of joined students
+ * @param {object} data
+ * @return {number}
  */
-function columnInQuestionTable(data) {
-
-}
-
 function studentJoinNumber(data) {
     if(data['students'] !== null) {
         return data['students'].length;
@@ -17,42 +16,38 @@ function studentJoinNumber(data) {
     }
 }
 
-function insertColumnInQuestionTable(data){
-    //  status == 'answered'
-    // if (data['status'] === 'answered') {
-    //     return;
-    // }
-    //  accquire variables
-    var student_user_name = data['stdnt_first_name'] + ' ' + data['stdnt_last_name'];
-    var student_join_number = studentJoinNumber(data);
-    
-    //  append elements
-    var tbodyClassName = '#main .data table tbody';
-	$(tbodyClassName).append('<tr id="question_' + data['id'] + '"></tr>');
-	$obj = $(tbodyClassName + ' tr:last-child');
-	$obj.append('<td><a href="ta_question.html?question_id=' + data['id'] + '">' + data['title'] + '</a></td>')
-		.append('<td>' + student_user_name + '</td>')
-        .append('<td>' + data['create_time'] + '</td>');
+/**
+ * generate a column in question table from data
+ * @param {object} data
+ * @return {string}
+ */
+function columnInQuestionTable(data) {
+    var string = '<tr id="question_' + data['id'] + '">';
+    string += '<td><a href="ta_question.html?question_id=' + data['id'] + '">' + data['title'] + '</a></td>';
+    string += '<td>' + data['stdnt_first_name'] + ' ' + data['stdnt_last_name'] + '</td>';
+    string += '<td>' + data['create_time'] + '</td>';
     //  if question is signed, show ta's name
     if (data['status'] === 'signed') {
-        $obj.append('<td>' + data['ta_first_name'] + ' ' + data['ta_last_name'] + '</td>')
+        string += '<td>' + data['ta_first_name'] + ' ' + data['ta_last_name'] + '</td>';
     }
     else {
-        $obj.append('<td>' + data['status'] + '</td>')
+        string += '<td>' + data['status'] + '</td>';
     }
-	$obj.append('<td><span class="memberConut">' + student_join_number + '</span></td>');
+    string += '<td><span class="memberConut">' + studentJoinNumber(data) + '</span></td>';
     //  if question is proposed, show add buttion
     if (data['status'] === 'proposed') {
-        $obj.append('<td><span class="tableAddition"></span></td>');
+        string += '<td><span class="tableAddition"></span></td>';
     }
     else {
-        $obj.append('<td></td>');
+        string += '<td></td>';
     }
+    string += '</tr>';
+    return string;
 }
 
 /**
  * update user name
- * @param {String} name
+ * @param {string} name
  */
 function updateUserName(name) {
 	$("#logout_name").html(name);
@@ -60,8 +55,8 @@ function updateUserName(name) {
 
 /**
  * update user name
- * @param {String} class_id
- * @param {Function} callback
+ * @param {string} class_id
+ * @param {function} callback
  */
  function getQuestionList(class_id, callback){
 	$.ajax({
@@ -82,8 +77,8 @@ function updateUserName(name) {
 
 /**
  * update user name
- * @param {String} class_id
- * @param {Function} callback
+ * @param {string} class_id
+ * @param {function} callback
  */
  function assignQuestion(question_id, callback){
 	$.ajax({
@@ -114,13 +109,13 @@ $('document').ready(function(){
         var questions = data["questions"];
         //Show questions
         for (i in questions) {
-            insertColumnInQuestionTable(questions[i]);
+            $('#main .data table tbody').append(columnInQuestionTable(questions[i]));
             var question_str = JSON.stringify(questions[i]);
             setSession("question_" + questions[i]['id'], question_str);
         }
     });
 
-    //
+    //  update user name 
     updateUserName(getSession('user_name'));
 
     //  bind click event for assign class button
