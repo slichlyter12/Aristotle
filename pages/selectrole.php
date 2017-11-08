@@ -18,7 +18,7 @@
 			$_SESSION['role'] = 'ta';
 		} else if ($role == "Student") {
 			$roleInt = 0;
-			$redirectURL = "studentsQuestions.html";
+			$redirectURL = "studentDashboard.html";
 			$_SESSION['role'] = 'student';
 		} else if ($role == "Admin"){
 			 $roleInt = 2;

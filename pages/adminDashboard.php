@@ -15,7 +15,6 @@
 		<script type="text/javascript" src="js/adminDashboard.js"></script>
 		<script type="text/javascript" src="js/base.js"></script>
 		<script type="text/javascript" src="js/myDialog.js"></script>
-		<script type="text/javascript" src="js/taClass.js"></script>
 		<script type="text/javascript" src="js/logout.js"></script>
 		<?php 
 			SESSION_START(); 

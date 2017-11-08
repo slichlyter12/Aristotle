@@ -1,21 +1,6 @@
-#main .data {
-    display:table;
-}
 #main .data .openAddClassFormDialog {padding:0 8px;margin:0 14px 20px 0;vertical-align:top;padding-top:5px;}
 #main .data .openAddClassFormDialog:after {content:url(../images/svg/add_grey.svg);}
-#main .data .classes {
-        width:270px;
-        height:150px;
-        background-color: #91349B;
-        border: none;
-        color: white;
-        text-align: center;
-        display: inline-block;
-        float: none;
-        vertical-align: middle;
-        font-size: 20px;
-        margin: 6px 12px;
-        cursor: pointer;
-    }
-#main .data .selectedClass {cursor:default;background:#33c3f0;border:#33c3f0;color:#fff;}
-#main .data .selectedClass:after {content:url(../images/svg/delete_fill_red.svg);cursor:pointer;position:absolute;margin:-10px 26px;}
+#main .data .classes {padding:0 36px;margin-right:14px;}
+#main .data .selectedClass {background:#33c3f0;border:#33c3f0;color:#fff;}
+/*#main .data .selectedClass:after {content:url(../images/svg/delete_fill_red.svg);cursor:pointer;position:absolute;margin:-10px 26px;}*/
+

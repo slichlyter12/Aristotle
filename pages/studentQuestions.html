@@ -18,15 +18,16 @@
 	<script type="text/javascript" src="js/base.js"></script>
 	<script type="text/javascript" src="js/myDialog.js"></script>
 	<script type="text/javascript" src="js/timePicker.js"></script>
-	<script type="text/javascript" src="js/studentsQuestions.js"></script>
+	<script type="text/javascript" src="js/studentQuestions.js"></script>
 
 </head>
 <body>
 <div id="main" class="container">
 	<div class="title row ">
 		<div class="twelve columns">
-			<h4>Students Questions List</h4>	<!--page title-->
-			<p>Students Questions List.</p>
+			<img class="back" src="images/svg/back.svg" onclick="window.location.href='./studentDashboard.html'"/>
+			<h4>Student Question List</h4>	<!--page title-->
+			<p id="classNav"></p>
 			<div class="user">					<!--user info-->
 				<span>Jianchang Bi</span>
 				<span id="logout">logout</span> <!--action:logout-->
@@ -60,6 +61,19 @@
 	</div>
 </div>
 <div id="dialog">	<!--split dialog out -->
+	<div class="container largeBox questionDetail">
+		<span class="close"></span>
+		<div class="title row">
+			<div class="twelve columns">
+				<h5></h5><p></p>
+			</div>
+		</div>
+		<div class="concern row">
+			<div class="twelve columns">
+			</div>
+		</div>
+	</div>
+
 	<div class="container largeBox questionForm">
 		<span class="close"></span>
 		<div class="title row">
