@@ -30,13 +30,13 @@
 	$sql = 'DELETE FROM r_user_class WHERE user_id = '.$userId.' AND role=0';
 	$result = $mysqli->query($sql);
 	if(!$result) complete($mysqli, 1, 'Reset class infomation failed!', NULL);
-	
-
-	foreach($classesData['classes'] as $classId){
+	$i=0;
+	while( $classId = $classesData['classes'][$i]){
 		$sql = 'INSERT INTO r_user_class (user_id, class_id, role) VALUES ('.$userId.', '.$classId.',0)';
 		$result = $mysqli->query($sql);
+		$i++;
 		if(!$result) complete($mysqli, 1, 'Add class failed!', NULL);
 	}
 
-	complete($mysqli, 0, 'Class information updates success!', NULL);
+	complete($mysqli, 0,'Class information updates success!', NULL);
 ?>
