@@ -19,6 +19,7 @@ function showUserLoginInfo(data){
 	if(data==null) return;
 	var str='';
 	if(data.ROLE=='1') str='&nbsp;<a href="./ta.html">Switch to TA Dashboard</a>'
+	$('.user ').html('<span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>&nbsp;<span style="cursor:pointer;" onclick="logout();">Logout</span>'+str);
 }
 
 function getLoginInfo(){
