@@ -14,17 +14,22 @@
 	$firstName = $_SESSION['firstname'];
 	$lastName = $_SESSION['lastname'];
 	$createdTime = date('Y-m-d H:i:s', time());
+	$classId = $_REQUEST['classid'];
 	
-	//Check is current user a Students or is the user exist
-	$sql = 'SELECT role, id FROM t_user WHERE osu_id = "'.$osuId.'"';
+	//Check is osu id not null
+	if($osuId=='null') complete($mysqli, 2, 'Please log in first', NULL);
+
+	//Check is class id not null
+	if($classId=='null') complete($mysqli, 1, 'No class has been selected!', NULL);
+	
+	//Check is current user a Student or is the user exist
+	$sql = 'SELECT r.role AS role, t.id AS id FROM t_user AS t,r_user_class AS r WHERE r.class_id = '.$classId.' AND t.osu_id = "'.$osuId .'"';
 	$result = $mysqli->query($sql);
 	if($result) {
 		if($row = $result->fetch_assoc()){
 			$role = $row['role'];
 			$userId = $row['id'];
-			if($role!='0'){
-				complete($mysqli, 1, 'No permission!', NULL);
-			}
+			if($role!='0') complete($mysqli, 1, 'No permission!', NULL);
 		}else complete($mysqli, 1, 'Please sign up first!', NULL);
 	}
 	

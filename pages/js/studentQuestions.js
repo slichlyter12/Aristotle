@@ -1,5 +1,4 @@
 /*THE ACTIONS INTERACTED WITH BACKEND*/
-
 //get get parameter
 function getGetParameter(name) { 
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
@@ -8,12 +7,18 @@ function getGetParameter(name) {
 	return null; 
 } 
 
+function showQuestionDetail(data){		//::TODO
+	$('.questionDetail h5').html(data[2]);
+	$('.questionDetail p').html(data[1]);
+	$.formBox.openDialog('questionDetail');
+}
+
 //insert a column in question table from data
 function insertColumnInQuestionTable(data){
 	var tbodyClassName = '#main .data table tbody'
 	$(tbodyClassName).append('<tr questionId="'+data.ID+'"></tr>');
 	$obj = $(tbodyClassName + ' tr:last-child');
-	$obj.append('<td>'+data.TITLE+'</td>')
+	$obj.append('<td onclick="getQuestionDetail('+data.ID+');">'+data.TITLE+'</td>')
 		.append('<td>'+data.NAME+'</td>').append('<td>'+data.CREATE_TIME+'</td>')
 		.append('<td>'+data.STATUS+'</td>')
 		.append('<td><span class="memberConut">'+data.NUM_JOIN+'</span></td>');
@@ -59,17 +64,16 @@ function getStudentsClasses(){
 	});
 };
 
-
 //action:getQuestionList
 function getQuestionList(){
-	classid = getGetParameter('classId');
+	var classid = getGetParameter('classId');
 	$.ajax({
 		type: "get",
 		url:"actions/getQuestionList.php?classid="+classid,
 		async: false,
 		dataType:"json",
 		success: function(data) {
-			if(!data.ERROR){
+			if(data.ERROR == 0){
 				$('#main .data table tbody').html('');
 				data = data.DATA;
 				$.each(data.QUESTIONS, function(i,item) {
@@ -87,14 +91,15 @@ function getQuestionList(){
 
 //action:getQuestionDetail
 function getQuestionDetail(questionId){
+	var classid = getGetParameter('classId');
 	$.ajax({
 		type: "get",
-		url:"actions/getQuestionDetail.php?questionId="+questionId,
+		url:"actions/getQuestionDetail.php?classid="+classid+"&questionid="+questionId,
 		async: false,
 		dataType:'json',
 		success: function(data) {
-			if(!data.ERROR){
-				showQuestionDetail(data.DATA.questionDetail);
+			if(data.ERROR == 0){
+				showQuestionDetail(data.DATA.QUESTION);
 			}else openToast(data.MESSAGE);		
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -105,8 +110,6 @@ function getQuestionDetail(questionId){
 	});
 };
 
-
-
 //action:createNewQuestion
 function createNewQuestion(){
 	classid = getGetParameter('classId');
@@ -115,9 +118,9 @@ function createNewQuestion(){
 		url:"actions/addNewQuestion.php?classid="+classid,
 		async: false,
 		data:$('#dialog .questionForm form').serializeForm(),
-		dataType:'text',
+		dataType:'json',
 		success: function(data) {
-			openToast(data);
+			openToast(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -127,19 +130,19 @@ function createNewQuestion(){
 	});
 };
 
-
 //action:JoinInQuestion
 function joinInAQuestion(id){
+	classid = getGetParameter('classId');
 	$str = '{"id":'+id+'}';
 	$.ajax({
 		type: "post",
-		url:"actions/joinInQuestion.php",
+		url:"actions/joinInQuestion.php?classid="+classid,
 		async: false,
 		data: $str,
 		dataType:'json',
 		success: function(data) {
 			if(data.MESSAGE!=null) openToast(data.MESSAGE);
-			if(!data.ERROR)	refreshAndMoveToAQuestion(id);
+			if(data.ERROR == 0)	refreshAndMoveToAQuestion(id);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -151,16 +154,17 @@ function joinInAQuestion(id){
 
 //action:QuitFromQuestion
 function quitFromAQuestion(id){
+	classid = getGetParameter('classId');
 	$str = '{"id":'+id+'}';
 	$.ajax({
 		type: "post",
-		url:"actions/quitFromQuestion.php",
+		url:"actions/quitFromQuestion.php?classid="+classid,
 		async: false,
 		data: $str,
 		dataType:'json',
 		success: function(data) {
 			if(data.MESSAGE!=null) openToast(data.MESSAGE);
-			if(!data.ERROR)	refreshAndMoveToAQuestion(id);
+			if(data.ERROR == 0)	refreshAndMoveToAQuestion(id);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -172,6 +176,7 @@ function quitFromAQuestion(id){
 
 /*INIT*/
 $('document').ready(function(){
+
 	//bind click event for add question button
 	$('.openQFormDialog').click(function(){
 		$.formBox.openDialog('questionForm');

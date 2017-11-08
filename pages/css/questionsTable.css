@@ -1,4 +1,5 @@
 #main .data table tr:hover .tableRemove{display:block;}
+#main .data table tr td:first-child{cursor:pointer;}
 #main .data table .tableBlock {border:none;width:36px;}
 #main .data table .memberConut {min-width:50px;font-size:0.8em;display:block;margin:6px 0 0 8px;}
 #main .data table .memberConut:before {content:url(../images/svg/group_fill_s.svg);}

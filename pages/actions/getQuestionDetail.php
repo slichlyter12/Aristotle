@@ -1,80 +1,74 @@
 <?php
 	require('../db_config/conn2.php');
 
-	$questionData = json_decode(file_get_contents("php://input"), true);
-
-	//Get user_id(ONID) from session
-	$userId = $_SESSION['onidid'];
-	$classId = $_REQUEST['classid'];
+	function complete($mysqli, $isError, $msg, $data){
+		$return = array('ERROR'=> $isError, 'MESSAGE'=>$msg, 'DATA'=>$data);
+		$mysqli->close();
+		exit(json_encode($return));
+	}
 	
+	//Get ONID from session
+	$osuId = $_SESSION['onidid'];
+	$classId = $_REQUEST['classid'];
+	$questionId = $_REQUEST['questionid'];
+
+	//Check is osu id not null
+	if($osuId=='null') complete($mysqli, 2, 'Please log in first', NULL);
 
 	//Check is class id not null
-	if($classId=='null') exit('No class has been selected!');
-
+	if($classId=='null') complete($mysqli, 1, 'No class has been selected!', NULL);
+	
+	//Check is current user a Student or is the user exist
+	$sql = 'SELECT r.role AS role, t.id AS id FROM t_user AS t,r_user_class AS r WHERE r.class_id = '.$classId.' AND t.osu_id = "'.$osuId .'"';
+	$result = $mysqli->query($sql);
+	if($result) {
+		if($row = $result->fetch_assoc()){
+			$role = $row['role'];
+			$userId = $row['id'];
+			if($role!='0') complete($mysqli, 1, 'No permission!', NULL);
+		}else complete($mysqli, 1, 'Please sign up first!', NULL);
+	}
+	
 	//Check is the current user has selected this class
 	$sql = 'SELECT * FROM r_user_class WHERE user_id = '.$userId .' AND class_id = '.$classId;
 	$result = $mysqli->query($sql);
 	if($result) {
 		if(!$row = $result->fetch_assoc()){
-			$mysqli->close();
-			exit('You do not have the access for this class!');
+			complete($mysqli, 1, 'You do not have the access for this class!', NULL);
 		}
 	}
-
-	//Check and format the data
-	//for title 
-	if($questionData['TITLE']==''|| $questionData['TITLE']==NULL){
-		$mysqli->close();
-		exit('Question title cannot be empty!');
-	} $title = $questionData['TITLE'];
-	//for description
-	if($questionData['DESCRIPTION']==''|| $questionData['DESCRIPTION']==NULL){
-		$mysqli->close();
-		exit('Question description cannot be empty!');
-	} $description = $questionData['DESCRIPTION'];
-	//for preferred time
-	if($questionData['AVAILABLE_TIME']=='now')
-		$preferredTime  = date('Y-m-d H:i:s', time());
-	else if($questionData['AVAILABLE_TIME']!=''){
-		$preferredTime = date('Y-m-d H:i:s', strtotime(date('Y-m-d', time()).' '.$questionData['AVAILABLE_TIME']));
-	}else{
-		$mysqli->close();
-		exit('Peferred time cannot be empty!');
-	}
-	//for created time
-	$createdTime = date('Y-m-d H:i:s', time());
-
-	//Get and check the user info
-	$sql = 'SELECT id, first_name, last_name FROM t_user WHERE role = 0 AND osu_id ="'.$userId.'"';
-	$result = $mysqli->query($sql);
+	
+	//Get question details
+	$sql='SELECT id, title, description, created_time, preferred_time,stdnt_user_id, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question WHERE id = '.$questionId.' LIMIT 1';
+	$result=$mysqli->query($sql);
 	if($result) {
+		$question=array();
 		if($row = $result->fetch_assoc()){
-			$stdntUserId = $row['id'];
-			$stdntFirstName = $row['first_name'];
-			$stdntLastName = $row['last_name'];
-		}else{
-			$mysqli->close();
-			exit('User account is unavailable!');
-		}
-	}
-	//Check the class id 
-	$sql = 'SELECT name FROM t_class WHERE id = '.$classId;
-	$result = $mysqli->query($sql);
-	if($result) {
-		if($row = $result->fetch_assoc()){
-			$className = $row['name'];
-		}else{
-			$mysqli->close();
-			exit('Current class is unavailable!');
-		}
-	}
-	//Add new question
-	$sql = 'INSERT INTO t_question (class_id, stdnt_first_name, stdnt_last_name, stdnt_user_id, created_time, title, description, preferred_time, num_liked) VALUES ('.$classId.', "'.$stdntFirstName.'", "'.$stdntLastName.'", '.$stdntUserId.', "'.$createdTime.'", "'.$title.'", "'.$description.'", "'.$preferredTime.'", 0)';
-	$result = $mysqli->query($sql);
-	if($result) 
-		echo 'Create succeed!';
-	else
-		echo 'Create failed!';
+			$question['ID']=$row['id'];
+			$question['DESCRIPTION']=$row['description'];
+			$question['TITLE']=$row['title'];
+			$question['NAME']=$row['stdnt_first_name'].' '.$row['stdnt_last_name'];
+			$question['CREATE_TIME']= date('Y-m-d g:i a', strtotime($row['created_time']));
+			$question['PREFERRED_TIME']= $row['preferred_time'];
+			switch($row['status']){
+				case '0': $question['STATUS']= 'Proposed';break;
+				case '1': $question['STATUS']= 'Answered';break;
+				case '2': $question['STATUS']= 'Deleted';
+			}
+			$question['NUM_JOIN']=$row['num_liked'];
+			
+			if($row['stdnt_user_id']==$userId) $question['ISMINE']=1;
+			else {
+				$question['ISMINE']=0;
+				if($isJoinedIds!=NULL){
+					if(in_array($row['id'],$isJoinedIds)) $question['ISJOIN'] = 1;
+					else $question['ISJOIN'] = 0;
+				}
+			}
+		}else complete($mysqli, 1,'No such question here!', NULL);
+	}else complete($mysqli, 1, 'Cannot get question!', NULL);
+	
 
-	$mysqli->close();
+	complete($mysqli, 0, NULL, array('QUESTION'=>array_values($question)));
+
 ?>

@@ -16,13 +16,16 @@
 	//Get ONID from session
 	$osuId = $_SESSION['onidid'];
 	$classId = $_REQUEST['classid'];
+	
+	//Check is osu id not null
+	if($osuId=='null') complete($mysqli, 2, 'Please log in first', NULL);
 
 	//Check is class id not null
 	if($classId=='null') complete($mysqli, 1, 'No class has been selected!', NULL);
 	
 
 	//Check is current user a Student or is the user exist
-	$sql = 'SELECT role, id FROM t_user WHERE osu_id = "'.$osuId .'"';
+	$sql = 'SELECT r.role AS role, t.id AS id FROM t_user AS t,r_user_class AS r WHERE r.class_id = '.$classId.' AND t.osu_id = "'.$osuId .'"';
 	$result = $mysqli->query($sql);
 	if($result) {
 		if($row = $result->fetch_assoc()){
@@ -32,7 +35,6 @@
 		}else complete($mysqli, 1, 'Please sign up first!', NULL);
 	}
 	
-
 	//Check is the current user has selected this class
 	$sql = 'SELECT * FROM r_user_class WHERE user_id = '.$userId .' AND class_id = '.$classId;
 	$result = $mysqli->query($sql);
@@ -50,7 +52,7 @@
 		while($row = $result->fetch_assoc()) array_push($isJoinedIds, $row['question_id']);
 	}else complete($mysqli, 1, 'Cannot get concern information!', NULL);
 
-	$sql='SELECT id, title, stdnt_user_id, created_time, preferred_time, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question WHERE class_id = '.$classId.' ORDER BY id ASC';
+	$sql='SELECT id, title, stdnt_user_id, description, created_time, preferred_time, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question WHERE class_id = '.$classId.' ORDER BY id ASC';
 	$result=$mysqli->query($sql);
 	
 	if($result) {
@@ -59,6 +61,7 @@
 		while($row = $result->fetch_assoc()){
 			$questions[$i]['ID']=$row['id'];
 			$questions[$i]['TITLE']=$row['title'];
+			$questions[$i]['DESCRIPTION']=$row['description'];
 			$questions[$i]['NAME']=$row['stdnt_first_name'].' '.$row['stdnt_last_name'];
 			$questions[$i]['CREATE_TIME']= date('Y-m-d g:i a', strtotime($row['created_time']));
 			$questions[$i]['PREFERRED_TIME']= $row['preferred_time'];

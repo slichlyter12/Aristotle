@@ -15,6 +15,10 @@ function insertItemInAddClassForm(selectedClassId, data){
 	$obj.append('<input type="checkbox" name="classes" class="classes" '+str+' value='+data.id+'>'+data.name);
 };
 
+function showUserLoginInfo(data){
+	if(data!=null) $('.user ').html('<span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>&nbsp;<span>logout</span>');
+}
+
 //action:getStudentsClasses
 function getStudentsClasses(){
 	var _selectedClassId = new Array();
@@ -70,10 +74,10 @@ function addClassForStudent(){
 		type: "post",
 		url:"actions/addClassForStudent.php",
 		async:false,
-		data:JSON.stringify($('#dialog .addClassForm form').serializeForm()),
+		data:$('#dialog .addClassForm form').serializeForm(),
 		dataType:"json",
 		success: function(data) {
-			openToast(data.ERROR);
+			openToast(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -83,9 +87,29 @@ function addClassForStudent(){
 	});
 }
 
+function getLoginInfo(){
+	$.ajax({
+		type: "post",
+		url:"actions/checkUserType.php",
+		async:false,
+		dataType:"json",
+		success: function(data) {
+			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
+			else openToast(data.MESSAGE);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+}
+
+
 var selectedClassId = new Array();
 /*INIT*/
 $('document').ready(function(){
+	getLoginInfo();
 	var selectedClassId;
 	//bind click event for add class button
 	$('.openAddClassFormDialog').click(function(){
@@ -101,7 +125,7 @@ $('document').ready(function(){
 			addClassForStudent();
 			$('#dialog .addClassForm .close').trigger('click');
 			selectedClassId = getStudentsClasses();
-			alert(selectedClassId[0]);
+			getAllClasses(selectedClassId);
 		}
 	});
 });

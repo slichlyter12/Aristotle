@@ -1,80 +1,42 @@
 <?php
 	require('../db_config/conn2.php');
 
-	$questionData = json_decode(file_get_contents("php://input"), true);
+	function complete($mysqli, $isError, $msg, $data){
+		$return = array('ERROR'=> $isError, 'MESSAGE'=>$msg, 'DATA'=>$data);
+		$mysqli->close();
+		exit(json_encode($return));
+	}
+
+	$classesData = json_decode(file_get_contents("php://input"), true);
 
 	//Get user_id(ONID) from session
-	$userId = $_SESSION['onidid'];
-	$classId = $_REQUEST['classid'];
+	$osuId = $_SESSION['onidid'];
+	
+	//Check is osu id not null
+	if($osuId=='null') complete($mysqli, 2, 'Please log in first', NULL);
+
+	//Check is current user a Student or is the user exist
+	$sql = 'SELECT role, id FROM t_user WHERE osu_id = "'.$osuId .'"';
+	$result = $mysqli->query($sql);
+	if($result) {
+		if($row = $result->fetch_assoc()){
+			$role = $row['role'];
+			$userId = $row['id'];
+			if(!($role=='0'||$role=='1')) complete($mysqli, 1, 'No permission!', NULL);
+		}else complete($mysqli, 1, 'Please sign up first!', NULL);
+	}
+
+	//Reset the selected classes
+	$sql = 'DELETE FROM r_user_class WHERE user_id = '.$userId.' AND role=0';
+	$result = $mysqli->query($sql);
+	if(!$result) complete($mysqli, 1, 'Reset class infomation failed!', NULL);
 	
 
-	//Check is class id not null
-	if($classId=='null') exit('No class has been selected!');
-
-	//Check is the current user has selected this class
-	$sql = 'SELECT * FROM r_user_class WHERE user_id = '.$userId .' AND class_id = '.$classId;
-	$result = $mysqli->query($sql);
-	if($result) {
-		if(!$row = $result->fetch_assoc()){
-			$mysqli->close();
-			exit('You do not have the access for this class!');
-		}
+	foreach($classesData['classes'] as $classId){
+		$sql = 'INSERT INTO r_user_class (user_id, class_id, role) VALUES ('.$userId.', '.$classId.',0)';
+		$result = $mysqli->query($sql);
+		if(!$result) complete($mysqli, 1, 'Add class failed!', NULL);
 	}
 
-	//Check and format the data
-	//for title 
-	if($questionData['TITLE']==''|| $questionData['TITLE']==NULL){
-		$mysqli->close();
-		exit('Question title cannot be empty!');
-	} $title = $questionData['TITLE'];
-	//for description
-	if($questionData['DESCRIPTION']==''|| $questionData['DESCRIPTION']==NULL){
-		$mysqli->close();
-		exit('Question description cannot be empty!');
-	} $description = $questionData['DESCRIPTION'];
-	//for preferred time
-	if($questionData['AVAILABLE_TIME']=='now')
-		$preferredTime  = date('Y-m-d H:i:s', time());
-	else if($questionData['AVAILABLE_TIME']!=''){
-		$preferredTime = date('Y-m-d H:i:s', strtotime(date('Y-m-d', time()).' '.$questionData['AVAILABLE_TIME']));
-	}else{
-		$mysqli->close();
-		exit('Peferred time cannot be empty!');
-	}
-	//for created time
-	$createdTime = date('Y-m-d H:i:s', time());
-
-	//Get and check the user info
-	$sql = 'SELECT id, first_name, last_name FROM t_user WHERE role = 0 AND osu_id ="'.$userId.'"';
-	$result = $mysqli->query($sql);
-	if($result) {
-		if($row = $result->fetch_assoc()){
-			$stdntUserId = $row['id'];
-			$stdntFirstName = $row['first_name'];
-			$stdntLastName = $row['last_name'];
-		}else{
-			$mysqli->close();
-			exit('User account is unavailable!');
-		}
-	}
-	//Check the class id 
-	$sql = 'SELECT name FROM t_class WHERE id = '.$classId;
-	$result = $mysqli->query($sql);
-	if($result) {
-		if($row = $result->fetch_assoc()){
-			$className = $row['name'];
-		}else{
-			$mysqli->close();
-			exit('Current class is unavailable!');
-		}
-	}
-	//Add new question
-	$sql = 'INSERT INTO t_question (class_id, stdnt_first_name, stdnt_last_name, stdnt_user_id, created_time, title, description, preferred_time, num_liked) VALUES ('.$classId.', "'.$stdntFirstName.'", "'.$stdntLastName.'", '.$stdntUserId.', "'.$createdTime.'", "'.$title.'", "'.$description.'", "'.$preferredTime.'", 0)';
-	$result = $mysqli->query($sql);
-	if($result) 
-		echo 'Create succeed!';
-	else
-		echo 'Create failed!';
-
-	$mysqli->close();
+	complete($mysqli, 0, 'Class information updates success!', NULL);
 ?>
