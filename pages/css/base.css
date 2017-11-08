@@ -1,5 +1,6 @@
 #main {max-width: 980px;}
 #main .title div{margin-top: 5%;}
+#main .title h4 {display: inline;}
 #main .back{float:left;margin-top:10px;margin-right:6px;cursor:pointer;height:20px;}
 #main .title .user {position:absolute;right:0;top:12px;}
 #main .funcs {margin-top:24px;}
