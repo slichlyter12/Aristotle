@@ -16,7 +16,27 @@ function insertItemInAddClassForm(selectedClassId, data){
 };
 
 function showUserLoginInfo(data){
-	if(data!=null) $('.user ').html('<span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>&nbsp;<span>logout</span>');
+	if(data==null) return;
+	var str='';
+	if(data.ROLE=='1') str='&nbsp;<a href="./ta.html">Switch to TA Dashboard</a>'
+}
+
+function getLoginInfo(){
+	$.ajax({
+		type: "post",
+		url:"actions/checkUserType.php",
+		async:false,
+		dataType:"json",
+		success: function(data) {
+			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
+			else openToast(data.MESSAGE);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
 }
 
 //action:getStudentsClasses
@@ -78,24 +98,6 @@ function addClassForStudent(){
 		dataType:"json",
 		success: function(data) {
 			openToast(data.MESSAGE);
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			alert(XMLHttpRequest.status);
-			alert(XMLHttpRequest.readyState);
-			alert(textStatus);
-		}
-	});
-}
-
-function getLoginInfo(){
-	$.ajax({
-		type: "post",
-		url:"actions/checkUserType.php",
-		async:false,
-		dataType:"json",
-		success: function(data) {
-			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
-			else openToast(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);

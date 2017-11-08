@@ -2,6 +2,8 @@
 	require_once ('../db_config/conn2.php');
 	include_once ("../models/Class.class.php");
 	
+
+
 	// //parpare sql
 	function buildSql($category){
 	   $sql="SELECT 
@@ -61,7 +63,7 @@
 	}
 
 	$stmt = $mysqli->prepare($sql);
-	if($category!=all) $stmt->bind_param("s", $onid);
+	if($category!="all") $stmt->bind_param("s", $onid);
 	$stmt->execute();
 	$result = $stmt->get_result();
 

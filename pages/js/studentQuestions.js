@@ -13,6 +13,31 @@ function showQuestionDetail(data){		//::TODO
 	$.formBox.openDialog('questionDetail');
 }
 
+function showUserLoginInfo(data){
+	if(data==null) return;
+	var str='';
+	if(data.ROLE=='1') str='&nbsp;<a href="./ta.html">Switch to TA Dashboard</a>'
+	$('.user ').html('<span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>&nbsp;<span style="cursor:pointer;" onclick="logout();">Logout</span>'+str);
+}
+
+function getLoginInfo(){
+	$.ajax({
+		type: "post",
+		url:"actions/checkUserType.php",
+		async:false,
+		dataType:"json",
+		success: function(data) {
+			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
+			else openToast(data.MESSAGE);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+}
+
 //insert a column in question table from data
 function insertColumnInQuestionTable(data){
 	var tbodyClassName = '#main .data table tbody'
