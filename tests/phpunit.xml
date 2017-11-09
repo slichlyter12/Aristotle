@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit	bootstrap="autoloader.php"
+        	backupGlobals="false"
+        	backupStaticAttributes="false"
+        	verbose="true"
+        	colors="ture"
+        	convertErrorsToExceptions="true"
+        	convertNoticesToExceptions="true"
+        	convertWarningsToExceptions="true"
+        	processIsolation="false"
+			stopOnFailure="false"
+			syntaxCheck="true"
+			>
+
+	<testsuites>
+		<testsuite name="Ta Test">
+			<directory>./test/test_code/</directory>
+		</testsuite>
+	</testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <!--directory suffix=".php">../pages/actions/</directory-->
+	            <file>../pages/actions/check_user.php</file>
+	            <file>../pages/actions/assign_question.php</file>
+	            <file>../pages/actions/question_list.php</file>
+	            <file>../pages/actions/query_class.php</file>
+            <directory suffix=".php">../pages/models/</directory>
+        </whitelist>
+    </filter>
+
+    <php>
+        <env name="APP_ENV" value="development"/>
+    </php>
+ 
+
+	<logging>
+	  <log type="coverage-html" target="./test_report/unit_test/report" lowUpperBound="35"
+	       highLowerBound="70"/>
+	  <log type="coverage-clover" target="./test_report/unit_test/coverage.xml"/>
+	  <log type="coverage-php" target="./test_report/unit_test/coverage.serialized"/>
+	  <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+	  <log type="junit" target="./test_report/unit_test/logfile.xml" logIncompleteSkipped="false"/>
+	  <log type="testdox-html" target="./test_report/unit_test/testdox.html"/>
+	  <log type="testdox-text" target="./test_report/unit_test/testdox.txt"/>
+	</logging>
+
+</phpunit>
+

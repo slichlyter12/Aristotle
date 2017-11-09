@@ -1,0 +1,13 @@
+action
+ [x] Sql
+ [x] Check user by question 
+ [x] Assign question 
+ [x] Question list 
+ [x] Query class 
+
+model
+ [x] Class 
+ [x] Question 
+ [x] Question concern 
+ [x] User 
+
