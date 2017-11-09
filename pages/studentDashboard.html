@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Class Management</title>
+	<title>Student Dashboard</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/skeleton.css">
@@ -20,17 +20,16 @@
 <div id="main" class="container">
 	<div class="title row">
 		<div class="twelve columns">
-			<h4>Students Dashboard</h4>			<!--page title-->
+			<h4>Students Dashboard</h4><!--page title-->
 			<p>Manage Classes</p>
-			<div class="user">				<!--user info-->
-			</div>
+			<div class="user"></div><!--user info-->
+			<div class="panel"></div>
 		</div>
 	</div>
 
 	<div class="funcs row" >
 		<div class="four columns">
 			<h5 class="subTitle">Please select class</h5>
-			<input class="searchInput" type="text" placeholder="Search"/>
 		</div>
 	</div>
 
@@ -43,14 +42,19 @@
 </div>
 
 <div id="dialog">	<!--split dialog out -->
-	<div class="container smallBox addClassForm">
+	<div class="container largeBox addClassForm">
 		<span class="close"></span>
 		<div class="title row">
 			<div class="twelve columns">
-				<h5>Add Class</h5>
+				<h5>Manage Class</h5>
 			</div>
 		</div>
-		<form name="ADDCLASS" class="post_class">
+		<div class="funcs row">
+			<div class="twelve columns">
+				<input class="searchInput" type="text" placeholder="Search"/>
+			</div>
+		</div>
+		<form name="addClass" class="post_class">
 			<div class="row checkbox">
 				<div class="twelve columns">
 				</div>

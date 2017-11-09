@@ -5,9 +5,14 @@
 #dialog .close {cursor:pointer;position:absolute;right:40px;top:26px;}
 #dialog .close:after {content:url(../images/svg/close_s.svg);}
 #dialog .title div {margin-top:20px}
+#dialog .funcs .searchInput{right: 0;border: none;border-bottom: 1px #33c3f0 solid;padding: 0 16px;border-radius: 0;}
 #dialog form .row {margin-bottom:12px;}
+#dialog form .checkbox{height: 300px;overflow: auto;}
 #dialog form input:disabled {color:#eee; border-color:#eee;}
 #dialog form textarea {width:100%;height:100px;margin-bottom:2rem;}
+#dialog form .classCheckBox{border: 1px #aaa solid;margin: 8px 10px;border-radius: 4px;display: block;float: left;cursor: pointer;padding: 4px 24px;color: #444;font-size: 0.9em;}
+#dialog form .classCheckBox input[type='checkbox']{display:none;}
+#dialog form .classCheckBox[checked]{background:#33c3f0;color:#fff;border:1px #33c3f0 solid;}
 #dialog form .cbLabel{margin-left:6px;}
 #dialog form .submitBtn {margin-top:24px;width:120px;}
 #dialog form .timeSelect label:first-child{margin-bottom:20px;}

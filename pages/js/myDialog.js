@@ -45,16 +45,18 @@ $.formBox = {
 		disable_scroll();
 	}
 }
+
 $('document').ready(function(){
 	$('.close').click(function(){
 		$('#mask').fadeOut(200);
 		$container = $(this).closest('.container');
 		$container.slideUp(200);
-		$container.find('form')[0].reset();
+		if($container.find('form')[0])$container.find('form')[0].reset();
 		$container.find('.timeDetailInput').attr('disabled',true);
 		$container.find('input:required, textarea:required').removeClass('illegalValue');
 		enable_scroll();
 	});
+
 });
 
 //dialog from check

@@ -12,14 +12,23 @@ function insertItemInAddClassForm(selectedClassId, data){
 	$obj = $('#dialog .checkbox div');
 	var str = '';
 	if(-1!=$.inArray(data.id, selectedClassId)) str = 'checked="checked"';
-	$obj.append('<input type="checkbox" name="classes" class="classes" '+str+' value='+data.id+'>'+data.name);
+	$obj.append('<span class="classCheckBox" '+str+' ><input type="checkbox" name="classes" '+str+' value='+data.id+'>'+data.name+'</span>');
+	$obj.children(".classCheckBox").last().click(function(){
+		if(!$(this).attr('checked')) {
+			$(this).attr('checked','checked');
+			$(this).children('input').attr('checked','checked');
+		} else {
+			$(this).removeAttr('checked');
+			$(this).children('input').removeAttr('checked');
+		}
+	});
 };
 
 function showUserLoginInfo(data){
 	if(data==null) return;
 	var str='';
-	if(data.ROLE=='1') str='&nbsp;<a href="./ta.html">Switch to TA Dashboard</a>'
-	$('.user ').html('<span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>&nbsp;<span style="cursor:pointer;" onclick="logout();">Logout</span>'+str);
+	if(data.ROLE=='1') $('#main .title .panel').append('<a href="./ta.html">Switch to TA Dashboard</a>');
+	$('#main .title .user ').html('<img onclick="logout()" src="images/svg/logout.svg" /><span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>'+str);
 }
 
 function getLoginInfo(){
@@ -108,7 +117,6 @@ function addClassForStudent(){
 	});
 }
 
-
 var selectedClassId = new Array();
 /*INIT*/
 $('document').ready(function(){
@@ -125,6 +133,7 @@ $('document').ready(function(){
 	//Add class (bind click event for post class button)
 	$('#dialog .addClassForm .submitBtn').click(function(){
 		if($('#dialog .addClassForm form').checkForm()==true){
+			//alert(JSON.stringify($('#dialog .addClassForm form').serializeForm()));
 			addClassForStudent();
 			$('#dialog .addClassForm .close').trigger('click');
 			selectedClassId = getStudentsClasses();

@@ -16,26 +16,8 @@ function showQuestionDetail(data){		//::TODO
 function showUserLoginInfo(data){
 	if(data==null) return;
 	var str='';
-	if(data.ROLE=='1') str='&nbsp;<a href="./ta.html">Switch to TA Dashboard</a>'
-	$('.user ').html('<span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>&nbsp;<span style="cursor:pointer;" onclick="logout();">Logout</span>'+str);
-}
-
-function getLoginInfo(){
-	$.ajax({
-		type: "post",
-		url:"actions/checkUserType.php",
-		async:false,
-		dataType:"json",
-		success: function(data) {
-			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
-			else openToast(data.MESSAGE);
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			alert(XMLHttpRequest.status);
-			alert(XMLHttpRequest.readyState);
-			alert(textStatus);
-		}
-	});
+	if(data.ROLE=='1') $('#main .title .panel').append('<a href="./ta.html">Switch to TA Dashboard</a>');
+	$('#main .title .user ').html('<img onclick="logout()" src="images/svg/logout.svg" /><span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>'+str);
 }
 
 //insert a column in question table from data
@@ -63,6 +45,38 @@ function refreshAndMoveToAQuestion(id){
        	}, 700); 
 };
 
+function showClassList(data){
+	$("#main .title .classNav").append('Course:');
+	$("#main .title .classNav").append('<select/>');
+	$.each(data.class_info,function(i,item){
+		$str='';
+		if (item.id==getGetParameter('classId')) $str='selected';
+		$("#main .title .classNav select").append('<option value='+item.id+' '+$str+'>'+item.name+'</option>');
+	});
+	$("#main .title .classNav select").change(function(){
+		var classId = $(this).children('option:selected').val();
+		window.location.href='./studentQuestions.html?classId='+classId;
+	});
+}
+
+function getLoginInfo(){
+	$.ajax({
+		type: "post",
+		url:"actions/checkUserType.php",
+		async:false,
+		dataType:"json",
+		success: function(data) {
+			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
+			else openToast(data.MESSAGE);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+}
+
 //action:getStudentsClasses
 function getStudentsClasses(){
 	$.ajax({
@@ -72,13 +86,7 @@ function getStudentsClasses(){
 		dataType:"json",
 		success: function(data) {
 			if(!data.ERROR){
-				$.each(data.class_info,function(i,item){
-					$str='';
-					if (item.id==getGetParameter('classId')){
-						$str='style="color:black";';
-					}
-					$("#classNav").append('<a href="./studentQuestions.html?classId='+item.id+'" '+$str+'>'+item.name+'</a>&nbsp;');
-				});
+				showClassList(data);
 			}else openToast(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -201,7 +209,7 @@ function quitFromAQuestion(id){
 
 /*INIT*/
 $('document').ready(function(){
-
+	getLoginInfo();
 	//bind click event for add question button
 	$('.openQFormDialog').click(function(){
 		$.formBox.openDialog('questionForm');

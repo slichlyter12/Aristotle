@@ -1,8 +1,14 @@
 #main {max-width: 980px;}
 #main .title div{margin-top: 5%;}
 #main .title h4 {display: inline;}
+#main .title .classNav{margin-top:10px;}
+#main .title .classNav span{margin:10px; border-bottom:4px #000 solid;}
 #main .back{float:left;margin-top:10px;margin-right:6px;cursor:pointer;height:20px;}
 #main .title .user {position:absolute;right:0;top:12px;}
+#main .title .user img{float:right;margin-left:6px;cursor:pointer;}
+#main .title .user span{float:right;}
+#main .title .panel{position: absolute;display: inline;right: 2px;top: 34px;}
+#main .title .classNav select{border:none;border-radius:0px;padding-bottom:0px;border-bottom:1px #33c3f0 solid;}
 #main .funcs {margin-top:24px;}
 #main .funcs .subTitle{display:inline-block;margin-top:6px;}
 #main .funcs .searchInput{width:160px;position:absolute;right:0;border-radius:18px;padding:0 16px;}
