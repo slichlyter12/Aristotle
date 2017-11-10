@@ -15,3 +15,4 @@
 #toast{height:50px;line-height:50px;display:none;width:100%;bottom:0;background:#000;position:fixed;z-index:999;text-align:center;opacity:1;color:#fff}
 #toast.error{background:#f66e5d;}
 #toast.right{background:#278b4c;}
+#main .data {padding-top: 10px;}
