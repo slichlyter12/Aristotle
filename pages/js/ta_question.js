@@ -21,7 +21,7 @@ function updateQuesionDesc(desc) {
 }
 
 function addStudent(name) {
-	$('#main .data .studentList').append("<button class='students'>" + name + "</button>");
+	$('#main .data .studentList').append("<p class='students'>" + name + "</p>");
 }
 
 /*INIT*/
@@ -41,3 +41,6 @@ $('document').ready(function(){
     updateUserName(getSession('user_name'));
 
 });
+
+
+function A(){}
