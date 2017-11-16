@@ -36,7 +36,7 @@ function columnInQuestionTable(data) {
     string += '<td><span class="memberConut">' + studentJoinNumber(data) + '</span></td>';
     //  if question is proposed, show add buttion
     if (data['status'] === 'proposed') {
-        string += '<td><span class="tableAddition"></span></td>';
+        string += '<td><span class="tableAssign"></span></td>';
     }
     else {
         string += '<td></td>';

@@ -27,6 +27,8 @@ var data4 = {"id":59,"class_id":1,"stdnt_first_name":"Tyrion","stdnt_last_name":
     "description":"Description","course_keywords":null,"preferred_time":"2017-10-16 15:16:12",
     "ta_first_name":"Teng","ta_last_name":"Li","ta_user_id":18,"status":"signed","students":null};
 
+var data_error = {};
+
 var result1 = '<tr id="question_1"><td><a href="ta_question.html?question_id=1">test</a></td><td>Jack Chan</td><td>2017-10-05 18:30:25</td><td>Teng Li</td><td><span class="memberConut">2</span></td><td></td></tr>';
 var result2 = '<tr id="question_47"><td><a href="ta_question.html?question_id=47">TEST</a></td><td>Tyrion Lannister</td><td>2017-10-14 23:25:00</td><td>proposed</td><td><span class="memberConut">0</span></td><td><span class="tableAddition"></span></td></tr>';
 var result3 = '<tr id="question_48"><td><a href="ta_question.html?question_id=48">dsadsadsadsa</a></td><td>Tyrion Lannister</td><td>2017-10-14 23:35:17</td><td>proposed</td><td><span class="memberConut">1</span></td><td><span class="tableAddition"></span></td></tr>';
@@ -38,19 +40,39 @@ describe('ta_class.js', function() {
       done();
   });
 
-  it('should calculate join student number when there are no join students', function() {
+  it('should calculate join student number when there are no join students', function(done) {
       assert.equal(studentJoinNumber(data2), 0);
+      done();
   });
-  it('should generate table column when there are joined students and is signed', function() {
+
+  it('should not calculate join student number with input error', function(done) {
+      assert.equal(studentJoinNumber(data_error), 0);
+      done();
+  });
+
+  it('should generate table column when there are joined students and is signed', function(done) {
       assert.equal(columnInQuestionTable(data1), result1);
+      done();
   });
-  it('should generate table column when there are no joined students and is proposed', function() {
+
+  it('should generate table column when there are no joined students and is proposed', function(done) {
       assert.equal(columnInQuestionTable(data2), result2);
+      done();
   });
-  it('should generate table column when there are joined students and is proposed', function() {
+
+  it('should generate table column when there are joined students and is proposed', function(done) {
       assert.equal(columnInQuestionTable(data3), result3);
+      done();
   });
-  it('should generate table column when there are no joined students and is signed', function() {
+
+  it('should generate table column when there are no joined students and is signed', function(done) {
       assert.equal(columnInQuestionTable(data4), result4);
+      done();
   });
+
+  it('should not generate table column with input error', function(done) {
+      assert.equal(columnInQuestionTable(data_error), "");
+      done();
+  });
+
 });

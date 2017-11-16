@@ -39,7 +39,7 @@ function getLoginInfo(){
 		dataType:"json",
 		success: function(data) {
 			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
-			else openToast(data.MESSAGE);
+			else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -64,7 +64,7 @@ function getStudentsClasses(){
 					insertItemInClassList(item);
 					_selectedClassId[i]=item.id;
 				});
-			}else openToast(data.ERROR);
+			}else showError(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -88,7 +88,7 @@ function getAllClasses(selectedClassId){
 				$.each(data.class_info,function(i,item){
 					insertItemInAddClassForm(selectedClassId, item);
 				});
-			}else openToast(data.ERROR);
+			}else showError(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -107,7 +107,8 @@ function addClassForStudent(){
 		data:$('#dialog .addClassForm form').serializeForm(),
 		dataType:"json",
 		success: function(data) {
-			openToast(data.MESSAGE);
+			if(!data.ERROR) showInfo(data.MESSAGE);
+			else showError(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
