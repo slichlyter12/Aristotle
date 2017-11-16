@@ -29,9 +29,8 @@
 				<div class="twelve columns">
 					<h4>Manage Classes</h4>			<!--page title-->
 					<div class="user">				<!--user info-->
-						<span>Logged in as: </span> <!-- should get this from the session-->
-						<button id="logout" onclick="logout()">Logout</button> <!--action:logout-->
-						<!--<span>config</span>-->
+						<img onclick="logout()" src="images/svg/logout.svg" /> <!--action:logout-->
+						<span id="logout_name" style="float:right">XXX</span>
 					</div>
 				</div>
 			</div>
@@ -63,10 +62,11 @@
 					<div class="row">
 						<div class="six columns">
 							<label for="classCodeInput">Class Code and Class Name</label>
+							<input name="CLASSID" type="hidden"/>
 							<input name="NAME" type="text" id="classCodeInput" placeholder="e.g. CS561 Software Engineering Methods" required/><span></span>
 							<label>Add Teaching Assistant</label>
 							<p>To add multiple separate by spaces ie. joe2 smart3 kim4</p>
-							<input name="TAS" type="text" placeholder="ONID username(s)"><span></span>
+							<input name="TAS" type="text" placeholder="ONID username(s)" required/><span></span>
 						</div>
 					</div>
 					<div class="row .checkBox">
@@ -75,7 +75,7 @@
 							<span class="cbLabel">Add After Create</span>
 						</label>-->
 						<div class="twelve columns">
-							<button class="submitBtn button-primary" type="button" value="Add" onclick="createCourse();"/>	<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
+							<input name="SubmitButton" class="submitBtn button-primary" type="button" value="Submit" onclick="createCourse();"/>	<!--action:createNewClass & selectClass & getClassList & getSelectedClass-->
 						</div>
 					</div>
 				</form>
