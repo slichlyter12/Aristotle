@@ -42,6 +42,7 @@
 		}
 
 		//	DELETE
+		//	questions.php/{question_id}
 		private static function deleteQuestion($request_data)
 		{
 			$data = array();
@@ -59,9 +60,7 @@
 				}
 			}
 
-			// parse_str($parts['query'], $query);
-			// echo $query['email'];
-			// Can not get question_id from font page, exit!
+			// Invalid parameter, no question_id
 			if(!isset($question_id)){
 				$data['code'] = 400;
 				$data['message'] = "Invalid Parameter";
