@@ -30,8 +30,8 @@ var data4 = {"id":59,"class_id":1,"stdnt_first_name":"Tyrion","stdnt_last_name":
 var data_error = {};
 
 var result1 = '<tr id="question_1"><td><a href="ta_question.html?question_id=1">test</a></td><td>Jack Chan</td><td>2017-10-05 18:30:25</td><td>Teng Li</td><td><span class="memberConut">2</span></td><td></td></tr>';
-var result2 = '<tr id="question_47"><td><a href="ta_question.html?question_id=47">TEST</a></td><td>Tyrion Lannister</td><td>2017-10-14 23:25:00</td><td>proposed</td><td><span class="memberConut">0</span></td><td><span class="tableAddition"></span></td></tr>';
-var result3 = '<tr id="question_48"><td><a href="ta_question.html?question_id=48">dsadsadsadsa</a></td><td>Tyrion Lannister</td><td>2017-10-14 23:35:17</td><td>proposed</td><td><span class="memberConut">1</span></td><td><span class="tableAddition"></span></td></tr>';
+var result2 = '<tr id="question_47"><td><a href="ta_question.html?question_id=47">TEST</a></td><td>Tyrion Lannister</td><td>2017-10-14 23:25:00</td><td>proposed</td><td><span class="memberConut">0</span></td><td><span class="tableAssign"></span></td></tr>';
+var result3 = '<tr id="question_48"><td><a href="ta_question.html?question_id=48">dsadsadsadsa</a></td><td>Tyrion Lannister</td><td>2017-10-14 23:35:17</td><td>proposed</td><td><span class="memberConut">1</span></td><td><span class="tableAssign"></span></td></tr>';
 var result4 = '<tr id="question_59"><td><a href="ta_question.html?question_id=59">Title_Question</a></td><td>Tyrion Lannister</td><td>2017-10-16 15:16:12</td><td>Teng Li</td><td><span class="memberConut">0</span></td><td></td></tr>';
 
 describe('ta_class.js', function() {
