@@ -69,19 +69,25 @@
 			}
 
 			//	sql delete operation
-			$sql = "DELETE FROM t_question q WHERE q.id = ? ";
+			if($mysqli->connect_error){
+				$mysqli=null;
+				$data['code'] = 400;
+				$data['message'] = "SQL error";
+				$data['data'] = "Failed to connect SQL Database";
+				return $data;
+			}
+			$sql = "DELETE FROM t_question_concern WHERE question_id = ? ";
 			$stmt = $mysqli->prepare($sql);
 			if(!$stmt) {
 				$data['code'] = 400;
 				$data['message'] = "SQL error";
-				$data['data'] = "Failed to prepare SQL";
+				$data['data'] = "Failed to prepare SQL: " . $mysqli->error;
 				return $data;
 			}
 			$stmt->bind_param("i", $question_id);
-
 			if($stmt->execute()) {
 
-				$sql = "DELETE FROM t_question_concern q WHERE q.question_id = ? ";
+				$sql = "DELETE FROM t_question WHERE id = ? ";
 				$stmt = $mysqli->prepare($sql);
 
 				$stmt->bind_param("i", $question_id);
@@ -89,13 +95,13 @@
 				if($stmt->execute()) {
 					$data['code'] = 200;
 					$data['message'] = "OK";
-					$data['data'] = "Success"  . ' Question id = ' . $question_id;
+					$data['data'] = "Success, "  . ' Question id = ' . $question_id;
 					return $data;
 				}
 				else {
 					$data['code'] = 400;
 					$data['message'] = "SQL error";
-					$data['data'] = "Failed to Execute DELETE question concern SQL";
+					$data['data'] = "Failed to Execute DELETE question concern SQL " . $mysqli->error;
 					return $data;
 				}
 
@@ -103,10 +109,9 @@
 			else {
 				$data['code'] = 400;
 				$data['message'] = "SQL error";
-				$data['data'] = "Failed to Execute DELETE question SQL";
+				$data['data'] = "Failed to Execute DELETE question SQL: " . $mysqli->error;
 				return $data;
 			}
-
 		}
 	}
 
