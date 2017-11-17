@@ -62,27 +62,21 @@
 
 			// Invalid parameter, no question_id
 			if(!isset($question_id)){
-				$data['code'] = 400;
-				$data['message'] = "Invalid Parameter";
-				$data['data'] = "Failed to get question_id!";
-				return $data;
+ 				$content = "Failed to get question_id!";
+				return self::generateData(400, "Invalid Parameter", $content);
 			}
 
 			//	sql delete operation
 			if($mysqli->connect_error){
 				$mysqli=null;
-				$data['code'] = 400;
-				$data['message'] = "SQL error";
-				$data['data'] = "Failed to connect SQL Database";
-				return $data;
+				$content = "SQL connection Error";
+				return self::generateData(400, "SQL error", $content);
 			}
 			$sql = "DELETE FROM t_question_concern WHERE question_id = ? ";
 			$stmt = $mysqli->prepare($sql);
 			if(!$stmt) {
-				$data['code'] = 400;
-				$data['message'] = "SQL error";
-				$data['data'] = "Failed to prepare SQL: " . $mysqli->error;
-				return $data;
+				$content = "Failed to prepare SQL: " . $mysqli->error;
+				return self::generateData(400, "SQL error", $content);
 			}
 			$stmt->bind_param("i", $question_id);
 			if($stmt->execute()) {
@@ -93,25 +87,26 @@
 				$stmt->bind_param("i", $question_id);
 
 				if($stmt->execute()) {
-					$data['code'] = 200;
-					$data['message'] = "OK";
-					$data['data'] = "Success, "  . ' Question id = ' . $question_id;
-					return $data;
+					$content = "Success, "  . ' Question id = ' . $question_id;
+					return self::generateData(200, "OK", $content);
 				}
 				else {
-					$data['code'] = 400;
-					$data['message'] = "SQL error";
-					$data['data'] = "Failed to Execute DELETE question concern SQL " . $mysqli->error;
-					return $data;
+					$content = "Failed to Execute DELETE question concern SQL " . $mysqli->error;
+					return self::generateData(400, "SQL error", $content);
 				}
 
 			}
 			else {
-				$data['code'] = 400;
-				$data['message'] = "SQL error";
-				$data['data'] = "Failed to Execute DELETE question SQL: " . $mysqli->error;
-				return $data;
+				$content = "Failed to Execute DELETE question SQL: " . $mysqli->error;
+				return self::generateData(400, "SQL error", $content);
 			}
+		}
+		//	generate the return data array
+		private static function generateData($code, $message, $content) {
+			$data['code'] = $code;
+			$data['message'] = $message;
+			$data['content'] = Array("message"=>$content);
+			return $data;
 		}
 	}
 
@@ -125,7 +120,7 @@
 		public static function sendResponse($data) {
 		   	header(self::HTTP_VERSION . " " . $data['code'] . " " . $data['message']);
 			header("Content-Type: application/json");
-			echo self::encodeJson($data['data']);
+			echo self::encodeJson($data['content']);
 			return;
 	   	}
 
