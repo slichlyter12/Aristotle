@@ -28,8 +28,12 @@
 		$result=$mysqli->query($sql);
 		if($result) {
 			$isJoinedIds=array();
-			while($row = $result->fetch_assoc()) array_push($isJoinedIds, $row['question_id']);
-		}else error($mysqli, 1, 'Cannot get concern information!', NULL);
+			$i=0;
+			while($row = $result->fetch_assoc()){
+				$isJoinedIds[$i] = $row['question_id'];
+				$i++;
+			}
+		}else error($mysqli, 1, 'Query error!', NULL);
 		return $isJoinedIds;
 	}
 	
@@ -61,6 +65,8 @@
 					if($isJoinedIds!=NULL){
 						if(in_array($row['id'],$isJoinedIds)) $questions[$i]['ISJOIN'] = 1;
 						else $questions[$i]['ISJOIN'] = 0;
+					}else {
+						$questions[$i]['ISJOIN'] = 0;
 					}
 				}
 
