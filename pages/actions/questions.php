@@ -2,7 +2,6 @@
 	require_once ('../db_config/conn2.php');
 	include_once ('check_user.php');
 
-
 	/*
 	*	Questions Request Class
 	*/
@@ -10,40 +9,40 @@
 	{
 		private static $method_type = array('get', 'post', 'put', 'patch', 'delete');
 
-		public static function getRequest() {
+		public static function getRequest($mysqli) {
 			//	request method
 	        $method = strtolower($_SERVER['REQUEST_METHOD']);
 	        if (in_array($method, self::$method_type)) {
 		        //	call request method
 	            $data_name = $method . 'Question';
-	            return self::$data_name($_REQUEST);
+	            return self::$data_name($_REQUEST, $mysqli);
 	        }
 	        return false;
 		}
 
 		//	GET
-		private static function getQuestion($request_data)
+		private static function getQuestion($request_data, $mysqli)
 		{
 		}
 
 		//	POST
-		private static function postQuestion($request_data)
+		private static function postQuestion($request_data, $mysqli)
 		{
 		}
 
 		//	PUT
-		private static function putQuestion($request_data)
+		private static function putQuestion($request_data, $mysqli)
 		{
 		}
 
 		//	PATCH
-		private static function patchQuestion($request_data)
+		private static function patchQuestion($request_data, $mysqli)
 		{
 		}
 
 		//	DELETE
 		//	questions.php/{question_id}
-		private static function deleteQuestion($request_data)
+		private static function deleteQuestion($request_data, $mysqli)
 		{
 			$data = array();
 
@@ -58,6 +57,7 @@
 				else {
 					$question_id = substr($url, $index, strlen($url)-$index);
 				}
+				$question_id = intval($question_id);
 			}
 
 			// Invalid parameter, no question_id
@@ -67,10 +67,46 @@
 				$data['data'] = "Failed to get question_id!";
 				return $data;
 			}
-			$data['code'] = 200;
-			$data['message'] = "OK";
-			$data['data'] = "Success"  . ' Question id = ' . $question_id;
-			return $data;
+
+			//	sql delete operation
+			$sql = "DELETE FROM t_question q WHERE q.id = ? ";
+			$stmt = $mysqli->prepare($sql);
+			if(!$stmt) {
+				$data['code'] = 400;
+				$data['message'] = "SQL error";
+				$data['data'] = "Failed to prepare SQL";
+				return $data;
+			}
+			$stmt->bind_param("i", $question_id);
+
+			if($stmt->execute()) {
+
+				$sql = "DELETE FROM t_question_concern q WHERE q.question_id = ? ";
+				$stmt = $mysqli->prepare($sql);
+
+				$stmt->bind_param("i", $question_id);
+
+				if($stmt->execute()) {
+					$data['code'] = 200;
+					$data['message'] = "OK";
+					$data['data'] = "Success"  . ' Question id = ' . $question_id;
+					return $data;
+				}
+				else {
+					$data['code'] = 400;
+					$data['message'] = "SQL error";
+					$data['data'] = "Failed to Execute DELETE question concern SQL";
+					return $data;
+				}
+
+			}
+			else {
+				$data['code'] = 400;
+				$data['message'] = "SQL error";
+				$data['data'] = "Failed to Execute DELETE question SQL";
+				return $data;
+			}
+
 		}
 	}
 
@@ -85,6 +121,7 @@
 		   	header(self::HTTP_VERSION . " " . $data['code'] . " " . $data['message']);
 			header("Content-Type: application/json");
 			echo self::encodeJson($data['data']);
+			return;
 	   	}
 
 		private static function encodeJson($responseData) {
@@ -92,7 +129,7 @@
 		}
 	}
 
-	$data = QuestionRequest::getRequest();
+	$data = QuestionRequest::getRequest($mysqli);
 
 	QuestionResponse::sendResponse($data);
 
@@ -131,7 +168,7 @@
 	// if(!isset($sql)){
 	// 	exit(json_encode(array('ERROR'=>'Failed to Prepare sql!')));
 	// }
-
+    //
 	// $stmt = $mysqli->prepare($sql);
 	// $stmt->bind_param("issi", $user_id, $firstname, $lastname, $question_id);
 	// $stmt->execute();
