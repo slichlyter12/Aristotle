@@ -29,9 +29,9 @@ function insertColumnInQuestionTable(data){
 		.append('<td>'+data.NAME+'</td>').append('<td>'+data.CREATE_TIME+'</td>')
 		.append('<td>'+data.STATUS+'</td>')
 		.append('<td><span class="memberConut">'+data.NUM_JOIN+'</span></td>');
-	if(data.ISMINE=='0'&&data.ISJOIN=='0')
+	if(!data.ISMINE && !data.ISJOIN)
 		$obj.append('<td><span class="tableAddition" onclick="joinInAQuestion('+data.ID+');"></span></td>');
-	else if(data.ISMINE=='1')
+	else if(!data.ISMINE)
 		$obj.append('<td><span></span></td>');
 	else
 		$obj.append('<td><span class="tableCancel" onclick="quitFromAQuestion('+data.ID+');"></span></td>');
