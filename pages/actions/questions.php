@@ -1,6 +1,6 @@
 <?php
 	require_once ('../db_config/conn2.php');
-	include_once ('check_user.php');
+	include_once ("../models/User.class.php");
 
 	/*
 	*	Questions Request Class
@@ -16,7 +16,7 @@
 		        //	call request method
 	            $data_name = $method . 'Question';
 	            return self::$data_name($_REQUEST, $mysqli);
-	        }
+			}
 	        return false;
 		}
 
@@ -44,9 +44,52 @@
 		//	questions.php/{question_id}
 		private static function deleteQuestion($request_data, $mysqli)
 		{
-			$data = array();
 
 			$url = $_SERVER['REQUEST_URI'];
+			$question_id = self::getQuestionID($url);
+
+			// Invalid parameter, no question_id
+			if(!isset($question_id)){
+ 				$content = "Failed to get question_id!";
+				return self::generateData(400, "Invalid Parameter", $content);
+			}
+
+			//	check user role is TA
+			if(!(self::checkUserRole(1))) {
+				$content = "User is not TA";
+				return self::generateData(400, "Invalid User", $content);
+			}
+
+			//	sql delete operation
+			// if($mysqli->connect_error){
+			// 	$mysqli=null;
+			// 	$content = "SQL connection Error";
+			// 	return self::generateData(400, "SQL error", $content);
+			// }
+			$sql = "DELETE FROM t_question_concern WHERE question_id = ? ";
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("i", $question_id);
+			if($stmt->execute()) {
+
+				$sql = "DELETE FROM t_question WHERE id = ? ";
+				$stmt = $mysqli->prepare($sql);
+				$stmt->bind_param("i", $question_id);
+				if($stmt->execute()) {
+					$content = "Success, "  . ' Question id = ' . $question_id;
+					return self::generateData(200, "OK", $content);
+				}
+				else {
+					$content = "Failed to Execute DELETE question concern SQL " . $mysqli->error;
+					return self::generateData(400, "SQL error", $content);
+				}
+			}
+			else {
+				$content = "Failed to Execute DELETE question SQL: " . $mysqli->error;
+				return self::generateData(400, "SQL error", $content);
+			}
+		}
+
+		private static function getQuestionID($url) {
 			$index = strpos($url, 'questions.php') + 14;
 			if($index < strlen($url)) {
 
@@ -57,56 +100,57 @@
 				else {
 					$question_id = substr($url, $index, strlen($url)-$index);
 				}
-				$question_id = intval($question_id);
-			}
-
-			// Invalid parameter, no question_id
-			if(!isset($question_id)){
- 				$content = "Failed to get question_id!";
-				return self::generateData(400, "Invalid Parameter", $content);
-			}
-
-			//	sql delete operation
-			if($mysqli->connect_error){
-				$mysqli=null;
-				$content = "SQL connection Error";
-				return self::generateData(400, "SQL error", $content);
-			}
-			$sql = "DELETE FROM t_question_concern WHERE question_id = ? ";
-			$stmt = $mysqli->prepare($sql);
-			if(!$stmt) {
-				$content = "Failed to prepare SQL: " . $mysqli->error;
-				return self::generateData(400, "SQL error", $content);
-			}
-			$stmt->bind_param("i", $question_id);
-			if($stmt->execute()) {
-
-				$sql = "DELETE FROM t_question WHERE id = ? ";
-				$stmt = $mysqli->prepare($sql);
-
-				$stmt->bind_param("i", $question_id);
-
-				if($stmt->execute()) {
-					$content = "Success, "  . ' Question id = ' . $question_id;
-					return self::generateData(200, "OK", $content);
-				}
-				else {
-					$content = "Failed to Execute DELETE question concern SQL " . $mysqli->error;
-					return self::generateData(400, "SQL error", $content);
-				}
-
+				return intval($question_id);
 			}
 			else {
-				$content = "Failed to Execute DELETE question SQL: " . $mysqli->error;
-				return self::generateData(400, "SQL error", $content);
+				return null;
 			}
 		}
+
 		//	generate the return data array
 		private static function generateData($code, $message, $content) {
+			$data = array();
 			$data['code'] = $code;
 			$data['message'] = $message;
-			$data['content'] = Array("message"=>$content);
+			$data['content'] = array("message"=>$content);
 			return $data;
+		}
+
+		// parpare Json object
+		private static function checkUserJson($result){
+			while($row = $result->fetch_assoc()){
+				//user_info
+				$user_info['user_info'] = new User($row['id'], $row['osu_id'], $row['last_name'], $row['first_name'], $row['role']);
+			}
+			return $user_info;
+		}
+
+		//	check user role
+		private static function checkUserRole($role) {
+			global $mysqli;
+
+			$onid = $_SESSION['onidid'];
+			if(!isset($onid)){
+				return false;
+			}
+
+			$sql = "SELECT * FROM t_user WHERE osu_id = ? ";
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("s", $onid);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			if(isset($result)) {
+				$user_info = self::checkUserJson($result);
+				if($user_info['user_info']->role == $role) {
+					return true;
+				}
+				else {
+					return false;
+				}
+			}
+			else {
+				return false;
+			}
 		}
 	}
 
@@ -115,10 +159,8 @@
 	*/
 	class QuestionResponse {
 
-		const HTTP_VERSION = "HTTP/1.1";
-
 		public static function sendResponse($data) {
-		   	header(self::HTTP_VERSION . " " . $data['code'] . " " . $data['message']);
+		   	header("HTTP/1.1" . " " . $data['code'] . " " . $data['message']);
 			header("Content-Type: application/json");
 			echo self::encodeJson($data['content']);
 			return;
@@ -129,8 +171,8 @@
 		}
 	}
 
-	$data = QuestionRequest::getRequest($mysqli);
 
+	$data = QuestionRequest::getRequest($mysqli);
 	QuestionResponse::sendResponse($data);
 
 	// $onid = $_SESSION['onidid'];
@@ -141,7 +183,7 @@
 	// 	exit(json_encode(array('ERROR'=>'Cannot get user information!')));
 	// }
 
-	//check the user is ta or not, only ta can assign question, role of ta is 1
+	// check the user is ta or not, only ta can assign question, role of ta is 1
 	// $role = 1;
     //
 	// $user_info = checkUserByQuestion($onid, $question_id, $role);
