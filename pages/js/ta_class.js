@@ -99,6 +99,7 @@ function updateUserName(name) {
         data: {"question_id": question_id},
 		dataType:"json",
 		success: function(data) {
+            showInfo(data.SUCCESS);
             callback(data);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
