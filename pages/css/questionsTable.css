@@ -5,8 +5,6 @@
 #main .data table .memberConut:before {content:url(../images/svg/group_fill_s.svg);}
 #main .data table .tableAddition{width:24px;display:block;margin-top:6px;cursor:pointer;}
 #main .data table .tableAddition:after {content:url(../images/svg/addition_s.svg);}
-#main .data table .tableAssign{width:24px;display:block;margin-top:6px;cursor:pointer;}
-#main .data table .tableAssign:after {content:url(../images/svg/assign.svg);}
 #main .data table .tableCancel {width:24px;display:block;margin-top:6px;cursor:pointer;}
 #main .data table .tableCancel:after {content:url(../images/svg/minus_s.svg);}
 #main .data table .tableRemove {display:none;margin:-12px 0 0 12px;cursor:pointer;position:absolute;right:10px;}
