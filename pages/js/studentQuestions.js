@@ -1,11 +1,11 @@
 /*THE ACTIONS INTERACTED WITH BACKEND*/
 //get get parameter
-function getGetParameter(name) { 
-	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-	var r = window.location.search.substr(1).match(reg); 
-	if (r != null) return unescape(r[2]); 
-	return null; 
-} 
+function getGetParameter(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]);
+	return null;
+}
 
 function showQuestionDetail(data){		//::TODO
 	$('.questionDetail h5').html(data[2]);
@@ -39,10 +39,10 @@ function insertColumnInQuestionTable(data){
 
 function refreshAndMoveToAQuestion(id){
 	var screenOffset = $('#main .data table tbody tr[questionId="'+id+'"]').offset().top - $(document).scrollTop();
-	getQuestionList(); 
-	$('html, body').animate({  
-        	scrollTop: $('#main .data table tbody tr[questionId="'+id+'"]').offset().top - screenOffset 
-       	}, 700); 
+	getQuestionList();
+	$('html, body').animate({
+        	scrollTop: $('#main .data table tbody tr[questionId="'+id+'"]').offset().top - screenOffset
+       	}, 700);
 };
 
 function showClassList(data){
@@ -132,7 +132,7 @@ function getQuestionDetail(questionId){
 		success: function(data) {
 			if(data.ERROR == 0){
 				showQuestionDetail(data.DATA.QUESTION);
-			}else showError(data.MESSAGE);		
+			}else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -164,28 +164,31 @@ function createNewQuestion(){
 
 //action:JoinInQuestion
 function joinInAQuestion(id){
-	classid = getGetParameter('classId');
-	$str = '{"id":'+id+'}';
-	$.ajax({
-		type: "post",
-		url:"actions/joinInQuestion.php?classid="+classid,
-		async: false,
-		data: $str,
-		dataType:'json',
-		success: function(data) {
-			if(data.ERROR == 0) {
-				showInfo(data.MESSAGE);
-				refreshAndMoveToAQuestion(id);
-			}
-			else if(data.MESSAGE!=null) showError(data.MESSAGE);
 
-		},
-		error: function(XMLHttpRequest, textStatus, errorThrown) {
-			alert(XMLHttpRequest.status);
-			alert(XMLHttpRequest.readyState);
-			alert(textStatus);
-		}
-	});
+	$.formBox.openDialog('addCommentForm');
+
+	// classid = getGetParameter('classId');
+	// $str = '{"id":'+id+'}';
+	// $.ajax({
+	// 	type: "post",
+	// 	url:"actions/joinInQuestion.php?classid="+classid,
+	// 	async: false,
+	// 	data: $str,
+	// 	dataType:'json',
+	// 	success: function(data) {
+	// 		if(data.ERROR == 0) {
+	// 			showInfo(data.MESSAGE);
+	// 			refreshAndMoveToAQuestion(id);
+	// 		}
+	// 		else if(data.MESSAGE!=null) showError(data.MESSAGE);
+    //
+	// 	},
+	// 	error: function(XMLHttpRequest, textStatus, errorThrown) {
+	// 		alert(XMLHttpRequest.status);
+	// 		alert(XMLHttpRequest.readyState);
+	// 		alert(textStatus);
+	// 	}
+	// });
 };
 
 //action:QuitFromQuestion
@@ -222,7 +225,7 @@ $('document').ready(function(){
 		//time picker plugin
 		$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
 	});
-	
+
 	getStudentsClasses();
 	//Show questions
 	getQuestionList();
