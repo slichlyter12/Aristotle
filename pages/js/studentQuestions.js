@@ -230,6 +230,7 @@ function setInputDisable(value){
 function getTagList(){
 	var class_id = getGetParameter('classId');
 	var col = 3;
+	$('#dialog .tagSelect .row').html('');
 	$.ajax({
 		type: "get",
 		url:"actions/show_tags.php?class_id="+class_id,
@@ -294,6 +295,7 @@ $('document').ready(function(){
 	$('#dialog .questionForm .submitBtn').click(function(){
 		if($('#dialog .questionForm form').checkForm()==true){
 			createNewQuestion();
+			getTagList();
 			$('#dialog .questionForm .close').trigger('click');
 			getQuestionList();
 		}

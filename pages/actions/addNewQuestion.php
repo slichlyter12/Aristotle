@@ -50,7 +50,9 @@
 	if ($tag == 0){
 		if($questionData['newTag']==''|| $questionData['newTag']==NULL) 
 			complete($mysqli, 1, 'Question newTag cannot be empty!', NULL);
-		$tag = $questionData['newTag'];
+		$newTag = $questionData['newTag'];
+	}else {
+		$newTag = $tag;
 	}
 	
 	//for preferred time
@@ -81,13 +83,15 @@
 		}else complete($mysqli, 1, 'Current class is unavailable!', NULL);
 	}
 
-	$completeMsg = $classFunctions->insertTag($classId, $tag);
-	if(isset($completeMsg) && $completeMsg->isError == 1){
-		complete($mysqli, $completeMsg->isError, $completeMsg->msg, $completeMsg->data);
+	if ($tag == 0){
+		$completeMsg = $classFunctions->insertTag($classId, $newTag);
+		if(isset($completeMsg) && $completeMsg->isError == 1){
+			complete($mysqli, $completeMsg->isError, $completeMsg->msg, $completeMsg->data);
+		}
 	}
 
 	//Add new question
-	$sql = 'INSERT INTO t_question (class_id, stdnt_first_name, stdnt_last_name, stdnt_user_id, created_time, title, description, preferred_time, course_keywords, num_liked) VALUES ('.$classId.', "'.$stdntFirstName.'", "'.$stdntLastName.'", '.$userId.', "'.$createdTime.'", "'.$title.'", "'.$description.'", "'.$preferredTime.'", "'.$tag.'", 0)';
+	$sql = 'INSERT INTO t_question (class_id, stdnt_first_name, stdnt_last_name, stdnt_user_id, created_time, title, description, preferred_time, course_keywords, num_liked) VALUES ('.$classId.', "'.$stdntFirstName.'", "'.$stdntLastName.'", '.$userId.', "'.$createdTime.'", "'.$title.'", "'.$description.'", "'.$preferredTime.'", "'.$newTag.'", 0)';
 	$result = $mysqli->query($sql);
 	if($result) complete($mysqli, 0, 'Create succeed!', NULL);
 	else complete($mysqli, 1, 'Create failed!', NULL);
