@@ -75,7 +75,6 @@
 					$_SESSION['role'] = 'admin';
 				} else {
 					echo "<h3 class='error'>Role assign failed</h3>";
-					exit(1);
 				}
 
 				$return = false;
@@ -98,11 +97,11 @@
 		echo "<script>sessionStorage['user_name'] = '" . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] . "';</script>";
 
 		$firstVisit = checkFirstTime($mysqli);
+		$redirectURL = "";
 		if ($firstVisit == true) {
 			
 			// redirect to select role
 			$redirectURL = "selectrole.php";
-			echo "<script>window.location.href='" . $redirectURL . "'</script>";
 		
 		} else if ($firstVisit == false) {
 
@@ -114,11 +113,14 @@
 			} else if ($_SESSION['role'] == "ta") {
 				$redirectURL = "ta.html";
 			} else {
-				$redirectURL = "welcomePage.html";
+				$redirectURL = "index.html";
 			}
-			
-			echo "<script>window.location.href='" . $redirectURL . "'</script>";
+		} else {
+			echo "Unresolved first visit";
 		}
+		
+		echo "<script>window.location.href='" . $redirectURL . "'</script>";
+
 	} else {
 		echo "<h3 class='error'>Not authenticated</h3>";
 	}
