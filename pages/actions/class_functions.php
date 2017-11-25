@@ -65,6 +65,18 @@
 			return new CompleteMsg(0, "Create tags success!", NULL);
 		}
 
+		public function insertTag($class_id, $tag){
+			global $mysqli;
+			$sql = 'INSERT INTO t_keywords (class_id, value, comment) VALUES ('.$class_id.', "'.$tag.'", "'.$tag.'")';
+		
+			$result = $mysqli->query($sql);
+			if(!$result) {
+					return new CompleteMsg(1, 'Insert tag failed!', NULL);
+			}
+ 
+			return new CompleteMsg(0, "Create tag success!", NULL);
+		}
+
 		public function updateTags($class_id, $tags){
 			global $mysqli;
 			//Reset the selected classes
@@ -178,7 +190,8 @@
 		public function selectClasses4Students($userId, $classesData, $role){
 			global $mysqli;
 			//Reset the selected classes
-			
+			//Set auto commit to false
+			$mysqli->autocommit(false);
 			$sql = 'DELETE FROM r_user_class WHERE user_id = '.$userId.' AND role='. $role;
 			$result = $mysqli->query($sql);
 			if(!$result) {
@@ -205,6 +218,9 @@
 					return new CompleteMsg(1, 'Add class failed!', NULL);
 				}
 			}
+
+			$mysqli->commit();
+			$mysqli->autocommit(true);
 
 			return new CompleteMsg(0,'Class information updates success!', NULL);
 		}

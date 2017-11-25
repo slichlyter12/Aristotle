@@ -2,6 +2,9 @@
 	
 	$dir = dirname(__FILE__);
 	require_once ($dir."/"."../db_config/conn2.php");
+	require_once ($dir."/"."class_functions.php");
+
+	$classFunctions = new ClassFunctions();
 	
 	function complete($mysqli, $isError, $msg, $data){
 		$return = array('ERROR'=> $isError, 'MESSAGE'=>$msg, 'DATA'=>$data);
@@ -43,7 +46,13 @@
 	//for tag
 	if($questionData['tag']==''|| $questionData['tag']==NULL) complete($mysqli, 1, 'Question tag cannot be empty!', NULL);
 	$tag = $questionData['tag'];
-
+	
+	if ($tag == 0){
+		if($questionData['newTag']==''|| $questionData['newTag']==NULL) 
+			complete($mysqli, 1, 'Question newTag cannot be empty!', NULL);
+		$tag = $questionData['newTag'];
+	}
+	
 	//for preferred time
 	if($questionData['AVAILABLE_TIME']=='now')
 		$preferredTime  = date('Y-m-d H:i:s', time());
@@ -71,6 +80,12 @@
 			$className = $row['name'];
 		}else complete($mysqli, 1, 'Current class is unavailable!', NULL);
 	}
+
+	$completeMsg = $classFunctions->insertTag($classId, $tag);
+	if(isset($completeMsg) && $completeMsg->isError == 1){
+		complete($mysqli, $completeMsg->isError, $completeMsg->msg, $completeMsg->data);
+	}
+
 	//Add new question
 	$sql = 'INSERT INTO t_question (class_id, stdnt_first_name, stdnt_last_name, stdnt_user_id, created_time, title, description, preferred_time, course_keywords, num_liked) VALUES ('.$classId.', "'.$stdntFirstName.'", "'.$stdntLastName.'", '.$userId.', "'.$createdTime.'", "'.$title.'", "'.$description.'", "'.$preferredTime.'", "'.$tag.'", 0)';
 	$result = $mysqli->query($sql);

@@ -29,7 +29,7 @@ function createCourse () {
 
 function displayCurrentCourses(classId) {
 	$.ajax({
-		type: "get",
+		type: "post",
 		url:"actions/edit_Class.php?class_id="+classId,
 		async:false,
 		dataType:"json",
@@ -48,6 +48,7 @@ function displayCurrentCourses(classId) {
 			alert(textStatus);
 		}
 	});
+
 }
 
 function updateUserName(name) {
