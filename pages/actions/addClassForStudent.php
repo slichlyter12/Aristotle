@@ -64,9 +64,13 @@
 		complete($mysqli, $completeMsg->isError, $completeMsg->msg, $completeMsg->data);
 	}
 
+	//Set auto commit to false
+	$mysqli->autocommit(false);
 	//Reset the selected classes	
 	$completeMsg = $classFunctions->selectClasses4Students($userId, $classesData, 0);
 
+	$mysqli->commit();
+	$mysqli->autocommit(true);
 	complete($mysqli, $completeMsg->isError,$completeMsg->msg, $completeMsg->data);
 
 ?>

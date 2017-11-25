@@ -20,11 +20,8 @@
 
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
-            <!--directory suffix=".php">../pages/actions/</directory-->
-	            <file>../pages/actions/check_user.php</file>
-	            <file>../pages/actions/assign_question.php</file>
-	            <file>../pages/actions/question_list.php</file>
-	            <file>../pages/actions/query_class.php</file>
+	            <file>../pages/actions/user_functions.php</file>
+	            <file>../pages/actions/class_functions.php</file>
             <directory suffix=".php">../pages/models/</directory>
         </whitelist>
     </filter>

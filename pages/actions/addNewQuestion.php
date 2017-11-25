@@ -1,5 +1,7 @@
 <?php
-	require('../db_config/conn2.php');
+	
+	$dir = dirname(__FILE__);
+	require_once ($dir."/"."../db_config/conn2.php");
 	
 	function complete($mysqli, $isError, $msg, $data){
 		$return = array('ERROR'=> $isError, 'MESSAGE'=>$msg, 'DATA'=>$data);
@@ -8,7 +10,7 @@
 	}
 
 	$questionData = json_decode(file_get_contents("php://input"), true);
-	
+
 	//Get user_id(ONID) from session
 	$osuId = $_SESSION['onidid'];
 	$classId = $_REQUEST['classid'];
@@ -37,6 +39,11 @@
 	//for description
 	if($questionData['DESCRIPTION']==''|| $questionData['DESCRIPTION']==NULL) complete($mysqli, 1, 'Question description cannot be empty!', NULL);
 	$description = $questionData['DESCRIPTION'];
+
+	//for tag
+	if($questionData['tag']==''|| $questionData['tag']==NULL) complete($mysqli, 1, 'Question tag cannot be empty!', NULL);
+	$tag = $questionData['tag'];
+
 	//for preferred time
 	if($questionData['AVAILABLE_TIME']=='now')
 		$preferredTime  = date('Y-m-d H:i:s', time());
@@ -65,7 +72,7 @@
 		}else complete($mysqli, 1, 'Current class is unavailable!', NULL);
 	}
 	//Add new question
-	$sql = 'INSERT INTO t_question (class_id, stdnt_first_name, stdnt_last_name, stdnt_user_id, created_time, title, description, preferred_time, num_liked) VALUES ('.$classId.', "'.$stdntFirstName.'", "'.$stdntLastName.'", '.$userId.', "'.$createdTime.'", "'.$title.'", "'.$description.'", "'.$preferredTime.'", 0)';
+	$sql = 'INSERT INTO t_question (class_id, stdnt_first_name, stdnt_last_name, stdnt_user_id, created_time, title, description, preferred_time, course_keywords, num_liked) VALUES ('.$classId.', "'.$stdntFirstName.'", "'.$stdntLastName.'", '.$userId.', "'.$createdTime.'", "'.$title.'", "'.$description.'", "'.$preferredTime.'", "'.$tag.'", 0)';
 	$result = $mysqli->query($sql);
 	if($result) complete($mysqli, 0, 'Create succeed!', NULL);
 	else complete($mysqli, 1, 'Create failed!', NULL);

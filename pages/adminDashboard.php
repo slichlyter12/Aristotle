@@ -67,6 +67,11 @@
 							<label>Add Teaching Assistant</label>
 							<p>To add multiple separate by spaces ie. joe2 smart3 kim4</p>
 							<input name="TAS" type="text" placeholder="ONID username(s)" required/><span></span>
+
+							<label>Add Tag</label>
+							<p>To add multiple separate by spaces ie. homework quiz exam</p>
+							<input name="Tags" type="text" placeholder="Tag(s)" required/><span></span>
+
 						</div>
 					</div>
 					<div class="row .checkBox">

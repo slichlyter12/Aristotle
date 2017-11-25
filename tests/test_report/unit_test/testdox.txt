@@ -1,13 +1,26 @@
-action
- [x] Sql
- [x] Check user by question 
- [x] Assign question 
- [x] Question list 
- [x] Query class 
+classAction
+ [x] Insert class 
+ [x] Find tagsin class 
+ [x] Insert tags 
+ [x] Update tags 
+ [x] Insert ta 4 class 
+ [x] Check user 4 students 
+ [x] Delete classes 4 tas 
+ [x] Update classes 
+ [x] Select classes 4 students 
 
 model
  [x] Class 
  [x] Question 
  [x] Question concern 
  [x] User 
+ [x] Complete msg 
+ [x] Tag 
+
+userAction
+ [x] Sql
+ [x] Filter userby onids 
+ [x] Insert taby onids 
+ [x] Check user by class 
+ [x] Find tasin class 
 

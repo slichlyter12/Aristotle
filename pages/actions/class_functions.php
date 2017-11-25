@@ -1,6 +1,9 @@
 <?php
+
 	$dir = dirname(__FILE__);
 	require_once ($dir."/"."../db_config/conn2.php");
+	require_once ($dir."/"."../models/Class.class.php");
+	require_once ($dir."/"."../models/Tag.class.php");
 	require_once ($dir."/"."../models/CompleteMsg.class.php");
 
 	class ClassFunctions{
@@ -20,9 +23,67 @@
 			return new CompleteMsg(0, "Create class success!", $mysqli->insert_id);
 		}
 
+		public function findTagsinClass($class_id){
+			global $mysqli;
+			//Check is current user a Student or is the user exist
+			$sql = 'SELECT id, value, comment FROM t_keywords WHERE class_id = '.$class_id ;
+		
+			$result = $mysqli->query($sql);
+
+			if($result) {
+				$tags['tag_info'] = array();
+				$i = 0;
+				while($row = $result->fetch_assoc()){
+					$tags['tag_info'][$i] = new TagInfo($row['id'], $class_id, $row['value'], $row['comment']);
+					$i++;
+				}
+			}else {
+				//complete($mysqli, 1, 'Please sign up first!', NULL);
+				return new CompleteMsg(1, 'Find tags error!', NULL);
+			}
+
+			return new CompleteMsg(0, "Check tags success!", $tags);
+		}
+
+
+		public function insertTags($class_id, $tags){
+			global $mysqli;
+			$sql = 'INSERT INTO t_keywords (class_id, value, comment) VALUES ';
+
+			$i=1;
+			foreach ($tags as &$value) {
+				if($i > 1) 
+					$sql = $sql .',';
+				$sql = $sql .'('.$class_id.', '.$i.', "'.$value.'")';
+				$i++;
+			}
+			$result = $mysqli->query($sql);
+			if(!$result) {
+					return new CompleteMsg(1, 'Insert tags failed!', NULL);
+			}
+ 
+			return new CompleteMsg(0, "Create tags success!", NULL);
+		}
+
+		public function updateTags($class_id, $tags){
+			global $mysqli;
+			//Reset the selected classes
+			$sql = 'DELETE FROM t_keywords WHERE class_id = '.$class_id;
+
+			$result = $mysqli->query($sql);
+			if(!$result) {
+				return new CompleteMsg(1, 'Reset tags infomation failed!', NULL);
+			}
+
+			$this->insertTags($class_id, $tags);
+	
+			return new CompleteMsg(0,'Tags information updates success!', NULL);
+		}
+
+
 		public function insertTa4Class($tas, $classId, $onid, $dbType){
 			global $mysqli;
-			if(strcmp($dbType, "update")){
+			if(strcmp($dbType, "update") != 0){
 				$taName = '"'.trim($onid).'"';
 			}else{
 				$taName = '';
@@ -49,7 +110,7 @@
 					$osu_id = $row['osu_id'];
 					if($i > 0) 
 						$sql = $sql .',';
-					if(strcmp($osu_id, $onid)){
+					if(strcmp($osu_id, $onid) != 0){
 						$sql = $sql .'('.$id.', '.$classId.','. $role.')';
 					}else{
 							$sql = $sql .'('.$id.', '.$classId.', 2)';
@@ -117,8 +178,7 @@
 		public function selectClasses4Students($userId, $classesData, $role){
 			global $mysqli;
 			//Reset the selected classes
-			//Set auto commit to false
-			$mysqli->autocommit(false);
+			
 			$sql = 'DELETE FROM r_user_class WHERE user_id = '.$userId.' AND role='. $role;
 			$result = $mysqli->query($sql);
 			if(!$result) {
@@ -146,10 +206,8 @@
 				}
 			}
 
-			$mysqli->commit();
-			$mysqli->autocommit(true);
-
 			return new CompleteMsg(0,'Class information updates success!', NULL);
 		}
+
 	}
 ?>

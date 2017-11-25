@@ -8,8 +8,11 @@ function updateUserName(name) {
 	$("#logout_name").html(name);
 }
 
-function updateQuesionTitle(title) {
-	$("#question_title").append('<h5>' + title + '</h5>');
+function updateQuesionTitle(title, tag) {
+	if (tag == null){
+		tag = "";
+	}
+	$("#question_title").append('<h5>' + title + '&nbsp; &nbsp; &nbsp;'+ tag +'</h5>');
 }
 
 function updateQuesionTime(time) {
@@ -31,7 +34,7 @@ $('document').ready(function(){
     var question_id = getUrlParam('question_id');
     var question_str = getSession('question_' + question_id);
 	var question = JSON.parse(question_str);
-	updateQuesionTitle(question['title']);
+	updateQuesionTitle(question['title'], question['course_keywords']);
 	updateQuesionTime(question['create_time'])
 	updateQuesionDesc(question['description']);
 	addStudent(question['stdnt_first_name'] + ' ' + question['stdnt_last_name']);

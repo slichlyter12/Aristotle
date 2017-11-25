@@ -1,186 +1,319 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1510213565">
-  <project timestamp="1510213565">
-    <file name="D:\workspace\php\CS561-Project\pages/actions/assign_question.php">
-      <line num="10" type="stmt" count="2"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="2"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="2"/>
-      <line num="25" type="stmt" count="2"/>
-      <line num="26" type="stmt" count="2"/>
+<coverage generated="1511600487">
+  <project timestamp="1511600487">
+    <file name="D:\workspace\php\CS561-Project\pages/actions/class_functions.php">
+      <class name="ClassFunctions" namespace="global">
+        <metrics complexity="37" methods="9" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="111" coveredstatements="96" elements="120" coveredelements="101"/>
+      </class>
+      <line num="11" type="method" name="insertClass" visibility="public" complexity="2" crap="2.01" count="3"/>
+      <line num="12" type="stmt" count="3"/>
+      <line num="13" type="stmt" count="3"/>
+      <line num="16" type="stmt" count="3"/>
+      <line num="17" type="stmt" count="3"/>
+      <line num="18" type="stmt" count="3"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="3"/>
+      <line num="26" type="method" name="findTagsinClass" visibility="public" complexity="3" crap="3" count="3"/>
+      <line num="27" type="stmt" count="3"/>
+      <line num="29" type="stmt" count="3"/>
+      <line num="31" type="stmt" count="3"/>
+      <line num="33" type="stmt" count="3"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="35" type="stmt" count="1"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="42" type="stmt" count="2"/>
+      <line num="45" type="stmt" count="1"/>
+      <line num="49" type="method" name="insertTags" visibility="public" complexity="4" crap="4" count="3"/>
+      <line num="50" type="stmt" count="3"/>
+      <line num="51" type="stmt" count="3"/>
+      <line num="53" type="stmt" count="3"/>
+      <line num="54" type="stmt" count="3"/>
+      <line num="55" type="stmt" count="3"/>
+      <line num="56" type="stmt" count="3"/>
+      <line num="57" type="stmt" count="3"/>
+      <line num="58" type="stmt" count="3"/>
+      <line num="60" type="stmt" count="3"/>
+      <line num="61" type="stmt" count="3"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="65" type="stmt" count="2"/>
+      <line num="68" type="method" name="updateTags" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="69" type="stmt" count="2"/>
+      <line num="71" type="stmt" count="2"/>
+      <line num="73" type="stmt" count="2"/>
+      <line num="74" type="stmt" count="2"/>
+      <line num="75" type="stmt" count="1"/>
+      <line num="78" type="stmt" count="1"/>
+      <line num="80" type="stmt" count="1"/>
+      <line num="84" type="method" name="insertTa4Class" visibility="public" complexity="10" crap="10" count="2"/>
+      <line num="85" type="stmt" count="2"/>
+      <line num="86" type="stmt" count="2"/>
+      <line num="87" type="stmt" count="1"/>
+      <line num="89" type="stmt" count="1"/>
+      <line num="92" type="stmt" count="2"/>
+      <line num="93" type="stmt" count="2"/>
+      <line num="94" type="stmt" count="2"/>
+      <line num="95" type="stmt" count="2"/>
+      <line num="97" type="stmt" count="2"/>
+      <line num="101" type="stmt" count="2"/>
+      <line num="102" type="stmt" count="2"/>
+      <line num="104" type="stmt" count="2"/>
+      <line num="105" type="stmt" count="2"/>
+      <line num="106" type="stmt" count="2"/>
+      <line num="107" type="stmt" count="2"/>
+      <line num="108" type="stmt" count="2"/>
+      <line num="109" type="stmt" count="1"/>
+      <line num="110" type="stmt" count="1"/>
+      <line num="111" type="stmt" count="1"/>
+      <line num="112" type="stmt" count="1"/>
+      <line num="113" type="stmt" count="1"/>
+      <line num="114" type="stmt" count="1"/>
+      <line num="116" type="stmt" count="1"/>
+      <line num="118" type="stmt" count="1"/>
+      <line num="121" type="stmt" count="2"/>
+      <line num="122" type="stmt" count="2"/>
+      <line num="123" type="stmt" count="2"/>
+      <line num="126" type="stmt" count="0"/>
+      <line num="128" type="stmt" count="1"/>
+      <line num="132" type="method" name="checkUser4Students" visibility="public" complexity="6" crap="6.03" count="2"/>
+      <line num="133" type="stmt" count="2"/>
+      <line num="135" type="stmt" count="2"/>
+      <line num="136" type="stmt" count="2"/>
+      <line num="137" type="stmt" count="2"/>
+      <line num="138" type="stmt" count="2"/>
+      <line num="139" type="stmt" count="2"/>
+      <line num="140" type="stmt" count="2"/>
+      <line num="141" type="stmt" count="2"/>
+      <line num="143" type="stmt" count="2"/>
+      <line num="148" type="stmt" count="0"/>
+      <line num="151" type="stmt" count="2"/>
+      <line num="154" type="method" name="deleteClasses4Tas" visibility="public" complexity="2" crap="2" count="4"/>
+      <line num="155" type="stmt" count="4"/>
+      <line num="157" type="stmt" count="4"/>
+      <line num="158" type="stmt" count="4"/>
+      <line num="159" type="stmt" count="4"/>
+      <line num="160" type="stmt" count="2"/>
+      <line num="163" type="stmt" count="2"/>
+      <line num="166" type="method" name="updateClasses" visibility="public" complexity="2" crap="2" count="4"/>
+      <line num="167" type="stmt" count="4"/>
+      <line num="169" type="stmt" count="4"/>
+      <line num="170" type="stmt" count="4"/>
+      <line num="171" type="stmt" count="4"/>
+      <line num="172" type="stmt" count="1"/>
+      <line num="175" type="stmt" count="3"/>
+      <line num="178" type="method" name="selectClasses4Students" visibility="public" complexity="6" crap="11.84" count="1"/>
+      <line num="179" type="stmt" count="1"/>
+      <line num="182" type="stmt" count="1"/>
+      <line num="183" type="stmt" count="1"/>
+      <line num="184" type="stmt" count="1"/>
+      <line num="185" type="stmt" count="1"/>
+      <line num="187" type="stmt" count="0"/>
+      <line num="188" type="stmt" count="0"/>
+      <line num="191" type="stmt" count="1"/>
+      <line num="192" type="stmt" count="1"/>
+      <line num="193" type="stmt" count="0"/>
+      <line num="194" type="stmt" count="0"/>
+      <line num="195" type="stmt" count="0"/>
+      <line num="196" type="stmt" count="0"/>
+      <line num="197" type="stmt" count="0"/>
+      <line num="198" type="stmt" count="0"/>
+      <line num="201" type="stmt" count="0"/>
+      <line num="203" type="stmt" count="0"/>
+      <line num="205" type="stmt" count="0"/>
+      <line num="206" type="stmt" count="0"/>
+      <line num="210" type="stmt" count="1"/>
+      <line num="211" type="stmt" count="1"/>
+      <line num="213" type="stmt" count="1"/>
+      <metrics loc="217" ncloc="191" classes="1" methods="9" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="111" coveredstatements="96" elements="120" coveredelements="101"/>
+    </file>
+    <file name="D:\workspace\php\CS561-Project\pages/actions/user_functions.php">
+      <class name="UserFunctions" namespace="global">
+        <metrics complexity="34" methods="6" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="95" coveredstatements="90" elements="101" coveredelements="93"/>
+      </class>
+      <line num="10" type="method" name="filterUserbyOnids" visibility="public" complexity="9" crap="9" count="3"/>
+      <line num="11" type="stmt" count="3"/>
+      <line num="12" type="stmt" count="3"/>
+      <line num="14" type="stmt" count="3"/>
+      <line num="15" type="stmt" count="3"/>
+      <line num="16" type="stmt" count="2"/>
+      <line num="17" type="stmt" count="1"/>
+      <line num="19" type="stmt" count="3"/>
+      <line num="23" type="stmt" count="3"/>
+      <line num="24" type="stmt" count="3"/>
+      <line num="26" type="stmt" count="3"/>
       <line num="27" type="stmt" count="2"/>
       <line num="28" type="stmt" count="2"/>
+      <line num="29" type="stmt" count="2"/>
       <line num="30" type="stmt" count="2"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="2"/>
-      <line num="40" type="stmt" count="2"/>
+      <line num="31" type="stmt" count="2"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="33" type="stmt" count="2"/>
+      <line num="34" type="stmt" count="2"/>
+      <line num="37" type="stmt" count="2"/>
+      <line num="38" type="stmt" count="2"/>
+      <line num="41" type="stmt" count="1"/>
+      <line num="44" type="stmt" count="2"/>
+      <line num="45" type="stmt" count="2"/>
+      <line num="46" type="stmt" count="2"/>
+      <line num="47" type="stmt" count="0"/>
       <line num="50" type="stmt" count="2"/>
-      <line num="54" type="stmt" count="2"/>
-      <line num="55" type="stmt" count="2"/>
-      <line num="57" type="stmt" count="2"/>
-      <line num="60" type="stmt" count="2"/>
-      <line num="61" type="stmt" count="0"/>
-      <line num="64" type="stmt" count="2"/>
-      <line num="65" type="stmt" count="2"/>
-      <line num="66" type="stmt" count="2"/>
-      <line num="68" type="stmt" count="2"/>
-      <line num="71" type="stmt" count="2"/>
-      <metrics loc="73" ncloc="55" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="20" elements="24" coveredelements="20"/>
-    </file>
-    <file name="D:\workspace\php\CS561-Project\pages/actions/check_user.php">
-      <line num="9" type="stmt" count="5"/>
-      <line num="30" type="stmt" count="5"/>
-      <line num="35" type="stmt" count="4"/>
-      <line num="37" type="stmt" count="4"/>
-      <line num="39" type="stmt" count="4"/>
-      <line num="42" type="stmt" count="4"/>
-      <line num="46" type="stmt" count="4"/>
-      <line num="47" type="stmt" count="4"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="4"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="55" type="stmt" count="4"/>
-      <line num="58" type="stmt" count="4"/>
-      <line num="59" type="stmt" count="0"/>
-      <line num="62" type="stmt" count="4"/>
-      <line num="63" type="stmt" count="4"/>
-      <line num="64" type="stmt" count="4"/>
-      <line num="65" type="stmt" count="4"/>
-      <line num="67" type="stmt" count="4"/>
-      <line num="68" type="stmt" count="4"/>
-      <line num="71" type="stmt" count="0"/>
-      <line num="76" type="stmt" count="4"/>
-      <metrics loc="80" ncloc="62" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="18" elements="22" coveredelements="18"/>
-    </file>
-    <file name="D:\workspace\php\CS561-Project\pages/actions/query_class.php">
-      <line num="8" type="stmt" count="3"/>
-      <line num="19" type="stmt" count="3"/>
-      <line num="20" type="stmt" count="1"/>
-      <line num="21" type="stmt" count="2"/>
-      <line num="22" type="stmt" count="1"/>
-      <line num="25" type="stmt" count="3"/>
-      <line num="30" type="stmt" count="3"/>
-      <line num="31" type="stmt" count="3"/>
-      <line num="32" type="stmt" count="3"/>
-      <line num="34" type="stmt" count="3"/>
-      <line num="35" type="stmt" count="3"/>
-      <line num="38" type="stmt" count="3"/>
-      <line num="42" type="stmt" count="3"/>
-      <line num="45" type="stmt" count="3"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="51" type="stmt" count="3"/>
-      <line num="52" type="stmt" count="0"/>
+      <line num="54" type="method" name="insertTabyOnids" visibility="public" complexity="8" crap="8" count="3"/>
       <line num="55" type="stmt" count="3"/>
+      <line num="56" type="stmt" count="3"/>
       <line num="57" type="stmt" count="3"/>
-      <line num="58" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="3"/>
+      <line num="60" type="stmt" count="3"/>
       <line num="61" type="stmt" count="3"/>
-      <line num="62" type="stmt" count="3"/>
-      <line num="63" type="stmt" count="3"/>
-      <line num="64" type="stmt" count="3"/>
-      <line num="67" type="stmt" count="3"/>
-      <line num="68" type="stmt" count="3"/>
-      <line num="70" type="stmt" count="0"/>
-      <line num="71" type="stmt" count="0"/>
-      <line num="74" type="stmt" count="3"/>
-      <line num="77" type="stmt" count="3"/>
-      <metrics loc="79" ncloc="57" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="25" elements="30" coveredelements="25"/>
-    </file>
-    <file name="D:\workspace\php\CS561-Project\pages/actions/question_list.php">
-      <line num="9" type="stmt" count="4"/>
-      <line num="43" type="stmt" count="4"/>
-      <line num="48" type="stmt" count="4"/>
-      <line num="49" type="stmt" count="4"/>
-      <line num="50" type="stmt" count="4"/>
-      <line num="51" type="stmt" count="4"/>
-      <line num="52" type="stmt" count="4"/>
-      <line num="54" type="stmt" count="2"/>
-      <line num="55" type="stmt" count="2"/>
-      <line num="56" type="stmt" count="2"/>
-      <line num="57" type="stmt" count="2"/>
-      <line num="60" type="stmt" count="2"/>
-      <line num="61" type="stmt" count="1"/>
-      <line num="62" type="stmt" count="1"/>
-      <line num="63" type="stmt" count="1"/>
-      <line num="65" type="stmt" count="2"/>
-      <line num="69" type="stmt" count="1"/>
-      <line num="70" type="stmt" count="1"/>
-      <line num="74" type="stmt" count="4"/>
-      <line num="78" type="stmt" count="4"/>
-      <line num="82" type="stmt" count="4"/>
-      <line num="83" type="stmt" count="0"/>
-      <line num="86" type="stmt" count="4"/>
-      <line num="89" type="stmt" count="4"/>
-      <line num="90" type="stmt" count="0"/>
-      <line num="93" type="stmt" count="4"/>
-      <line num="94" type="stmt" count="4"/>
-      <line num="97" type="stmt" count="4"/>
-      <line num="98" type="stmt" count="4"/>
-      <line num="100" type="stmt" count="4"/>
-      <line num="102" type="stmt" count="4"/>
-      <line num="104" type="stmt" count="0"/>
-      <line num="105" type="stmt" count="0"/>
-      <line num="108" type="stmt" count="4"/>
-      <line num="112" type="stmt" count="4"/>
-      <metrics loc="114" ncloc="90" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="31" elements="35" coveredelements="31"/>
+      <line num="62" type="stmt" count="2"/>
+      <line num="63" type="stmt" count="2"/>
+      <line num="64" type="stmt" count="2"/>
+      <line num="65" type="stmt" count="3"/>
+      <line num="69" type="stmt" count="3"/>
+      <line num="71" type="stmt" count="3"/>
+      <line num="72" type="stmt" count="2"/>
+      <line num="76" type="stmt" count="1"/>
+      <line num="80" type="method" name="checkUserByClassSql" complexity="1" crap="1" count="2"/>
+      <line num="81" type="stmt" count="2"/>
+      <line num="97" type="stmt" count="2"/>
+      <line num="101" type="method" name="checkUserByClassJson" complexity="2" crap="2" count="1"/>
+      <line num="102" type="stmt" count="1"/>
+      <line num="104" type="stmt" count="1"/>
+      <line num="107" type="stmt" count="1"/>
+      <line num="110" type="method" name="checkUserByClass" complexity="5" crap="5.05" count="3"/>
+      <line num="111" type="stmt" count="3"/>
+      <line num="112" type="stmt" count="3"/>
+      <line num="113" type="stmt" count="1"/>
+      <line num="116" type="stmt" count="2"/>
+      <line num="117" type="stmt" count="1"/>
+      <line num="120" type="stmt" count="1"/>
+      <line num="123" type="stmt" count="1"/>
+      <line num="124" type="stmt" count="0"/>
+      <line num="127" type="stmt" count="1"/>
+      <line num="128" type="stmt" count="1"/>
+      <line num="129" type="stmt" count="1"/>
+      <line num="130" type="stmt" count="1"/>
+      <line num="132" type="stmt" count="1"/>
+      <line num="133" type="stmt" count="1"/>
+      <line num="135" type="stmt" count="0"/>
+      <line num="138" type="stmt" count="1"/>
+      <line num="141" type="method" name="findTasinClass" complexity="9" crap="9.02" count="4"/>
+      <line num="142" type="stmt" count="4"/>
+      <line num="143" type="stmt" count="4"/>
+      <line num="144" type="stmt" count="1"/>
+      <line num="147" type="stmt" count="3"/>
+      <line num="148" type="stmt" count="1"/>
+      <line num="151" type="stmt" count="2"/>
+      <line num="153" type="stmt" count="2"/>
+      <line num="154" type="stmt" count="2"/>
+      <line num="155" type="stmt" count="2"/>
+      <line num="156" type="stmt" count="2"/>
+      <line num="158" type="stmt" count="2"/>
+      <line num="159" type="stmt" count="2"/>
+      <line num="160" type="stmt" count="2"/>
+      <line num="161" type="stmt" count="2"/>
+      <line num="162" type="stmt" count="2"/>
+      <line num="163" type="stmt" count="2"/>
+      <line num="164" type="stmt" count="2"/>
+      <line num="166" type="stmt" count="2"/>
+      <line num="169" type="stmt" count="2"/>
+      <line num="172" type="stmt" count="0"/>
+      <line num="175" type="stmt" count="2"/>
+      <line num="177" type="stmt" count="2"/>
+      <line num="178" type="stmt" count="2"/>
+      <line num="179" type="stmt" count="2"/>
+      <line num="180" type="stmt" count="2"/>
+      <line num="182" type="stmt" count="2"/>
+      <line num="183" type="stmt" count="2"/>
+      <line num="184" type="stmt" count="2"/>
+      <line num="186" type="stmt" count="2"/>
+      <line num="187" type="stmt" count="2"/>
+      <line num="189" type="stmt" count="2"/>
+      <line num="192" type="stmt" count="2"/>
+      <line num="195" type="stmt" count="0"/>
+      <line num="198" type="stmt" count="2"/>
+      <metrics loc="202" ncloc="186" classes="1" methods="6" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="95" coveredstatements="90" elements="101" coveredelements="93"/>
     </file>
     <file name="D:\workspace\php\CS561-Project\pages/models/Class.class.php">
       <class name="ClassInfo" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
       </class>
-      <line num="7" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="11"/>
-      <line num="8" type="stmt" count="11"/>
-      <line num="9" type="stmt" count="11"/>
-      <line num="10" type="stmt" count="11"/>
-      <line num="11" type="stmt" count="11"/>
+      <line num="7" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="8" type="stmt" count="4"/>
+      <line num="9" type="stmt" count="4"/>
+      <line num="10" type="stmt" count="4"/>
+      <line num="11" type="stmt" count="4"/>
+      <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+    </file>
+    <file name="D:\workspace\php\CS561-Project\pages/models/CompleteMsg.class.php">
+      <class name="CompleteMsg" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      </class>
+      <line num="7" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="38"/>
+      <line num="8" type="stmt" count="38"/>
+      <line num="9" type="stmt" count="38"/>
+      <line num="10" type="stmt" count="38"/>
+      <line num="11" type="stmt" count="38"/>
       <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
     </file>
     <file name="D:\workspace\php\CS561-Project\pages/models/Question.class.php">
       <class name="Question" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="16" coveredelements="16"/>
       </class>
-      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="20" type="stmt" count="4"/>
-      <line num="21" type="stmt" count="4"/>
-      <line num="22" type="stmt" count="4"/>
-      <line num="23" type="stmt" count="4"/>
-      <line num="24" type="stmt" count="4"/>
-      <line num="25" type="stmt" count="4"/>
-      <line num="26" type="stmt" count="4"/>
-      <line num="27" type="stmt" count="4"/>
-      <line num="28" type="stmt" count="4"/>
-      <line num="29" type="stmt" count="4"/>
-      <line num="30" type="stmt" count="4"/>
-      <line num="31" type="stmt" count="4"/>
-      <line num="32" type="stmt" count="4"/>
-      <line num="33" type="stmt" count="4"/>
-      <line num="34" type="stmt" count="4"/>
+      <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="21" type="stmt" count="2"/>
+      <line num="22" type="stmt" count="2"/>
+      <line num="23" type="stmt" count="2"/>
+      <line num="24" type="stmt" count="2"/>
+      <line num="25" type="stmt" count="2"/>
+      <line num="26" type="stmt" count="2"/>
+      <line num="27" type="stmt" count="2"/>
+      <line num="28" type="stmt" count="2"/>
+      <line num="29" type="stmt" count="2"/>
+      <line num="30" type="stmt" count="2"/>
+      <line num="31" type="stmt" count="2"/>
+      <line num="32" type="stmt" count="2"/>
+      <line num="33" type="stmt" count="2"/>
+      <line num="34" type="stmt" count="2"/>
       <metrics loc="36" ncloc="36" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="16" coveredelements="16"/>
     </file>
     <file name="D:\workspace\php\CS561-Project\pages/models/QuestionConcern.class.php">
       <class name="QuestionConcern" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
       </class>
-      <line num="7" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="8" type="stmt" count="3"/>
+      <line num="7" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="8" type="stmt" count="2"/>
+      <line num="9" type="stmt" count="2"/>
+      <line num="10" type="stmt" count="2"/>
+      <line num="11" type="stmt" count="2"/>
+      <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+    </file>
+    <file name="D:\workspace\php\CS561-Project\pages/models/Tag.class.php">
+      <class name="TagInfo" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
+      </class>
+      <line num="8" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
       <line num="9" type="stmt" count="3"/>
       <line num="10" type="stmt" count="3"/>
       <line num="11" type="stmt" count="3"/>
-      <metrics loc="13" ncloc="13" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="4" elements="5" coveredelements="5"/>
+      <line num="12" type="stmt" count="3"/>
+      <line num="13" type="stmt" count="3"/>
+      <metrics loc="15" ncloc="15" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="6" coveredelements="6"/>
     </file>
     <file name="D:\workspace\php\CS561-Project\pages/models/User.class.php">
       <class name="User" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
       </class>
-      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="11"/>
-      <line num="10" type="stmt" count="11"/>
-      <line num="11" type="stmt" count="11"/>
-      <line num="12" type="stmt" count="11"/>
-      <line num="13" type="stmt" count="11"/>
-      <line num="14" type="stmt" count="11"/>
-      <line num="15" type="stmt" count="11"/>
+      <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="8"/>
+      <line num="10" type="stmt" count="8"/>
+      <line num="11" type="stmt" count="8"/>
+      <line num="12" type="stmt" count="8"/>
+      <line num="13" type="stmt" count="8"/>
+      <line num="14" type="stmt" count="8"/>
+      <line num="15" type="stmt" count="8"/>
       <metrics loc="17" ncloc="17" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
     </file>
-    <metrics files="8" loc="425" ncloc="343" classes="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="140" coveredstatements="123" elements="144" coveredelements="127"/>
+    <metrics files="8" loc="526" ncloc="484" classes="8" methods="21" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="244" coveredstatements="224" elements="265" coveredelements="238"/>
   </project>
 </coverage>

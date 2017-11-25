@@ -89,6 +89,10 @@
 		if(checkSuccess($completeMsg)){
 			$class_id = $completeMsg->data;
 		}
+
+		$completeMsg = $classFunctions->insertTags($class_id, $ar->courseTags);
+		checkSuccess($completeMsg);
+
 	} else {
 		$dbType = "update";
 		//update class into DB delete relationship
@@ -96,6 +100,9 @@
 		checkSuccess($completeMsg);
 
 		$completeMsg = $classFunctions->updateClasses($class_id, $name);
+		checkSuccess($completeMsg);
+
+		$completeMsg = $classFunctions->updateTags($class_id, $ar->courseTags);
 		checkSuccess($completeMsg);
 	}
 
