@@ -85,7 +85,7 @@ function getLoginInfo(){
 		dataType:"json",
 		success: function(data) {
 			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
-			else openToast(data.MESSAGE);
+			else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -110,7 +110,7 @@ function getAdminClasses(){
 					insertItemInClassList(item);
 					_selectedClassId[i]=item.id;
 				});
-			}else openToast(data.ERROR);
+			}else showError(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -130,7 +130,8 @@ function addClassForAdmin(){
 		data:$('#dialog .addClassForm form').serializeForm(),
 		dataType:"json",
 		success: function(data) {
-			openToast(data.MESSAGE);
+			if(data.ERROR) showError(data.ERROR)
+			else showInfo(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
