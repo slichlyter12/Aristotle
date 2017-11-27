@@ -46,17 +46,27 @@ $.formBox = {
 	}
 }
 
+function dismissModal() {
+	$('#mask').fadeOut(200);
+	$container = $('.close').closest('.container');
+	$container.slideUp(200);
+	if($container.find('form')[0])$container.find('form')[0].reset();
+	$container.find('.timeDetailInput').attr('disabled',true);
+	$container.find('input:required, textarea:required').removeClass('illegalValue');
+	enable_scroll();
+}
+
 $('document').ready(function(){
 	$('.close').click(function(){
-		$('#mask').fadeOut(200);
-		$container = $(this).closest('.container');
-		$container.slideUp(200);
-		if($container.find('form')[0])$container.find('form')[0].reset();
-		$container.find('.timeDetailInput').attr('disabled',true);
-		$container.find('input:required, textarea:required').removeClass('illegalValue');
-		enable_scroll();
+		dismissModal();
 	});
+});
 
+$(document).mouseup(function(e) {
+	var modal = $('div.container.largeBox.addClassForm');
+	if (!modal.is(e.target) && modal.has(e.target).length === 0) {
+		dismissModal();
+	}
 });
 
 //dialog from check
