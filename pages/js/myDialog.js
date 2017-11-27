@@ -46,7 +46,7 @@ $.formBox = {
 	}
 }
 
-function dismissDialog() {
+function dismissModal() {
 	$('#mask').fadeOut(200);
 	$container = $('.close').closest('.container');
 	$container.slideUp(200);
@@ -58,15 +58,15 @@ function dismissDialog() {
 
 $('document').ready(function(){
 	$('.close').click(function(){
-		dismissDialog();
+		dismissModal();
 	});
-	
-/*
-	$('#dialog:not(.container)').click(function() {
-		dismissDialog();
-	});
-*/
+});
 
+$(document).mouseup(function(e) {
+	var modal = $('div.container.largeBox.addClassForm');
+	if (!modal.is(e.target) && modal.has(e.target).length === 0) {
+		dismissModal();
+	}
 });
 
 //dialog from check
