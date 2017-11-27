@@ -5,6 +5,8 @@ require_once dirname(__FILE__).'/'.'../../pages/models/Class.class.php';
 require_once dirname(__FILE__).'/'.'../../pages/models/Question.class.php';
 require_once dirname(__FILE__).'/'.'../../pages/models/QuestionConcern.class.php';
 require_once dirname(__FILE__).'/'.'../../pages/models/User.class.php';
+require_once dirname(__FILE__).'/'.'../../pages/models/CompleteMsg.class.php';
+require_once dirname(__FILE__).'/'.'../../pages/models/Tag.class.php';
 
 class modelTest extends TestCase {
 
@@ -73,6 +75,34 @@ class modelTest extends TestCase {
 		$this->assertEquals($role, $user->role);		
 	}
 
+	/**
+     * @dataProvider additionProvider4CompleteMsg
+     */
+	public function testCompleteMsg($isError, $msg, $data) {
+		$completeMsg = new CompleteMsg($isError, $msg, $data);
+
+		$this->assertNotEmpty($completeMsg);
+
+		$this->assertEquals($isError, $completeMsg->isError);
+		$this->assertEquals($msg, $completeMsg->msg);		
+		$this->assertEquals($data, $completeMsg->data);
+	
+	}
+
+	/**
+     * @dataProvider additionProvider4Tag
+     */
+	public function testTag($id, $class_id, $value, $comment) {
+		$tagInfo = new TagInfo($id, $class_id, $value, $comment);
+
+		$this->assertNotEmpty($tagInfo);
+
+		$this->assertEquals($id, $tagInfo->id);
+		$this->assertEquals($class_id, $tagInfo->class_id);		
+		$this->assertEquals($value, $tagInfo->value);
+		$this->assertEquals($comment, $tagInfo->comment);
+	}
+
 	public function additionProvider4Class()
     {
         return [
@@ -109,6 +139,22 @@ class modelTest extends TestCase {
             ["100000", "test_osu_id", "test_first_name", "test_last_name", "0"],
             ["1", "test_osu_id", "test_first_name", "test_last_name", "-1"],
             ["-1", "test_osu_id", "test_first_name", "test_last_name", "0"]
+        ];
+    }
+
+    public function additionProvider4CompleteMsg()
+    {
+        return [
+            ["@$#%$^%^&)(", "sdlmvoirg>?#@#>", "213AAFTRHTh565"],
+            ["0", "Test is success!", "test_osu_id"]
+        ];
+    }
+
+    public function additionProvider4Tag()
+    {
+        return [
+            ["1", "1", "1", "lectue"],
+            ["2", "1", "2", "quiz"]
         ];
     }
 

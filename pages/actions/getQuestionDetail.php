@@ -1,5 +1,6 @@
 <?php
-	require('../db_config/conn2.php');
+	$dir = dirname(__FILE__);
+	require_once ($dir."/"."../db_config/conn2.php");
 
 	function complete($mysqli, $isError, $msg, $data){
 		$return = array('ERROR'=> $isError, 'MESSAGE'=>$msg, 'DATA'=>$data);
@@ -39,7 +40,7 @@
 	}
 	
 	//Get question details
-	$sql='SELECT id, title, description, created_time, preferred_time,stdnt_user_id, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question WHERE id = '.$questionId.' LIMIT 1';
+	$sql='SELECT id, title, description, created_time, preferred_time,stdnt_user_id, stdnt_first_name, stdnt_last_name,status, num_liked, course_keywords FROM t_question WHERE id = '.$questionId.' LIMIT 1';
 	$result=$mysqli->query($sql);
 	if($result) {
 		$question=array();
@@ -65,6 +66,7 @@
 					else $question['ISJOIN'] = 0;
 				}
 			}
+			$question['TAG']=$row['course_keywords'];
 		}else complete($mysqli, 1,'No such question here!', NULL);
 	}else complete($mysqli, 1, 'Cannot get question!', NULL);
 	

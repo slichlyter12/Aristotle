@@ -1,4 +1,5 @@
 <?php
+
 	$dir = dirname(__FILE__);
 	require_once ($dir."/"."../db_config/conn2.php");
 	require_once ($dir."/"."class_functions.php");
@@ -54,7 +55,7 @@
 	} else {
 		complete($mysqli, 1, 'User is not a Admin in this class!', NULL);
 	}
-
+	
 	//find tas' name in class, role of ta is 1
 	$completeMsg = $userFunctions->findTasinClass($class_id, 1);
 
@@ -63,5 +64,4 @@
 	}
 	
 	complete($mysqli, 0, "Open edit board success!", array($ta_info));
-
 ?>

@@ -3,9 +3,15 @@ function createCourse () {
 	courseObj.classId = document.getElementsByName("CLASSID")[0].value;
 	courseObj.courseName = document.getElementsByName("NAME")[0].value.trim();
 	courseTAs = document.getElementsByName("TAS")[0].value.trim();
-	courseObj.courseTAs = courseTAs.split(" ");
+	courseTags = document.getElementsByName("Tags")[0].value.trim();
+	
 
-	if(courseObj.courseName != null && courseObj.courseName != "" && courseTAs != null && courseTAs != ""){
+	if(courseObj.courseName != null && courseObj.courseName != "" 
+		&& courseTAs != null && courseTAs != ""
+		&& courseTags != null && courseTags != ""){
+		courseObj.courseTAs = courseTAs.split(" ");
+		courseObj.courseTags = courseTags.split(" ");
+
 		var str = JSON.stringify(courseObj);
 		str = "x=" + encodeURIComponent(str);
 		xmlhttp = new XMLHttpRequest();
@@ -23,7 +29,7 @@ function createCourse () {
 
 function displayCurrentCourses(classId) {
 	$.ajax({
-		type: "get",
+		type: "post",
 		url:"actions/edit_Class.php?class_id="+classId,
 		async:false,
 		dataType:"json",
@@ -31,6 +37,7 @@ function displayCurrentCourses(classId) {
 			if(!data.ERROR){
 				document.getElementsByName("NAME")[0].value = data.DATA[0].class_name;
 				document.getElementsByName("TAS")[0].value = data.DATA[0].ta_names;
+				document.getElementsByName("Tags")[0].value = data.DATA[0].tag_names;
 				document.getElementsByName("CLASSID")[0].value = data.DATA[0].c_id;
 				$.formBox.openDialog('addClassForm');
 			}else openToast(data.ERROR);
@@ -41,6 +48,7 @@ function displayCurrentCourses(classId) {
 			alert(textStatus);
 		}
 	});
+
 }
 
 function updateUserName(name) {
@@ -125,7 +133,7 @@ function getAdminClasses(){
 function addClassForAdmin(){
 	$.ajax({
 		type: "post",
-		url:"actions/addClassForStudent.php",
+		url:"actions/addClassForAdmin.php",
 		async:false,
 		data:$('#dialog .addClassForm form').serializeForm(),
 		dataType:"json",
@@ -157,7 +165,7 @@ $('document').ready(function(){
 	//  update user name
     updateUserName(getSession('user_name'));
 
-	// //Add class (bind click event for post class button)
+	//Add class (bind click event for post class button)
 	$('#dialog .addClassForm .submitBtn').click(function(){
 		if($('#dialog .addClassForm form').checkForm()==true){
 			addClassForAdmin();

@@ -110,6 +110,16 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="row tagSelect">
+				<div class="twelve columns " >
+					<label for="tagSelect">Please choose a tag</label>
+					<div class="row" >
+
+					</div>
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="twelve columns">
 					<input class="submitBtn button-primary" type="button" value="Post"/>		<!--action:createNewQuestion & questionList-->

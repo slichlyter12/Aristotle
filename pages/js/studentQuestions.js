@@ -8,7 +8,11 @@ function getGetParameter(name) {
 } 
 
 function showQuestionDetail(data){		//::TODO
-	$('.questionDetail h5').html(data[2]);
+	if (data[9] == null){
+		$('.questionDetail h5').html(data[2]);
+	} else {
+		$('.questionDetail h5').html(data[2] + "&nbsp; &nbsp; &nbsp;" + data[9]);
+	}
 	$('.questionDetail p').html(data[1]);
 	$.formBox.openDialog('questionDetail');
 }
@@ -145,6 +149,7 @@ function getQuestionDetail(questionId){
 //action:createNewQuestion
 function createNewQuestion(){
 	classid = getGetParameter('classId');
+	$("#dialog .tagSelect .row .newTagInput").removeAttr("disabled");
 	$.ajax({
 		type: "post",
 		url:"actions/addNewQuestion.php?classid="+classid,
@@ -213,6 +218,59 @@ function quitFromAQuestion(id){
 	});
 };
 
+function setInputDisable(value){
+	if(value == 0){
+		$("#dialog .tagSelect .row .newTagInput").removeAttr("disabled");
+	}else{
+		$("#dialog .tagSelect .row .newTagInput").attr("disabled","disabled");
+	}
+}
+
+//action:getTagList
+function getTagList(){
+	var class_id = getGetParameter('classId');
+	var col = 3;
+	$('#dialog .tagSelect .row').html('');
+	$.ajax({
+		type: "get",
+		url:"actions/show_tags.php?class_id="+class_id,
+		async: false,
+		dataType:"json",
+		success: function(data) {
+			if(!data.ERROR){
+				data = data.DATA[0];
+				$("#dialog .tagSelect .row").append('<table class="ten columns">')
+				$.each(data.tag_info, function(i,item) {
+					if((i % col) == 0){
+						$("#dialog .tagSelect .row").append("</br><tr>");
+					}
+
+					$("#dialog .tagSelect .row").append('<td class="three columns"><input name="tag" type="radio" value="'+item.comment+'" onclick="setInputDisable('+item.value+');"/><b>'+item.comment+'</b></td>')
+
+					if((i % col) == col - 1){
+						$("#dialog .tagSelect .row").append("</tr>");
+					}
+				});
+
+				if(data.tag_info.length % col != 0){
+					$("#dialog .tagSelect .row").append("</tr>");
+				}
+
+				$("#dialog .tagSelect .row").append('<tr>')
+				$("#dialog .tagSelect .row").append('<td class="ten columns"><input name="tag" type="radio" value="0" onclick="setInputDisable(0);" checked/><b >New tag &nbsp; &nbsp;</b><input name="newTag" class="newTagInput" type="text" value="new tag"/></td>');
+				$("#dialog .tagSelect .row").append('</tr>')
+				$("#dialog .tagSelect .row").append('</table>')
+			}else showError(data.MESSAGE);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+
+};
+
 /*INIT*/
 $('document').ready(function(){
 	getLoginInfo();
@@ -230,10 +288,14 @@ $('document').ready(function(){
 	//Init the Timepicker
 	getAvailableTime();
 
+	//Init tags
+	getTagList();
+
 	//Add question (bind click event for post question button)
 	$('#dialog .questionForm .submitBtn').click(function(){
 		if($('#dialog .questionForm form').checkForm()==true){
 			createNewQuestion();
+			getTagList();
 			$('#dialog .questionForm .close').trigger('click');
 			getQuestionList();
 		}

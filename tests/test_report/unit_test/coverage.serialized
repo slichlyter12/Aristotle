@@ -5,920 +5,1423 @@ $coverage->setData(array (
   array (
     8 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'modelTest::testQuestionConcern with data set #0',
-      2 => 'modelTest::testQuestionConcern with data set #1',
+      0 => 'modelTest::testQuestionConcern with data set #0',
+      1 => 'modelTest::testQuestionConcern with data set #1',
     ),
     9 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'modelTest::testQuestionConcern with data set #0',
-      2 => 'modelTest::testQuestionConcern with data set #1',
+      0 => 'modelTest::testQuestionConcern with data set #0',
+      1 => 'modelTest::testQuestionConcern with data set #1',
     ),
     10 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'modelTest::testQuestionConcern with data set #0',
-      2 => 'modelTest::testQuestionConcern with data set #1',
+      0 => 'modelTest::testQuestionConcern with data set #0',
+      1 => 'modelTest::testQuestionConcern with data set #1',
     ),
     11 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'modelTest::testQuestionConcern with data set #0',
-      2 => 'modelTest::testQuestionConcern with data set #1',
+      0 => 'modelTest::testQuestionConcern with data set #0',
+      1 => 'modelTest::testQuestionConcern with data set #1',
+    ),
+  ),
+  'D:\\workspace\\php\\CS561-Project\\pages\\models\\Tag.class.php' => 
+  array (
+    9 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
+      1 => 'modelTest::testTag with data set #0',
+      2 => 'modelTest::testTag with data set #1',
+    ),
+    10 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
+      1 => 'modelTest::testTag with data set #0',
+      2 => 'modelTest::testTag with data set #1',
+    ),
+    11 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
+      1 => 'modelTest::testTag with data set #0',
+      2 => 'modelTest::testTag with data set #1',
+    ),
+    12 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
+      1 => 'modelTest::testTag with data set #0',
+      2 => 'modelTest::testTag with data set #1',
+    ),
+    13 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
+      1 => 'modelTest::testTag with data set #0',
+      2 => 'modelTest::testTag with data set #1',
+    ),
+  ),
+  'D:\\workspace\\php\\CS561-Project\\pages\\models\\CompleteMsg.class.php' => 
+  array (
+    8 => 
+    array (
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
+      3 => 'classActionTest::testfindTagsinClass with data set #0',
+      4 => 'classActionTest::testfindTagsinClass with data set #1',
+      5 => 'classActionTest::testfindTagsinClass with data set #2',
+      6 => 'classActionTest::testinsertTags with data set #0',
+      7 => 'classActionTest::testinsertTags with data set #1',
+      8 => 'classActionTest::testupdateTags with data set #0',
+      9 => 'classActionTest::testupdateTags with data set #1',
+      10 => 'classActionTest::testinsertTa4Class with data set #0',
+      11 => 'classActionTest::testinsertTa4Class with data set #1',
+      12 => 'classActionTest::testcheckUser4Students with data set #0',
+      13 => 'classActionTest::testcheckUser4Students with data set #1',
+      14 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      15 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      16 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+      17 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+      18 => 'classActionTest::testupdateClasses with data set #0',
+      19 => 'classActionTest::testupdateClasses with data set #1',
+      20 => 'classActionTest::testupdateClasses with data set #2',
+      21 => 'classActionTest::testupdateClasses with data set #3',
+      22 => 'classActionTest::testselectClasses4Students with data set #0',
+      23 => 'modelTest::testCompleteMsg with data set #0',
+      24 => 'modelTest::testCompleteMsg with data set #1',
+      25 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      26 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      27 => 'userActionTest::testfilterUserbyOnids with data set #2',
+      28 => 'userActionTest::testinsertTabyOnids with data set #0',
+      29 => 'userActionTest::testinsertTabyOnids with data set #1',
+      30 => 'userActionTest::testinsertTabyOnids with data set #2',
+      31 => 'userActionTest::testcheckUserByClass with data set #0',
+      32 => 'userActionTest::testcheckUserByClass with data set #1',
+      33 => 'userActionTest::testcheckUserByClass with data set #2',
+      34 => 'userActionTest::testfindTasinClass with data set #0',
+      35 => 'userActionTest::testfindTasinClass with data set #1',
+      36 => 'userActionTest::testfindTasinClass with data set #2',
+      37 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    9 => 
+    array (
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
+      3 => 'classActionTest::testfindTagsinClass with data set #0',
+      4 => 'classActionTest::testfindTagsinClass with data set #1',
+      5 => 'classActionTest::testfindTagsinClass with data set #2',
+      6 => 'classActionTest::testinsertTags with data set #0',
+      7 => 'classActionTest::testinsertTags with data set #1',
+      8 => 'classActionTest::testupdateTags with data set #0',
+      9 => 'classActionTest::testupdateTags with data set #1',
+      10 => 'classActionTest::testinsertTa4Class with data set #0',
+      11 => 'classActionTest::testinsertTa4Class with data set #1',
+      12 => 'classActionTest::testcheckUser4Students with data set #0',
+      13 => 'classActionTest::testcheckUser4Students with data set #1',
+      14 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      15 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      16 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+      17 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+      18 => 'classActionTest::testupdateClasses with data set #0',
+      19 => 'classActionTest::testupdateClasses with data set #1',
+      20 => 'classActionTest::testupdateClasses with data set #2',
+      21 => 'classActionTest::testupdateClasses with data set #3',
+      22 => 'classActionTest::testselectClasses4Students with data set #0',
+      23 => 'modelTest::testCompleteMsg with data set #0',
+      24 => 'modelTest::testCompleteMsg with data set #1',
+      25 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      26 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      27 => 'userActionTest::testfilterUserbyOnids with data set #2',
+      28 => 'userActionTest::testinsertTabyOnids with data set #0',
+      29 => 'userActionTest::testinsertTabyOnids with data set #1',
+      30 => 'userActionTest::testinsertTabyOnids with data set #2',
+      31 => 'userActionTest::testcheckUserByClass with data set #0',
+      32 => 'userActionTest::testcheckUserByClass with data set #1',
+      33 => 'userActionTest::testcheckUserByClass with data set #2',
+      34 => 'userActionTest::testfindTasinClass with data set #0',
+      35 => 'userActionTest::testfindTasinClass with data set #1',
+      36 => 'userActionTest::testfindTasinClass with data set #2',
+      37 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    10 => 
+    array (
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
+      3 => 'classActionTest::testfindTagsinClass with data set #0',
+      4 => 'classActionTest::testfindTagsinClass with data set #1',
+      5 => 'classActionTest::testfindTagsinClass with data set #2',
+      6 => 'classActionTest::testinsertTags with data set #0',
+      7 => 'classActionTest::testinsertTags with data set #1',
+      8 => 'classActionTest::testupdateTags with data set #0',
+      9 => 'classActionTest::testupdateTags with data set #1',
+      10 => 'classActionTest::testinsertTa4Class with data set #0',
+      11 => 'classActionTest::testinsertTa4Class with data set #1',
+      12 => 'classActionTest::testcheckUser4Students with data set #0',
+      13 => 'classActionTest::testcheckUser4Students with data set #1',
+      14 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      15 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      16 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+      17 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+      18 => 'classActionTest::testupdateClasses with data set #0',
+      19 => 'classActionTest::testupdateClasses with data set #1',
+      20 => 'classActionTest::testupdateClasses with data set #2',
+      21 => 'classActionTest::testupdateClasses with data set #3',
+      22 => 'classActionTest::testselectClasses4Students with data set #0',
+      23 => 'modelTest::testCompleteMsg with data set #0',
+      24 => 'modelTest::testCompleteMsg with data set #1',
+      25 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      26 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      27 => 'userActionTest::testfilterUserbyOnids with data set #2',
+      28 => 'userActionTest::testinsertTabyOnids with data set #0',
+      29 => 'userActionTest::testinsertTabyOnids with data set #1',
+      30 => 'userActionTest::testinsertTabyOnids with data set #2',
+      31 => 'userActionTest::testcheckUserByClass with data set #0',
+      32 => 'userActionTest::testcheckUserByClass with data set #1',
+      33 => 'userActionTest::testcheckUserByClass with data set #2',
+      34 => 'userActionTest::testfindTasinClass with data set #0',
+      35 => 'userActionTest::testfindTasinClass with data set #1',
+      36 => 'userActionTest::testfindTasinClass with data set #2',
+      37 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    11 => 
+    array (
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
+      3 => 'classActionTest::testfindTagsinClass with data set #0',
+      4 => 'classActionTest::testfindTagsinClass with data set #1',
+      5 => 'classActionTest::testfindTagsinClass with data set #2',
+      6 => 'classActionTest::testinsertTags with data set #0',
+      7 => 'classActionTest::testinsertTags with data set #1',
+      8 => 'classActionTest::testupdateTags with data set #0',
+      9 => 'classActionTest::testupdateTags with data set #1',
+      10 => 'classActionTest::testinsertTa4Class with data set #0',
+      11 => 'classActionTest::testinsertTa4Class with data set #1',
+      12 => 'classActionTest::testcheckUser4Students with data set #0',
+      13 => 'classActionTest::testcheckUser4Students with data set #1',
+      14 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      15 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      16 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+      17 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+      18 => 'classActionTest::testupdateClasses with data set #0',
+      19 => 'classActionTest::testupdateClasses with data set #1',
+      20 => 'classActionTest::testupdateClasses with data set #2',
+      21 => 'classActionTest::testupdateClasses with data set #3',
+      22 => 'classActionTest::testselectClasses4Students with data set #0',
+      23 => 'modelTest::testCompleteMsg with data set #0',
+      24 => 'modelTest::testCompleteMsg with data set #1',
+      25 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      26 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      27 => 'userActionTest::testfilterUserbyOnids with data set #2',
+      28 => 'userActionTest::testinsertTabyOnids with data set #0',
+      29 => 'userActionTest::testinsertTabyOnids with data set #1',
+      30 => 'userActionTest::testinsertTabyOnids with data set #2',
+      31 => 'userActionTest::testcheckUserByClass with data set #0',
+      32 => 'userActionTest::testcheckUserByClass with data set #1',
+      33 => 'userActionTest::testcheckUserByClass with data set #2',
+      34 => 'userActionTest::testfindTasinClass with data set #0',
+      35 => 'userActionTest::testfindTasinClass with data set #1',
+      36 => 'userActionTest::testfindTasinClass with data set #2',
+      37 => 'userActionTest::testfindTasinClass with data set #3',
     ),
   ),
   'D:\\workspace\\php\\CS561-Project\\pages\\models\\User.class.php' => 
   array (
     10 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'modelTest::testUser with data set #0',
-      5 => 'modelTest::testUser with data set #1',
-      6 => 'modelTest::testUser with data set #2',
-      7 => 'modelTest::testUser with data set #3',
-      8 => 'modelTest::testUser with data set #4',
-      9 => 'modelTest::testUser with data set #5',
-      10 => 'modelTest::testUser with data set #6',
+      0 => 'modelTest::testUser with data set #0',
+      1 => 'modelTest::testUser with data set #1',
+      2 => 'modelTest::testUser with data set #2',
+      3 => 'modelTest::testUser with data set #3',
+      4 => 'modelTest::testUser with data set #4',
+      5 => 'modelTest::testUser with data set #5',
+      6 => 'modelTest::testUser with data set #6',
+      7 => 'userActionTest::testcheckUserByClass with data set #0',
     ),
     11 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'modelTest::testUser with data set #0',
-      5 => 'modelTest::testUser with data set #1',
-      6 => 'modelTest::testUser with data set #2',
-      7 => 'modelTest::testUser with data set #3',
-      8 => 'modelTest::testUser with data set #4',
-      9 => 'modelTest::testUser with data set #5',
-      10 => 'modelTest::testUser with data set #6',
+      0 => 'modelTest::testUser with data set #0',
+      1 => 'modelTest::testUser with data set #1',
+      2 => 'modelTest::testUser with data set #2',
+      3 => 'modelTest::testUser with data set #3',
+      4 => 'modelTest::testUser with data set #4',
+      5 => 'modelTest::testUser with data set #5',
+      6 => 'modelTest::testUser with data set #6',
+      7 => 'userActionTest::testcheckUserByClass with data set #0',
     ),
     12 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'modelTest::testUser with data set #0',
-      5 => 'modelTest::testUser with data set #1',
-      6 => 'modelTest::testUser with data set #2',
-      7 => 'modelTest::testUser with data set #3',
-      8 => 'modelTest::testUser with data set #4',
-      9 => 'modelTest::testUser with data set #5',
-      10 => 'modelTest::testUser with data set #6',
+      0 => 'modelTest::testUser with data set #0',
+      1 => 'modelTest::testUser with data set #1',
+      2 => 'modelTest::testUser with data set #2',
+      3 => 'modelTest::testUser with data set #3',
+      4 => 'modelTest::testUser with data set #4',
+      5 => 'modelTest::testUser with data set #5',
+      6 => 'modelTest::testUser with data set #6',
+      7 => 'userActionTest::testcheckUserByClass with data set #0',
     ),
     13 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'modelTest::testUser with data set #0',
-      5 => 'modelTest::testUser with data set #1',
-      6 => 'modelTest::testUser with data set #2',
-      7 => 'modelTest::testUser with data set #3',
-      8 => 'modelTest::testUser with data set #4',
-      9 => 'modelTest::testUser with data set #5',
-      10 => 'modelTest::testUser with data set #6',
+      0 => 'modelTest::testUser with data set #0',
+      1 => 'modelTest::testUser with data set #1',
+      2 => 'modelTest::testUser with data set #2',
+      3 => 'modelTest::testUser with data set #3',
+      4 => 'modelTest::testUser with data set #4',
+      5 => 'modelTest::testUser with data set #5',
+      6 => 'modelTest::testUser with data set #6',
+      7 => 'userActionTest::testcheckUserByClass with data set #0',
     ),
     14 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'modelTest::testUser with data set #0',
-      5 => 'modelTest::testUser with data set #1',
-      6 => 'modelTest::testUser with data set #2',
-      7 => 'modelTest::testUser with data set #3',
-      8 => 'modelTest::testUser with data set #4',
-      9 => 'modelTest::testUser with data set #5',
-      10 => 'modelTest::testUser with data set #6',
+      0 => 'modelTest::testUser with data set #0',
+      1 => 'modelTest::testUser with data set #1',
+      2 => 'modelTest::testUser with data set #2',
+      3 => 'modelTest::testUser with data set #3',
+      4 => 'modelTest::testUser with data set #4',
+      5 => 'modelTest::testUser with data set #5',
+      6 => 'modelTest::testUser with data set #6',
+      7 => 'userActionTest::testcheckUserByClass with data set #0',
     ),
     15 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'modelTest::testUser with data set #0',
-      5 => 'modelTest::testUser with data set #1',
-      6 => 'modelTest::testUser with data set #2',
-      7 => 'modelTest::testUser with data set #3',
-      8 => 'modelTest::testUser with data set #4',
-      9 => 'modelTest::testUser with data set #5',
-      10 => 'modelTest::testUser with data set #6',
+      0 => 'modelTest::testUser with data set #0',
+      1 => 'modelTest::testUser with data set #1',
+      2 => 'modelTest::testUser with data set #2',
+      3 => 'modelTest::testUser with data set #3',
+      4 => 'modelTest::testUser with data set #4',
+      5 => 'modelTest::testUser with data set #5',
+      6 => 'modelTest::testUser with data set #6',
+      7 => 'userActionTest::testcheckUserByClass with data set #0',
     ),
   ),
-  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\check_user.php' => 
+  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\class_functions.php' => 
   array (
-    9 => 
+    12 => 
     array (
-      0 => 'actionTest::testSql',
-      1 => 'actionTest::testCheckUserByQuestion with data set #0',
-      2 => 'actionTest::testCheckUserByQuestion with data set #1',
-      3 => 'actionTest::testAssignQuestion with data set #0',
-      4 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
     ),
-    30 => 
+    13 => 
     array (
-      0 => 'actionTest::testSql',
-      1 => 'actionTest::testCheckUserByQuestion with data set #0',
-      2 => 'actionTest::testCheckUserByQuestion with data set #1',
-      3 => 'actionTest::testAssignQuestion with data set #0',
-      4 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
     ),
-    31 => NULL,
-    35 => 
+    16 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
     ),
-    37 => 
+    17 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    39 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    42 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    43 => NULL,
-    46 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    47 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    48 => 
-    array (
-    ),
-    51 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    52 => 
-    array (
-    ),
-    55 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    58 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    59 => 
-    array (
-    ),
-    62 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    63 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    64 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    65 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    67 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    68 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    71 => 
-    array (
-    ),
-    76 => 
-    array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    77 => NULL,
-  ),
-  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\question_list.php' => 
-  array (
-    9 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    43 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    44 => NULL,
-    48 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    49 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    50 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    51 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    52 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    54 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-    ),
-    55 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-    ),
-    56 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-    ),
-    57 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-    ),
-    60 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-    ),
-    61 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-    ),
-    62 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-    ),
-    63 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-    ),
-    65 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-    ),
-    69 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-    ),
-    70 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-    ),
-    74 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    75 => NULL,
-    78 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    82 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    83 => 
-    array (
-    ),
-    86 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    89 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    90 => 
-    array (
-    ),
-    93 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    94 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    97 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    98 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    100 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    102 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    104 => 
-    array (
-    ),
-    105 => 
-    array (
-    ),
-    108 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    112 => 
-    array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'actionTest::testQuestionList with data set #2',
-      3 => 'actionTest::testQuestionList with data set #3',
-    ),
-    113 => NULL,
-  ),
-  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\assign_question.php' => 
-  array (
-    10 => 
-    array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    11 => 
-    array (
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
     ),
     18 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
     ),
-    19 => 
+    20 => 
     array (
     ),
     23 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertClass with data set #0',
+      1 => 'classActionTest::testinsertClass with data set #1',
+      2 => 'classActionTest::testinsertClass with data set #2',
     ),
-    25 => 
-    array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    26 => 
-    array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
-    ),
+    24 => NULL,
     27 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testfindTagsinClass with data set #0',
+      1 => 'classActionTest::testfindTagsinClass with data set #1',
+      2 => 'classActionTest::testfindTagsinClass with data set #2',
     ),
-    28 => 
+    29 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testfindTagsinClass with data set #0',
+      1 => 'classActionTest::testfindTagsinClass with data set #1',
+      2 => 'classActionTest::testfindTagsinClass with data set #2',
     ),
-    30 => 
+    31 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testfindTagsinClass with data set #0',
+      1 => 'classActionTest::testfindTagsinClass with data set #1',
+      2 => 'classActionTest::testfindTagsinClass with data set #2',
     ),
     33 => 
     array (
+      0 => 'classActionTest::testfindTagsinClass with data set #0',
+      1 => 'classActionTest::testfindTagsinClass with data set #1',
+      2 => 'classActionTest::testfindTagsinClass with data set #2',
+    ),
+    34 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
+    ),
+    35 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
     ),
     36 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
     ),
-    37 => NULL,
-    40 => 
+    37 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
     ),
+    38 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
+    ),
+    42 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #0',
+      1 => 'classActionTest::testfindTagsinClass with data set #1',
+    ),
+    45 => 
+    array (
+      0 => 'classActionTest::testfindTagsinClass with data set #2',
+    ),
+    46 => NULL,
     50 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
     ),
-    51 => NULL,
+    51 => 
+    array (
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
+    ),
+    53 => 
+    array (
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
+    ),
     54 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
     ),
     55 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
+    ),
+    56 => 
+    array (
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
     ),
     57 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
+    ),
+    58 => 
+    array (
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
     ),
     60 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
     ),
     61 => 
     array (
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testinsertTags with data set #1',
+      2 => 'classActionTest::testupdateTags with data set #0',
     ),
-    64 => 
+    62 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertTags with data set #1',
     ),
     65 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testinsertTags with data set #0',
+      1 => 'classActionTest::testupdateTags with data set #0',
     ),
-    66 => 
+    66 => NULL,
+    69 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
-    ),
-    68 => 
-    array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testupdateTags with data set #0',
+      1 => 'classActionTest::testupdateTags with data set #1',
     ),
     71 => 
     array (
-      0 => 'actionTest::testAssignQuestion with data set #0',
-      1 => 'actionTest::testAssignQuestion with data set #1',
+      0 => 'classActionTest::testupdateTags with data set #0',
+      1 => 'classActionTest::testupdateTags with data set #1',
     ),
-    72 => NULL,
+    73 => 
+    array (
+      0 => 'classActionTest::testupdateTags with data set #0',
+      1 => 'classActionTest::testupdateTags with data set #1',
+    ),
+    74 => 
+    array (
+      0 => 'classActionTest::testupdateTags with data set #0',
+      1 => 'classActionTest::testupdateTags with data set #1',
+    ),
+    75 => 
+    array (
+      0 => 'classActionTest::testupdateTags with data set #1',
+    ),
+    78 => 
+    array (
+      0 => 'classActionTest::testupdateTags with data set #0',
+    ),
+    80 => 
+    array (
+      0 => 'classActionTest::testupdateTags with data set #0',
+    ),
+    81 => NULL,
+    85 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    86 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    87 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    89 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+    ),
+    92 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    93 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    94 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    95 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    97 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    101 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    102 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    104 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    105 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    106 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    107 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    108 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    109 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    110 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    111 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    112 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    113 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    114 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    116 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    118 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    121 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    122 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    123 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #0',
+      1 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    126 => 
+    array (
+    ),
+    128 => 
+    array (
+      0 => 'classActionTest::testinsertTa4Class with data set #1',
+    ),
+    129 => NULL,
+    133 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    135 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    136 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    137 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    138 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    139 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    140 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    141 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    143 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    148 => 
+    array (
+    ),
+    151 => 
+    array (
+      0 => 'classActionTest::testcheckUser4Students with data set #0',
+      1 => 'classActionTest::testcheckUser4Students with data set #1',
+    ),
+    152 => NULL,
+    155 => 
+    array (
+      0 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      1 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      2 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+      3 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+    ),
+    157 => 
+    array (
+      0 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      1 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      2 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+      3 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+    ),
+    158 => 
+    array (
+      0 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      1 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      2 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+      3 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+    ),
+    159 => 
+    array (
+      0 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      1 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      2 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+      3 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+    ),
+    160 => 
+    array (
+      0 => 'classActionTest::testdeleteClasses4Tas with data set #1',
+      1 => 'classActionTest::testdeleteClasses4Tas with data set #2',
+    ),
+    163 => 
+    array (
+      0 => 'classActionTest::testdeleteClasses4Tas with data set #0',
+      1 => 'classActionTest::testdeleteClasses4Tas with data set #3',
+    ),
+    164 => NULL,
+    167 => 
+    array (
+      0 => 'classActionTest::testupdateClasses with data set #0',
+      1 => 'classActionTest::testupdateClasses with data set #1',
+      2 => 'classActionTest::testupdateClasses with data set #2',
+      3 => 'classActionTest::testupdateClasses with data set #3',
+    ),
+    169 => 
+    array (
+      0 => 'classActionTest::testupdateClasses with data set #0',
+      1 => 'classActionTest::testupdateClasses with data set #1',
+      2 => 'classActionTest::testupdateClasses with data set #2',
+      3 => 'classActionTest::testupdateClasses with data set #3',
+    ),
+    170 => 
+    array (
+      0 => 'classActionTest::testupdateClasses with data set #0',
+      1 => 'classActionTest::testupdateClasses with data set #1',
+      2 => 'classActionTest::testupdateClasses with data set #2',
+      3 => 'classActionTest::testupdateClasses with data set #3',
+    ),
+    171 => 
+    array (
+      0 => 'classActionTest::testupdateClasses with data set #0',
+      1 => 'classActionTest::testupdateClasses with data set #1',
+      2 => 'classActionTest::testupdateClasses with data set #2',
+      3 => 'classActionTest::testupdateClasses with data set #3',
+    ),
+    172 => 
+    array (
+      0 => 'classActionTest::testupdateClasses with data set #1',
+    ),
+    175 => 
+    array (
+      0 => 'classActionTest::testupdateClasses with data set #0',
+      1 => 'classActionTest::testupdateClasses with data set #2',
+      2 => 'classActionTest::testupdateClasses with data set #3',
+    ),
+    176 => NULL,
+    179 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    182 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    183 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    184 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    185 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    187 => 
+    array (
+    ),
+    188 => 
+    array (
+    ),
+    191 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    192 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    193 => 
+    array (
+    ),
+    194 => 
+    array (
+    ),
+    195 => 
+    array (
+    ),
+    196 => 
+    array (
+    ),
+    197 => 
+    array (
+    ),
+    198 => 
+    array (
+    ),
+    201 => 
+    array (
+    ),
+    203 => 
+    array (
+    ),
+    205 => 
+    array (
+    ),
+    206 => 
+    array (
+    ),
+    210 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    211 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    213 => 
+    array (
+      0 => 'classActionTest::testselectClasses4Students with data set #0',
+    ),
+    214 => NULL,
+  ),
+  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\user_functions.php' => 
+  array (
+    11 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      2 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    12 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      2 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    14 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      2 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    15 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      2 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    16 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    17 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+    ),
+    19 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      2 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    23 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      2 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    24 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      2 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    26 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #1',
+      2 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    27 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    28 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    29 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    30 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    31 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    32 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    33 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    34 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    37 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    38 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    41 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #1',
+    ),
+    44 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    45 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    46 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    47 => 
+    array (
+    ),
+    50 => 
+    array (
+      0 => 'userActionTest::testfilterUserbyOnids with data set #0',
+      1 => 'userActionTest::testfilterUserbyOnids with data set #2',
+    ),
+    51 => NULL,
+    55 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    56 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    57 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    58 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    60 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    61 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    62 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    63 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    64 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    65 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    69 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    71 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+      2 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    72 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #0',
+      1 => 'userActionTest::testinsertTabyOnids with data set #1',
+    ),
+    76 => 
+    array (
+      0 => 'userActionTest::testinsertTabyOnids with data set #2',
+    ),
+    77 => NULL,
+    81 => 
+    array (
+      0 => 'userActionTest::testSql',
+      1 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    97 => 
+    array (
+      0 => 'userActionTest::testSql',
+      1 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    98 => NULL,
+    102 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    104 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    107 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    108 => NULL,
+    111 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+      1 => 'userActionTest::testcheckUserByClass with data set #1',
+      2 => 'userActionTest::testcheckUserByClass with data set #2',
+    ),
+    112 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+      1 => 'userActionTest::testcheckUserByClass with data set #1',
+      2 => 'userActionTest::testcheckUserByClass with data set #2',
+    ),
+    113 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #1',
+    ),
+    116 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+      1 => 'userActionTest::testcheckUserByClass with data set #2',
+    ),
+    117 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #2',
+    ),
+    120 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    123 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    124 => 
+    array (
+    ),
+    127 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    128 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    129 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    130 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    132 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    133 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    135 => 
+    array (
+    ),
+    138 => 
+    array (
+      0 => 'userActionTest::testcheckUserByClass with data set #0',
+    ),
+    139 => NULL,
+    142 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #1',
+      2 => 'userActionTest::testfindTasinClass with data set #2',
+      3 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    143 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #1',
+      2 => 'userActionTest::testfindTasinClass with data set #2',
+      3 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    144 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #2',
+    ),
+    147 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #1',
+      2 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    148 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #1',
+    ),
+    151 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    153 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    154 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    155 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    156 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    158 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    159 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    160 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    161 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    162 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    163 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    164 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    166 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    169 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    172 => 
+    array (
+    ),
+    175 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    177 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    178 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    179 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    180 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    182 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    183 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    184 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    186 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    187 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    189 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    192 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    195 => 
+    array (
+    ),
+    198 => 
+    array (
+      0 => 'userActionTest::testfindTasinClass with data set #0',
+      1 => 'userActionTest::testfindTasinClass with data set #3',
+    ),
+    199 => NULL,
   ),
   'D:\\workspace\\php\\CS561-Project\\pages\\models\\Class.class.php' => 
   array (
     8 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'actionTest::testQueryClass with data set #0',
-      5 => 'actionTest::testQueryClass with data set #1',
-      6 => 'actionTest::testQueryClass with data set #2',
-      7 => 'modelTest::testClass with data set #0',
-      8 => 'modelTest::testClass with data set #1',
-      9 => 'modelTest::testClass with data set #2',
-      10 => 'modelTest::testClass with data set #3',
+      0 => 'modelTest::testClass with data set #0',
+      1 => 'modelTest::testClass with data set #1',
+      2 => 'modelTest::testClass with data set #2',
+      3 => 'modelTest::testClass with data set #3',
     ),
     9 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'actionTest::testQueryClass with data set #0',
-      5 => 'actionTest::testQueryClass with data set #1',
-      6 => 'actionTest::testQueryClass with data set #2',
-      7 => 'modelTest::testClass with data set #0',
-      8 => 'modelTest::testClass with data set #1',
-      9 => 'modelTest::testClass with data set #2',
-      10 => 'modelTest::testClass with data set #3',
+      0 => 'modelTest::testClass with data set #0',
+      1 => 'modelTest::testClass with data set #1',
+      2 => 'modelTest::testClass with data set #2',
+      3 => 'modelTest::testClass with data set #3',
     ),
     10 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'actionTest::testQueryClass with data set #0',
-      5 => 'actionTest::testQueryClass with data set #1',
-      6 => 'actionTest::testQueryClass with data set #2',
-      7 => 'modelTest::testClass with data set #0',
-      8 => 'modelTest::testClass with data set #1',
-      9 => 'modelTest::testClass with data set #2',
-      10 => 'modelTest::testClass with data set #3',
+      0 => 'modelTest::testClass with data set #0',
+      1 => 'modelTest::testClass with data set #1',
+      2 => 'modelTest::testClass with data set #2',
+      3 => 'modelTest::testClass with data set #3',
     ),
     11 => 
     array (
-      0 => 'actionTest::testCheckUserByQuestion with data set #0',
-      1 => 'actionTest::testCheckUserByQuestion with data set #1',
-      2 => 'actionTest::testAssignQuestion with data set #0',
-      3 => 'actionTest::testAssignQuestion with data set #1',
-      4 => 'actionTest::testQueryClass with data set #0',
-      5 => 'actionTest::testQueryClass with data set #1',
-      6 => 'actionTest::testQueryClass with data set #2',
-      7 => 'modelTest::testClass with data set #0',
-      8 => 'modelTest::testClass with data set #1',
-      9 => 'modelTest::testClass with data set #2',
-      10 => 'modelTest::testClass with data set #3',
+      0 => 'modelTest::testClass with data set #0',
+      1 => 'modelTest::testClass with data set #1',
+      2 => 'modelTest::testClass with data set #2',
+      3 => 'modelTest::testClass with data set #3',
     ),
   ),
   'D:\\workspace\\php\\CS561-Project\\pages\\models\\Question.class.php' => 
   array (
     20 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     21 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     22 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     23 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     24 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     25 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     26 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     27 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     28 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     29 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     30 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     31 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     32 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     33 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
     34 => 
     array (
-      0 => 'actionTest::testQuestionList with data set #0',
-      1 => 'actionTest::testQuestionList with data set #1',
-      2 => 'modelTest::testQuestion with data set #0',
-      3 => 'modelTest::testQuestion with data set #1',
+      0 => 'modelTest::testQuestion with data set #0',
+      1 => 'modelTest::testQuestion with data set #1',
     ),
-  ),
-  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\query_class.php' => 
-  array (
-    8 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    19 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    20 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #1',
-    ),
-    21 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #2',
-    ),
-    22 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-    ),
-    25 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    26 => NULL,
-    30 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    31 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    32 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    34 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    35 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    38 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    39 => NULL,
-    42 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    45 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    46 => 
-    array (
-    ),
-    51 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    52 => 
-    array (
-    ),
-    55 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    57 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    58 => 
-    array (
-    ),
-    61 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    62 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    63 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    64 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    67 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    68 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    70 => 
-    array (
-    ),
-    71 => 
-    array (
-    ),
-    74 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    77 => 
-    array (
-      0 => 'actionTest::testQueryClass with data set #0',
-      1 => 'actionTest::testQueryClass with data set #1',
-      2 => 'actionTest::testQueryClass with data set #2',
-    ),
-    78 => NULL,
   ),
 ));
 $coverage->setTests(array (
@@ -927,62 +1430,117 @@ $coverage->setTests(array (
     'size' => 'unknown',
     'status' => NULL,
   ),
-  'actionTest::testSql' => 
+  'classActionTest::testinsertClass with data set #0' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testCheckUserByQuestion with data set #0' => 
+  'classActionTest::testinsertClass with data set #1' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testCheckUserByQuestion with data set #1' => 
+  'classActionTest::testinsertClass with data set #2' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testAssignQuestion with data set #0' => 
+  'classActionTest::testfindTagsinClass with data set #0' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testAssignQuestion with data set #1' => 
+  'classActionTest::testfindTagsinClass with data set #1' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testQuestionList with data set #0' => 
+  'classActionTest::testfindTagsinClass with data set #2' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testQuestionList with data set #1' => 
+  'classActionTest::testinsertTags with data set #0' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testQuestionList with data set #2' => 
+  'classActionTest::testinsertTags with data set #1' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testQuestionList with data set #3' => 
+  'classActionTest::testupdateTags with data set #0' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testQueryClass with data set #0' => 
+  'classActionTest::testupdateTags with data set #1' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testQueryClass with data set #1' => 
+  'classActionTest::testinsertTa4Class with data set #0' => 
   array (
     'size' => 'unknown',
     'status' => 0,
   ),
-  'actionTest::testQueryClass with data set #2' => 
+  'classActionTest::testinsertTa4Class with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testcheckUser4Students with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testcheckUser4Students with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testdeleteClasses4Tas with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testdeleteClasses4Tas with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testdeleteClasses4Tas with data set #2' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testdeleteClasses4Tas with data set #3' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testupdateClasses with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testupdateClasses with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testupdateClasses with data set #2' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testupdateClasses with data set #3' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'classActionTest::testselectClasses4Students with data set #0' => 
   array (
     'size' => 'unknown',
     'status' => 0,
@@ -1062,18 +1620,108 @@ $coverage->setTests(array (
     'size' => 'unknown',
     'status' => 0,
   ),
+  'modelTest::testCompleteMsg with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'modelTest::testCompleteMsg with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'modelTest::testTag with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'modelTest::testTag with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testSql' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testfilterUserbyOnids with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testfilterUserbyOnids with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testfilterUserbyOnids with data set #2' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testinsertTabyOnids with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testinsertTabyOnids with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testinsertTabyOnids with data set #2' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testcheckUserByClass with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testcheckUserByClass with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testcheckUserByClass with data set #2' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testfindTasinClass with data set #0' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testfindTasinClass with data set #1' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testfindTasinClass with data set #2' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
+  'userActionTest::testfindTasinClass with data set #3' => 
+  array (
+    'size' => 'unknown',
+    'status' => 0,
+  ),
 ));
 
 $filter = $coverage->filter();
 $filter->setWhitelistedFiles(array (
   'D:\\workspace\\php\\CS561-Project\\pages\\models\\Class.class.php' => true,
+  'D:\\workspace\\php\\CS561-Project\\pages\\models\\CompleteMsg.class.php' => true,
   'D:\\workspace\\php\\CS561-Project\\pages\\models\\Question.class.php' => true,
   'D:\\workspace\\php\\CS561-Project\\pages\\models\\QuestionConcern.class.php' => true,
+  'D:\\workspace\\php\\CS561-Project\\pages\\models\\Tag.class.php' => true,
   'D:\\workspace\\php\\CS561-Project\\pages\\models\\User.class.php' => true,
-  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\check_user.php' => true,
-  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\assign_question.php' => true,
-  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\question_list.php' => true,
-  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\query_class.php' => true,
+  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\user_functions.php' => true,
+  'D:\\workspace\\php\\CS561-Project\\pages\\actions\\class_functions.php' => true,
 ));
 
 return $coverage;

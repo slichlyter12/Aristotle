@@ -1,5 +1,4 @@
 <?php
-
 	// start session on every page
 	session_start();
 	$db = json_decode(file_get_contents("../../db/config.json"), true);

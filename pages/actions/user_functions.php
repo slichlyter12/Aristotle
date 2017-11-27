@@ -1,4 +1,5 @@
 <?php
+
 	$dir = dirname(__FILE__);
 	require_once ($dir."/"."../db_config/conn2.php");
 	require_once ($dir."/"."../models/User.class.php");
@@ -29,7 +30,7 @@
 					$onid = $row['osu_id'];
 					foreach ($tas as &$value) {
 						$i++;
-						if(strcmp($value, $onid)){
+						if(strcmp($value, $onid) != 0){
 							array_push($tmp, $value);
 						}
 					}
@@ -54,7 +55,6 @@
 			global $mysqli;
 			$i=0;
 			if(isset($tas) && $tas !='' && !empty($tas)){
-				//$sql = 'INSERT INTO r_user_class (user_id, class_id, role) VALUES ';
 				$sql = "INSERT INTO t_user(first_name, last_name, osu_id, role) VALUES ";
 
 				foreach ($tas as &$value) {
@@ -64,7 +64,6 @@
 						$sql = $sql .'("TBA", "TBA", "'.$value.'", 1)';
 						$i++;
 					}
-
 				}
 
 				$result = $mysqli->query($sql);
@@ -171,6 +170,29 @@
 
 			} else {
 				return new CompleteMsg(1, 'Find ta in this class error!', NULL);
+			}
+
+			$sql = "SELECT k.comment comment FROM t_keywords k WHERE k.class_id = ? ";
+
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("i", $class_id);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			//build Json object
+			if(isset($result)) {
+				$tag = "";
+				while($row = $result->fetch_assoc()){
+
+					if($tag == ""){
+						$tag = $row['comment'];
+					}else{
+						$tag = $tag.' '.$row['comment'];
+					}
+				}
+				$ta_info['tag_names'] = $tag;
+
+			} else {
+				return new CompleteMsg(1, 'Find tag in this class error!', NULL);
 			}
 
 			return new CompleteMsg(0, 'Find tas success!', $ta_info);
