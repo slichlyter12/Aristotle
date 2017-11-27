@@ -31,7 +31,7 @@ function insertColumnInQuestionTable(data){
 		.append('<td><span class="memberConut">'+data.NUM_JOIN+'</span></td>');
 	if(!data.ISMINE && !data.ISJOIN)
 		$obj.append('<td><span class="tableAddition" onclick="joinInAQuestion('+data.ID+');"></span></td>');
-	else if(!data.ISMINE)
+	else if(data.ISMINE)
 		$obj.append('<td><span></span></td>');
 	else
 		$obj.append('<td><span class="tableCancel" onclick="quitFromAQuestion('+data.ID+');"></span></td>');
