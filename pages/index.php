@@ -108,13 +108,13 @@
 
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
-				$redirectURL = "studentDashboard.html";
+				$redirectURL = "studentDashboard.php";
 			} else if ($_SESSION['role'] == "admin") {
 				$redirectURL = "adminDashboard.php";
 			} else if ($_SESSION['role'] == "ta") {
-				$redirectURL = "ta.html";
+				$redirectURL = "ta.php";
 			} else {
-				$redirectURL = "welcomePage.html";
+				$redirectURL = "welcomePage.php";
 			}
 			
 			echo "<script>window.location.href='" . $redirectURL . "'</script>";
