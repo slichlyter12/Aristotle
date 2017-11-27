@@ -62,6 +62,6 @@ $('document').ready(function(){
 
 	//	bind click event for class button
 	$('.classList').on("click", ".classes", function (){
-		location.href = 'ta_class.html?class_id=' + $(this).attr('id').substring('class_'.length);
+		location.href = 'ta_class.php?class_id=' + $(this).attr('id').substring('class_'.length);
 	});
 });

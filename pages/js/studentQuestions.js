@@ -16,7 +16,7 @@ function showQuestionDetail(data){		//::TODO
 function showUserLoginInfo(data){
 	if(data==null) return;
 	var str='';
-	if(data.ROLE=='1') $('#main .title .panel').append('<a href="./ta.html">Switch to TA Dashboard</a>');
+	if(data.ROLE=='1') $('#main .title .panel').append('<a href="./ta.php">Switch to TA Dashboard</a>');
 	$('#main .title .user ').html('<img onclick="logout()" src="images/svg/logout.svg" /><span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>'+str);
 }
 
@@ -55,7 +55,7 @@ function showClassList(data){
 	});
 	$("#main .title .classNav select").change(function(){
 		var classId = $(this).children('option:selected').val();
-		window.location.href='./studentQuestions.html?classId='+classId;
+		window.location.href='./studentQuestions.php?classId='+classId;
 	});
 }
 

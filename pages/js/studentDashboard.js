@@ -4,7 +4,7 @@
 function insertItemInClassList(data){
 	var classStr = '';
 	$obj = $('#main .data .classList');
-	$obj.append('<button class="classes selectedClass" onclick="window.location.href=\'./studentQuestions.html?classId='+data.id+'\'">'+data.name+'</button>');
+	$obj.append('<button class="classes selectedClass" onclick="window.location.href=\'./studentQuestions.php?classId='+data.id+'\'">'+data.name+'</button>');
 };
 
 //insert a column in add class form from data
@@ -27,7 +27,7 @@ function insertItemInAddClassForm(selectedClassId, data){
 function showUserLoginInfo(data){
 	if(data==null) return;
 	var str='';
-	if(data.ROLE=='1') $('#main .title .panel').append('<a href="./ta.html">Switch to TA Dashboard</a>');
+	if(data.ROLE=='1') $('#main .title .panel').append('<a href="./ta.php">Switch to TA Dashboard</a>');
 	$('#main .title .user ').html('<img onclick="logout()" src="images/svg/logout.svg" /><span>'+data.FIRSTNAME+' '+data.LASTNAME+'</span>'+str);
 }
 

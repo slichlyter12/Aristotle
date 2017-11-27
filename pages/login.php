@@ -107,13 +107,17 @@
 
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
-				$redirectURL = "studentDashboard.html";
+				$redirectURL = "studentDashboard.php";
 			} else if ($_SESSION['role'] == "admin") {
 				$redirectURL = "adminDashboard.php";
 			} else if ($_SESSION['role'] == "ta") {
-				$redirectURL = "ta.html";
+				$redirectURL = "ta.php";
 			} else {
+<<<<<<< HEAD:pages/login.php
 				$redirectURL = "index.html";
+=======
+				$redirectURL = "welcomePage.php";
+>>>>>>> security:pages/index.php
 			}
 		} else {
 			echo "Unresolved first visit";
