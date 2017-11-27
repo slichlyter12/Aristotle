@@ -46,16 +46,26 @@ $.formBox = {
 	}
 }
 
+function dismissDialog() {
+	$('#mask').fadeOut(200);
+	$container = $('.close').closest('.container');
+	$container.slideUp(200);
+	if($container.find('form')[0])$container.find('form')[0].reset();
+	$container.find('.timeDetailInput').attr('disabled',true);
+	$container.find('input:required, textarea:required').removeClass('illegalValue');
+	enable_scroll();
+}
+
 $('document').ready(function(){
 	$('.close').click(function(){
-		$('#mask').fadeOut(200);
-		$container = $(this).closest('.container');
-		$container.slideUp(200);
-		if($container.find('form')[0])$container.find('form')[0].reset();
-		$container.find('.timeDetailInput').attr('disabled',true);
-		$container.find('input:required, textarea:required').removeClass('illegalValue');
-		enable_scroll();
+		dismissDialog();
 	});
+	
+/*
+	$('#dialog:not(.container)').click(function() {
+		dismissDialog();
+	});
+*/
 
 });
 
