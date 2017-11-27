@@ -1,3 +1,11 @@
+<?php
+	
+	if (!isset($_SESSION["role"]) || $_SESSION["role"] == "student") {
+		echo header("Location: index.php");
+	}	
+	
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
