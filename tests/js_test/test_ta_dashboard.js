@@ -28,4 +28,10 @@ describe('ta_dashboard.js', function() {
     var data = {"id":2,"role":0};
     assert.equal(columnInClassTable(data), "");
   });
+
+  it('should not generate column DOM with error input', function() {
+
+    var data = {};
+    assert.equal(columnInClassTable(data), "");
+  });
 });

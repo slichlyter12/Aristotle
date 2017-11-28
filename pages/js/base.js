@@ -7,6 +7,16 @@ function openToast(str){
 	},3000);
 };
 
+function showError(str) {
+	$('#toast').removeClass('info').addClass('error');
+	openToast(str);
+}
+
+function showInfo(str) {
+	$('#toast').removeClass('error').addClass('info');
+	openToast(str);
+}
+
 //	storage value in session
 function setSession(key, value) {
 	if(typeof(Storage) !== "undefined") {
