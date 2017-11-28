@@ -12,7 +12,7 @@
 #main .funcs {margin-top:24px;}
 #main .funcs .subTitle{display:inline-block;margin-top:6px;}
 #main .funcs .searchInput{width:160px;position:absolute;right:0;border-radius:18px;padding:0 16px;}
-#toast{height:50px;line-height:50px;display:none;width:100%;background:#000;z-index:999;text-align:center;opacity:1;color:#fff}
+#toast{height:50px;line-height:50px;display:none;width:100%;top:30;background:#000;position:fixed;z-index:999;text-align:center;opacity:1;color:#fff}
 #toast.error{background:#f66e5d;}
 #toast.info{background:#278b4c;}
 #toast.right{background:#278b4c;}

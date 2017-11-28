@@ -23,8 +23,8 @@
 		$userinfo['ROLE'] = $row['role'];
 		$userinfo['FIRSTNAME'] = $_SESSION['firstname'];
 		$userinfo['LASTNAME'] = $_SESSION['lastname'];
-		if(!($userinfo['ROLE']=='0'||$userinfo['ROLE']=='1')) complete($mysqli, 4, 'No permission!', NULL);
+		if(!($userinfo['ROLE']=='0'||$userinfo['ROLE']=='1' ||$userinfo['ROLE']=='2')) complete($mysqli, 4, 'No permission!', NULL);
 	}
-	complete($mysqli, 0, NULL, array('USERINFO'=>$userinfo));
+	complete($mysqli, 0, NULL, array('USERINFO'=>$userinfo, '_SESSION'=>json_encode($_SESSION)));
 
 ?>

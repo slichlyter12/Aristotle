@@ -43,9 +43,9 @@ function insertColumnInQuestionTable(data){
 		.append('<td>'+data.NAME+'</td>').append('<td>'+data.CREATE_TIME+'</td>')
 		.append('<td>'+data.STATUS+'</td>')
 		.append('<td><span class="memberConut">'+data.NUM_JOIN+'</span></td>');
-	if(data.ISMINE=='0'&&data.ISJOIN=='0')
+	if(!data.ISMINE && !data.ISJOIN)
 		$obj.append('<td><span class="tableAddition" onclick="joinInAQuestion('+data.ID+');"></span></td>');
-	else if(data.ISMINE=='1')
+	else if(data.ISMINE)
 		$obj.append('<td><span></span></td>');
 	else
 		$obj.append('<td><span class="tableCancel" onclick="quitFromAQuestion('+data.ID+');"></span></td>');
@@ -81,7 +81,7 @@ function getLoginInfo(){
 		dataType:"json",
 		success: function(data) {
 			if(data.ERROR==0) showUserLoginInfo(data.DATA.USERINFO);
-			else openToast(data.MESSAGE);
+			else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -99,9 +99,8 @@ function getStudentsClasses(){
 		async:false,
 		dataType:"json",
 		success: function(data) {
-			if(!data.ERROR){
-				showClassList(data);
-			}else openToast(data.ERROR);
+			if(!data.ERROR) showClassList(data);
+			else showError(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -126,7 +125,7 @@ function getQuestionList(){
 				$.each(data.QUESTIONS, function(i,item) {
 					insertColumnInQuestionTable(item);
 				});
-			}else openToast(data.MESSAGE);
+			}else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -148,7 +147,7 @@ function getQuestionDetail(questionId){
 			if(data.ERROR == 0){
 				//$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
 				showQuestionDetail(data.DATA.QUESTION);
-			}else openToast(data.MESSAGE);		
+			}else showError(data.MESSAGE);		
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -188,7 +187,7 @@ function createNewQuestion(){
 		data:$('#dialog .questionForm form').serializeForm(),
 		dataType:'json',
 		success: function(data) {
-			openToast(data.MESSAGE);
+			showInfo(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -209,8 +208,12 @@ function joinInAQuestion(id){
 		data: $str,
 		dataType:'json',
 		success: function(data) {
-			if(data.MESSAGE!=null) openToast(data.MESSAGE);
-			if(data.ERROR == 0)	refreshAndMoveToAQuestion(id);
+			if(data.ERROR == 0) {
+				showInfo(data.MESSAGE);
+				refreshAndMoveToAQuestion(id);
+			}
+			else if(data.MESSAGE!=null) showError(data.MESSAGE);
+
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -231,8 +234,11 @@ function quitFromAQuestion(id){
 		data: $str,
 		dataType:'json',
 		success: function(data) {
-			if(data.MESSAGE!=null) openToast(data.MESSAGE);
-			if(data.ERROR == 0)	refreshAndMoveToAQuestion(id);
+			if(data.ERROR == 0)	{
+				showInfo(data.MESSAGE);
+				refreshAndMoveToAQuestion(id);
+			}
+			else if(data.MESSAGE!=null) showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);

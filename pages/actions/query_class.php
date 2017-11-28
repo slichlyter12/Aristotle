@@ -21,7 +21,9 @@
 			$sql = $sql." AND r.role = 0 ";
 		} else if ($category == "ta") {
 			$sql = $sql." AND r.role = 1 ";
-		} else if ($category == "all"){
+		} else if ($category == "admin") {
+			$sql = $sql." AND r.role = 2 ";
+		}else if ($category == "all"){
 			$sql="SELECT 
 				c.id cid, 
 				c.name class_name
@@ -52,7 +54,7 @@
 	
 	$category = $_REQUEST['category'];
 	// Can not get category from font page, exit! 
-	if(!isset($category) || !($category == "student" || $category == "ta" || $category == "all")){
+	if(!isset($category) || !($category == "student" || $category == "ta" || $category == "admin" || $category == "all")){
 		exit(json_encode(array('ERROR'=>'Failed to get category!')));
 	}
 

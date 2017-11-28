@@ -75,7 +75,8 @@ $.fn.checkForm = function(){
 	var n = 0;
 	$.each($inputObjs, function(i, inputObj){
 		var $inputObj = $(inputObj);
-		if($inputObj.val().replace(/(^s*)|(s*$)/g, "").length ==0){
+		//if($inputObj.val().replace(/(^s*)|(s*$)/g, "").length ==0){
+		if($inputObj.val().trim().replace(/(^s*)|(s*$)/g, "").length ==0){
 			$inputObj.addClass('illegalValue');
 			//alert($inputObj.val());
 			n++;

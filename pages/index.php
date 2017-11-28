@@ -62,22 +62,23 @@
 			$result = $selectStatement->get_result();
 
 			// get results
-			$return = "empty";
+			$return = true;
 			if ($result->num_rows > 0) {
 				$result = $result->fetch_assoc();
 				$_SESSION['firstname'] = $result['first_name'];
 				$_SESSION['lastname'] = $result['last_name'];
 				if ($result['role'] == 0) {
 					$_SESSION['role'] = 'student';
+				} else if ($result['role'] == 1) {
+					$_SESSION['role'] = 'ta';
 				} else if ($result['role'] == 2) {
 					$_SESSION['role'] = 'admin';
 				} else {
-					$_SESSION['role'] = 'ta';
+					echo "<h3 class='error'>Role assign failed</h3>";
+					exit(1);
 				}
 
 				$return = false;
-			} else {
-				$return = true;
 			}
 
 			$mysqli->close();
@@ -98,10 +99,11 @@
 
 		$firstVisit = checkFirstTime($mysqli);
 		if ($firstVisit == true) {
+			
 			// redirect to select role
 			$redirectURL = "selectrole.php";
-			// header("Location: $redirectURL");
 			echo "<script>window.location.href='" . $redirectURL . "'</script>";
+		
 		} else if ($firstVisit == false) {
 
 			// authenticated and returning user
@@ -109,14 +111,16 @@
 				$redirectURL = "studentDashboard.html";
 			} else if ($_SESSION['role'] == "admin") {
 				$redirectURL = "adminDashboard.php";
-			} else {
+			} else if ($_SESSION['role'] == "ta") {
 				$redirectURL = "ta.html";
+			} else {
+				$redirectURL = "welcomePage.html";
 			}
-			// header("Location: $redirectURL");
+			
 			echo "<script>window.location.href='" . $redirectURL . "'</script>";
 		}
 	} else {
-		echo "Not authenticated";
+		echo "<h3 class='error'>Not authenticated</h3>";
 	}
 
 

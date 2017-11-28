@@ -8,7 +8,10 @@
  * @return {number}
  */
 function studentJoinNumber(data) {
-    if(data['students'] !== null) {
+    if(data['students'] === undefined) {
+        return 0;
+    }
+    else if(data['students'] !== null) {
         return data['students'].length;
     }
     else {
@@ -22,6 +25,13 @@ function studentJoinNumber(data) {
  * @return {string}
  */
 function columnInQuestionTable(data) {
+    if(data['id'] === undefined || data['title'] === undefined || data['stdnt_first_name'] === undefined
+        || data['stdnt_last_name'] === undefined || data['create_time'] === undefined
+        || data['status'] === undefined) {
+
+        return "";
+    }
+
     var string = '<tr id="question_' + data['id'] + '">';
     string += '<td><a href="ta_question.html?question_id=' + data['id'] + '">' + data['title'] + '</a></td>';
     string += '<td>' + data['stdnt_first_name'] + ' ' + data['stdnt_last_name'] + '</td>';
@@ -36,11 +46,12 @@ function columnInQuestionTable(data) {
     string += '<td><span class="memberConut">' + studentJoinNumber(data) + '</span></td>';
     //  if question is proposed, show add buttion
     if (data['status'] === 'proposed') {
-        string += '<td><span class="tableAssign"></span></td>';
+        string += '<td><button class="tableAssign">Assign</button></td>';
     }
     else {
         string += '<td></td>';
     }
+    string += '<td><span class="tableDelete"></span></td>';
     string += '</tr>';
     return string;
 }
@@ -88,6 +99,29 @@ function updateUserName(name) {
         data: {"question_id": question_id},
 		dataType:"json",
 		success: function(data) {
+            showInfo(data.SUCCESS);
+            callback(data);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+};
+
+/**
+ * call api - post: assign question
+ * @param {string} question_id
+ * @param {function} callback
+ */
+ function deleteQuestion(question_id, callback){
+	$.ajax({
+		type: "delete",
+		url:"actions/questions.php/" + question_id,
+		async: true,
+		dataType:"json",
+		success: function(data) {
             callback(data);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -120,11 +154,28 @@ $('document').ready(function(){
     updateUserName(getSession('user_name'));
 
     //  bind click event for assign class button
-    $('#main .data table').on("click", ".tableAddition", function() {
+    $('#main .data table').on("click", ".tableAssign", function() {
         var question_id = $(this).parent().parent().attr('id').substring("question_".length);
         console.log("question_id = " + question_id);
         assignQuestion(question_id, (data) => {
             window.location.reload();
         });
+    });
+
+    //  bind click event for assign class button
+    $('#main .data table').on("click", ".tableDelete", function() {
+        var question_id = $(this).parent().parent().attr('id').substring("question_".length);
+        var question_title = $(this).parent().parent().children().first().text();
+        console.log("question_id = " + question_id);
+        var msg = "Are you sure to delete question '" + question_title + "'?";
+        if (confirm(msg) == true) {
+            deleteQuestion(question_id, (data) => {
+                window.location.reload();
+            });
+            return true;
+		}
+		else {
+			return false;
+		}
     });
 });
