@@ -8,6 +8,7 @@ function getGetParameter(name) {
 } 
 
 function showQuestionDetail(data){		//::TODO
+/*
 	if (data[9] == null){
 		$('.questionDetail h5').html(data[2]);
 	} else {
@@ -15,6 +16,24 @@ function showQuestionDetail(data){		//::TODO
 	}
 	$('.questionDetail p').html(data[1]);
 	$.formBox.openDialog('questionDetail');
+*/
+
+	if(data[9] == 1)//check whether this question is posted my the user
+	{
+		$.formBox.openDialog('questionToModify');
+		$timeDetailInput.removeAttr('disabled');
+		$('#idInput').attr('value',data[0]);
+		$('#titleInput').attr('value',data[2]);
+		$('#titleInput').attr('disabled',"disabled");
+		$('#questextsInput').html(data[1]);
+		
+	}
+	else
+	{
+		$.formBox.openDialog('questionDetail');
+		$('.questionDetail h5').html(data[2]);
+		$('.questionDetail p').html(data[1]);
+	}
 }
 
 function showUserLoginInfo(data){
@@ -135,8 +154,29 @@ function getQuestionDetail(questionId){
 		dataType:'json',
 		success: function(data) {
 			if(data.ERROR == 0){
+				//$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
 				showQuestionDetail(data.DATA.QUESTION);
 			}else showError(data.MESSAGE);		
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+};
+
+//action:modifyAQuestion
+function modifyAQuestion(){
+	classid = getGetParameter('classId');
+	$.ajax({
+		type: "post",
+		url:"actions/modifyAQuestion.php?classid="+classid,
+		async: false,
+		data:$('#dialog .questionToModify form').serializeForm(),
+		dataType:'json',
+		success: function(data) {
+			openToast(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -276,9 +316,10 @@ $('document').ready(function(){
 	getLoginInfo();
 	//bind click event for add question button
 	$('.openQFormDialog').click(function(){
+		$timeDetailInput.attr('disabled',true);
 		$.formBox.openDialog('questionForm');
 		//time picker plugin
-		$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
+		//$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
 	});
 	
 	getStudentsClasses();
@@ -298,6 +339,15 @@ $('document').ready(function(){
 			getTagList();
 			$('#dialog .questionForm .close').trigger('click');
 			getQuestionList();
+		}
+	});
+	
+	$('#dialog .questionToModify .submitBtn').click(function(){
+		if($('#dialog .questionToModify form').checkForm()==true){
+			modifyAQuestion();
+			$('#dialog .questionToModify .close').trigger('click');
+			getQuestionList();
+			//alert(JSON.stringify($('#dialog .questionToModify form').serializeForm()));
 		}
 	});
 

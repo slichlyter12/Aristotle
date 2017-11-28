@@ -40,7 +40,7 @@
 	}
 	
 	//Get question details
-	$sql='SELECT id, title, description, created_time, preferred_time,stdnt_user_id, stdnt_first_name, stdnt_last_name,status, num_liked, course_keywords FROM t_question WHERE id = '.$questionId.' LIMIT 1';
+	$sql='SELECT id, title, description, created_time, preferred_time,stdnt_user_id, stdnt_first_name, stdnt_last_name,status, num_liked, concern, course_keywords FROM t_question WHERE id = '.$questionId.' LIMIT 1';
 	$result=$mysqli->query($sql);
 	if($result) {
 		$question=array();
@@ -50,7 +50,8 @@
 			$question['TITLE']=$row['title'];
 			$question['NAME']=$row['stdnt_first_name'].' '.$row['stdnt_last_name'];
 			$question['CREATE_TIME']= date('Y-m-d g:i a', strtotime($row['created_time']));
-			$question['PREFERRED_TIME']= $row['preferred_time'];
+			$question['PREFERRED_TIME']= date('Y-m-d g:i a', strtotime($row['preferred_time']));
+			$question['CONCERN']= $row['concern'];
 			switch($row['status']){
 				case '0': $question['STATUS']= 'Proposed';break;
 				case '1': $question['STATUS']= 'Answered';break;
@@ -61,10 +62,6 @@
 			if($row['stdnt_user_id']==$userId) $question['ISMINE']=1;
 			else {
 				$question['ISMINE']=0;
-				if($isJoinedIds!=NULL){
-					if(in_array($row['id'],$isJoinedIds)) $question['ISJOIN'] = 1;
-					else $question['ISJOIN'] = 0;
-				}
 			}
 			$question['TAG']=$row['course_keywords'];
 		}else complete($mysqli, 1,'No such question here!', NULL);

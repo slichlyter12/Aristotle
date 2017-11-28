@@ -59,18 +59,66 @@
 		</div>
 	</div>
 </div>
+
 <div id="dialog">	<!--split dialog out -->
 	<div class="container largeBox questionDetail">
 		<span class="close"></span>
 		<div class="title row">
 			<div class="twelve columns">
-				<h5></h5><p></p>
+				<h5></h5>
+				<p></p>
 			</div>
 		</div>
 		<div class="concern row">
 			<div class="twelve columns">
 			</div>
 		</div>
+	</div>
+
+	<div class="container largeBox questionToModify">
+		<span class="close"></span>
+		<div class="title row">
+			<div class="twelve columns">
+				<h5>Modifiy A Question</h5>
+			</div>
+		</div>
+		<form name="ALL_QUESTIONS" class="post_ques">
+			<div class="row">
+				<div class="six columns">
+				    <input name="ID" type="text" id="idInput" value="" style="display:none;" required/>
+					<label for="titleInput">Question Title</label>
+					<input name="TITLE" class="u-full-width" type="text" value="" id="titleInput" disabled="" required/><span></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="twelve columns">
+					<label for="questextsInput">Description</label>
+					<textarea name="DESCRIPTION" class="quesArea" placeholder="" id="questextsInput" required></textarea><span></span>
+				</div>
+			</div>
+			<div class="row timeSelect">
+				<div class="twelve columns " >
+					<label for="timeSelect">When Coming to Office Hour</label>
+<!-- 					<label>
+						<input class="nowRadioBtn" name="AVAILABLE_TIME" type="radio" value="now" checked="checked" /> Now<br/>
+					</label> -->
+					<div class="row" >
+						<div class="eight columns">
+							<label>
+<!-- 								<input class="laterRadioBtn" name="AVAILABLE_TIME" type="radio" value=""/> -->
+								<span> At:</span>
+								<input name="AVAILABLE_TIME" id="timeDetailInput" class="timeDetailInput" type="text" disabled="disabled" required/><span></span>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="twelve columns">
+					<input class="submitBtn button-primary" type="button" value="Save"/>		<!--action:createNewQuestion & questionList-->
+				</div>
+			</div>
+		</form>
 	</div>
 
 	<div class="container largeBox questionForm">
@@ -122,7 +170,7 @@
 
 			<div class="row">
 				<div class="twelve columns">
-					<input class="submitBtn button-primary" type="button" value="Post"/>		<!--action:createNewQuestion & questionList-->
+					<input class="submitBtn button-primary" type="button" value="Save"/>		<!--action:createNewQuestion & questionList-->
 				</div>
 			</div>
 		</form>
