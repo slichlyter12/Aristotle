@@ -1,0 +1,333 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CS561-Project",
+		"_postman_id": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Questions",
+			"description": "",
+			"item": [
+				{
+					"name": "get all questions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get question status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"console.log((response[\"DATA\"][\"QUESTIONS\"]).length.toString());",
+									"pm.environment.set(\"question_count\", (response[\"DATA\"][\"QUESTIONS\"]).length.toString());"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getQuestionList.php"
+							],
+							"query": [
+								{
+									"key": "classid",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "add new question",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"add new question code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/addNewQuestion.php?classid=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"addNewQuestion.php"
+							],
+							"query": [
+								{
+									"key": "classid",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"TITLE\": \"{{question_title}}\",\n\t\"DESCRIPTION\": \"{{question_description}}\",\n\t\"AVAILABLE_TIME\":\"now\",\n\t\"tag\":\"{{question_tag}}\",\n\t\"newTag\":\"{{question_tag}}\"\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get all questions to check whether add question successful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get question status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"var old_question_count = parseInt(pm.environment.get(\"question_count\"));",
+									"var new_question_count = (response[\"DATA\"][\"QUESTIONS\"]).length;",
+									"pm.environment.set(\"question_id\", response[\"DATA\"][\"QUESTIONS\"][0][\"ID\"]);",
+									"",
+									"pm.test(\"question count is added by one\", function () {",
+									"    pm.expect(new_question_count).to.eql(old_question_count+1);",
+									"});",
+									"",
+									"pm.test(\"question title is correctlly added\", function() {",
+									"    pm.expect(response[\"DATA\"][\"QUESTIONS\"][0][\"TITLE\"]).to.eql(pm.environment.get(\"question_title\"));",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getQuestionList.php"
+							],
+							"query": [
+								{
+									"key": "classid",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "assign question",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get question status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/assign_question.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "question_id",
+									"value": "{{question_id}}",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "check assign question successful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get question status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"",
+									"pm.test(\"question count is deleted by one\", function () {",
+									"    pm.expect(response[\"DATA\"][\"QUESTIONS\"][0][\"STATUS\"]).to.eql(\"Assigned\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getQuestionList.php"
+							],
+							"query": [
+								{
+									"key": "classid",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "delete the question just added",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get question status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"",
+									"pm.test(\"response of message is not empty\", function () {",
+									"    pm.expect(response['message']).not.to.empty;",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/questions.php/{{question_id}}",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get all questions to check whether delete question successful",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get question status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"var old_question_count = parseInt(pm.environment.get(\"question_count\"));",
+									"var new_question_count = (response[\"DATA\"][\"QUESTIONS\"]).length;",
+									"pm.environment.set(\"question_id\", response[\"DATA\"][\"QUESTIONS\"][0][\"ID\"]);",
+									"",
+									"pm.test(\"question count is deleted by one\", function () {",
+									"    pm.expect(new_question_count).to.eql(old_question_count);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getQuestionList.php"
+							],
+							"query": [
+								{
+									"key": "classid",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
