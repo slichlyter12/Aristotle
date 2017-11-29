@@ -52,7 +52,11 @@ function dismissModal() {
 	$('#mask').fadeOut(200);
 	$container = $('.close').closest('.container');
 	$container.slideUp(200);
-	if($container.find('form')[0])$container.find('form')[0].reset();
+	if($container.find('form'))
+		$.each($container.find('form'), function($index, $form){
+			$form.reset();
+	});
+		
 	$container.find('.timeDetailInput').attr('disabled',true);
 	$container.find('input:required, textarea:required').removeClass('illegalValue');
 	enable_scroll();
