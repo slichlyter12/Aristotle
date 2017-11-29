@@ -203,13 +203,16 @@
 			$i=0;
 			if(isset($classesData['classes'][$i])){
 				$sql = 'INSERT INTO r_user_class (user_id, class_id, role) VALUES ';
-				while( $classId = $classesData['classes'][$i]){
-					if($i > 0) 
-						$sql = $sql .',';							
-					$sql = $sql .'('.$userId.', '.$classId.','. $role.')';
-					$i++;
+				if(!is_array($classesData['classes']))
+					$sql = $sql .'('.$userId.', '.$classesData['classes'].','. $role.')';
+				else{
+					while( $classId = $classesData['classes'][$i]){
+						if($i > 0) 
+							$sql = $sql .',';							
+						$sql = $sql .'('.$userId.', '.$classId.','. $role.')';
+						$i++;
+					}
 				}
-
 				$result = $mysqli->query($sql);
 					
 				if(!$result) {
