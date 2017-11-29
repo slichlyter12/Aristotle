@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/classList.css" />
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
 	<link rel="stylesheet" type="text/css" href="css/myDialog.css" />
+	<script type="text/javascript" src="lib/js/jquery.timepicker.min.js"></script>
 	<script type="text/javascript" src="js/base.js"></script>
 	<script type="text/javascript" src="js/myDialog.js"></script>
 	<script type="text/javascript" src="js/logout.js"></script>

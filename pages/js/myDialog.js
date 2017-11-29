@@ -64,12 +64,14 @@ $('document').ready(function(){
 	});
 });
 
+/*
 $(document).mouseup(function(e) {
 	var modal = $('div.container.largeBox.addClassForm');
 	if (!modal.is(e.target) && modal.has(e.target).length === 0) {
 		dismissModal();
 	}
 });
+*/
 
 //dialog from check
 $.fn.checkForm = function(){
