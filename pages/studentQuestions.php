@@ -26,7 +26,7 @@
 <div id="main" class="container">
 	<div class="title row ">
 		<div class="twelve columns">
-			<img class="back" src="images/svg/back.svg" onclick="window.location.href='./studentDashboard.html'"/>
+			<img class="back" src="images/svg/back.svg" onclick="window.location.href='./studentDashboard.php'"/>
 			<h4>Student Question List</h4>	<!--page title-->
 			<p class="classNav"></p>
 			<div class="user"></div><!--user info-->

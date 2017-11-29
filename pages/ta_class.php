@@ -36,7 +36,7 @@
 				<img onclick="logout()" src="images/svg/logout.svg" /> <!--action:logout-->
 				<span id="logout_name">XXX</span>
 			</div>
-			<div class="panel"><a href="studentDashboard.html">Switch to Student Dashboard</a></div>
+			<div class="panel"><a href="studentDashboard.php">Switch to Student Dashboard</a></div>
 		</div>
 	</div>
 	<div class="data row">

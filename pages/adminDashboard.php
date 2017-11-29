@@ -26,7 +26,7 @@
 		<?php 
 			SESSION_START(); 
 			if ($_SESSION['role'] != "admin") {
-				header("Location: welcomePage.html");	
+				header("Location: index.php");	
 			}
 		?>
 	</head>	
