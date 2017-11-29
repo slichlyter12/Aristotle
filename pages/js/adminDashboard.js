@@ -1,4 +1,5 @@
 function createCourse () {
+
 	var courseObj = {};
 	courseObj.classId = document.getElementsByName("CLASSID")[0].value;
 	courseObj.courseName = document.getElementsByName("NAME")[0].value.trim();
@@ -40,6 +41,7 @@ function displayCurrentCourses(classId) {
 				document.getElementsByName("Tags")[0].value = data.DATA[0].tag_names;
 				document.getElementsByName("CLASSID")[0].value = data.DATA[0].c_id;
 				$.formBox.openDialog('addClassForm');
+				$('.addClassForm h5').html('Modify a Class');
 			}else openToast(data.ERROR);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -158,6 +160,7 @@ $('document').ready(function(){
 	$('.openAddClassFormDialog').click(function(){
 		document.getElementsByName("CLASSID")[0].value = "";
 		$.formBox.openDialog('addClassForm');
+		$('.addClassForm h5').html('Add a New Class');
 	});
 	//Show classes;
 	selectedClassId = getAdminClasses();

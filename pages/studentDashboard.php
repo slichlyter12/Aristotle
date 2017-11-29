@@ -52,7 +52,7 @@
 		</div>
 		<div class="funcs row">
 			<div class="twelve columns">
-				<input class="searchInput" type="text" placeholder="Search"/>
+				<input disabled class="searchInput" type="text" placeholder="Search"/>
 			</div>
 		</div>
 		<form name="addClass" class="post_class">

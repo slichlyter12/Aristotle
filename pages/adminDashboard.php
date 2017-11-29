@@ -9,7 +9,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Class Management</title>
+		<title>Admin Dashboard</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="lib/css/normalize.css">
 		<link rel="stylesheet" href="lib/css/skeleton.css">
@@ -34,7 +34,7 @@
 		<div id="main" class="container">
 			<div class="title row">
 				<div class="twelve columns">
-					<h4>Manage Classes</h4>			<!--page title-->
+					<h4>Admin Dashboard</h4>			<!--page title-->
 					<div class="user">				<!--user info-->
 						<img onclick="logout()" src="images/svg/logout.svg" /> <!--action:logout-->
 						<span id="logout_name" style="float:right">XXX</span>
@@ -45,7 +45,7 @@
 			<div class="funcs row" >
 				<div class="four columns">
 					<h5 class="subTitle">Your Classes</h5>
-					<input class="searchInput" type="text" placeholder="Search"/>
+					<input disabled class="searchInput" type="text" placeholder="Search"/>
 				</div>
 			</div>
 
