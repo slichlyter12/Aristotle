@@ -109,7 +109,7 @@ function getStudentsClasses(){
 		dataType:"json",
 		success: function(data) {
 			if(!data.ERROR) showClassList(data);
-			else showError(data.ERROR);
+			else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);

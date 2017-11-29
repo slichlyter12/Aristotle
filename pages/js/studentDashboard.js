@@ -64,7 +64,7 @@ function getStudentsClasses(){
 					insertItemInClassList(item);
 					_selectedClassId[i]=item.id;
 				});
-			}else showError(data.ERROR);
+			}else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -88,7 +88,7 @@ function getAllClasses(selectedClassId){
 				$.each(data.class_info,function(i,item){
 					insertItemInAddClassForm(selectedClassId, item);
 				});
-			}else showError(data.ERROR);
+			}else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
@@ -108,7 +108,7 @@ function addClassForStudent(){
 		dataType:"json",
 		success: function(data) {
 			if(!data.ERROR) showInfo(data.MESSAGE);
-			else showError(data.ERROR);
+			else showError(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(XMLHttpRequest.status);
