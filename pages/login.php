@@ -113,11 +113,7 @@
 			} else if ($_SESSION['role'] == "ta") {
 				$redirectURL = "ta.php";
 			} else {
-<<<<<<< HEAD:pages/login.php
 				$redirectURL = "index.html";
-=======
-				$redirectURL = "welcomePage.php";
->>>>>>> security:pages/index.php
 			}
 		} else {
 			echo "Unresolved first visit";
