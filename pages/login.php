@@ -106,11 +106,6 @@
 		
 		} else if ($firstVisit == false) {
 
-/*
-			var_dump($_SESSION["role"]);
-			exit(1);
-*/
-
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
 				$redirectURL = "studentDashboard.php";
