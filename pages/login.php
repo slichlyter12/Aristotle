@@ -74,6 +74,7 @@
 				} else if ($result['role'] == 2) {
 					$_SESSION['role'] = 'admin';
 				} else {
+					$_SESSION["role"] = "not set";
 					echo "<h3 class='error'>Role assign failed</h3>";
 				}
 
@@ -105,6 +106,11 @@
 		
 		} else if ($firstVisit == false) {
 
+/*
+			var_dump($_SESSION["role"]);
+			exit(1);
+*/
+
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
 				$redirectURL = "studentDashboard.php";
@@ -113,7 +119,7 @@
 			} else if ($_SESSION['role'] == "ta") {
 				$redirectURL = "ta.php";
 			} else {
-				$redirectURL = "index.html";
+				$redirectURL = "index.php";
 			}
 		} else {
 			echo "Unresolved first visit";

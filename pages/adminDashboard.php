@@ -1,6 +1,6 @@
 <?php
 	
-	if (!isset($_SESSION["role"]) || $_SESSION["role"] != "admin") {
+	if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
 		echo header("Location: index.php");
 	}	
 	

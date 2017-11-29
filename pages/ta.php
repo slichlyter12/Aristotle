@@ -1,6 +1,11 @@
 <?php
 	
-	if (!isset($_SESSION["role"]) || $_SESSION["role"] == "student") {
+/*
+	var_dump($_SESSION["role"]);
+	exit(1);
+*/
+	
+	if (isset($_SESSION["role"]) && $_SESSION["role"] == "ta") {
 		echo header("Location: index.php");
 	}	
 	
