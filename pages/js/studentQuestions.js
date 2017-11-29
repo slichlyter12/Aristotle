@@ -261,8 +261,7 @@ function quitFromAQuestion(id){
 function setInputDisable(value){
 	if(value == 0){
 		$("#dialog .tagSelect .row .newTagInput").removeAttr("disabled");
-	}
-	else{
+	}else{
 		$("#dialog .tagSelect .row .newTagInput").attr("disabled","disabled");
 	}
 }
@@ -286,7 +285,7 @@ function getTagList(){
 						$("#dialog .tagSelect .row").append("</br><tr>");
 					}
 
-					$("#dialog .tagSelect .row").append('<td class="three columns"><input name="tag" type="radio" value="'+item.comment+'" onclick="setInputDisable(\''+item.value+'\');"/><b>'+item.comment+'</b></td>')
+					$("#dialog .tagSelect .row").append('<td class="three columns"><input name="tag" type="radio" value="'+item.comment+'" onclick="setInputDisable('+item.value+');"/><b>'+item.comment+'</b></td>')
 
 					if((i % col) == col - 1){
 						$("#dialog .tagSelect .row").append("</tr>");
@@ -298,7 +297,7 @@ function getTagList(){
 				}
 
 				$("#dialog .tagSelect .row").append('<tr>')
-				$("#dialog .tagSelect .row").append('<td class="ten columns"><input name="tag" type="radio" value="0" onclick="setInputDisable(\'0\');" checked/><b >New tag &nbsp; &nbsp;</b><input name="newTag" class="newTagInput" type="text" value="new tag"/></td>');
+				$("#dialog .tagSelect .row").append('<td class="ten columns"><input name="tag" type="radio" value="0" onclick="setInputDisable(0);" checked/><b >New tag &nbsp; &nbsp;</b><input name="newTag" class="newTagInput" type="text" value="new tag"/></td>');
 				$("#dialog .tagSelect .row").append('</tr>')
 				$("#dialog .tagSelect .row").append('</table>')
 			}else showError(data.MESSAGE);
