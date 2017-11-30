@@ -1,14 +1,14 @@
 {
 	"variables": [],
 	"info": {
-		"name": "CS561-Project",
-		"_postman_id": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
+		"name": "CS561 - TA Assign Questions",
+		"_postman_id": "bdcad098-d226-5623-7015-fad7adc5befd",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Questions",
+			"name": "Questions copy",
 			"description": "",
 			"item": [
 				{
@@ -24,15 +24,28 @@
 									"});",
 									"",
 									"var response = pm.response.json();",
-									"console.log((response[\"DATA\"][\"QUESTIONS\"]).length.toString());",
-									"pm.environment.set(\"question_count\", (response[\"DATA\"][\"QUESTIONS\"]).length.toString());"
+									"",
+									"pm.test(\"get original question list\", function () {",
+									"",
+									"    if(response['ERROR'] === 0) {",
+									"        console.log((response[\"DATA\"][\"QUESTIONS\"]).length.toString());",
+									"        pm.environment.set(\"question_count\", (response[\"DATA\"][\"QUESTIONS\"]).length.toString());",
+									"    }",
+									"    else if(response['ERROR'] === 1) {",
+									"        pm.expect(response['MESSAGE']).to.eql(\"No question here!\");",
+									"        pm.environment.set(\"question_count\", \"0\");",
+									"    }",
+									"    else {",
+									"        pm.expect(\"There is some other Error\").to.eql(\"\");",
+									"    }",
+									"});"
 								]
 							}
 						}
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"raw": "{{url}}/getQuestionList.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -42,7 +55,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
@@ -73,7 +86,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/addNewQuestion.php?classid=1",
+							"raw": "{{url}}/addNewQuestion.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -83,7 +96,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
@@ -136,7 +149,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"raw": "{{url}}/getQuestionList.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -146,7 +159,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
@@ -223,7 +236,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"raw": "{{url}}/getQuestionList.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -233,7 +246,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
@@ -290,12 +303,25 @@
 									"});",
 									"",
 									"var response = pm.response.json();",
-									"var old_question_count = parseInt(pm.environment.get(\"question_count\"));",
-									"var new_question_count = (response[\"DATA\"][\"QUESTIONS\"]).length;",
-									"pm.environment.set(\"question_id\", response[\"DATA\"][\"QUESTIONS\"][0][\"ID\"]);",
 									"",
 									"pm.test(\"question count is deleted by one\", function () {",
-									"    pm.expect(new_question_count).to.eql(old_question_count);",
+									"",
+									"    if(response['ERROR'] === 0) {",
+									"        var old_question_count = parseInt(pm.environment.get(\"question_count\"));",
+									"        var new_question_count = (response[\"DATA\"][\"QUESTIONS\"]).length;",
+									"        pm.environment.set(\"question_id\", response[\"DATA\"][\"QUESTIONS\"][0][\"ID\"]);",
+									"        ",
+									"        pm.test(\"question count is deleted by one\", function () {",
+									"            pm.expect(new_question_count).to.eql(old_question_count);",
+									"        });",
+									"    }",
+									"    else if(response['ERROR'] === 1) {",
+									"        pm.expect(response['MESSAGE']).to.eql(\"No question here!\");",
+									"        pm.environment.set(\"question_count\", \"0\");",
+									"    }",
+									"    else {",
+									"        pm.expect(\"There is some other Error\").to.eql(\"\");",
+									"    }",
 									"});"
 								]
 							}
@@ -303,7 +329,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"raw": "{{url}}/getQuestionList.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -313,7 +339,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
