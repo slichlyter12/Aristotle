@@ -1,0 +1,180 @@
+{
+	"id": "0f6461b2-cb9b-4766-9130-a950a6c174ca",
+	"name": "CS561 ModifyQuestion",
+	"allTests": [],
+	"timestamp": "2017-12-01T05:57:37.914Z",
+	"collection_id": "93a8fa48-808d-7d20-95f2-fd319b44bcea",
+	"folder_id": 0,
+	"target_type": "collection",
+	"environment_id": "b2660b03-1497-02c3-99e2-99f3bc2cf5c9",
+	"data": [],
+	"delay": "1000",
+	"count": 1,
+	"collection": {
+		"id": "93a8fa48-808d-7d20-95f2-fd319b44bcea",
+		"name": "CS561 ModifyQuestion",
+		"description": "",
+		"order": [
+			"66043703-354e-0e43-4c05-ccbdcf05542e",
+			"a663c530-8ddc-e64f-4b63-dd866039c8a6"
+		],
+		"folders": [],
+		"folders_order": [],
+		"timestamp": 1512107300073,
+		"synced": false,
+		"remote_id": 0,
+		"owner": 0,
+		"sharedWithTeam": false,
+		"subscribed": false,
+		"remoteLink": "",
+		"remoteLinkUpdatedAt": null,
+		"public": false,
+		"createdAt": 1512107300073,
+		"updatedAt": 1512107416173,
+		"write": true,
+		"published": false,
+		"favorite": false,
+		"permissions": {},
+		"syncedPermissions": {}
+	},
+	"folder": null,
+	"environment": null,
+	"globals": [],
+	"results": [
+		{
+			"name": "Modify a question",
+			"id": "66043703-354e-0e43-4c05-ccbdcf05542e",
+			"url": "http://web.engr.oregonstate.edu/~yangchen/pages/actions/modifyAQuestion.php?classid=1",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Error == 0": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error == 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"336"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Error == 0": true
+				}
+			],
+			"time": "336",
+			"totalRequestTime": "336",
+			"iterationResults": {}
+		},
+		{
+			"name": "Get a question detail to check whether modify succesfully",
+			"id": "a663c530-8ddc-e64f-4b63-dd866039c8a6",
+			"url": "http://web.engr.oregonstate.edu/~yangchen/pages/actions/getQuestionDetail.php?classid=1&questionid=90",
+			"totalTime": 0,
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"tests": {
+				"Status code is 200": true,
+				"check question desc": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check question desc": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				"219"
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"check question desc": true
+				}
+			],
+			"time": "219",
+			"totalRequestTime": "219",
+			"iterationResults": {}
+		}
+	],
+	"totalPass": 4,
+	"totalFail": 0,
+	"totalTime": 555,
+	"lifecycle": "done",
+	"requests": [
+		{
+			"name": "Modify a question",
+			"id": "66043703-354e-0e43-4c05-ccbdcf05542e",
+			"url": "http://web.engr.oregonstate.edu/~yangchen/pages/actions/modifyAQuestion.php?classid=1",
+			"time": "2017-12-01T05:57:37.914Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Error == 0": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"name": "Get a question detail to check whether modify succesfully",
+			"id": "a663c530-8ddc-e64f-4b63-dd866039c8a6",
+			"url": "http://web.engr.oregonstate.edu/~yangchen/pages/actions/getQuestionDetail.php?classid=1&questionid=90",
+			"time": "2017-12-01T05:57:37.914Z",
+			"responseCode": {
+				"code": 200,
+				"name": "OK",
+				"detail": {
+					"name": "OK",
+					"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+				}
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check question desc": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"synced": false
+}
