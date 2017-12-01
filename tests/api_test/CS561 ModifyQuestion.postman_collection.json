@@ -1,0 +1,127 @@
+{
+	"info": {
+		"name": "CS561 ModifyQuestion",
+		"_postman_id": "93a8fa48-808d-7d20-95f2-fd319b44bcea",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Modify a question",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Error == 0\", function () {",
+							"    pm.expect(jsonData['ERROR']).to.eql(0);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ID\":\"90\",\n\t\"DESCRIPTION\":\"{{q_desc}}\",\n\t\"AVAILABLE_TIME\":\"4:41 pm\"\n}"
+				},
+				"url": {
+					"raw": "http://web.engr.oregonstate.edu/~yangchen/pages/actions/modifyAQuestion.php?classid=1",
+					"protocol": "http",
+					"host": [
+						"web",
+						"engr",
+						"oregonstate",
+						"edu"
+					],
+					"path": [
+						"~yangchen",
+						"pages",
+						"actions",
+						"modifyAQuestion.php"
+					],
+					"query": [
+						{
+							"key": "classid",
+							"value": "1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get a question detail to check whether modify succesfully",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"pm.test(\"check question desc\", function () {",
+							"    pm.expect(jsonData['DATA']['QUESTION'][1]).to.eql(pm.environment.get(\"q_desc\"));",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://web.engr.oregonstate.edu/~yangchen/pages/actions/getQuestionDetail.php?classid=1&questionid=90",
+					"protocol": "http",
+					"host": [
+						"web",
+						"engr",
+						"oregonstate",
+						"edu"
+					],
+					"path": [
+						"~yangchen",
+						"pages",
+						"actions",
+						"getQuestionDetail.php"
+					],
+					"query": [
+						{
+							"key": "classid",
+							"value": "1",
+							"equals": true
+						},
+						{
+							"key": "questionid",
+							"value": "90",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
