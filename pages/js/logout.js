@@ -6,7 +6,7 @@ function logout() {
 			if(xmlhttp.status == 200){
 				console.log(xmlhttp.response);
 				if (xmlhttp.responseText == "0") {
-					window.location.href = "index.php";
+					window.location.href = "https://login.oregonstate.edu/idp/profile/cas/logout";
 				} else {
 					console.log("Session not destroyed");
 				}

@@ -1,17 +1,21 @@
+sanity check
+does math ok ‣
+supports the usual JS objects ‣
 ta_dashboard.js
 should generate column DOM with role equals to 1 ‣
 should not generate column DOM with role equals to 0 ‣
 should not generate column DOM without id ‣
 should not generate column DOM without name ‣
-
+should not generate column DOM with error input ‣
 ta_class.js
 should calculate join student number when there are joined students ‣
 should calculate join student number when there are no join students ‣
+should not calculate join student number with input error ‣
 should generate table column when there are joined students and is signed ‣
 should generate table column when there are no joined students and is proposed ‣
 should generate table column when there are joined students and is proposed ‣
 should generate table column when there are no joined students and is signed ‣
-
+should not generate table column with input error ‣
 test base.js
 should set and get sessionStorage ‣
 should get parameter in URL

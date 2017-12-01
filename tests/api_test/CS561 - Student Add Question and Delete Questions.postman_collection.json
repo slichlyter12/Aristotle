@@ -1,7 +1,7 @@
 {
 	"variables": [],
 	"info": {
-		"name": "CS561-Project",
+		"name": "CS561 - Student Add Question and Delete Questions",
 		"_postman_id": "124fd688-f916-e0b1-efd8-2bbd08ddc88b",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
@@ -24,15 +24,28 @@
 									"});",
 									"",
 									"var response = pm.response.json();",
-									"console.log((response[\"DATA\"][\"QUESTIONS\"]).length.toString());",
-									"pm.environment.set(\"question_count\", (response[\"DATA\"][\"QUESTIONS\"]).length.toString());"
+									"",
+									"pm.test(\"get original question list\", function () {",
+									"",
+									"    if(response['ERROR'] === 0) {",
+									"        console.log((response[\"DATA\"][\"QUESTIONS\"]).length.toString());",
+									"        pm.environment.set(\"question_count\", (response[\"DATA\"][\"QUESTIONS\"]).length.toString());",
+									"    }",
+									"    else if(response['ERROR'] === 1) {",
+									"        pm.expect(response['MESSAGE']).to.eql(\"No question here!\");",
+									"        pm.environment.set(\"question_count\", \"0\");",
+									"    }",
+									"    else {",
+									"        pm.expect(\"There is some other Error\").to.eql(\"\");",
+									"    }",
+									"});"
 								]
 							}
 						}
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"raw": "{{url}}/getQuestionList.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -42,7 +55,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
@@ -73,7 +86,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/addNewQuestion.php?classid=1",
+							"raw": "{{url}}/addNewQuestion.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -83,7 +96,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
@@ -136,7 +149,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"raw": "{{url}}/getQuestionList.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -146,94 +159,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
-									"equals": true,
-									"description": ""
-								}
-							],
-							"variable": []
-						},
-						"method": "GET",
-						"header": [],
-						"body": {},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "assign question",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"get question status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "{{url}}/assign_question.php",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "question_id",
-									"value": "{{question_id}}",
-									"description": "",
-									"type": "text"
-								}
-							]
-						},
-						"description": ""
-					},
-					"response": []
-				},
-				{
-					"name": "check assign question successful",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"pm.test(\"get question status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"var response = pm.response.json();",
-									"",
-									"pm.test(\"question count is deleted by one\", function () {",
-									"    pm.expect(response[\"DATA\"][\"QUESTIONS\"][0][\"STATUS\"]).to.eql(\"Assigned\");",
-									"});"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": {
-							"raw": "{{url}}/getQuestionList.php?classid=1",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"getQuestionList.php"
-							],
-							"query": [
-								{
-									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
@@ -290,12 +216,25 @@
 									"});",
 									"",
 									"var response = pm.response.json();",
-									"var old_question_count = parseInt(pm.environment.get(\"question_count\"));",
-									"var new_question_count = (response[\"DATA\"][\"QUESTIONS\"]).length;",
-									"pm.environment.set(\"question_id\", response[\"DATA\"][\"QUESTIONS\"][0][\"ID\"]);",
 									"",
 									"pm.test(\"question count is deleted by one\", function () {",
-									"    pm.expect(new_question_count).to.eql(old_question_count);",
+									"    console.log(response['ERROR']);",
+									"    if(response['ERROR'] === 0) {",
+									"        var old_question_count = parseInt(pm.environment.get(\"question_count\"));",
+									"        var new_question_count = (response[\"DATA\"][\"QUESTIONS\"]).length;",
+									"        pm.environment.set(\"question_id\", response[\"DATA\"][\"QUESTIONS\"][0][\"ID\"]);",
+									"        ",
+									"        pm.test(\"question count is deleted by one\", function () {",
+									"            pm.expect(new_question_count).to.eql(old_question_count);",
+									"        });",
+									"    }",
+									"    else if(response['ERROR'] === 1) {",
+									"        pm.expect(response['MESSAGE']).to.eql(\"No question here!\");",
+									"        pm.environment.set(\"question_count\", \"0\");",
+									"    }",
+									"    else {",
+									"        pm.expect(\"There is some other Error\").to.eql(\"\");",
+									"    }",
 									"});"
 								]
 							}
@@ -303,7 +242,7 @@
 					],
 					"request": {
 						"url": {
-							"raw": "{{url}}/getQuestionList.php?classid=1",
+							"raw": "{{url}}/getQuestionList.php?classid={{class_id}}",
 							"host": [
 								"{{url}}"
 							],
@@ -313,7 +252,7 @@
 							"query": [
 								{
 									"key": "classid",
-									"value": "1",
+									"value": "{{class_id}}",
 									"equals": true,
 									"description": ""
 								}
