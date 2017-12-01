@@ -33,7 +33,7 @@
 	//Check and format the data
 	
 	//for description
-	if($questionData['ID']==''|| $questionData['ID']==NULL) complete($mysqli, 1, 'Question description cannot be empty!', NULL);
+	if($questionData['ID']==''|| $questionData['ID']==NULL) complete($mysqli, 1, 'Question ID cannot be empty!', NULL);
 	$questionId = $questionData['ID'];
 	
 	//for description
