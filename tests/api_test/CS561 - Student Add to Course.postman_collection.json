@@ -1,0 +1,307 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CS561 - Student Add to Course",
+		"_postman_id": "78416f68-6dc8-20c0-cd83-25211f3cb18e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test student add to course",
+			"description": "",
+			"item": [
+				{
+					"name": "empty students' course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"add new class code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"",
+									"pm.test(\"No error in return value\", function () {",
+									"    pm.expect(response['ERROR']).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Message in return value is create class success\", function () {",
+									"    pm.expect(response['MESSAGE']).to.eql(\"Class information updates success!\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/addClassForStudent.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\":[]\t\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get all student courses, check no courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get class status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"pm.test(\"test students' courses list is empty\", function () {",
+									"    pm.expect(response['class_info'].length).to.eql(0);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/query_class.php?category=student",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"query_class.php"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "student",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "add student to courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"add new class code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"",
+									"pm.test(\"No error in return value\", function () {",
+									"    pm.expect(response['ERROR']).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Message in return value is create class success\", function () {",
+									"    pm.expect(response['MESSAGE']).to.eql(\"Class information updates success!\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/addClassForStudent.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\":[{{class_id}}]\t\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get all student courses, check course is added",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get class status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var reponse = pm.response.json();",
+									"",
+									"pm.test(\"class count is added by one\", function () {",
+									"    pm.expect(reponse['class_info'].length).to.eql(1);",
+									"});",
+									"",
+									"pm.test(\"class id is correctlly added\", function() {",
+									"    pm.expect(reponse['class_info'][0][\"id\"]).to.eql(parseInt(pm.environment.get(\"class_id\")));",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/query_class.php?category=student",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"query_class.php"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "student",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "empty students' course to keep server state",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"add new class code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"",
+									"pm.test(\"No error in return value\", function () {",
+									"    pm.expect(response['ERROR']).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Message in return value is create class success\", function () {",
+									"    pm.expect(response['MESSAGE']).to.eql(\"Class information updates success!\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/addClassForStudent.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"description": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"classes\":[]\t\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get all student courses, check no courses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get class status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"pm.test(\"test students' courses list is empty\", function () {",
+									"    pm.expect(response['class_info'].length).to.eql(0);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/query_class.php?category=student",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"query_class.php"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "student",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

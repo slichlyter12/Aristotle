@@ -1,0 +1,166 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CS561- Admin Create Course",
+		"_postman_id": "d6c71d08-70b1-100c-3a80-ed5de18f5486",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test Admin Create Course",
+			"description": "",
+			"item": [
+				{
+					"name": "get all classes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get class status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var class_array = pm.response.json();",
+									"console.log((class_array[\"class_info\"]).length.toString());",
+									"pm.environment.set(\"class_count\", (class_array[\"class_info\"]).length.toString());"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/query_class.php?category=admin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"query_class.php"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "admin",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "add new class",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"add new class code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var response = pm.response.json();",
+									"",
+									"pm.test(\"No error in return value\", function () {",
+									"    pm.expect(response['ERROR']).to.eql(0);",
+									"});",
+									"",
+									"pm.test(\"Message in return value is create class success\", function () {",
+									"    pm.expect(response['MESSAGE']).to.eql(\"Create class success!\");",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{url}}/createCourse.php",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "x",
+									"value": "{\"courseName\":\"{{class_name}}\", \"courseTags\":[\"postman\",\"test\"], \"courseTAs\":[\"qud\"]}",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get all classes again",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"get class status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"var class_array = pm.response.json();",
+									"var old_class_count = parseInt(pm.environment.get(\"class_count\"));",
+									"var new_class_count = (class_array[\"class_info\"]).length;",
+									"",
+									"pm.test(\"class count is added by one\", function () {",
+									"    pm.expect(new_class_count).to.eql(old_class_count+1);",
+									"});",
+									"",
+									"pm.test(\"class name is correctlly added\", function() {",
+									"    pm.expect(class_array[\"class_info\"][new_class_count-1][\"name\"]).to.eql(pm.environment.get(\"class_name\"));",
+									"    ",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{url}}/query_class.php?category=admin",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"query_class.php"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "admin",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
