@@ -1,9 +1,9 @@
 <?php
-	
+
 	if (isset($_SESSION["role"]) && $_SESSION["role"] == "admin") {
 		echo header("Location: index.php");
-	}	
-	
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,13 +23,23 @@
 		<script type="text/javascript" src="js/base.js"></script>
 		<script type="text/javascript" src="js/myDialog.js"></script>
 		<script type="text/javascript" src="js/logout.js"></script>
-		<?php 
-			SESSION_START(); 
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109657627-3"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-109657627-3');
+		</script>
+
+		<?php
+			SESSION_START();
 			if ($_SESSION['role'] != "admin") {
-				header("Location: index.php");	
+				header("Location: index.php");
 			}
 		?>
-	</head>	
+	</head>
 	<body>
 		<div id="main" class="container">
 			<div class="title row">
@@ -41,7 +51,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="funcs row" >
 				<div class="four columns">
 					<h5 class="subTitle">Your Classes</h5>
