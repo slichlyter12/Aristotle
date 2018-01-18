@@ -1,0 +1,8 @@
+lose the server (low)
+scalibility, if too many people are using our system, our algorithm may not work.
+lose the database
+OSU login component doesn't work
+user want to use it on mobile, our website will not support the resolution on mobile.
+have problems to get the feedback from our users. 
+no computer in office hour
+different universities use our website and may cause confilction.
