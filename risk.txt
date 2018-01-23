@@ -1,8 +1,17 @@
-lose the server (low)
-scalibility, if too many people are using our system, our algorithm may not work.
-lose the database
-OSU login component doesn't work
-user want to use it on mobile, our website will not support the resolution on mobile.
-have problems to get the feedback from our users. 
-no computer in office hour
+lose the server (low) -> mitigation: have our own; probability is very low
+scalibility, if too many people are using our system, our algorithm may not work -> spike: scalability testing, can split DB, make facade to have data stored on different servers; probability is very high
+lose the database -> mitigation: nightly back of database; probability is medium
+OSU login component doesn't work -> mitigation: make our own; probability is very low
+user want to use it on mobile, our website will not support the resolution on mobile -> mitigation: test on mobile, apply bootstrap; probability is medium -> test well through one browser
+have problems to get the feedback from our users.
+->post all issues to github when bugs are found. Everyone in the team should know about major bugs.
+no computer in office hour -> needs to work on mobile
 different universities use our website and may cause confilction.
+
+Roles
+PM - Shannon
+Deployment - Sam
+QA - Deqing
+Developers - Teng and Kang
+Algo - Chengxi
+Adoption - Shannon and Chengxi
