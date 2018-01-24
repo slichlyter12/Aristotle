@@ -317,6 +317,11 @@ $('document').ready(function(){
 	getLoginInfo();
 	//bind click event for add question button
 	$('.openQFormDialog').click(function(){
+
+		if (document.getElementById("questionDiv")) {
+        		document.getElementById("questionDiv").style.height = window.innerHeight + "px";
+    		}
+
 		$timeDetailInput.attr('disabled',true);
 		$.formBox.openDialog('questionForm');
 		//time picker plugin
