@@ -1,6 +1,6 @@
 #dialog {z-index:20;position:fixed; width:100%; top:0;}
 #dialog .container {display:none;background:#fff;padding:0 40px;border-radius:0 0 4px 4px;}
-#dialog .largeBox {min-width:320px;max-width: 980px;}
+#dialog .largeBox {overflow-y:auto;min-width:320px;max-width: 980px;}
 #dialog .smallBox {min-width:320px;max-width: 600px;}
 #dialog .close {cursor:pointer;position:absolute;right:40px;top:26px;}
 #dialog .close:after {content:url(../images/svg/close_s.svg);}

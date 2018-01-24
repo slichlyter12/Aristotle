@@ -130,7 +130,7 @@
 		</form>
 	</div>
 
-	<div class="container largeBox questionForm">
+	<div id="questionDiv" class="container largeBox questionForm">
 		<span class="close"></span>
 		<div class="title row">
 			<div class="twelve columns">
