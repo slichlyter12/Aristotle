@@ -1,0 +1,241 @@
+@import url(//fonts.googleapis.com/css?family=Stratum2Web|Open+Sans:700,300);
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+	color: #373737;
+	background-color: #fcfcfc;
+	font-size: 100%;
+	font-weight: 300;
+	margin: 1rem;
+}
+
+main {
+	display: inline-block;
+	text-align: left;
+	max-width: 7in;
+}
+
+@media (min-width: 800px) {
+	main {
+		margin-left: 10vw;
+		min-width: 20vw;	
+	}
+}
+
+footer {
+	font-size: 0.8rem;
+	line-height: 1rem;
+	max-width: 7in;
+	min-width: 50%;
+	margin: 5rem auto 5rem auto;
+	text-align: justify;
+}
+
+h1 {
+	font-family: Stratum2Web, Helvetica, Arial, sans-serif;
+	font-size: 2rem;
+	font-weight: 300;
+	letter-spacing: 0.08em;
+	margin-top: 1rem;
+	vertical-align: middle;
+	-webkit-text-stroke: 0.2px;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	color: #003B5C;
+	white-space: nowrap;
+}
+
+#logo {
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-top: 1.5rem;
+	margin-right: 0.5rem;
+	background-image: url('./logo.png');
+	background-size: 100% 100%;
+	float: left;
+	vertical-align: bottom;
+}
+
+h2 {
+	font-family: Stratum2Web, Helvetica, Arial, sans-serif;
+	font-size: 1.5rem;
+	font-weight: 300;
+	letter-spacing: 0.05em;
+	margin-top: 2rem;
+	-webkit-text-stroke: 0.2px;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	clear: both;
+}
+
+h3 {
+	font-family: Stratum2Web, Helvetica, Arial, sans-serif;
+	font-size: 1rem;
+	font-weight: 700;
+	margin-top: 1rem;
+}
+
+em {
+	font-weight: bold;
+	color: #000;
+}
+
+p {
+	margin-top: 0.75em;
+	line-height: 140%;
+	color: #333;
+	text-align: justify;
+}
+
+h1 + p, h2 + p, h3 + p {
+	margin-top: 0.3em;
+}
+
+ul {
+	margin-top: 1rem;
+	margin-left: 2rem;
+}
+
+li {
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: #DC4405;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input[type="submit"], input[type="button"].btn {
+	background-color: #DC4405;
+	color: #fff;
+	font-weight: bold;
+	min-width: 5rem;
+	border-radius: 0.2rem;
+	padding: 0.5rem;
+	border: none;
+	margin: 0.25rem;
+}
+
+input.btn.invert {
+	color: #DC4405;
+	background-color: #fff;
+	border: 1px solid #888;
+}
+
+input[type="submit"]:hover, input[type="button"].btn:hover, input.btn.invert:hover {
+	background-color: #565656;
+	color: #fff;
+	cursor: pointer;
+}
+
+textarea:focus, input:focus {
+	background-color: #fafabe;
+	color: #000;
+}
+
+input[type=checkbox], input[type=radio] {
+	vertical-align: middle;
+	position: relative;
+	bottom: 0;
+}
+
+input[type=text], input[type=password], input[type=number], input[type=date], input[type=url], input[type=tel], input[type=email] {
+	padding-left: 0.1rem;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+textarea {
+	padding: 0.1rem;
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+select {
+	font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+code {
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 90%;
+}
+
+.warning {
+	color: #006A8E;
+	font-weight: bold;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.status {
+	color: #006A8E;
+	font-size: 80%;
+}
+
+.hint {
+	font-size: 80%;
+	color: #888;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	color: #888;
+	background-color: #888;
+	margin-bottom: 0.5rem;
+}
+
+footer {
+	text-align: center;
+}
+
+
+/*
+orange c34500 ed education
+blue 385e86 pl learning research
+green 4e7300 sd scientific discovery
+brown 9d601e 
+grey 373737 cv cv/contact
+bgcolor f5f2ed
+*/
+
+.boxy {
+	display: inline-block;
+	border: 1px solid #000;
+	background-color: #fff;
+	margin-right: 1rem;
+	margin-top: 1rem;
+	padding: 0.5rem;
+	vertical-align: top;
+	border-radius: 0.25rem;
+}
+
+.boxy .label {
+	display: block;
+	font-weight: bold;
+	border-bottom: 1px solid #c0c0c0;
+	color: #fff;
+	background-color: #003B5C;
+	margin-top: -0.51rem;
+	margin-left: -0.51rem;
+	margin-right: -0.51rem;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	padding-top: 0.25rem;
+	padding-bottom: 0.25rem;
+	border-radius: 0.18rem;
+}
+
+.boxy .item {
+	width: auto;
+	margin-top: 0.1rem;
+	min-height: 1.5rem;
+	display: block;
+}

@@ -23,7 +23,7 @@
 
 	
 	//Check is current user a Student or is the user exist
-	$sql = 'SELECT r.role AS role, t.id AS id FROM t_user AS t,r_user_class AS r WHERE r.user_id = t.id AND r.class_id = '.$classId.' AND t.osu_id = "'.$osuId.'"';
+	$sql = 'SELECT r.role AS role, t.id AS id FROM t_user AS t,r_user_class AS r WHERE r.class_id = '.$classId.' AND t.osu_id = "'.$osuId.'"';
 	$result = $mysqli->query($sql);
 	if($result) {
 		if($row = $result->fetch_assoc()){
