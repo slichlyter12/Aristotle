@@ -13,7 +13,7 @@
 			<div id="logo" onclick="location="./index.php""></div>
 			<h1>Aristotle</h1>
 			<link rel="stylesheet" type="text/css" href="./css/login_page/home-style.css">
-			<div class="tagline">A site for students to post your question of the courses and help TAs to manage their office hours.</div>
+			<div class="tagline">A site for students to post your question of the courses and TAs to manage their office hours.</div>
 			<form action="login" method="post"><input class="btn" type="submit" value="Log in" autofocus></form>
 			<footer></footer>
 		</main>
