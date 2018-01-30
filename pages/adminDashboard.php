@@ -80,14 +80,14 @@
 						<div class="six columns">
 							<label for="classCodeInput">Class Code and Class Name</label>
 							<input name="CLASSID" type="hidden"/>
-							<input name="NAME" type="text" id="classCodeInput" placeholder="e.g. CS561 Software Engineering Methods" required/><span></span>
+							<input name="NAME" type="text" id="classCodeInput" placeholder="e.g. CS561 Software Engineering Methods" size="50" required/><span></span>
 							<label>Add Teaching Assistant</label>
 							<p>To add multiple separate by spaces ie. joe2 smart3 kim4</p>
-							<input name="TAS" type="text" placeholder="ONID username(s)" required/><span></span>
+							<input name="TAS" type="text" placeholder="ONID username(s)" size="50" required/><span></span>
 
 							<label>Add Tag</label>
 							<p>To add multiple separate by spaces ie. homework quiz exam</p>
-							<input name="Tags" type="text" placeholder="Tag(s)" required/><span></span>
+							<input name="Tags" type="text" placeholder="Tag(s)" size="50" required/><span></span>
 
 						</div>
 					</div>
