@@ -1,5 +1,6 @@
 /*disable scroll*/
-var keys = [37, 38, 39, 40];
+//var keys = [37, 38, 39, 40];
+var keys = [];
 
 function preventDefault(e) {
     e = e || window.event;
@@ -44,7 +45,7 @@ $.formBox = {
 			$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
 		$('#mask').fadeIn(200);
 		$('#dialog .'+className).slideDown(200);
-		disable_scroll();
+		//disable_scroll();
 	}
 }
 
