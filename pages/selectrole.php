@@ -14,7 +14,7 @@
 		$role = mysqli_real_escape_string($mysqli, strip_tags($_POST['role']));
 		if ($role == "TA") {
 			$roleInt = 1;
-			$redirectURL = "taClass.php";
+			$redirectURL = "ta.php";
 			$_SESSION['role'] = 'ta';
 		} else if ($role == "Student") {
 			$roleInt = 0;
