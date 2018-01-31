@@ -2,7 +2,7 @@ import unittest
 from selenium import webdriver
 
 
-class PythonOrgSearch(unittest.TestCase):
+class Login(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
 
@@ -21,6 +21,8 @@ class PythonOrgSearch(unittest.TestCase):
         login_btn_element.click()
 
         self.assertIn("pages/ta.php", driver.current_url)
+
+        assert "Not Found" not in driver.page_source
 
     def tearDown(self):
         self.driver.quit()
