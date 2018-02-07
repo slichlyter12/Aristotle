@@ -65,8 +65,24 @@
 			$return = true;
 			if ($result->num_rows > 0) {
 				$result = $result->fetch_assoc();
-				$_SESSION['firstname'] = $result['first_name'];
-				$_SESSION['lastname'] = $result['last_name'];
+
+				if($result['first_name'] == 'TBA' || $result['last_name'] == 'TBA'){
+					// update user to database
+					if ($updateStatement = $mysqli->prepare("UPDATE t_user SET first_name = ?, last_name = ? WHERE osu_id = ?")) {
+						$updateStatement->bind_param("sss", $_SESSION['firstname'], $_SESSION['lastname'], $_SESSION['onidid']);
+						$success = $updateStatement->execute();
+						$mysqli->close();
+						
+						if (!$success) {
+							die("Failed to update database");
+						}
+					} else {
+						die("Failed to prepare UPDATE statement");
+					}	
+				}
+				
+				// $_SESSION['firstname'] = $result['first_name'];
+				// $_SESSION['lastname'] = $result['last_name'];
 				if ($result['role'] == 0) {
 					$_SESSION['role'] = 'student';
 				} else if ($result['role'] == 1) {

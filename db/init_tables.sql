@@ -30,9 +30,10 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `r_user_class` (
   `user_id` INT NOT NULL ,
   `class_id` INT NOT NULL ,
+  `role` int(11) NOT NULL DEFAULT '0',
   INDEX `fk_r_user_class_to_t_class` (`class_id` ASC) ,
   INDEX `fk_r_user_class_to_t_user` (`user_id` ASC) ,
-  PRIMARY KEY (`user_id`, `class_id`) ,
+  PRIMARY KEY (`user_id`, `class_id`, `role`) ,
   CONSTRAINT `fk_r_user_class_to_t_user`
     FOREIGN KEY (`user_id` )
     REFERENCES `t_user` (`id` )
@@ -44,8 +45,6 @@ CREATE  TABLE IF NOT EXISTS `r_user_class` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `t_question`
 -- -----------------------------------------------------
