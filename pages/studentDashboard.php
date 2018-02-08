@@ -32,7 +32,7 @@
 		<div class="twelve columns">
 			<h4>Students Dashboard</h4><!--page title-->
       <div>
-        <a href='https://prometheus.eecs.oregonstate.edu/token?asid=6077469967005125&then=http://web.engr.oregonstate.edu/~lichlyts/cs561/pages/'>Get Token</a>
+        <a href='https://prometheus.eecs.oregonstate.edu/token?asid=6077469967005125&then=http://web.engr.oregonstate.edu/~lichlyts/cs561/pages/studentDashboard.php'>Get Token</a>
         <br>
       </div>
 			<p>Manage Classes</p>
