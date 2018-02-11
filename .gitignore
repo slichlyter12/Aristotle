@@ -9,3 +9,4 @@ node_modules
 #selenium cache
 .cache
 .idea
+tests/selenium/user_pass.json
