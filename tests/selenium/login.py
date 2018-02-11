@@ -7,6 +7,11 @@ userData = f.read()
 f.close()
 user = json.loads(userData)
 
+# user_pass.json format
+# {
+#   "username":"xxx",
+#   "password":"xxx"
+# }
 
 class Login(unittest.TestCase):
     def setUp(self):
