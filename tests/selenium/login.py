@@ -2,8 +2,11 @@ import json
 import unittest
 from selenium import webdriver
 
-userData = '{"username":"qud", "password":"Hhrhl1504"}'
+f = open('user_pass.json', 'r')
+userData = f.read()
+f.close()
 user = json.loads(userData)
+
 
 class Login(unittest.TestCase):
     def setUp(self):
@@ -26,7 +29,7 @@ class Login(unittest.TestCase):
         self.assertIn("pages/ta.php", driver.current_url)
 
         assert "Not Found" not in driver.page_source
-        
+
     def tearDown(self):
         self.driver.quit()
 
