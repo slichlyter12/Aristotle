@@ -12,7 +12,7 @@ class Test_Student_Use_Cases(unittest.TestCase):
  
     def test_login_error(self):
         driver = self.driver
-        driver.get("http://web.engr.oregonstate.edu/~lite/CS561-Project/pages/")
+        driver.get("http://web.engr.oregonstate.edu/~lichlyts/cs561/pages/")
         self.assertIn("Aristotle", driver.title)
         login_home_btn = driver.find_element_by_class_name("btn")
         self.assertIsNotNone(login_home_btn)
