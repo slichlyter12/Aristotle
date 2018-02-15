@@ -8,7 +8,7 @@ class Test_Student_Use_Cases(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome()
-        # self.driver.implicitly_wait(5)
+        self.driver.implicitly_wait(5)
  
     def test_login_error(self):
         driver = self.driver
@@ -18,7 +18,7 @@ class Test_Student_Use_Cases(unittest.TestCase):
         self.assertIsNotNone(login_home_btn)
         login_home_btn.click()
 
-        # time.sleep(1)
+        time.sleep(1)
         username_element = driver.find_element_by_id("username")
         self.assertIsNotNone(username_element)
         username_element.send_keys('test_username')
@@ -253,7 +253,10 @@ def Suite():
 if __name__ == "__main__":
     # unittest.main()
     now = time.strftime("%Y%m%d_%H%M%S",time.localtime(time.time()))
-    report_path = ".\\report\\report_student_" + now + ".html"
+    # windows 
+    # report_path = ".\\report\\report_student_" + now + ".html"
+    # linux or mac
+    report_path = "./report/report_student_" + now + ".html"
     fp = open(report_path, 'wb')   
     runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Student Use Cases TestReport', description='Test Student Use Cases')  
     runner.run(Suite())
