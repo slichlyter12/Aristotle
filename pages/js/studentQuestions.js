@@ -197,6 +197,8 @@ function createNewQuestion(){
 		data:$('#dialog .questionForm form').serializeForm(),
 		dataType:'json',
 		success: function(data) {
+      var currentURL = window.location.href;
+      window.location.href = 'https://prometheus.eecs.oregonstate.edu/token?asid=6077469967005125&then=' + currentURL;
 			showInfo(data.MESSAGE);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
