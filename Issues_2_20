@@ -1,9 +1,11 @@
 Fix:
-"New tag" appears everytime a question is added if you don't change the tag.
-Longer descriptions need to encourage clicking.
-Users that are logged in should have name in upper right.
-First time experience for TAs should explain the difference between a TA and Student account.
+6. "New tag" appears everytime a question is added if you don't change the tag.
+3. Longer descriptions need to encourage clicking.
+4. Users that are logged in should have name in upper right.
+2. First time experience for TAs should explain the difference between a TA and Student account.
+5. Class the TA is enrolled in needs to appear in dashboard on first log in and all subsequent logins.
+1. After a student adds a class, provide helper text saying to select a class.
 
-Feature
+7. Feature
 Allow TAs to answer a question and the student who submitted the question can accept the answer.
 Upon acceptance the question is removed from the queue placed in a an answer tab.
