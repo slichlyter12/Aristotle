@@ -1,6 +1,6 @@
 import json
 import unittest
-from HtmlTestRunner import HTMLTestRunner
+import HTMLTestRunner
 import time
 from selenium import webdriver
 
@@ -80,15 +80,12 @@ def Suite():
 
 if __name__ == "__main__":
     # unittest.main()
-    now = time.strftime("%Y%m%d_%H%M%S", time.localtime(time.time()))
+    now = time.strftime("%Y%m%d_%H%M%S",time.localtime(time.time()))
     # windows
     # report_path = ".\\report\\report_student_" + now + ".html"
     # linux or mac
-    report_path = "report_ta_" + now + ".html"
-    # fp = open(report_path, 'wb')
-    # runner = HTMLTestRunner(stream=fp, title='Admin Use Cases TestReport',
-    #                                        description='Test Admin Use Cases')
-    # runner.run(Suite())
-    # fp.close()
-    runner = HTMLTestRunner(output=report_path)
+    report_path = "./report/report_ta_" + now + ".html"
+    fp = open(report_path, 'wb')
+    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='TA Use Cases TestReport', description='Test TA Use Cases')
     runner.run(Suite())
+    fp.close()
