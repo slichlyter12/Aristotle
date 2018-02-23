@@ -142,3 +142,52 @@ $('document').ready(function(){
 		}
 	});
 });
+
+$(function() {
+    // Set up tour
+    $('body').pagewalkthrough({
+        name: 'introduction',
+        steps: [{
+           popup: {
+               content: '<h3>Welcome!</h3>Start a tutorial?',
+               type: 'modal'
+           }
+        }, {
+            wrapper: '#titleTag h4',
+            popup: {
+                content: 'You are in the student dashboard right now.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: '#addBtn button',
+            popup: {
+                content: 'Click to add a class.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, 
+
+        // {
+        //     wrapper: '#addBtn span',
+        //     popup: {
+        //         content: 'Choose a class to post a question.',
+        //         type: 'tooltip',
+        //         position: 'bottom'
+        //     }
+        // }, 
+
+        	{
+            wrapper: '#toTa',
+            popup: {
+                content: 'Clike here go to ta Dashboard.',
+                type: 'tooltip',
+                position: 'left'
+            }
+        }]
+    });
+
+	if(getSession('tutorial') == 1){
+    	$('body').pagewalkthrough('show');
+    }
+});
