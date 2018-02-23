@@ -13,6 +13,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="lib/css/normalize.css">
 		<link rel="stylesheet" href="lib/css/skeleton.css">
+		<link type="text/css" rel="stylesheet" href="lib/css/jquery.pagewalkthrough.css" />
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="lib/css/jquery.timepicker.min.css" />
 		<script type="text/javascript" src="lib/js/jquery.timepicker.min.js"></script>
@@ -25,6 +26,7 @@
 		<script type="text/javascript" src="js/logout.js"></script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109657627-3"></script>
+		<script type="text/javascript" src="lib/js/jquery.pagewalkthrough.min.js"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
@@ -43,7 +45,7 @@
 	<body>
 		<div id="main" class="container">
 			<div class="title row">
-				<div class="twelve columns">
+				<div id="titleTag" class="twelve columns">
 					<h4>Admin Dashboard</h4>			<!--page title-->
 					<div class="user">				<!--user info-->
 						<img onclick="logout()" src="images/svg/logout.svg" /> <!--action:logout-->
@@ -60,7 +62,7 @@
 			</div>
 
 			<div class="data row">
-				<div class="twelve columns">
+				<div id="addBtn" class="twelve columns">
 					<button class="openAddClassFormDialog" ></button>
 					<span class="classList"></span>
 				</div>

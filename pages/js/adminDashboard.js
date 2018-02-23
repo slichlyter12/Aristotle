@@ -177,3 +177,36 @@ $('document').ready(function(){
 		}
 	});
 });
+
+
+$(function() {
+    // Set up tour
+    $('body').pagewalkthrough({
+        name: 'introduction',
+        steps: [{
+           popup: {
+               content: '<h3>Welcome!</h3>Start a tutorial?',
+               type: 'modal'
+           }
+        }, {
+            wrapper: '#titleTag h4',
+            popup: {
+                content: 'You are in the admin dashboard right now.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: '#addBtn',
+            popup: {
+                content: 'Create or edit a class.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }]
+    });
+
+    if(getSession('tutorial') == 1){
+    	$('body').pagewalkthrough('show');
+    }
+    
+});

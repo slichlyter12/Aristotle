@@ -67,6 +67,7 @@
 				$result = $result->fetch_assoc();
 
 				if($result['first_name'] == 'TBA' || $result['last_name'] == 'TBA'){
+					echo "<script>sessionStorage['tutorial'] = 1;</script>";
 					// update user to database
 					if ($updateStatement = $mysqli->prepare("UPDATE t_user SET first_name = ?, last_name = ? WHERE osu_id = ?")) {
 						$updateStatement->bind_param("sss", $_SESSION['firstname'], $_SESSION['lastname'], $_SESSION['onidid']);
@@ -112,16 +113,15 @@
 
 		//	save the user_name in Session_Storage
 		echo "<script>sessionStorage['user_name'] = '" . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] . "';</script>";
-
+		echo "<script>sessionStorage['tutorial'] = 0;</script>";
 		$firstVisit = checkFirstTime($mysqli);
 		$redirectURL = "";
 		if ($firstVisit == true) {
-			
 			// redirect to select role
+			echo "<script>sessionStorage['tutorial'] = 1;</script>";
 			$redirectURL = "selectrole.php";
 		
 		} else if ($firstVisit == false) {
-
 			// authenticated and returning user
 			if ($_SESSION['role'] == "student") {
 				$redirectURL = "studentDashboard.php";

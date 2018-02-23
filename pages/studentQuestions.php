@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/skeleton.css">
+	<link type="text/css" rel="stylesheet" href="lib/css/jquery.pagewalkthrough.css" />
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
 	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
@@ -22,6 +23,7 @@
 	<script type="text/javascript" src="js/studentQuestions.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109657627-3"></script>
+	<script type="text/javascript" src="lib/js/jquery.pagewalkthrough.min.js"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -34,20 +36,20 @@
 <body>
 <div id="main" class="container">
 	<div class="title row ">
-		<div class="twelve columns">
+		<div id="titleTag" class="twelve columns">
 			<img class="back" src="images/svg/back.svg" onclick="window.location.href='./studentDashboard.php'"/>
 			<h4>Student Question List</h4>	<!--page title-->
 			<p class="classNav"></p>
 			<div class="user"></div><!--user info-->
-			<div class="panel"></div>
+			<div id="toTA" class="panel"></div>
 		</div>
 	</div>
-	<div class="funcs row">
+	<div id="postBtn" class="funcs row">
 		<div class="twelve columns">
 			<input class="openQFormDialog" type="button" value="Post A New Question">
 		</div>
 	</div>
-	<div class="data row">
+	<div id="questionList" class="data row">
 		<div class="twelve columns">
 			<table class="u-full-width">
 				<thead>
