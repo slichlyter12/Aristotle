@@ -225,7 +225,7 @@
 			$mysqli->commit();
 			$mysqli->autocommit(true);
 
-			return new CompleteMsg(0,'Class information updates success!', NULL);
+			return new CompleteMsg(0,'Please select a Class!', NULL);
 		}
 
 	}
