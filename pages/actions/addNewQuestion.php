@@ -46,15 +46,14 @@
 	//for tag
 	if($questionData['tag']==''|| $questionData['tag']==NULL) complete($mysqli, 1, 'Question tag cannot be empty!', NULL);
 	$tag = $questionData['tag'];
-	
-	if ($tag == 0){
+
+	if (strcmp($tag, '0') == 0){
 		if($questionData['newTag']==''|| $questionData['newTag']==NULL) 
 			complete($mysqli, 1, 'Question newTag cannot be empty!', NULL);
 		$newTag = $questionData['newTag'];
 	}else {
 		$newTag = $tag;
 	}
-	
 	//for preferred time
 	if($questionData['AVAILABLE_TIME']=='now')
 		$preferredTime  = date('Y-m-d H:i:s', time());
@@ -83,7 +82,7 @@
 		}else complete($mysqli, 1, 'Current class is unavailable!', NULL);
 	}
 
-	if ($tag == 0){
+	if (strcmp($tag, '0') == 0){
 		$completeMsg = $classFunctions->insertTag($classId, $newTag);
 		if(isset($completeMsg) && $completeMsg->isError == 1){
 			complete($mysqli, $completeMsg->isError, $completeMsg->msg, $completeMsg->data);

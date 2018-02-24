@@ -263,9 +263,12 @@ function quitFromAQuestion(id){
 function setInputDisable(value){
 	if(value == 0){
 		$("#dialog .tagSelect .row .newTagInput").removeAttr("disabled");
+		$("#dialog .tagSelect .row .newTagInput").attr("value",'');
 	}
 	else{
 		$("#dialog .tagSelect .row .newTagInput").attr("disabled","disabled");
+		$("#dialog .tagSelect .row .newTagInput").removeClass("illegalValue");
+		$("#dialog .tagSelect .row .newTagInput").attr("value",'new tag');
 	}
 }
 
@@ -300,7 +303,7 @@ function getTagList(){
 				}
 
 				$("#dialog .tagSelect .row").append('<tr>')
-				$("#dialog .tagSelect .row").append('<td class="ten columns"><input name="tag" type="radio" value="0" onclick="setInputDisable(\'0\');" checked/><b >New tag &nbsp; &nbsp;</b><input name="newTag" class="newTagInput" type="text" value="new tag"/></td>');
+				$("#dialog .tagSelect .row").append('<td class="ten columns"><input name="tag" type="radio" value="0" onclick="setInputDisable(\'0\');" checked/><b >New tag &nbsp; &nbsp;</b><input name="newTag" class="newTagInput" type="text" value=""/></td>');
 				$("#dialog .tagSelect .row").append('</tr>')
 				$("#dialog .tagSelect .row").append('</table>')
 			}else showError(data.MESSAGE);
@@ -360,3 +363,58 @@ $('document').ready(function(){
 	});
 
 });
+
+
+$(function() {
+    // Set up tour
+    $('body').pagewalkthrough({
+        name: 'introduction',
+        steps: [{
+           popup: {
+               content: '<h3>Welcome!</h3>Start a tutorial?',
+               type: 'modal'
+           }
+        }, {
+            wrapper: '#titleTag img',
+            popup: {
+                content: 'Go back to student dashboard.',
+                type: 'tooltip',
+                position: 'right'
+            }
+        }, {
+            wrapper: '#titleTag p select',
+            popup: {
+                content: 'Choose another class.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: '#postBtn input',
+            popup: {
+                content: 'Click button to post a question.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: '#questionList tbody tr',
+            popup: {
+                content: 'Check question information and add a liked question.',
+                type: 'tooltip',
+                position: 'top'
+            }
+        }, {
+            wrapper: '#toTA',
+            popup: {
+                content: 'Clike here go to TA Dashboard.',
+                type: 'tooltip',
+                position: 'left'
+            }
+        }]
+    });
+
+    if(getSession('tutorial') == 1){
+    	$('body').pagewalkthrough('show');
+    }
+    
+});
+
