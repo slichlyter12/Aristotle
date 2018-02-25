@@ -41,10 +41,10 @@
 	<div class="title row">
 		<div id="titleTag" class="twelve columns">
 			<h4>TA Dashboard</h4>			<!--page title-->
-      <!-- <div>
+      <div>
         <a href='https://prometheus.eecs.oregonstate.edu/token?asid=6077469967005125&then=http://web.engr.oregonstate.edu/~lichlyts/cs561/pages/ta.php'>Get Token</a>
         <br>
-      </div> -->
+      </div>
 			<div class="user">			<!--user info-->
 				<img onclick="logout()" src="images/svg/logout.svg" /> <!--action:logout-->
 				<span id="logout_name" style="float:right">XXX</span>
