@@ -38,6 +38,11 @@ function getSession(key) {
 	}
 }
 
+function redirectToTokenPage() {
+  var currentURL = window.location.href;
+  window.location.href = 'https://prometheus.eecs.oregonstate.edu/token?asid=6077469967005125&then=' + currentURL;
+}
+
 /**
  * get parameter value from URL
  * @param {String} key
