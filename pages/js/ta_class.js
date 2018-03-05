@@ -47,9 +47,10 @@ function columnInQuestionTable(data) {
     //  if question is proposed, show add buttion
     if (data['status'] === 'proposed') {
         string += '<td><button class="tableAssign">Assign</button></td>';
+        string += '<td><button class="tableAnswer">Answer</button></td>';
     }
     else {
-        string += '<td></td>';
+        string += '<td></td><td></td>';
     }
     string += '<td><span class="tableDelete"></span></td>';
     string += '</tr>';
@@ -132,6 +133,54 @@ function updateUserName(name) {
 	});
 };
 
+function getQuestionDetail(questionId){
+	var classid = getGetParameter('class_id');
+	$.ajax({
+		type: "get",
+		url:"actions/getQuestionDetail.php?classid="+classid+"&questionid="+questionId,
+		async: false,
+		dataType:'json',
+		success: function(data) {
+			if(data.ERROR == 0){
+				showAnswerDialog(data.DATA.QUESTION);
+			}else showError(data.MESSAGE);		
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+};
+
+function showAnswerDialog(data) {
+  if (document.getElementById("questionDiv")) {
+    document.getElementById("questionDiv").style.height = window.innerHeight + "px";
+  }
+  $.formBox.openDialog('questionForm');
+  $('.questionForm h6').html(data[2]);
+  $('.questionForm p').html(data[1]);
+}
+
+function answerQuestion() {
+  classid = getGetParameter('class_id');
+	$.ajax({
+		type: "post",
+		url:"actions/xx.php?classid="+classid,
+		async: false,
+		data:$('#dialog .questionForm form').serializeForm(),
+		dataType:'json',
+		success: function(data) {
+			showInfo(data.MESSAGE);
+		},
+		error: function(XMLHttpRequest, textStatus, errorThrown) {
+			alert(XMLHttpRequest.status);
+			alert(XMLHttpRequest.readyState);
+			alert(textStatus);
+		}
+	});
+}
+
 /*INIT*/
 $('document').ready(function(){
 
@@ -162,7 +211,13 @@ $('document').ready(function(){
         });
     });
 
-    //  bind click event for assign class button
+    //  bind click event for answer class button
+    $('#main .data table').on("click", ".tableAnswer", function() {
+      var question_id = $(this).parent().parent().attr('id').substring("question_".length);
+      getQuestionDetail(question_id);
+    });
+
+    //  bind click event for delete class button
     $('#main .data table').on("click", ".tableDelete", function() {
         var question_id = $(this).parent().parent().attr('id').substring("question_".length);
         var question_title = $(this).parent().parent().children().first().text();
@@ -177,5 +232,10 @@ $('document').ready(function(){
 		else {
 			return false;
 		}
+    });
+
+    $('#dialog .questionForm .submitBtn').click(()=>{
+      answerQuestion();
+      $('#dialog .questionForm .close').trigger('click');
     });
 });
