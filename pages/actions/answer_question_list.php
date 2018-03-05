@@ -22,10 +22,13 @@
 			d.dictdata_value q_status,
 			c.first_name c_first_name,
 			c.last_name c_last_name,
-			c.user_id c_user_id
+			c.user_id c_user_id,
+			a.created_time answer_time,
+			a.comment comment
 
 		FROM
 			d_dictionary d,
+			t_question_answer a,
 			t_question q
 			LEFT JOIN
 				t_question_concern c
@@ -34,7 +37,8 @@
 		WHERE
 			d.dict_attribute = 'question_status'
 			AND d.dict_value = q.status
-			AND q.status <> 1
+			AND q.id = a.question_id
+			AND a.status = 4
 			AND q.class_id = ?
 
 		ORDER BY
@@ -54,7 +58,7 @@
 			if($row['qid'] != $current_qid){
 				$current_qid = $row['qid'];
 				$i++;
-				$questions['questions'][$i] = new Question($row['qid'], $row['cid'], $row['q_stdnt_first_name'], $row['q_stdnt_last_name'], $row['q_stdnt_user_id'], $row['created_time'], $row['title'], $row['description'], $row['course_keywords'], $row['preferred_time'], $row['ta_first_name'], $row['ta_last_name'], $row['ta_user_id'], $row['q_status']);
+				$questions['questions'][$i] = new Question($row['qid'], $row['cid'], $row['q_stdnt_first_name'], $row['q_stdnt_last_name'], $row['q_stdnt_user_id'], $row['created_time'], $row['title'], $row['description'], $row['course_keywords'], $row['preferred_time'], $row['ta_first_name'], $row['ta_last_name'], $row['ta_user_id'], $row['q_status'], $row['answer_time'], $row['comment']);
 
 				//concern info
 				if(isset($row['c_first_name'])){

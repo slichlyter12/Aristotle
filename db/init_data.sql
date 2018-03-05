@@ -134,4 +134,6 @@ INSERT INTO `d_dictionary` (`dict_attribute`, `dict_value`, `dictdata_value`) VA
 INSERT INTO `d_dictionary` (`dict_attribute`, `dict_value`, `dictdata_value`) VALUES ('question_status', 1, 'answered');
 INSERT INTO `d_dictionary` (`dict_attribute`, `dict_value`, `dictdata_value`) VALUES ('question_status', 2, 'deleted');
 INSERT INTO `d_dictionary` (`dict_attribute`, `dict_value`, `dictdata_value`) VALUES ('question_status', 3, 'signed');
+INSERT INTO `d_dictionary` (`dict_attribute`, `dict_value`, `dictdata_value`) VALUES ('question_status', 4, 'accepted');
+INSERT INTO `d_dictionary` (`dict_attribute`, `dict_value`, `dictdata_value`) VALUES ('question_status', 5, 'rejected');
 
