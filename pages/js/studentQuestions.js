@@ -371,6 +371,7 @@ $('document').ready(function () {
   $('.switchTab').click(function () {
     $('#questionList').toggle();
     $('#answerList').toggle();
+    $('.openQFormDialog').toggle();
     $(this).val((i, val) => {
       return val === "Show Answers" ? "Show Questions" : "Show Answers";
     });
