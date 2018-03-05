@@ -1,11 +1,4 @@
 /*THE ACTIONS INTERACTED WITH BACKEND*/
-//get get parameter
-function getGetParameter(name) { 
-	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
-	var r = window.location.search.substr(1).match(reg); 
-	if (r != null) return unescape(r[2]); 
-	return null; 
-} 
 
 function showQuestionDetail(data){		//::TODO
 /*
@@ -326,7 +319,7 @@ $('document').ready(function(){
 
 		if (document.getElementById("questionDiv")) {
         		document.getElementById("questionDiv").style.height = window.innerHeight + "px";
-    		}
+    }
 
 		$timeDetailInput.attr('disabled',true);
 		$.formBox.openDialog('questionForm');
