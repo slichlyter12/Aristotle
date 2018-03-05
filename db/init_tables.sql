@@ -127,3 +127,23 @@ CREATE  TABLE IF NOT EXISTS `t_keywords` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `t_question_answer`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `t_question_answer` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `question_id` INT NOT NULL ,
+  `created_time` DATETIME NOT NULL ,
+  `status` INT NOT NULL DEFAULT 1 COMMENT '1 answered, 4 accepted, 5 rejected' ,
+  `comment` VARCHAR(1000) NULL ,
+  PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `QUESTIONID_UNIQUE` (`question_id` ASC),
+  INDEX `fk_t_question_answer_t_question` (`question_id` ASC) ,
+  CONSTRAINT `fk_t_question_answer_t_question`
+    FOREIGN KEY (`question_id` )
+    REFERENCES `t_question` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;

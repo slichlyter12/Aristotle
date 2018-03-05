@@ -198,5 +198,37 @@
 			return new CompleteMsg(0, 'Find tas success!', $ta_info);
 		}
 
+		function answerQuestoin($status, $user_id, $firstname, $lastname, $question_id, $comment){
+			global $mysqli;
+		
+			$sql = "UPDATE 
+						t_question q
+					SET
+						q.status = ?,
+						q.ta_user_id = ? ,
+						q.ta_first_name = ? ,
+						q.ta_last_name = ?
+					WHERE
+						q.id = ? ";
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("iissi", $status, $user_id, $firstname, $lastname, $question_id);
+			$stmt->execute();
+
+			$result = $stmt->get_result();
+			if(!isset($result)) {
+				return new CompleteMsg(1, 'Update question status error!', NULL);
+			}
+
+			$createdTime = date('Y-m-d H:i:s', time());
+  			$insertsql = 'INSERT INTO t_question_answer(question_id, created_time, status, comment) VALUES ('.$question_id.', "'.$createdTime.'", "'.$status.'", "'.$comment.'")';
+			
+			$result = $mysqli->query($insertsql);
+			if(!$result) {
+					return new CompleteMsg(1, 'Insert answered comment failed!', NULL);
+			}
+ 
+			return new CompleteMsg(0, 'Answer question success!', NULL);
+		}
+
 	}
 ?>
