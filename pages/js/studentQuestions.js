@@ -40,7 +40,7 @@ function insertColumnInQuestionTable(data) {
   var tbodyClassName = '#main #questionList table tbody'
   $(tbodyClassName).append('<tr questionId="' + data.ID + '"></tr>');
   $obj = $(tbodyClassName + ' tr:last-child');
-  $obj.append('<td onclick="getQuestionDetail(' + data.ID + ');">' + data.TITLE + '</td>')
+  $obj.append('<td style="color:#0066CC" onclick="getQuestionDetail(' + data.ID + ');">' + data.TITLE + '</td>')
     .append('<td>' + data.NAME + '</td>').append('<td>' + data.CREATE_TIME + '</td>')
     .append('<td>' + data.STATUS + '</td>')
     .append('<td><span class="memberConut">' + data.NUM_JOIN + '</span></td>');
@@ -158,7 +158,7 @@ function getAnswerList() {
   var classid = getGetParameter('classId');
   $.ajax({
     type: "get",
-    url: "actions/xx.php?classid=" + classid,
+    url: "actions/answer_question_list.php?class_id=" + classid,
     async: false,
     dataType: "json",
     success: function (data) {

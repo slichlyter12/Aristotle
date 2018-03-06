@@ -142,7 +142,7 @@ function getQuestionDetail(questionId){
 		dataType:'json',
 		success: function(data) {
 			if(data.ERROR == 0){
-				showAnswerDialog(data.DATA.QUESTION);
+				showAnswerDialog(data.DATA.QUESTION, questionId);
 			}else showError(data.MESSAGE);		
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -153,20 +153,20 @@ function getQuestionDetail(questionId){
 	});
 };
 
-function showAnswerDialog(data) {
+function showAnswerDialog(data, questionId) {
   if (document.getElementById("questionDiv")) {
     document.getElementById("questionDiv").style.height = window.innerHeight + "px";
   }
   $.formBox.openDialog('questionForm');
+  $('#question_id').val(questionId);
   $('.questionForm h6').html(data[2]);
   $('.questionForm p').html(data[1]);
 }
 
 function answerQuestion() {
-  classid = getGetParameter('class_id');
 	$.ajax({
 		type: "post",
-		url:"actions/xx.php?classid="+classid,
+		url:"actions/answer_question.php",
 		async: false,
 		data:$('#dialog .questionForm form').serializeForm(),
 		dataType:'json',

@@ -89,10 +89,11 @@
         </div>
     </div>
     <form name="ANSWERS" class="post_ques">
+      <input name="question_id" id="question_id" type="hidden"/>
       <div class="row">
         <div class="twelve columns">
           <label for="answerInput">Answer</label>
-          <textarea name="ANSWER" class="quesArea" placeholder="" id="answerInput" required></textarea><span></span>
+          <textarea name="comment" class="quesArea" placeholder="" id="answerInput" required></textarea><span></span>
         </div>
       </div>
       <div class="row">
