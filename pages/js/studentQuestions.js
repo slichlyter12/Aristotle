@@ -24,8 +24,16 @@ function showQuestionDetail(data) {		//::TODO
   else {
     $.formBox.openDialog('questionDetail');
     $('.questionDetail h5').html(data[2]);
-    $('.questionDetail p').html(data[1]);
+    $('.questionDetail #question').html(data[1]);
   }
+}
+
+function showAnswerDetail(data) {
+  data = JSON.parse(data);
+  $.formBox.openDialog('questionDetail');
+    $('.questionDetail h5').html(data.title);
+    $('.questionDetail #question').html(data.description);
+    $('.questionDetail #answer').html(data.comment);
 }
 
 function showUserLoginInfo(data) {
@@ -54,19 +62,12 @@ function insertColumnInQuestionTable(data) {
 
 //insert a column in answer table from data
 function insertColumnInAnswerTable(data) {
-  var tbodyClassName = '#main #questionList table tbody'
-  $(tbodyClassName).append('<tr questionId="' + data.ID + '"></tr>');
+  var tbodyClassName = '#main #answerList table tbody'
+  $(tbodyClassName).append('<tr answerId="' + data.ID + '"></tr>');
   $obj = $(tbodyClassName + ' tr:last-child');
-  $obj.append('<td onclick="getQuestionDetail(' + data.ID + ');">' + data.TITLE + '</td>')
-    .append('<td>' + data.NAME + '</td>').append('<td>' + data.CREATE_TIME + '</td>')
-    .append('<td>' + data.STATUS + '</td>')
-    .append('<td><span class="memberConut">' + data.NUM_JOIN + '</span></td>');
-  if (!data.ISMINE && !data.ISJOIN)
-    $obj.append('<td><span class="tableAddition" onclick="joinInAQuestion(' + data.ID + ');"></span></td>');
-  else if (data.ISMINE)
-    $obj.append('<td><span></span></td>');
-  else
-    $obj.append('<td><span class="tableCancel" onclick="quitFromAQuestion(' + data.ID + ');"></span></td>');
+  $obj.append('<td style="color:#0066CC" onclick="showAnswerDetail(' + JSON.stringify(data) + ');">' + data.title + '</td>')
+    .append('<td>' + data.comment.substring(0, 20) + (data.comment.length > 20 ? '...' : '') + '</td>')
+    .append('<td>' + data.ta_first_name + ' ' + data.ta_last_name +  + '</td>');
 }
 
 function refreshAndMoveToAQuestion(id) {

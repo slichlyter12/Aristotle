@@ -75,8 +75,9 @@
 			<table class="u-full-width">
 				<thead>
 					<tr>
-						<th style="width:50%">Question</th>
-						<th style="width:50%">Answer Provider</th>
+						<th style="width:28%">Title</th>
+            <th style="width:50%">Answer</th>
+						<th style="width:22%">Answer Provider</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -93,7 +94,8 @@
 		<div class="title row">
 			<div class="twelve columns">
 				<h5></h5>
-				<p></p>
+				<p id="question"></p>
+        <p id="answer"></p>
 			</div>
 		</div>
 		<div class="concern row">
