@@ -114,6 +114,7 @@
 		//	save the user_name in Session_Storage
 		echo "<script>sessionStorage['user_name'] = '" . $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] . "';</script>";
 		echo "<script>sessionStorage['tutorial'] = 0;</script>";
+		echo "<script>sessionStorage['role'] = '" . $_SESSION['role'] ."';</script>";
 		$firstVisit = checkFirstTime($mysqli);
 		$redirectURL = "";
 		if ($firstVisit == true) {
