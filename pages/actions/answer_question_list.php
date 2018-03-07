@@ -38,7 +38,6 @@
 			d.dict_attribute = 'question_status'
 			AND d.dict_value = q.status
 			AND q.id = a.question_id
-			AND a.status = 4
 			AND q.class_id = ?
 
 		ORDER BY
