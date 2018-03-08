@@ -62,7 +62,7 @@ function insertColumnInQuestionTable(data) {
 
 //insert a column in answer table from data
 function insertColumnInAnswerTable(data) {
-  var tbodyClassName = '#main #answerList table tbody'
+  var tbodyClassName = '#main #answerList table tbody';
   $(tbodyClassName).append('<tr answerId="' + data.ID + '"></tr>');
   $obj = $(tbodyClassName + ' tr:last-child');
   $obj.append('<td style="color:#0066CC" onclick="showAnswerDetail(' + JSON.stringify(data) + ');">' + data.title + '</td>')
@@ -374,15 +374,20 @@ $('document').ready(function () {
     $('#answerList').toggle();
     $('.openQFormDialog').toggle();
     $(this).val((i, val) => {
-      return val === "Show Answers" ? "Show Questions" : "Show Answers";
+      if(val === "Show Answers") {
+        $('#main #answerList table tbody').empty();
+        getAnswerList();
+        return "Show Questions";
+      }
+      else {
+        return "Show Answers";
+      }
     });
   });
 
   getStudentsClasses();
   //Show questions
   getQuestionList();
-
-  getAnswerList();
 
   //Init the Timepicker
   getAvailableTime();

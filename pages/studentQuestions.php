@@ -81,7 +81,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!--Questions list -->													<!--action:getQuestionList-->
+					<!--Answers list -->													<!--action:getAnswerList-->
 				</tbody>
 			</table>
 		</div>
