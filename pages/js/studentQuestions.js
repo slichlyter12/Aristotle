@@ -65,7 +65,7 @@ function insertColumnInAnswerTable(data) {
   var tbodyClassName = '#main #answerList table tbody';
   $(tbodyClassName).append('<tr answerId="' + data.ID + '"></tr>');
   $obj = $(tbodyClassName + ' tr:last-child');
-  $obj.append('<td style="color:#0066CC" onclick="showAnswerDetail(' + JSON.stringify(data) + ');">' + data.title + '</td>')
+  $obj.append("<td style='color:#0066CC' onclick='showAnswerDetail(" + JSON.stringify(data) + ")'>" + data.title + "</td>")
     .append('<td>' + data.comment.substring(0, 20) + (data.comment.length > 20 ? '...' : '') + '</td>')
     .append('<td>' + data.ta_first_name + ' ' + data.ta_last_name + '</td>');
 }
