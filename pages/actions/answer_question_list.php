@@ -3,6 +3,13 @@
 	include ("../models/Question.class.php");
 	include ("../models/QuestionConcern.class.php");
 
+	function complete($mysqli, $isError, $msg, $data){
+		global $mysqli;
+		$return = array('ERROR'=> $isError, 'MESSAGE'=>$msg, 'DATA'=>$data);
+		$mysqli->close();
+		exit(json_encode($return));
+	}
+
 	//parpare sql
 	function buildSql(){
 		$sql="SELECT
@@ -48,7 +55,7 @@
 
 	//prepare Json object
 	function buildJson($result){
-		$questions['questions'] = array();
+		$questions['QUESTIONS'] = array();
 		$i = -1;
 		$j = 0;
 		$current_qid = 0;
@@ -57,19 +64,19 @@
 			if($row['qid'] != $current_qid){
 				$current_qid = $row['qid'];
 				$i++;
-				$questions['questions'][$i] = new Question($row['qid'], $row['cid'], $row['q_stdnt_first_name'], $row['q_stdnt_last_name'], $row['q_stdnt_user_id'], $row['created_time'], $row['title'], $row['description'], $row['course_keywords'], $row['preferred_time'], $row['ta_first_name'], $row['ta_last_name'], $row['ta_user_id'], $row['q_status'], $row['answer_time'], $row['comment']);
+				$questions['QUESTIONS'][$i] = new Question($row['qid'], $row['cid'], $row['q_stdnt_first_name'], $row['q_stdnt_last_name'], $row['q_stdnt_user_id'], $row['created_time'], $row['title'], $row['description'], $row['course_keywords'], $row['preferred_time'], $row['ta_first_name'], $row['ta_last_name'], $row['ta_user_id'], $row['q_status'], $row['answer_time'], $row['comment']);
 
 				//concern info
 				if(isset($row['c_first_name'])){
-					$questions['questions'][$i]->students = array();
+					$questions['QUESTIONS'][$i]->students = array();
 					$j = 0;
-					$questions['questions'][$i]->students[$j] = new QuestionConcern($row['c_first_name'], $row['c_last_name'], $row['c_user_id']);
+					$questions['QUESTIONS'][$i]->students[$j] = new QuestionConcern($row['c_first_name'], $row['c_last_name'], $row['c_user_id']);
 
 					$j++;
 				}
 			}else{
 				//concern info
-				$questions['questions'][$i]->students[$j] = new QuestionConcern($row['c_first_name'], $row['c_last_name'], $row['c_user_id']);
+				$questions['QUESTIONS'][$i]->students[$j] = new QuestionConcern($row['c_first_name'], $row['c_last_name'], $row['c_user_id']);
 				$j++;
 			}
 		}
@@ -105,7 +112,8 @@
 		exit(json_encode(array('ERROR'=>'No Question here!')));
 	}
 
-	echo json_encode($questions);
+	complete($mysqli, 0, "Query answer list success!", $questions);
+	//echo json_encode($questions);
 	// mysql_free_result($result);
-	$mysqli->close();
+	//$mysqli->close();
 ?>
