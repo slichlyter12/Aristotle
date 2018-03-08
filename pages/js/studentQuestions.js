@@ -29,7 +29,6 @@ function showQuestionDetail(data) {		//::TODO
 }
 
 function showAnswerDetail(data) {
-  data = JSON.parse(data);
   $.formBox.openDialog('questionDetail');
     $('.questionDetail h5').html(data.title);
     $('.questionDetail #question').html(data.description);
