@@ -12,9 +12,9 @@
 		$mysqli->close();
 		exit(json_encode($return));
 	}
-
-	$question_id = $_REQUEST['question_id'];
-	$comment = $_REQUEST['comment'];
+	$classesData = json_decode(file_get_contents("php://input"), true);
+	$question_id = $classesData['question_id'];
+	$comment = $classesData['comment'];
 	// Can not get question_id from font page, exit!
 	if(!isset($question_id)){
 		complete($mysqli, 1, 'Failed to get question_id!', NULL);
