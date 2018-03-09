@@ -50,6 +50,9 @@
 		$mysqli->rollback();
 	}
 
+	//send email
+	$userFunctions->emailNotification($onid, $firstname, $question_id, $comment);
+
 	$mysqli->autocommit(true);
 	complete($mysqli, $completeMsg->isError, $completeMsg->msg, $completeMsg->data);
 

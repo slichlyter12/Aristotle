@@ -230,5 +230,48 @@
 			return new CompleteMsg(0, 'Answer question success!', NULL);
 		}
 
+
+		function emailNotification($ta_onid, $ta_firstname, $question_id, $comment){
+			global $mysqli;
+
+			$sql = "SELECT q.stdnt_first_name std_firstname, u.osu_id std_onid, q.title title FROM t_question q, t_user u WHERE q.stdnt_user_id = u.id AND q.id = ? LIMIT 1";
+
+			$stmt = $mysqli->prepare($sql);
+			$stmt->bind_param("i", $question_id);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			
+			if ($result->num_rows > 0) {
+				$result = $result->fetch_assoc();
+				$std_firstname = $result['std_firstname'];
+				$std_onid = $result['std_onid'];
+				$title = $result['title'];
+			}
+			else
+			{
+				return new CompleteMsg(1, 'Find tag in this class error!', NULL);
+			}
+			
+			$to = $std_onid."@oregonstate.edu";
+	        $subject = "Aristotle Notification";
+			$message = "Hello ".$std_firstname.",<br/>";
+			$message .= "<br/>Your question <b>".$title."</b> was answered by ".$ta_firstname.". Please login the <a href='http://web.engr.oregonstate.edu/~lichlyts/cs561/pages/'>Aristotle</a> to check the answer.<br/>";
+			$message .= "<br/>Bests wishes,<br/>";
+			$message .= "<br/>Aristotle<br/> \r\n";
+	        
+	        $header = "From: aristotlenotification@gmail.com \r\n";
+	        $header = "Cc: ".$ta_onid."@oregonstate.edu \r\n";
+	        $header .= "MIME-Version: 1.0 \r\n";
+	        $header .= "Content-type: text/html \r\n";
+	        
+	        $retval = mail ($to, $subject, $message, $header);
+	        if( $retval == false )
+	        {
+	        	return new CompleteMsg(1, 'Send email error!', NULL);
+	        }
+
+			return new CompleteMsg(0, 'Send email success!', NULL);
+		}
+
 	}
 ?>
