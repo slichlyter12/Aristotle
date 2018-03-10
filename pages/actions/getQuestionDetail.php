@@ -26,7 +26,7 @@
 		if($row = $result->fetch_assoc()){
 			$role = $row['role'];
 			$userId = $row['id'];
-			if($role!='0') complete($mysqli, 1, 'No permission!', NULL);
+			if($role!='0' && $role!='1') complete($mysqli, 1, 'No permission!', NULL);
 		}else complete($mysqli, 1, 'Please sign up first!', NULL);
 	}
 	

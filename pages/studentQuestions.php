@@ -46,7 +46,8 @@
 	</div>
 	<div id="postBtn" class="funcs row">
 		<div class="twelve columns">
-			<input class="openQFormDialog" type="button" value="Post A New Question">
+      <input class="openQFormDialog" type="button" value="Post A New Question">
+      <input class="switchTab" type="button" value="Show Answers">
 		</div>
 	</div>
 	<div id="questionList" class="data row">
@@ -68,6 +69,22 @@
 				</tbody>
 			</table>
 		</div>
+  </div>
+  <div id="answerList" class="data row" style="display:none">
+		<div class="twelve columns">
+			<table class="u-full-width">
+				<thead>
+					<tr>
+						<th style="width:28%">Title</th>
+            <th style="width:50%">Answer</th>
+						<th style="width:22%">Answer Provider</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--Answers list -->													<!--action:getAnswerList-->
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 
@@ -77,7 +94,8 @@
 		<div class="title row">
 			<div class="twelve columns">
 				<h5></h5>
-				<p></p>
+				<p id="question"></p>
+        <p id="answer"></p>
 			</div>
 		</div>
 		<div class="concern row">
