@@ -14,6 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/skeleton.css">
+	<link type="text/css" rel="stylesheet" href="lib/css/jquery.pagewalkthrough.css" />
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
 	<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
@@ -27,6 +28,7 @@
 	<script type="text/javascript" src="js/ta_question.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109657627-3"></script>
+	<script type="text/javascript" src="lib/js/jquery.pagewalkthrough.min.js"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -42,7 +44,7 @@
 <body>
 <div id="main" class="container">
 	<div class="title row">
-		<div class="twelve columns">
+		<div id="titleTag" class="twelve columns">
 			<h4>TA Question Detail Page</h4>	<!--page title-->
 			<div class="user">			<!--user info-->
 				<img onclick="logout()" src="images/svg/logout.svg" /> <!--action:logout-->

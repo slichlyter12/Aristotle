@@ -80,7 +80,7 @@ $(function() {
         }, {
             wrapper: '#titleTag h4',
             popup: {
-                content: 'You are in the ta dashboard right now.',
+                content: 'You are in the TA dashboard right now.',
                 type: 'tooltip',
                 position: 'bottom'
             }
