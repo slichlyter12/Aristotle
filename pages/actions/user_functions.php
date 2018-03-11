@@ -260,11 +260,11 @@
 			$message .= "<br/>Aristotle<br/> \r\n";
 	        
 	        $header = "From: aristotlenotification@gmail.com \r\n";
-	        $header = "Cc: ".$ta_onid."@oregonstate.edu \r\n";
+	        $header .= "Cc: ".$ta_onid."@oregonstate.edu \r\n";
 	        $header .= "MIME-Version: 1.0 \r\n";
 	        $header .= "Content-type: text/html \r\n";
 	        
-	        $retval = mail ($to, $subject, $message, $header);
+	        $retval = mail ($to, $subject, $message, $header, '-faristotlenotification@gmail.com');
 	        if( $retval == false )
 	        {
 	        	return new CompleteMsg(1, 'Send email error!', NULL);
