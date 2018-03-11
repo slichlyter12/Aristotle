@@ -440,9 +440,16 @@ $(function () {
         position: 'bottom'
       }
     }, {
-      wrapper: '#postBtn input',
+      wrapper: '#postQuestion',
       popup: {
         content: 'Click button to post a question.',
+        type: 'tooltip',
+        position: 'bottom'
+      }
+    }, {
+      wrapper: '#showAnswer',
+      popup: {
+        content: 'Click button to check question answers.',
         type: 'tooltip',
         position: 'bottom'
       }
@@ -450,6 +457,13 @@ $(function () {
       wrapper: '#questionList tbody tr',
       popup: {
         content: 'Check question information and add a liked question.',
+        type: 'tooltip',
+        position: 'top'
+      }
+    }, {
+      wrapper: '#questionList tbody tr td',
+      popup: {
+        content: 'Click to check the detail.',
         type: 'tooltip',
         position: 'top'
       }

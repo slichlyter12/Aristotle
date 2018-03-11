@@ -175,6 +175,13 @@ $(function() {
                 type: 'tooltip',
                 position: 'bottom'
             }
+        }, {
+            wrapper: '#addBtn button',
+            popup: {
+                content: 'Click to check answered questions.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
         }];
 
     var selectedClassElements = getElementsByClassName('classes selectedClass');

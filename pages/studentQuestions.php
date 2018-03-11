@@ -46,8 +46,8 @@
 	</div>
 	<div id="postBtn" class="funcs row">
 		<div class="twelve columns">
-      <input class="openQFormDialog" type="button" value="Post A New Question">
-      <input class="switchTab" type="button" value="Show Answers">
+	      <input id="postQuestion" class="openQFormDialog" type="button" value="Post A New Question">
+	      <input id="showAnswer" class="switchTab" type="button" value="Show Answers">
 		</div>
 	</div>
 	<div id="questionList" class="data row">
