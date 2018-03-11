@@ -46,13 +46,13 @@ function columnInQuestionTable(data) {
   string += '<td><span class="memberConut">' + studentJoinNumber(data) + '</span></td>';
   //  if question is proposed, show add buttion
   if (data['status'] === 'proposed') {
-    string += '<td><button class="tableAssign">Assign</button></td>';
-    string += '<td><button class="tableAnswer">Answer</button></td>';
+    string += '<td><button id="assignBtn" class="tableAssign">Assign</button></td>';
+    string += '<td><button id="answerBtn" class="tableAnswer">Answer</button></td>';
   }
   else {
     string += '<td></td><td></td>';
   }
-  string += '<td><span class="tableDelete"></span></td>';
+  string += '<td><span id="deleteBtn" class="tableDelete"></span></td>';
   string += '</tr>';
   return string;
 }
@@ -242,4 +242,79 @@ $('document').ready(function () {
     answerQuestion();
     $('#dialog .questionForm .close').trigger('click');
   });
+});
+
+
+$(function () {
+  // Set up tour
+  $('body').pagewalkthrough({
+    name: 'introduction',
+    steps: [{
+      popup: {
+        content: '<h3>Welcome!</h3>Start a tutorial?',
+        type: 'modal'
+      }
+    }, {
+      wrapper: '#titleTag h4',
+      popup: {
+        content: 'You are in the TA Class Detail Page now.',
+        type: 'tooltip',
+        position: 'bottom'
+      }
+    }, {
+      wrapper: '#questionList tbody tr',
+      popup: {
+        content: 'Check question information.',
+        type: 'tooltip',
+        position: 'top'
+      }
+    }, {
+      wrapper: '#questionList tbody tr td',
+      popup: {
+        content: 'Click to check the detail.',
+        type: 'tooltip',
+        position: 'right'
+      }
+    }, {
+      wrapper: '#questionList tbody tr td span',
+      popup: {
+        content: 'Number of people who liked this question.',
+        type: 'tooltip',
+        position: 'top'
+      }
+    }, {
+      wrapper: '#assignBtn',
+      popup: {
+        content: 'Assign this question to you.',
+        type: 'tooltip',
+        position: 'top'
+      }
+    }, {
+      wrapper: '#answerBtn',
+      popup: {
+        content: 'Answer this question.',
+        type: 'tooltip',
+        position: 'left'
+      }
+    }, {
+      wrapper: '#deleteBtn',
+      popup: {
+        content: 'Delete this question.',
+        type: 'tooltip',
+        position: 'left'
+      }
+    }, {
+      wrapper: '#toStudent',
+      popup: {
+        content: 'Clike here go to Student Dashboard.',
+        type: 'tooltip',
+        position: 'left'
+      }
+    }]
+  });
+
+  if (getSession('tutorial') == 1) {
+    $('body').pagewalkthrough('show');
+  }
+
 });

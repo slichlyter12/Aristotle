@@ -14,17 +14,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/skeleton.css">
+	<link type="text/css" rel="stylesheet" href="lib/css/jquery.pagewalkthrough.css" />
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/myDialog.css" />
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
 	<link rel="stylesheet" type="text/css" href="css/questionsTable.css" />
-  <script type="text/javascript" src="js/base.js"></script>
-  <script type="text/javascript" src="js/myDialog.js"></script>
-  <script type="text/javascript" src="js/timePicker.js"></script>
+  	<script type="text/javascript" src="js/base.js"></script>
+  	<script type="text/javascript" src="js/myDialog.js"></script>
+  	<script type="text/javascript" src="js/timePicker.js"></script>
 	<script type="text/javascript" src="js/ta_class.js"></script>
 	<script type="text/javascript" src="js/logout.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109657627-3"></script>
+	<script type="text/javascript" src="lib/js/jquery.pagewalkthrough.min.js"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -41,17 +43,17 @@
 <body>
 <div id="main" class="container">
 	<div class="title row">
-		<div class="twelve columns">
+		<div id="titleTag" class="twelve columns">
 			<h4>TA Class Detail Page</h4>	<!--page title-->
 			<p>Questions List.</p>
 			<div class="user">					<!--user info-->
 				<img onclick="logout()" src="images/svg/logout.svg" /> <!--action:logout-->
 				<span id="logout_name">XXX</span>
 			</div>
-			<div class="panel"><a href="studentDashboard.php">Switch to Student Dashboard</a></div>
+			<div id="toStudent" class="panel"><a href="studentDashboard.php">Switch to Student Dashboard</a></div>
 		</div>
 	</div>
-	<div class="data row">
+	<div id="questionList" class="data row">
 		<div class="twelve columns">
 			<table class="u-full-width">
 				<thead>
