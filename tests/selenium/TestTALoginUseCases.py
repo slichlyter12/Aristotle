@@ -5,7 +5,7 @@ import time
 from selenium import webdriver
 
 
-class Test_Admin_Use_Cases(unittest.TestCase):
+class Test_TA_Use_Cases(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.driver = webdriver.Chrome()
@@ -64,7 +64,7 @@ class Test_Admin_Use_Cases(unittest.TestCase):
 
         time.sleep(1)
         # if user is ta, redirect to studentDashboard.php
-        self.assertIn("pages/adminDashboard.php", driver.current_url)
+        self.assertIn("pages/ta.php", driver.current_url)
 
     @classmethod
     def tearDownClass(self):
@@ -73,8 +73,8 @@ class Test_Admin_Use_Cases(unittest.TestCase):
 
 def Suite():
     suiteTest = unittest.TestSuite()
-    suiteTest.addTest(Test_Admin_Use_Cases("test_login_error"))
-    suiteTest.addTest(Test_Admin_Use_Cases("test_login_right"))
+    suiteTest.addTest(Test_TA_Use_Cases("test_login_error"))
+    suiteTest.addTest(Test_TA_Use_Cases("test_login_right"))
     return suiteTest
 
 
@@ -84,8 +84,8 @@ if __name__ == "__main__":
     # windows
     # report_path = ".\\report\\report_student_" + now + ".html"
     # linux or mac
-    report_path = "./report/report_admin_" + now + ".html"
+    report_path = "./report/report_ta_login_" + now + ".html"
     fp = open(report_path, 'wb')
-    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='Admin Use Cases TestReport', description='Test Admin Use Cases')
+    runner = HTMLTestRunner.HTMLTestRunner(stream=fp, title='TA Login Use Cases TestReport', description='Test TA Login Use Cases')
     runner.run(Suite())
     fp.close()
