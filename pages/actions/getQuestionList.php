@@ -38,7 +38,7 @@
 	}
 	
 	function getFormatedQuestionInfos($userId, $isJoinedIds, $classId, $mysqli){
-		$sql='SELECT id, title, stdnt_user_id, description, created_time, preferred_time, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question WHERE class_id = '.$classId.' ORDER BY id ASC';
+		$sql='SELECT id, title, stdnt_user_id, description, created_time, preferred_time, stdnt_first_name, stdnt_last_name,status, num_liked FROM t_question WHERE status <> 1 and class_id = '.$classId.' ORDER BY id ASC';
 		$result=$mysqli->query($sql);
 		if($result) {
 			$questions=array();

@@ -224,8 +224,12 @@
 
 			$mysqli->commit();
 			$mysqli->autocommit(true);
-
-			return new CompleteMsg(0,'Class information updates success!', NULL);
+			
+			if($i == 0){
+				return new CompleteMsg(0,'Please add your Class!', NULL);
+			}else{
+				return new CompleteMsg(0,'Please select a Class!', NULL);
+			}
 		}
 
 	}

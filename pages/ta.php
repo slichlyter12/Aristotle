@@ -14,6 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/skeleton.css">
+	<link type="text/css" rel="stylesheet" href="lib/css/jquery.pagewalkthrough.css" />
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/myDialog.css" />
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
@@ -24,6 +25,7 @@
 	<script type="text/javascript" src="js/ta_dashboard.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109657627-3"></script>
+	<script type="text/javascript" src="lib/js/jquery.pagewalkthrough.min.js"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -37,13 +39,17 @@
 
 <div id="main" class="container">
 	<div class="title row">
-		<div class="twelve columns">
+		<div id="titleTag" class="twelve columns">
 			<h4>TA Dashboard</h4>			<!--page title-->
+      <div>
+        <a href='https://prometheus.eecs.oregonstate.edu/token?asid=6077469967005125&then=http://web.engr.oregonstate.edu/~lichlyts/cs561/pages/ta.php'>Get Token</a>
+        <br>
+      </div>
 			<div class="user">			<!--user info-->
 				<img onclick="logout()" src="images/svg/logout.svg" /> <!--action:logout-->
 				<span id="logout_name" style="float:right">XXX</span>
 			</div>
-			<div id="pan11" class="panel"><a id="toStudent" href="studentDashboard.php">Switch to Student Dashboard</a></div>
+			<div id="toStudent" class="panel"><a href="studentDashboard.php">Switch to Student Dashboard</a></div>
 		</div>
 	</div>
 	<div class="funcs row" >
@@ -54,7 +60,7 @@
 	</div>
 
 	<div class="data row">
-		<div class="twelve columns">
+		<div id="taClass" class="twelve columns">
 			<span class="classList"></span>
 		</div>
 	</div>

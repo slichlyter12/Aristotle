@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/skeleton.css">
+	<link type="text/css" rel="stylesheet" href="lib/css/jquery.pagewalkthrough.css" />
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/classList.css" />
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
@@ -17,6 +18,7 @@
 	<script type="text/javascript" src="js/studentDashboard.js"></script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109657627-3"></script>
+	<script type="text/javascript" src="lib/js/jquery.pagewalkthrough.min.js"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -29,11 +31,16 @@
 
 <div id="main" class="container">
 	<div class="title row">
-		<div class="twelve columns">
+		<div id="titleTag" class="twelve columns">
 			<h4>Students Dashboard</h4><!--page title-->
+      <div>
+        <a href='https://prometheus.eecs.oregonstate.edu/token?asid=6077469967005125&then=http://web.engr.oregonstate.edu/~lichlyts/cs561/pages/studentDashboard.php'>Get Token</a>
+        <br>
+      </div>
 			<p>Manage Classes</p>
-			<div class="user"></div><!--user info-->
-			<div class="panel"></div>
+			<div class="user">
+      </div><!--user info-->
+			<div id="toTa" class="panel"></div>
 		</div>
 	</div>
 
@@ -44,7 +51,7 @@
 	</div>
 
 	<div class="data row">
-		<div class="twelve columns">
+		<div id="addBtn" class="twelve columns">
 			<button class="openAddClassFormDialog" ></button>
 			<span class="classList"></span>
 		</div>

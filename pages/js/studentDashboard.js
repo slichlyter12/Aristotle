@@ -142,3 +142,79 @@ $('document').ready(function(){
 		}
 	});
 });
+
+function getElementsByClassName(n) {
+    var classElements = [],allElements = document.getElementsByTagName('*');
+    for (var i=0; i< allElements.length; i++ )
+   {
+       if (allElements[i].className == n ) {
+           classElements[classElements.length] = allElements[i];
+        }
+   }
+   return classElements;
+}
+
+$(function() {
+
+	var walkthrough = [{
+           popup: {
+               content: '<h3>Welcome!</h3>Start a tutorial?',
+               type: 'modal'
+           }
+        }, {
+            wrapper: '#titleTag h4',
+            popup: {
+                content: 'You are in the student dashboard right now.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: '#addBtn button',
+            popup: {
+                content: 'Click to add a class.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: '#addBtn button',
+            popup: {
+                content: 'Click to check answered questions.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }];
+
+    var selectedClassElements = getElementsByClassName('classes selectedClass');
+    if(selectedClassElements.length > 0){
+    	
+		walkthrough.push({
+             wrapper: '#addBtn span',
+             popup: {
+                 content: 'Choose a class to post a question.',
+                 type: 'tooltip',
+                 position: 'bottom'
+             }
+        });    	
+    }
+
+    if(getSession('role') == 'ta'){
+    	walkthrough.push({
+            wrapper: '#toTa',
+            popup: {
+                content: 'Clike here go to ta Dashboard.',
+                type: 'tooltip',
+                position: 'left'
+            }
+        });
+    }
+
+    // Set up tour
+    $('body').pagewalkthrough({
+        name: 'introduction',
+        steps: walkthrough
+    });
+
+	if(getSession('tutorial') == 1){
+    	$('body').pagewalkthrough('show');
+    }
+});

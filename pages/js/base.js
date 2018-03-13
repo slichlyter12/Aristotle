@@ -17,6 +17,14 @@ function showInfo(str) {
 	openToast(str);
 }
 
+//get get parameter
+function getGetParameter(name) { 
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+	var r = window.location.search.substr(1).match(reg); 
+	if (r != null) return unescape(r[2]); 
+	return null; 
+} 
+
 //	storage value in session
 function setSession(key, value) {
 	if(typeof(Storage) !== "undefined") {
@@ -36,6 +44,11 @@ function getSession(key) {
 		alert("Your browser doesn't support web storage");
 		return null;
 	}
+}
+
+function redirectToTokenPage() {
+  var currentURL = window.location.href;
+  window.location.href = 'https://prometheus.eecs.oregonstate.edu/token?asid=6077469967005125&then=' + currentURL;
 }
 
 /**

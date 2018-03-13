@@ -16,7 +16,7 @@
 		public $status;
 		public $students;
 
-		public function __construct($id, $class_id, $stdnt_first_name, $stdnt_last_name, $stdnt_user_id, $create_time, $title, $description, $course_keywords, $preferred_time, $ta_first_name, $ta_last_name, $ta_user_id, $status){
+		public function __construct($id, $class_id, $stdnt_first_name, $stdnt_last_name, $stdnt_user_id, $create_time, $title, $description, $course_keywords, $preferred_time, $ta_first_name, $ta_last_name, $ta_user_id, $status, $answer_time, $comment){
 			$this->id = $id;
 			$this->class_id = $class_id;
 			$this->stdnt_first_name = $stdnt_first_name;
@@ -31,6 +31,8 @@
 			$this->ta_last_name = $ta_last_name;
 			$this->ta_user_id = $ta_user_id;
 			$this->status = $status;
+			$this->answer_time = $answer_time;
+			$this->comment = $comment;
 		}
 	}
 ?>

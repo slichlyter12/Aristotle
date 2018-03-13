@@ -41,7 +41,7 @@ function enable_scroll() {
 //open and close the dialog
 $.formBox = {
 	openDialog:function(className){
-		if($('.timeDetailInput')!=null)
+		if($('.timeDetailInput').length>0)
 			$('.timeDetailInput').timepicker({ 'scrollDefault': 'now' }).timepicker('setTime', new Date());
 		$('#mask').fadeIn(200);
 		$('#dialog .'+className).slideDown(200);

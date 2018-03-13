@@ -44,6 +44,7 @@ function updateUserName(name) {
 	});
 };
 
+
 /*INIT*/
 $('document').ready(function(){
 
@@ -64,4 +65,44 @@ $('document').ready(function(){
 	$('.classList').on("click", ".classes", function (){
 		location.href = 'ta_class.php?class_id=' + $(this).attr('id').substring('class_'.length);
 	});
+});
+
+
+$(function() {
+    // Set up tour
+    $('body').pagewalkthrough({
+        name: 'introduction',
+        steps: [{
+           popup: {
+               content: '<h3>Welcome!</h3>Start a tutorial?',
+               type: 'modal'
+           }
+        }, {
+            wrapper: '#titleTag h4',
+            popup: {
+                content: 'You are in the TA dashboard right now.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: '#taClass span',
+            popup: {
+                content: 'Choose a class.',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: '#toStudent',
+            popup: {
+                content: 'Clike here go to student Dashboard.',
+                type: 'tooltip',
+                position: 'left'
+            }
+        }]
+    });
+
+    if(getSession('tutorial') == 1){
+    	$('body').pagewalkthrough('show');
+    }
+    
 });

@@ -30,9 +30,10 @@ ENGINE = InnoDB;
 CREATE  TABLE IF NOT EXISTS `r_user_class` (
   `user_id` INT NOT NULL ,
   `class_id` INT NOT NULL ,
+  `role` int(11) NOT NULL DEFAULT '0',
   INDEX `fk_r_user_class_to_t_class` (`class_id` ASC) ,
   INDEX `fk_r_user_class_to_t_user` (`user_id` ASC) ,
-  PRIMARY KEY (`user_id`, `class_id`) ,
+  PRIMARY KEY (`user_id`, `class_id`, `role`) ,
   CONSTRAINT `fk_r_user_class_to_t_user`
     FOREIGN KEY (`user_id` )
     REFERENCES `t_user` (`id` )
@@ -44,8 +45,6 @@ CREATE  TABLE IF NOT EXISTS `r_user_class` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `t_question`
 -- -----------------------------------------------------
@@ -125,6 +124,26 @@ CREATE  TABLE IF NOT EXISTS `t_keywords` (
   CONSTRAINT `fk_t_keywords_to_t_class`
     FOREIGN KEY (`class_id` )
     REFERENCES `t_class` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `t_question_answer`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `t_question_answer` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `question_id` INT NOT NULL ,
+  `created_time` DATETIME NOT NULL ,
+  `status` INT NOT NULL DEFAULT 1 COMMENT '1 answered, 4 accepted, 5 rejected' ,
+  `comment` VARCHAR(1000) NULL ,
+  PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `QUESTIONID_UNIQUE` (`question_id` ASC),
+  INDEX `fk_t_question_answer_t_question` (`question_id` ASC) ,
+  CONSTRAINT `fk_t_question_answer_t_question`
+    FOREIGN KEY (`question_id` )
+    REFERENCES `t_question` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
