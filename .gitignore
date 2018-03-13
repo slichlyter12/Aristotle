@@ -5,3 +5,8 @@
 
 #node_modules
 node_modules
+
+#selenium cache
+.cache
+.idea
+**/**/user_pass.json
