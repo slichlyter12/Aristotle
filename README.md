@@ -1,4 +1,6 @@
-# CS561-Project Software Engineering
+# Aristotle
+
+## CS561-Project Software Engineering
 
 ### 2018/1/18:
 Test Link: 
